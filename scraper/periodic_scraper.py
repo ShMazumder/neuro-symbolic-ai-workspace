@@ -192,10 +192,17 @@ if __name__ == "__main__":
     parser.add_argument("--pages", type=int, default=2, help="Number of archive pages to crawl in --bulk mode")
     parser.add_argument("--limit", type=int, default=25, help="Max new articles to crawl per cycle")
 
+    parser.add_argument("--category", type=str, default=None, help="Specific section slug to crawl (e.g., news/crime-justice)")
+
     args = parser.parse_args()
 
     if args.bulk:
-        for cat in ["news/bangladesh/crime-justice", "news/bangladesh/politics"]:
+        categories = [args.category] if args.category else [
+            "news/crime-justice",
+            "news/bangladesh/crime-justice",
+            "news/bangladesh/politics",
+        ]
+        for cat in categories:
             scrape_category_archive(category_slug=cat, max_pages=args.pages)
     elif args.once:
         scrape_cycle(limit_new=args.limit)

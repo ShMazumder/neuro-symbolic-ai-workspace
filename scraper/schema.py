@@ -61,11 +61,12 @@ class Article:
 # ── RSS feed registry ──────────────────────────────────────────────────────────
 
 RSS_FEEDS = {
-    "frontpage":  "https://www.thedailystar.net/frontpage/rss.xml",
-    "country":    "https://www.thedailystar.net/country/rss.xml",
-    "politics":   "https://www.thedailystar.net/politics/rss.xml",
-    "crime":      "https://www.thedailystar.net/crime/rss.xml",
-    "law":        "https://www.thedailystar.net/law-our-rights/rss.xml",
-    "city":       "https://www.thedailystar.net/city/rss.xml",
-    "back-page":  "https://www.thedailystar.net/back-page/rss.xml",
+    "frontpage":      "https://www.thedailystar.net/frontpage/rss.xml",
+    "country":        "https://www.thedailystar.net/country/rss.xml",
+    "politics":       "https://www.thedailystar.net/politics/rss.xml",
+    "crime-justice":  "https://www.thedailystar.net/taxonomy/term/283533/rss.xml",
+    "crime":          "https://www.thedailystar.net/crime/rss.xml",
+    "law":            "https://www.thedailystar.net/law-our-rights/rss.xml",
+    "city":           "https://www.thedailystar.net/city/rss.xml",
+    "back-page":      "https://www.thedailystar.net/back-page/rss.xml",
 }
