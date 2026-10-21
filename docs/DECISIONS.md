@@ -1,7 +1,7 @@
-# Open Technical Decisions
+# Technical Decisions (RESOLVED)
 
-> **These must be resolved before Phase 2 begins.**  
-> Mark your choice and commit. I'll implement accordingly.
+> **All decisions locked in. Implementing accordingly.**  
+> Resolved: 2026-10-21
 
 ---
 
@@ -18,7 +18,7 @@
 
 **Recommendation:** Start with **D (Hybrid)**. Use local Llama 3 for relevance filtering + NER. Use API for CAMEO classification on violence-flagged articles only (reduces API cost to ~10-20% of total articles).
 
-**Your choice:** `___`
+**Your choice:** `D — Hybrid (Local Llama 3 for bulk + API for CAMEO classification)` ✅
 
 ---
 
@@ -35,7 +35,7 @@
 
 **Recommendation:** **D (Hybrid)**. Start with rules (Phase 2 quick win), then train fine-tuned model as annotations accumulate.
 
-**Your choice:** `___`
+**Your choice:** `D — Hybrid (rules for obvious + fine-tuned model for ambiguous)` ✅
 
 ---
 
@@ -51,7 +51,7 @@
 
 **Recommendation:** **A (Docker local)** for development. Migrate to C later if you need shared access or scale.
 
-**Your choice:** `___`
+**Your choice:** `A — Docker local` ✅
 
 ---
 
@@ -67,7 +67,7 @@
 
 **Recommendation:** **B (Hourly)** during development. Switch to A for live demo / production.
 
-**Your choice:** `___`
+**Your choice:** `B — Hourly batch` ✅
 
 ---
 
@@ -83,7 +83,7 @@
 
 **Recommendation:** **C (Phased)**. Build and validate the full pipeline on English (Daily Star) first. Add Bangla in a future phase — that alone is a paper-worthy contribution.
 
-**Your choice:** `___`
+**Your choice:** `C — English first, Bangla later` ✅
 
 ---
 
@@ -99,7 +99,7 @@
 
 **Recommendation:** **A (JSON files)** for Phase 1. Migrate to B if article count exceeds ~10K and dedup becomes painful.
 
-**Your choice:** `___`
+**Your choice:** `A — JSON files` ✅
 
 ---
 
@@ -116,20 +116,20 @@
 
 **Recommendation:** **D** for publication. Start with A (small manual set) for development iteration.
 
-**Your choice:** `___`
+**Your choice:** `D — All three (manual + ACLED + GDELT)` ✅
 
 ---
 
 ## Summary
 
-| # | Decision | Recommended | Your Choice |
-|---|----------|-------------|-------------|
-| 1 | LLM for extraction | Hybrid (local + API) | |
-| 2 | Violence classifier | Hybrid (rules + fine-tuned) | |
-| 3 | BlazeGraph deployment | Docker local | |
-| 4 | Scraping frequency | Hourly batch | |
-| 5 | Language scope | English first, Bangla later | |
-| 6 | Data storage | JSON files | |
-| 7 | Evaluation ground truth | All three | |
+| # | Decision | Choice | Status |
+|---|----------|--------|--------|
+| 1 | LLM for extraction | Hybrid (local + API) | ✅ |
+| 2 | Violence classifier | Hybrid (rules + fine-tuned) | ✅ |
+| 3 | BlazeGraph deployment | Docker local | ✅ |
+| 4 | Scraping frequency | Hourly batch | ✅ |
+| 5 | Language scope | English first, Bangla later | ✅ |
+| 6 | Data storage | JSON files | ✅ |
+| 7 | Evaluation ground truth | All three | ✅ |
 
-> Fill in your choices. I execute.
+> All decisions resolved. Implementation underway.
