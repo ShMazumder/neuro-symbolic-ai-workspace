@@ -1,0 +1,41 @@
+# Data files
+data/
+models/
+*.pkl
+*.pt
+*.bin
+*.h5
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Docker volumes
+docker/data/
+
+# Logs
+*.log
+logs/
+
+# Environment
+.env
+.env.local
