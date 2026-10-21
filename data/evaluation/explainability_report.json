@@ -7,9 +7,9 @@
   "avg_faithfulness": 0.733,
   "avg_confidence": 0.733,
   "interpretation": {
-    "provenance_coverage": "% of predictions with \u22651 cited source article",
-    "rule_coverage": "% of predictions with \u22651 symbolic rule fired",
+    "provenance_coverage": "% of predictions with >=1 cited source article",
+    "rule_coverage": "% of predictions with >=1 symbolic rule fired",
     "sentence_relevance": "% of cited sentences containing violence keywords",
-    "avg_faithfulness": "Proxy: confidence \u00d7 has_provenance (0\u20131)"
+    "avg_faithfulness": "Proxy: confidence * has_provenance (0-1)"
   }
 }

@@ -173,3 +173,16 @@ def extract_dates(text: str, reference_date: Optional[date] = None) -> list[Date
                 results.append(dr)
 
     return results
+
+
+def extract_temporal_expressions(text: str, ref_date: Optional[str] = None) -> list[dict]:
+    """Extract temporal expressions and return list of dicts with normalized ISO date."""
+    ref = None
+    if ref_date:
+        try:
+            ref = date.fromisoformat(ref_date[:10])
+        except Exception:
+            ref = None
+    results = extract_dates(text, reference_date=ref)
+    return [{"raw": r.raw, "normalized": r.normalized, "confidence": r.confidence} for r in results]
+

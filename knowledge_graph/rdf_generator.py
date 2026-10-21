@@ -135,12 +135,12 @@ def event_to_graph(event: dict, g: Optional[Graph] = None) -> Graph:
 
     # ── Date ──────────────────────────────────────────────────────────────────
     date_rec = event.get("date", {})
-    if date_rec.get("normalized"):
-        try:
-            g.add((evt_uri, CAMEO.date,
-                   Literal(date_rec["normalized"], datatype=XSD.date)))
-        except Exception:
-            pass
+    norm_date = str(date_rec.get("normalized", ""))
+    if norm_date:
+        if re.match(r"^\d{4}-\d{2}-\d{2}", norm_date):
+            g.add((evt_uri, CAMEO.date, Literal(norm_date[:10], datatype=XSD.date)))
+        else:
+            g.add((evt_uri, CAMEO.date, Literal(norm_date)))
     if date_rec.get("raw"):
         g.add((evt_uri, EVENT["date_raw"], Literal(date_rec["raw"])))
 
@@ -253,6 +253,19 @@ def save_graph(
     path.parent.mkdir(parents=True, exist_ok=True)
     g.serialize(destination=str(path), format=fmt)
     logger.info("Saved graph (%d triples) to %s [%s]", len(g), path, fmt)
+
+
+def event_to_triples(event: dict) -> list[tuple[str, str, str]]:
+    """Convert an event dictionary into a list of (subject, predicate, object) string triples."""
+    ev = dict(event)
+    ev.setdefault("cameo_label", "ViolenceEvent")
+    ev.setdefault("trigger", "violence")
+    ev.setdefault("confidence", 0.8)
+    ev.setdefault("source_sentence", "")
+    ev.setdefault("source_url", "http://example.org/article/1")
+    g = event_to_graph(ev)
+    return [(str(s), str(p), str(o)) for s, p, o in g]
+
 
 
 # ── CLI entry point ───────────────────────────────────────────────────────────

@@ -13,11 +13,11 @@
   {
     "condition": "Symbolic-Only",
     "total_events": 40,
-    "code_accuracy": 0.4,
-    "precision_hv": 0.943,
-    "recall_hv": 0.892,
-    "f1_hv": 0.917,
-    "false_positive_rate": 0.05,
+    "code_accuracy": 0.0,
+    "precision_hv": 0.925,
+    "recall_hv": 1.0,
+    "f1_hv": 0.961,
+    "false_positive_rate": 0.075,
     "explainability_rate": 1.0,
     "avg_confidence": 0.7
   },

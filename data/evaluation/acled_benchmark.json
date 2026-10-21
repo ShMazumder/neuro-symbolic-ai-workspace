@@ -4,10 +4,10 @@
     "matched_with_acled": 52,
     "detection_recall": 0.173,
     "location_accuracy": 0.173,
-    "cameo_code_accuracy": 0.154,
+    "cameo_code_accuracy": 0.135,
     "cameo_group_accuracy": 0.462,
     "actor_identification": 0.154,
-    "summary": "Detection recall: 17.3% | Location accuracy: 17.3% | CAMEO code accuracy: 15.4% | Actor identification: 15.4%"
+    "summary": "Detection recall: 17.3% | Location accuracy: 17.3% | CAMEO code accuracy: 13.5% | Actor identification: 15.4%"
   },
   "sample_alignments": [
     {

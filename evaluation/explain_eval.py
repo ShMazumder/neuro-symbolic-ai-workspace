@@ -174,7 +174,7 @@ def _generate_fallback_explanations(events: list[dict], n: int = 100) -> list[di
 
         rules_fired = []
         if code >= 17:
-            rules_fired.append(f"Rule: CAMEO code {code} ≥ 17 → classified HIGH_VIOLENCE by definition.")
+            rules_fired.append(f"Rule: CAMEO code {code} >= 17 -> classified HIGH_VIOLENCE by definition.")
 
         narrative = (
             f"Event {event_id} (CAMEO {code}) classified with confidence {confidence:.1%}. "
@@ -256,10 +256,10 @@ def evaluate_explanations(explanations: list[dict]) -> tuple[list[ExplainEvalRec
         "avg_faithfulness":       round(avg_faith, 3),
         "avg_confidence":         round(avg_conf, 3),
         "interpretation": {
-            "provenance_coverage":  "% of predictions with ≥1 cited source article",
-            "rule_coverage":        "% of predictions with ≥1 symbolic rule fired",
+            "provenance_coverage":  "% of predictions with >=1 cited source article",
+            "rule_coverage":        "% of predictions with >=1 symbolic rule fired",
             "sentence_relevance":   "% of cited sentences containing violence keywords",
-            "avg_faithfulness":     "Proxy: confidence × has_provenance (0–1)",
+            "avg_faithfulness":     "Proxy: confidence * has_provenance (0-1)",
         },
     }
 

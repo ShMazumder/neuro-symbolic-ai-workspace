@@ -46,10 +46,10 @@
     "matched_with_acled": 52,
     "detection_recall": 0.173,
     "location_accuracy": 0.173,
-    "cameo_code_accuracy": 0.154,
+    "cameo_code_accuracy": 0.135,
     "cameo_group_accuracy": 0.462,
     "actor_identification": 0.154,
-    "summary": "Detection recall: 17.3% | Location accuracy: 17.3% | CAMEO code accuracy: 15.4% | Actor identification: 15.4%"
+    "summary": "Detection recall: 17.3% | Location accuracy: 17.3% | CAMEO code accuracy: 13.5% | Actor identification: 15.4%"
   },
   "ablation": [
     {
@@ -66,11 +66,11 @@
     {
       "condition": "Symbolic-Only",
       "total_events": 40,
-      "code_accuracy": 0.4,
-      "precision_hv": 0.943,
-      "recall_hv": 0.892,
-      "f1_hv": 0.917,
-      "false_positive_rate": 0.05,
+      "code_accuracy": 0.0,
+      "precision_hv": 0.925,
+      "recall_hv": 1.0,
+      "f1_hv": 0.961,
+      "false_positive_rate": 0.075,
       "explainability_rate": 1.0,
       "avg_confidence": 0.7
     },
@@ -95,10 +95,10 @@
     "avg_faithfulness": 0.733,
     "avg_confidence": 0.733,
     "interpretation": {
-      "provenance_coverage": "% of predictions with \u22651 cited source article",
-      "rule_coverage": "% of predictions with \u22651 symbolic rule fired",
+      "provenance_coverage": "% of predictions with >=1 cited source article",
+      "rule_coverage": "% of predictions with >=1 symbolic rule fired",
       "sentence_relevance": "% of cited sentences containing violence keywords",
-      "avg_faithfulness": "Proxy: confidence \u00d7 has_provenance (0\u20131)"
+      "avg_faithfulness": "Proxy: confidence * has_provenance (0-1)"
     }
   }
 }
