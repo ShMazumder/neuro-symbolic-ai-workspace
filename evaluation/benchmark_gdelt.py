@@ -36,20 +36,27 @@ GDELT_BASE_URL = "http://data.gdeltproject.org/gdeltv2"
 # CAMEO violence codes
 VIOLENCE_CODES = set(range(13, 21))
 
-# GDELT column indices (0-based) for GKG 2.0 events file
-COL_DATE       = 0    # YYYYMMDDHHMMSS
-COL_CAMEO_ROOT = 28   # EventRootCode
-COL_CAMEO_CODE = 27   # EventCode (3-level)
-COL_ACTOR1     = 6    # Actor1Name
-COL_ACTOR2     = 16   # Actor2Name
-COL_GEO_COUNTRY = 37  # ActionGeo_CountryCode
-COL_GEO_ADM1   = 38  # ActionGeo_ADM1Code (state/division)
-COL_GEO_FULL   = 40  # ActionGeo_FullName
-COL_GEO_LAT    = 43  # ActionGeo_Lat
-COL_GEO_LON    = 44  # ActionGeo_Long
-COL_SOURCE_URL  = 57  # SOURCEURL
+# GDELT 2.0 Event CSV column indices (0-based)
+COL_DATE        = 1    # SQLDATE (YYYYMMDD)
+COL_ACTOR1      = 6    # Actor1Name
+COL_ACTOR2      = 16   # Actor2Name
+COL_CAMEO_CODE  = 26   # EventCode
+COL_CAMEO_ROOT  = 28   # EventRootCode
+COL_GEO_FULL    = 52   # ActionGeo_FullName
+COL_GEO_COUNTRY = 53   # ActionGeo_CountryCode
+COL_GEO_ADM1    = 54   # ActionGeo_ADM1Code
+COL_GEO_LAT     = 56   # ActionGeo_Lat
+COL_GEO_LON     = 57   # ActionGeo_Long
+COL_SOURCE_URL  = 60   # SOURCEURL
 
 BD_COUNTRY_CODES = {"BG", "BGD"}  # GDELT codes for Bangladesh
+
+
+def _safe_float(val: str, default: float = 0.0) -> float:
+    try:
+        return float(val) if val else default
+    except (ValueError, TypeError):
+        return default
 
 # ── GDELT data fetcher ────────────────────────────────────────────────────────
 
@@ -104,10 +111,10 @@ def fetch_gdelt_bangladesh(
                 with zf.open(csv_name) as f:
                     reader = csv.reader(io.TextIOWrapper(f, encoding="utf-8"), delimiter="\t")
                     for row in reader:
-                        if len(row) < 60:
+                        if len(row) < 58:
                             continue
                         country = row[COL_GEO_COUNTRY] if len(row) > COL_GEO_COUNTRY else ""
-                        if country not in BD_COUNTRY_CODES:
+                        if country not in BD_COUNTRY_CODES and (len(row) <= 45 or row[45] not in BD_COUNTRY_CODES):
                             continue
                         try:
                             code = int(row[COL_CAMEO_ROOT])
@@ -116,15 +123,15 @@ def fetch_gdelt_bangladesh(
                         if code not in VIOLENCE_CODES:
                             continue
 
-                        date_raw = row[COL_DATE][:8]  # YYYYMMDD
+                        date_raw = str(row[COL_DATE])[:8]  # YYYYMMDD
                         events.append({
                             "date":       f"{date_raw[:4]}-{date_raw[4:6]}-{date_raw[6:8]}",
                             "cameo_code": code,
                             "actor1":     row[COL_ACTOR1] if len(row) > COL_ACTOR1 else "",
                             "actor2":     row[COL_ACTOR2] if len(row) > COL_ACTOR2 else "",
                             "location":   row[COL_GEO_FULL] if len(row) > COL_GEO_FULL else "",
-                            "lat":        float(row[COL_GEO_LAT]) if len(row) > COL_GEO_LAT and row[COL_GEO_LAT] else 0.0,
-                            "lon":        float(row[COL_GEO_LON]) if len(row) > COL_GEO_LON and row[COL_GEO_LON] else 0.0,
+                            "lat":        _safe_float(row[COL_GEO_LAT] if len(row) > COL_GEO_LAT else ""),
+                            "lon":        _safe_float(row[COL_GEO_LON] if len(row) > COL_GEO_LON else ""),
                             "source_url": row[COL_SOURCE_URL] if len(row) > COL_SOURCE_URL else "",
                             "source":     "gdelt",
                         })
