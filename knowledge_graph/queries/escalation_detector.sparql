@@ -1,0 +1,31 @@
+# Escalation detector — districts with rapid recent event spikes
+# Compares last 7 days vs previous 30-day baseline
+
+PREFIX cameo: <http://example.org/cameo/>
+PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
+
+# NOTE: Replace ?today and ?week_ago with actual date values in application code
+# e.g. TODAY = "2025-03-21"^^xsd:date, WEEK_AGO = "2025-03-14"^^xsd:date
+
+SELECT ?district
+       (COUNT(DISTINCT ?evt_recent)  AS ?recent_count)
+       (COUNT(DISTINCT ?evt_baseline) AS ?baseline_count)
+WHERE {
+  {
+    ?evt_recent a cameo:ViolenceEvent ;
+                cameo:location ?loc ;
+                cameo:date     ?d_recent .
+    ?loc cameo:district ?district .
+    FILTER (?d_recent >= "2025-03-14"^^xsd:date)
+  }
+  {
+    ?evt_baseline a cameo:ViolenceEvent ;
+                  cameo:location ?loc2 ;
+                  cameo:date     ?d_base .
+    ?loc2 cameo:district ?district .
+    FILTER (?d_base >= "2025-02-14"^^xsd:date && ?d_base < "2025-03-14"^^xsd:date)
+  }
+}
+GROUP BY ?district
+HAVING (?recent_count > 2 * (?baseline_count / 4))
+ORDER BY DESC(?recent_count)

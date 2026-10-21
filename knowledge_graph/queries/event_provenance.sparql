@@ -1,0 +1,21 @@
+# Source provenance — trace event back to article + sentence
+# Given an event URI, retrieve the source article URL and triggering sentence
+
+PREFIX cameo:  <http://example.org/cameo/>
+PREFIX event:  <http://example.org/event/>
+PREFIX prov:   <http://www.w3.org/ns/prov#>
+PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?evt ?code ?label ?sentence ?sourceUrl ?articleTitle ?date
+WHERE {
+  ?evt a cameo:ViolenceEvent ;
+       cameo:code           ?code ;
+       cameo:label          ?label ;
+       cameo:sourceSentence ?sentence ;
+       cameo:sourceUrl      ?sourceUrl ;
+       prov:wasDerivedFrom  ?article .
+  OPTIONAL { ?evt cameo:date         ?date }
+  OPTIONAL { ?evt event:articleTitle ?articleTitle }
+}
+ORDER BY DESC(?date)
+LIMIT 100

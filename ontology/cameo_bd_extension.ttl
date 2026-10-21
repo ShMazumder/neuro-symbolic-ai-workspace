@@ -1,0 +1,292 @@
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix cameo:    <http://example.org/cameo/> .
+@prefix cameo-bd: <http://example.org/cameo/bd/> .
+
+# ── Ontology header ───────────────────────────────────────────────────────────
+
+<http://example.org/cameo/bd/>
+    a owl:Ontology ;
+    owl:imports <http://example.org/cameo/> ;
+    rdfs:label "CAMEO Bangladesh Extension Ontology"@en ;
+    rdfs:comment "Bangladesh-specific violence subcategories extending standard CAMEO codes 13–20."@en ;
+    owl:versionInfo "1.0" .
+
+# ── Shared BD properties ──────────────────────────────────────────────────────
+
+cameo-bd:localTerm
+    a owl:DatatypeProperty ;
+    rdfs:label "local term (English / Bangla)"@en ;
+    rdfs:comment "Local language trigger term for this event type."@en .
+
+cameo-bd:typicalActors
+    a owl:DatatypeProperty ;
+    rdfs:label "typical actors"@en ;
+    rdfs:comment "Comma-separated list of actor types commonly associated with this code."@en .
+
+cameo-bd:cameoParent
+    a owl:ObjectProperty ;
+    rdfs:label "CAMEO parent code"@en .
+
+# ─────────────────────────────────────────────────────────────────────────────
+# POLITICAL VIOLENCE  (PV*)
+# ─────────────────────────────────────────────────────────────────────────────
+
+cameo-bd:PoliticalViolence
+    a owl:Class ;
+    rdfs:subClassOf cameo:ViolenceEvent ;
+    rdfs:label "Political Violence"@en .
+
+cameo-bd:PV01
+    a owl:Class ;
+    rdfs:subClassOf cameo-bd:PoliticalViolence ;
+    rdfs:subClassOf cameo:Code145 ;
+    rdfs:label "Hartal-related violence"@en ;
+    rdfs:comment "Violence during political strikes (hartals) — vehicle torching, property damage, clashes."@en ;
+    cameo-bd:localTerm "hartal"@en, "strike violence"@en, "vehicle torched"@en, "হরতাল"@bn ;
+    cameo-bd:typicalActors "political activists, opposition supporters" ;
+    cameo-bd:cameoParent cameo:Code145 .
+
+cameo-bd:PV02
+    a owl:Class ;
+    rdfs:subClassOf cameo-bd:PoliticalViolence ;
+    rdfs:subClassOf cameo:Code193 ;
+    rdfs:label "Political party clash"@en ;
+    rdfs:comment "Intra- or inter-party armed clashes, often during elections or political campaigns."@en ;
+    cameo-bd:localTerm "party clash"@en, "inter-party clash"@en, "factional clash"@en ;
+    cameo-bd:typicalActors "political party members, cadres" ;
+    cameo-bd:cameoParent cameo:Code193 .
+
+cameo-bd:PV03
+    a owl:Class ;
+    rdfs:subClassOf cameo-bd:PoliticalViolence ;
+    rdfs:subClassOf cameo:Code182 ;
+    rdfs:label "Election violence"@en ;
+    rdfs:comment "Violence during or surrounding election periods — intimidation, booth capture, clashes."@en ;
+    cameo-bd:localTerm "election violence"@en, "polling day clash"@en, "booth capture"@en ;
+    cameo-bd:typicalActors "political party cadres, law enforcement" ;
+    cameo-bd:cameoParent cameo:Code182 .
+
+cameo-bd:PV04
+    a owl:Class ;
+    rdfs:subClassOf cameo-bd:PoliticalViolence ;
+    rdfs:subClassOf cameo:Code182 ;
+    rdfs:label "Student political violence"@en ;
+    rdfs:comment "Clashes between student wings of political parties on campuses."@en ;
+    cameo-bd:localTerm "student clash"@en, "campus violence"@en, "student wing clash"@en ;
+    cameo-bd:typicalActors "student political wings (BCL, Chhatra Dal)" ;
+    cameo-bd:cameoParent cameo:Code182 .
+
+# ─────────────────────────────────────────────────────────────────────────────
+# STATE VIOLENCE  (SV*)
+# ─────────────────────────────────────────────────────────────────────────────
+
+cameo-bd:StateViolence
+    a owl:Class ;
+    rdfs:subClassOf cameo:ViolenceEvent ;
+    rdfs:label "State Violence"@en .
+
+cameo-bd:SV01
+    a owl:Class ;
+    rdfs:subClassOf cameo-bd:StateViolence ;
+    rdfs:subClassOf cameo:Code182 ;
+    rdfs:label "Extrajudicial killing (crossfire)"@en ;
+    rdfs:comment "Deaths in alleged encounters with law enforcement, commonly reported as 'crossfire' or 'gunfight'."@en ;
+    cameo-bd:localTerm "crossfire"@en, "gunfight"@en, "encounter killing"@en, "ক্রসফায়ার"@bn, "বন্দুকযুদ্ধ"@bn ;
+    cameo-bd:typicalActors "RAB, Police, BGB" ;
+    cameo-bd:cameoParent cameo:Code182 .
+
+cameo-bd:SV02
+    a owl:Class ;
+    rdfs:subClassOf cameo-bd:StateViolence ;
+    rdfs:subClassOf cameo:Code181 ;
+    rdfs:label "Enforced disappearance"@en ;
+    rdfs:comment "Individuals taken by security forces whose fate and whereabouts remain unknown."@en ;
+    cameo-bd:localTerm "enforced disappearance"@en, "disappeared"@en, "picked up"@en, "গুম"@bn ;
+    cameo-bd:typicalActors "RAB, DGFI, Police" ;
+    cameo-bd:cameoParent cameo:Code181 .
+
+cameo-bd:SV03
+    a owl:Class ;
+    rdfs:subClassOf cameo-bd:StateViolence ;
+    rdfs:subClassOf cameo:Code182 ;
+    rdfs:label "Custodial torture or death"@en ;
+    rdfs:comment "Torture or death while in police, RAB, or military custody."@en ;
+    cameo-bd:localTerm "custodial torture"@en, "custodial death"@en, "died in custody"@en ;
+    cameo-bd:typicalActors "Police, RAB" ;
+    cameo-bd:cameoParent cameo:Code182 .
+
+cameo-bd:SV04
+    a owl:Class ;
+    rdfs:subClassOf cameo-bd:StateViolence ;
+    rdfs:subClassOf cameo:Code175 ;
+    rdfs:label "Excessive force during protest"@en ;
+    rdfs:comment "Use of rubber bullets, tear gas, water cannon causing injuries or deaths during protests."@en ;
+    cameo-bd:localTerm "rubber bullet"@en, "tear gas"@en, "baton charge"@en, "crackdown"@en ;
+    cameo-bd:typicalActors "Police, RAB, BGB" ;
+    cameo-bd:cameoParent cameo:Code175 .
+
+# ─────────────────────────────────────────────────────────────────────────────
+# COMMUNAL VIOLENCE  (CV*)
+# ─────────────────────────────────────────────────────────────────────────────
+
+cameo-bd:CommunalViolence
+    a owl:Class ;
+    rdfs:subClassOf cameo:ViolenceEvent ;
+    rdfs:label "Communal Violence"@en .
+
+cameo-bd:CV01
+    a owl:Class ;
+    rdfs:subClassOf cameo-bd:CommunalViolence ;
+    rdfs:subClassOf cameo:Code182 ;
+    rdfs:label "Religious communal violence"@en ;
+    rdfs:comment "Attacks on religious minorities — temples, mosques, homes, businesses."@en ;
+    cameo-bd:localTerm "communal violence"@en, "temple attack"@en, "minority attack"@en, "সাম্প্রদায়িক"@bn ;
+    cameo-bd:typicalActors "communal mobs, vigilante groups" ;
+    cameo-bd:cameoParent cameo:Code182 .
+
+cameo-bd:CV02
+    a owl:Class ;
+    rdfs:subClassOf cameo-bd:CommunalViolence ;
+    rdfs:subClassOf cameo:Code171 ;
+    rdfs:label "Land-related communal violence"@en ;
+    rdfs:comment "Violence over land disputes, often targeting indigenous or minority communities."@en ;
+    cameo-bd:localTerm "land dispute violence"@en, "land grabbing violence"@en ;
+    cameo-bd:typicalActors "land grabbers, influential persons, local mobs" ;
+    cameo-bd:cameoParent cameo:Code171 .
+
+cameo-bd:CV03
+    a owl:Class ;
+    rdfs:subClassOf cameo-bd:CommunalViolence ;
+    rdfs:subClassOf cameo:Code182 ;
+    rdfs:label "Ethnic minority violence"@en ;
+    rdfs:comment "Violence against Chittagong Hill Tracts (CHT) indigenous peoples."@en ;
+    cameo-bd:localTerm "CHT violence"@en, "indigenous attack"@en, "hill tracts violence"@en ;
+    cameo-bd:typicalActors "settlers, armed groups, military" ;
+    cameo-bd:cameoParent cameo:Code182 .
+
+# ─────────────────────────────────────────────────────────────────────────────
+# GENDER-BASED VIOLENCE  (GV*)
+# ─────────────────────────────────────────────────────────────────────────────
+
+cameo-bd:GenderViolence
+    a owl:Class ;
+    rdfs:subClassOf cameo:ViolenceEvent ;
+    rdfs:label "Gender-Based Violence"@en .
+
+cameo-bd:GV01
+    a owl:Class ;
+    rdfs:subClassOf cameo-bd:GenderViolence ;
+    rdfs:subClassOf cameo:Code182 ;
+    rdfs:label "Acid attack"@en ;
+    rdfs:comment "Acid thrown at victims, predominantly women, often over rejected proposals or disputes."@en ;
+    cameo-bd:localTerm "acid attack"@en, "acid throwing"@en, "এসিড নিক্ষেপ"@bn ;
+    cameo-bd:typicalActors "individuals, stalkers" ;
+    cameo-bd:cameoParent cameo:Code182 .
+
+cameo-bd:GV02
+    a owl:Class ;
+    rdfs:subClassOf cameo-bd:GenderViolence ;
+    rdfs:subClassOf cameo:Code182 ;
+    rdfs:label "Domestic violence fatality"@en ;
+    rdfs:comment "Death resulting from domestic violence — beating, poisoning, burning."@en ;
+    cameo-bd:localTerm "domestic violence"@en, "wife killing"@en, "beaten to death by husband"@en ;
+    cameo-bd:typicalActors "intimate partner, family members" ;
+    cameo-bd:cameoParent cameo:Code182 .
+
+cameo-bd:GV03
+    a owl:Class ;
+    rdfs:subClassOf cameo-bd:GenderViolence ;
+    rdfs:subClassOf cameo:Code182 ;
+    rdfs:label "Sexual assault or rape"@en ;
+    rdfs:comment "Reported sexual assault and rape cases."@en ;
+    cameo-bd:localTerm "rape"@en, "gang rape"@en, "sexual assault"@en, "ধর্ষণ"@bn ;
+    cameo-bd:typicalActors "individuals, groups" ;
+    cameo-bd:cameoParent cameo:Code182 .
+
+cameo-bd:GV04
+    a owl:Class ;
+    rdfs:subClassOf cameo-bd:GenderViolence ;
+    rdfs:subClassOf cameo:Code182 ;
+    rdfs:label "Dowry violence"@en ;
+    rdfs:comment "Violence related to dowry demands — assault, killing of bride."@en ;
+    cameo-bd:localTerm "dowry violence"@en, "dowry killing"@en, "dowry dispute"@en, "যৌতুক"@bn ;
+    cameo-bd:typicalActors "husband, in-laws" ;
+    cameo-bd:cameoParent cameo:Code182 .
+
+# ─────────────────────────────────────────────────────────────────────────────
+# LABOR / INDUSTRIAL VIOLENCE  (LV*)
+# ─────────────────────────────────────────────────────────────────────────────
+
+cameo-bd:LaborViolence
+    a owl:Class ;
+    rdfs:subClassOf cameo:ViolenceEvent ;
+    rdfs:label "Labor and Industrial Violence"@en .
+
+cameo-bd:LV01
+    a owl:Class ;
+    rdfs:subClassOf cameo-bd:LaborViolence ;
+    rdfs:subClassOf cameo:Code145 ;
+    rdfs:label "Garment worker unrest"@en ;
+    rdfs:comment "Violence during garment factory protests — worker-police clashes, factory vandalism."@en ;
+    cameo-bd:localTerm "garment workers protest"@en, "RMG worker clash"@en, "factory blockade"@en ;
+    cameo-bd:typicalActors "garment workers, police, factory management" ;
+    cameo-bd:cameoParent cameo:Code145 .
+
+cameo-bd:LV02
+    a owl:Class ;
+    rdfs:subClassOf cameo-bd:LaborViolence ;
+    rdfs:label "Industrial disaster"@en ;
+    rdfs:comment "Factory fires, building collapses, or industrial accidents causing mass casualties."@en ;
+    cameo-bd:localTerm "factory fire"@en, "building collapse"@en, "industrial accident"@en .
+
+cameo-bd:LV03
+    a owl:Class ;
+    rdfs:subClassOf cameo-bd:LaborViolence ;
+    rdfs:subClassOf cameo:Code175 ;
+    rdfs:label "Labor rights suppression"@en ;
+    rdfs:comment "Crackdowns on labor organizers, union activists, or striking workers."@en ;
+    cameo-bd:localTerm "labor organizer arrested"@en, "union crackdown"@en ;
+    cameo-bd:typicalActors "police, factory management, hired muscle" ;
+    cameo-bd:cameoParent cameo:Code175 .
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ORGANIZED CRIME  (OC*)
+# ─────────────────────────────────────────────────────────────────────────────
+
+cameo-bd:OrganizedCrime
+    a owl:Class ;
+    rdfs:subClassOf cameo:ViolenceEvent ;
+    rdfs:label "Organized Crime Violence"@en .
+
+cameo-bd:OC01
+    a owl:Class ;
+    rdfs:subClassOf cameo-bd:OrganizedCrime ;
+    rdfs:subClassOf cameo:Code182 ;
+    rdfs:label "Drug-related killing"@en ;
+    rdfs:comment "Killings linked to drug trade, drug dealer rivalries, or anti-drug operations."@en ;
+    cameo-bd:localTerm "drug-related killing"@en, "drug dealer shot"@en, "yaba dealer killed"@en ;
+    cameo-bd:typicalActors "drug gangs, police (in crossfire), rivals" ;
+    cameo-bd:cameoParent cameo:Code182 .
+
+cameo-bd:OC02
+    a owl:Class ;
+    rdfs:subClassOf cameo-bd:OrganizedCrime ;
+    rdfs:subClassOf cameo:Code182 ;
+    rdfs:label "Extortion violence"@en ;
+    rdfs:comment "Violence related to extortion rackets — attacks on non-paying victims or rivals."@en ;
+    cameo-bd:localTerm "extortion"@en, "chanda"@en, "toll collection violence"@en ;
+    cameo-bd:typicalActors "local gangs, political cadres" ;
+    cameo-bd:cameoParent cameo:Code182 .
+
+cameo-bd:OC03
+    a owl:Class ;
+    rdfs:subClassOf cameo-bd:OrganizedCrime ;
+    rdfs:subClassOf cameo:Code182 ;
+    rdfs:label "Mob justice or lynching"@en ;
+    rdfs:comment "Extrajudicial mob killings — beating suspects to death without trial."@en ;
+    cameo-bd:localTerm "lynching"@en, "mob beating"@en, "beaten to death by mob"@en, "গণপিটুনি"@bn ;
+    cameo-bd:typicalActors "civilian mob" ;
+    cameo-bd:cameoParent cameo:Code182 .

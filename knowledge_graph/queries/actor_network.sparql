@@ -1,0 +1,22 @@
+# Actor network — who appears most in violence events
+# Shows actors by event involvement count and type
+
+PREFIX cameo: <http://example.org/cameo/>
+PREFIX event: <http://example.org/event/>
+
+SELECT ?actor ?actorName ?actorType (COUNT(DISTINCT ?evt) AS ?involvement)
+WHERE {
+  {
+    ?evt cameo:actor ?actor .
+    BIND("perpetrator" AS ?role)
+  } UNION {
+    ?evt cameo:target ?actor .
+    BIND("target" AS ?role)
+  }
+  ?actor cameo:actorName ?actorName ;
+         cameo:actorType ?actorType .
+  ?evt a cameo:ViolenceEvent .
+}
+GROUP BY ?actor ?actorName ?actorType
+ORDER BY DESC(?involvement)
+LIMIT 50

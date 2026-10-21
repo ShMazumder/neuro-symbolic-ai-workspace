@@ -1,0 +1,16 @@
+# Violence trend over time — monthly event counts
+# Use to detect escalation patterns and seasonal trends
+
+PREFIX cameo: <http://example.org/cameo/>
+PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?month (COUNT(DISTINCT ?evt) AS ?event_count)
+WHERE {
+  ?evt a cameo:ViolenceEvent ;
+       cameo:date ?date ;
+       cameo:code ?code .
+  FILTER (xsd:integer(?code) >= 17)
+  BIND(SUBSTR(STR(?date), 1, 7) AS ?month)
+}
+GROUP BY ?month
+ORDER BY ?month

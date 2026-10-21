@@ -1,0 +1,186 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov:  <http://www.w3.org/ns/prov#> .
+@prefix cameo: <http://example.org/cameo/> .
+@prefix event: <http://example.org/event/> .
+@prefix actor: <http://example.org/actor/> .
+@prefix geo:   <http://example.org/geo/> .
+
+# ── Ontology header ───────────────────────────────────────────────────────────
+
+<http://example.org/event/>
+    a owl:Ontology ;
+    owl:imports <http://example.org/cameo/> ;
+    rdfs:label "Daily Star Violence Event Schema"@en ;
+    rdfs:comment "RDF schema for structured violence events extracted from The Daily Star."@en ;
+    owl:versionInfo "1.0" .
+
+# ═════════════════════════════════════════════════════════════════════════════
+# EVENT PROPERTIES
+# Properties specific to individual extracted events.
+# ═════════════════════════════════════════════════════════════════════════════
+
+event:eventId
+    a owl:DatatypeProperty ;
+    rdfs:domain cameo:Event ;
+    rdfs:range  xsd:string ;
+    rdfs:label  "event identifier"@en ;
+    rdfs:comment "Unique event ID, format: evt_YYYYMMDD_NNN"@en .
+
+event:sentenceOffset
+    a owl:DatatypeProperty ;
+    rdfs:domain cameo:Event ;
+    rdfs:range  xsd:string ;
+    rdfs:label  "sentence character offset"@en ;
+    rdfs:comment "JSON array [start, end] of triggering sentence in article body."@en .
+
+event:extractionModel
+    a owl:DatatypeProperty ;
+    rdfs:domain cameo:Event ;
+    rdfs:range  xsd:string ;
+    rdfs:label  "extraction model"@en ;
+    rdfs:comment "Name and version of the model that extracted this event."@en .
+
+event:bdExtensionCode
+    a owl:DatatypeProperty ;
+    rdfs:domain cameo:Event ;
+    rdfs:range  xsd:string ;
+    rdfs:label  "BD extension code"@en ;
+    rdfs:comment "Bangladesh-specific sub-code (e.g., SV01, PV02) if applicable."@en .
+
+event:victimCount
+    a owl:DatatypeProperty ;
+    rdfs:domain cameo:Event ;
+    rdfs:range  xsd:integer ;
+    rdfs:label  "victim count"@en ;
+    rdfs:comment "Number of victims mentioned in the source text."@en .
+
+event:injuredCount
+    a owl:DatatypeProperty ;
+    rdfs:domain cameo:Event ;
+    rdfs:range  xsd:integer ;
+    rdfs:label  "injured count"@en .
+
+event:arresetCount
+    a owl:DatatypeProperty ;
+    rdfs:domain cameo:Event ;
+    rdfs:range  xsd:integer ;
+    rdfs:label  "arrested count"@en .
+
+# ═════════════════════════════════════════════════════════════════════════════
+# ACTOR PROPERTIES
+# ═════════════════════════════════════════════════════════════════════════════
+
+actor:role
+    a owl:DatatypeProperty ;
+    rdfs:domain cameo:Actor ;
+    rdfs:range  xsd:string ;
+    rdfs:label  "actor role"@en ;
+    rdfs:comment "Role in event: perpetrator | target | bystander | witness"@en .
+
+actor:affiliation
+    a owl:DatatypeProperty ;
+    rdfs:domain cameo:Actor ;
+    rdfs:range  xsd:string ;
+    rdfs:label  "actor affiliation"@en ;
+    rdfs:comment "Political party, organisation, or security force."@en .
+
+actor:gender
+    a owl:DatatypeProperty ;
+    rdfs:domain cameo:Actor ;
+    rdfs:range  xsd:string ;
+    rdfs:label  "actor gender"@en .
+
+# ═════════════════════════════════════════════════════════════════════════════
+# GEO PROPERTIES
+# ═════════════════════════════════════════════════════════════════════════════
+
+geo:upazila
+    a owl:DatatypeProperty ;
+    rdfs:domain cameo:Location ;
+    rdfs:range  xsd:string ;
+    rdfs:label  "upazila name"@en .
+
+geo:thana
+    a owl:DatatypeProperty ;
+    rdfs:domain cameo:Location ;
+    rdfs:range  xsd:string ;
+    rdfs:label  "thana / police station"@en .
+
+geo:geoNamesId
+    a owl:DatatypeProperty ;
+    rdfs:domain cameo:Location ;
+    rdfs:range  xsd:anyURI ;
+    rdfs:label  "GeoNames ID"@en .
+
+# ═════════════════════════════════════════════════════════════════════════════
+# PROVENANCE PROPERTIES
+# ═════════════════════════════════════════════════════════════════════════════
+
+event:articleId
+    a owl:DatatypeProperty ;
+    rdfs:domain cameo:Event ;
+    rdfs:range  xsd:string ;
+    rdfs:label  "source article ID"@en .
+
+event:articleTitle
+    a owl:DatatypeProperty ;
+    rdfs:domain cameo:Event ;
+    rdfs:range  xsd:string ;
+    rdfs:label  "source article title"@en .
+
+event:articlePublishedDate
+    a owl:DatatypeProperty ;
+    rdfs:domain cameo:Event ;
+    rdfs:range  xsd:date ;
+    rdfs:label  "source article published date"@en .
+
+event:scrapedAt
+    a owl:DatatypeProperty ;
+    rdfs:domain cameo:Event ;
+    rdfs:range  xsd:dateTime ;
+    rdfs:label  "scraped at"@en .
+
+# ═════════════════════════════════════════════════════════════════════════════
+# SAMPLE TRIPLES — illustrative event (delete before production)
+# ═════════════════════════════════════════════════════════════════════════════
+
+event:evt_20250313_001
+    a cameo:Code182 ;
+    event:eventId          "evt_20250313_001" ;
+    cameo:code             "182" ;
+    cameo:label            "Physical Assault — Killing"@en ;
+    cameo:trigger          "killed" ;
+    cameo:confidence       "0.87"^^xsd:float ;
+    cameo:actor            actor:police_savar ;
+    cameo:target           actor:workers_savar ;
+    cameo:date             "2025-03-13"^^xsd:date ;
+    cameo:location         geo:savar ;
+    cameo:sourceUrl        <https://www.thedailystar.net/example-article> ;
+    cameo:sourceSentence   "Two workers were killed in clashes with police in Savar." ;
+    event:victimCount      2 ;
+    prov:wasDerivedFrom    <https://www.thedailystar.net/example-article> ;
+    prov:generatedAtTime   "2025-03-14T10:30:00"^^xsd:dateTime .
+
+actor:police_savar
+    a cameo:Actor ;
+    cameo:actorName "police" ;
+    cameo:actorType "SECURITY_FORCE" ;
+    actor:role      "perpetrator" ;
+    actor:affiliation "Bangladesh Police" .
+
+actor:workers_savar
+    a cameo:Actor ;
+    cameo:actorName "workers" ;
+    cameo:actorType "CIVILIAN" ;
+    actor:role      "target" .
+
+geo:savar
+    a cameo:Location ;
+    cameo:rawLocation "Savar" ;
+    cameo:district    "Dhaka" ;
+    cameo:division    "Dhaka" ;
+    cameo:latitude    "23.85"^^xsd:double ;
+    cameo:longitude   "90.26"^^xsd:double .

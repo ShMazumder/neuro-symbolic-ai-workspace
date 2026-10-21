@@ -1,0 +1,139 @@
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix cameo:    <http://example.org/cameo/> .
+@prefix cameo-bd: <http://example.org/cameo/bd/> .
+@prefix event:    <http://example.org/event/> .
+@prefix actor:    <http://example.org/actor/> .
+
+# ═════════════════════════════════════════════════════════════════════════════
+# OWL Reasoning Rules for Bangladesh Violence Knowledge Graph
+# Task 3.6 — Group membership, blame chains, escalation inference
+#
+# BlazeGraph supports OWL/RDFS inference via its SAIL layer.
+# These rules extend the base CAMEO ontology with inferred relations.
+# ═════════════════════════════════════════════════════════════════════════════
+
+# ── 1. Subclass inference ─────────────────────────────────────────────────────
+# BlazeGraph infers rdf:type through the subClass chain automatically.
+# These explicit declarations ensure forward-chaining works for BD codes.
+
+cameo-bd:SV01 rdfs:subClassOf cameo:Code182 .
+cameo-bd:SV02 rdfs:subClassOf cameo:Code181 .
+cameo-bd:SV03 rdfs:subClassOf cameo:Code182 .
+cameo-bd:SV04 rdfs:subClassOf cameo:Code175 .
+cameo-bd:PV01 rdfs:subClassOf cameo:Code145 .
+cameo-bd:PV02 rdfs:subClassOf cameo:Code193 .
+cameo-bd:PV03 rdfs:subClassOf cameo:Code182 .
+cameo-bd:PV04 rdfs:subClassOf cameo:Code182 .
+cameo-bd:CV01 rdfs:subClassOf cameo:Code182 .
+cameo-bd:CV02 rdfs:subClassOf cameo:Code171 .
+cameo-bd:CV03 rdfs:subClassOf cameo:Code182 .
+cameo-bd:GV01 rdfs:subClassOf cameo:Code182 .
+cameo-bd:GV02 rdfs:subClassOf cameo:Code182 .
+cameo-bd:GV03 rdfs:subClassOf cameo:Code182 .
+cameo-bd:GV04 rdfs:subClassOf cameo:Code182 .
+cameo-bd:LV01 rdfs:subClassOf cameo:Code145 .
+cameo-bd:LV03 rdfs:subClassOf cameo:Code175 .
+cameo-bd:OC01 rdfs:subClassOf cameo:Code182 .
+cameo-bd:OC02 rdfs:subClassOf cameo:Code182 .
+cameo-bd:OC03 rdfs:subClassOf cameo:Code182 .
+
+# ── 2. Actor group membership ─────────────────────────────────────────────────
+
+# Security forces as a supergroup
+actor:RAB
+    a cameo:Actor ;
+    cameo:actorName "RAB" ;
+    cameo:actorType "SECURITY_FORCE" .
+
+actor:BangladeshPolice
+    a cameo:Actor ;
+    cameo:actorName "Bangladesh Police" ;
+    cameo:actorType "SECURITY_FORCE" .
+
+actor:BGB
+    a cameo:Actor ;
+    cameo:actorName "BGB" ;
+    cameo:actorType "SECURITY_FORCE" .
+
+actor:DetectiveBranch
+    a cameo:Actor ;
+    cameo:actorName "Detective Branch" ;
+    cameo:actorType "SECURITY_FORCE" .
+
+# Political party student wings membership
+actor:BangladeshChhatraLeague
+    a cameo:Actor ;
+    cameo:actorName "Bangladesh Chhatra League" ;
+    cameo:actorType "POLITICAL_PARTY" .
+
+actor:ChhatraDal
+    a cameo:Actor ;
+    cameo:actorName "Bangladesh Jatiyatabadi Chhatra Dal" ;
+    cameo:actorType "POLITICAL_PARTY" .
+
+actor:IslamisChhatraShibir
+    a cameo:Actor ;
+    cameo:actorName "Islami Chhatra Shibir" ;
+    cameo:actorType "POLITICAL_PARTY" .
+
+# ── 3. Inverse property rules ─────────────────────────────────────────────────
+
+# If X is perpetrator of event E targeting Y,
+# then Y is victim of X (symmetric relation for analysis)
+cameo:actor owl:inverseOf cameo:actorOf .
+cameo:target owl:inverseOf cameo:victimOf .
+
+# ── 4. Transitivity for escalation chains ─────────────────────────────────────
+
+# escalatedTo: if A escalated to B and B escalated to C → A escalated to C
+event:escalatedTo
+    a owl:ObjectProperty, owl:TransitiveProperty ;
+    rdfs:domain cameo:ViolenceEvent ;
+    rdfs:range  cameo:ViolenceEvent ;
+    rdfs:label  "escalated to"@en ;
+    rdfs:comment "Links a lower-severity event to a higher-severity event that followed it in the same location/actor context."@en .
+
+# ── 5. Functional properties for key event slots ──────────────────────────────
+
+# Each event should have exactly one primary location (functional)
+cameo:location
+    a owl:FunctionalProperty .
+
+# ── 6. Disjointness axioms ────────────────────────────────────────────────────
+
+# An actor cannot be simultaneously perpetrator and victim of the same event
+# (enforced by application logic — OWL 2 punning limits direct enforcement)
+cameo:Actor
+    owl:disjointWith cameo:Location .
+
+# Violence event categories are disjoint (an event belongs to one primary category)
+cameo:Threaten            owl:disjointWith cameo:UnconventionalViolence .
+cameo:StructuralViolence  owl:disjointWith cameo:ConventionalForce .
+
+# ── 7. Property chains (OWL 2 property chain axioms) ─────────────────────────
+
+# If E1 has actor A, and A has actor affiliation G (party/org),
+# then E1 is attributed to G
+event:attributedToOrg
+    a owl:ObjectProperty ;
+    owl:propertyChainAxiom ( cameo:actor actor:affiliation ) ;
+    rdfs:label "attributed to organization"@en .
+
+# ── 8. SWRL-style rules (expressed as SPARQL CONSTRUCT for BlazeGraph) ────────
+# These cannot be expressed in pure OWL 2 DL; use via SPARQL CONSTRUCT rules
+# or BlazeGraph's custom rule engine.
+# See knowledge_graph/queries/ for equivalent SPARQL queries.
+
+# Rule R1: If an event has SV01 code and actor is SECURITY_FORCE,
+#           infer it is also an instance of cameo-bd:StateViolence
+# SPARQL:
+#   CONSTRUCT { ?e a cameo-bd:StateViolence }
+#   WHERE { ?e a cameo-bd:SV01 ; cameo:actor ?a .
+#           ?a cameo:actorType "SECURITY_FORCE" }
+
+# Rule R2: If 3+ events share the same location within 7 days,
+#           infer a ViolenceCluster for that location
+# (Implemented in neurosymbolic/anomaly.py)

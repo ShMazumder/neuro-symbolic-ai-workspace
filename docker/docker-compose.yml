@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  # ── BlazeGraph ──────────────────────────────────────────────────────────────
+  blazegraph:
+    image: lyrasis/blazegraph:2.1.6
+    container_name: blazegraph
+    restart: unless-stopped
+    ports:
+      - "9999:9999"
+    volumes:
+      - blazegraph_data:/var/lib/blazegraph/data
+      - ./blazegraph/RWStore.properties:/var/lib/blazegraph/conf/RWStore.properties:ro
+    environment:
+      JAVA_XMS: "512m"
+      JAVA_XMX: "2g"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9999/blazegraph/status"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    networks:
+      - nsai_net
+
+volumes:
+  blazegraph_data:
+
+networks:
+  nsai_net:
+    driver: bridge

@@ -1,0 +1,18 @@
+# Top violence hotspots by district
+# Returns districts ranked by number of high-severity events (CAMEO 17–20)
+
+PREFIX cameo: <http://example.org/cameo/>
+PREFIX event: <http://example.org/event/>
+PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?district (COUNT(DISTINCT ?evt) AS ?event_count)
+WHERE {
+  ?evt a cameo:ViolenceEvent ;
+       cameo:code  ?code ;
+       cameo:location ?loc .
+  ?loc cameo:district ?district .
+  FILTER (xsd:integer(?code) >= 17 && xsd:integer(?code) <= 20)
+}
+GROUP BY ?district
+ORDER BY DESC(?event_count)
+LIMIT 20

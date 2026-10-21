@@ -1,0 +1,226 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix cameo: <http://example.org/cameo/> .
+
+# ── Ontology header ───────────────────────────────────────────────────────────
+
+<http://example.org/cameo/>
+    a owl:Ontology ;
+    rdfs:label "CAMEO Violence Ontology"@en ;
+    rdfs:comment "Conflict and Mediation Event Observations (CAMEO) — violence categories 13–20, modelled in OWL."@en ;
+    owl:versionInfo "1.0" .
+
+# ── Top-level event class ─────────────────────────────────────────────────────
+
+cameo:Event
+    a owl:Class ;
+    rdfs:label "Event"@en ;
+    rdfs:comment "Any socio-political event coded in CAMEO."@en .
+
+cameo:ViolenceEvent
+    a owl:Class ;
+    rdfs:subClassOf cameo:Event ;
+    rdfs:label "Violence Event"@en ;
+    rdfs:comment "An event involving physical force, threats, or coercion (CAMEO codes 13–20)."@en .
+
+# ── Properties ────────────────────────────────────────────────────────────────
+
+cameo:code
+    a owl:DatatypeProperty ;
+    rdfs:domain cameo:Event ;
+    rdfs:range  xsd:string ;
+    rdfs:label  "CAMEO code"@en .
+
+cameo:label
+    a owl:DatatypeProperty ;
+    rdfs:domain cameo:Event ;
+    rdfs:range  xsd:string ;
+    rdfs:label  "CAMEO label"@en .
+
+cameo:actor
+    a owl:ObjectProperty ;
+    rdfs:domain cameo:Event ;
+    rdfs:range  cameo:Actor ;
+    rdfs:label  "actor (perpetrator)"@en .
+
+cameo:target
+    a owl:ObjectProperty ;
+    rdfs:domain cameo:Event ;
+    rdfs:range  cameo:Actor ;
+    rdfs:label  "target (victim)"@en .
+
+cameo:date
+    a owl:DatatypeProperty ;
+    rdfs:domain cameo:Event ;
+    rdfs:range  xsd:date ;
+    rdfs:label  "event date"@en .
+
+cameo:location
+    a owl:ObjectProperty ;
+    rdfs:domain cameo:Event ;
+    rdfs:range  cameo:Location ;
+    rdfs:label  "event location"@en .
+
+cameo:confidence
+    a owl:DatatypeProperty ;
+    rdfs:domain cameo:Event ;
+    rdfs:range  xsd:float ;
+    rdfs:label  "extraction confidence"@en .
+
+cameo:sourceUrl
+    a owl:DatatypeProperty ;
+    rdfs:domain cameo:Event ;
+    rdfs:range  xsd:anyURI ;
+    rdfs:label  "source article URL"@en .
+
+cameo:sourceSentence
+    a owl:DatatypeProperty ;
+    rdfs:domain cameo:Event ;
+    rdfs:range  xsd:string ;
+    rdfs:label  "triggering sentence"@en .
+
+cameo:trigger
+    a owl:DatatypeProperty ;
+    rdfs:domain cameo:Event ;
+    rdfs:range  xsd:string ;
+    rdfs:label  "event trigger word"@en .
+
+# ── Actor class ───────────────────────────────────────────────────────────────
+
+cameo:Actor
+    a owl:Class ;
+    rdfs:label "Actor"@en ;
+    rdfs:comment "An entity (person, group, organisation, state) participating in an event."@en .
+
+cameo:actorName
+    a owl:DatatypeProperty ;
+    rdfs:domain cameo:Actor ;
+    rdfs:range  xsd:string ;
+    rdfs:label  "actor name"@en .
+
+cameo:actorType
+    a owl:DatatypeProperty ;
+    rdfs:domain cameo:Actor ;
+    rdfs:range  xsd:string ;
+    rdfs:label  "actor type"@en ;
+    rdfs:comment "e.g. CIVILIAN, SECURITY_FORCE, POLITICAL_PARTY, ARMED_GROUP"@en .
+
+# ── Location class ────────────────────────────────────────────────────────────
+
+cameo:Location
+    a owl:Class ;
+    rdfs:label "Location"@en .
+
+cameo:rawLocation
+    a owl:DatatypeProperty ;
+    rdfs:domain cameo:Location ;
+    rdfs:range  xsd:string ;
+    rdfs:label  "raw location string"@en .
+
+cameo:district
+    a owl:DatatypeProperty ;
+    rdfs:domain cameo:Location ;
+    rdfs:range  xsd:string ;
+    rdfs:label  "district name"@en .
+
+cameo:division
+    a owl:DatatypeProperty ;
+    rdfs:domain cameo:Location ;
+    rdfs:range  xsd:string ;
+    rdfs:label  "division name"@en .
+
+cameo:latitude
+    a owl:DatatypeProperty ;
+    rdfs:domain cameo:Location ;
+    rdfs:range  xsd:double ;
+    rdfs:label  "latitude"@en .
+
+cameo:longitude
+    a owl:DatatypeProperty ;
+    rdfs:domain cameo:Location ;
+    rdfs:range  xsd:double ;
+    rdfs:label  "longitude"@en .
+
+# ── Category 13: Threaten ─────────────────────────────────────────────────────
+
+cameo:Threaten
+    a owl:Class ;
+    rdfs:subClassOf cameo:ViolenceEvent ;
+    rdfs:label "Threaten"@en ;
+    cameo:code "13" .
+
+cameo:Code131 a owl:Class ; rdfs:subClassOf cameo:Threaten ; cameo:code "131" ; rdfs:label "Threaten non-force"@en .
+cameo:Code132 a owl:Class ; rdfs:subClassOf cameo:Threaten ; cameo:code "132" ; rdfs:label "Threaten with administrative sanctions"@en .
+cameo:Code133 a owl:Class ; rdfs:subClassOf cameo:Threaten ; cameo:code "133" ; rdfs:label "Threaten political dissent"@en .
+cameo:Code134 a owl:Class ; rdfs:subClassOf cameo:Threaten ; cameo:code "134" ; rdfs:label "Threaten with military force"@en .
+cameo:Code135 a owl:Class ; rdfs:subClassOf cameo:Threaten ; cameo:code "135" ; rdfs:label "Threaten with unconventional violence"@en .
+cameo:Code136 a owl:Class ; rdfs:subClassOf cameo:Threaten ; cameo:code "136" ; rdfs:label "Threaten with mass violence"@en .
+cameo:Code137 a owl:Class ; rdfs:subClassOf cameo:Threaten ; cameo:code "137" ; rdfs:label "Threaten to attack or destroy"@en .
+cameo:Code138 a owl:Class ; rdfs:subClassOf cameo:Threaten ; cameo:code "138" ; rdfs:label "Threaten with conventional attack"@en .
+cameo:Code139 a owl:Class ; rdfs:subClassOf cameo:Threaten ; cameo:code "139" ; rdfs:label "Give ultimatum"@en .
+
+# ── Category 14.5: Violent Protest / Riots ───────────────────────────────────
+
+cameo:ViolentProtest
+    a owl:Class ;
+    rdfs:subClassOf cameo:ViolenceEvent ;
+    rdfs:label "Violent Protest / Rioting"@en ;
+    cameo:code "145" .
+
+cameo:Code145 a owl:Class ; rdfs:subClassOf cameo:ViolentProtest ; cameo:code "145" ; rdfs:label "Engage in violent protest, rioting"@en .
+
+# ── Category 17: Structural Violence ─────────────────────────────────────────
+
+cameo:StructuralViolence
+    a owl:Class ;
+    rdfs:subClassOf cameo:ViolenceEvent ;
+    rdfs:label "Structural Violence"@en ;
+    cameo:code "17" .
+
+cameo:Code171 a owl:Class ; rdfs:subClassOf cameo:StructuralViolence ; cameo:code "171" ; rdfs:label "Confiscate or destroy property"@en .
+cameo:Code172 a owl:Class ; rdfs:subClassOf cameo:StructuralViolence ; cameo:code "172" ; rdfs:label "Impose administrative sanctions"@en .
+cameo:Code173 a owl:Class ; rdfs:subClassOf cameo:StructuralViolence ; cameo:code "173" ; rdfs:label "Arrest or detain"@en .
+cameo:Code174 a owl:Class ; rdfs:subClassOf cameo:StructuralViolence ; cameo:code "174" ; rdfs:label "Expel or deport"@en .
+cameo:Code175 a owl:Class ; rdfs:subClassOf cameo:StructuralViolence ; cameo:code "175" ; rdfs:label "Use repressive force against civilians"@en .
+
+# ── Category 18: Unconventional Violence ─────────────────────────────────────
+
+cameo:UnconventionalViolence
+    a owl:Class ;
+    rdfs:subClassOf cameo:ViolenceEvent ;
+    rdfs:label "Unconventional Violence"@en ;
+    cameo:code "18" .
+
+cameo:Code181 a owl:Class ; rdfs:subClassOf cameo:UnconventionalViolence ; cameo:code "181" ; rdfs:label "Abduct, hijack, or take hostage"@en .
+cameo:Code182 a owl:Class ; rdfs:subClassOf cameo:UnconventionalViolence ; cameo:code "182" ; rdfs:label "Physically assault — killing, assault, torture"@en .
+cameo:Code183 a owl:Class ; rdfs:subClassOf cameo:UnconventionalViolence ; cameo:code "183" ; rdfs:label "Non-military bombing — suicide, car, IED"@en .
+cameo:Code184 a owl:Class ; rdfs:subClassOf cameo:UnconventionalViolence ; cameo:code "184" ; rdfs:label "Use unconventional weapons or tactics"@en .
+cameo:Code185 a owl:Class ; rdfs:subClassOf cameo:UnconventionalViolence ; cameo:code "185" ; rdfs:label "Attempt to assassinate"@en .
+
+# ── Category 19: Conventional Force ──────────────────────────────────────────
+
+cameo:ConventionalForce
+    a owl:Class ;
+    rdfs:subClassOf cameo:ViolenceEvent ;
+    rdfs:label "Conventional Force"@en ;
+    cameo:code "19" .
+
+cameo:Code191 a owl:Class ; rdfs:subClassOf cameo:ConventionalForce ; cameo:code "191" ; rdfs:label "Impose blockade or restrict movement"@en .
+cameo:Code192 a owl:Class ; rdfs:subClassOf cameo:ConventionalForce ; cameo:code "192" ; rdfs:label "Occupy territory"@en .
+cameo:Code193 a owl:Class ; rdfs:subClassOf cameo:ConventionalForce ; cameo:code "193" ; rdfs:label "Fight with small arms or light weapons"@en .
+cameo:Code194 a owl:Class ; rdfs:subClassOf cameo:ConventionalForce ; cameo:code "194" ; rdfs:label "Fight with artillery or heavy weapons"@en .
+cameo:Code195 a owl:Class ; rdfs:subClassOf cameo:ConventionalForce ; cameo:code "195" ; rdfs:label "Air strike or missile attack"@en .
+
+# ── Category 20: Massive Unconventional Force ─────────────────────────────────
+
+cameo:MassiveForce
+    a owl:Class ;
+    rdfs:subClassOf cameo:ViolenceEvent ;
+    rdfs:label "Massive Unconventional Force"@en ;
+    cameo:code "20" .
+
+cameo:Code201 a owl:Class ; rdfs:subClassOf cameo:MassiveForce ; cameo:code "201" ; rdfs:label "Use chemical, biological, or radiological weapons"@en .
+cameo:Code202 a owl:Class ; rdfs:subClassOf cameo:MassiveForce ; cameo:code "202" ; rdfs:label "Detonate nuclear weapon"@en .

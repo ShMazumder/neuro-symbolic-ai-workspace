@@ -1,0 +1,14 @@
+# CAMEO code distribution — how many events per code
+# Useful for understanding which violence types dominate
+
+PREFIX cameo: <http://example.org/cameo/>
+PREFIX event: <http://example.org/event/>
+
+SELECT ?code ?label (COUNT(DISTINCT ?evt) AS ?count)
+WHERE {
+  ?evt a cameo:ViolenceEvent ;
+       cameo:code  ?code ;
+       cameo:label ?label .
+}
+GROUP BY ?code ?label
+ORDER BY DESC(?count)

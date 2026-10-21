@@ -39,3 +39,23 @@ logs/
 # Environment
 .env
 .env.local
+
+# Secrets / credentials
+secrets/
+credentials/
+*.pem
+*.key
+
+# Data subdirs (gitignored individually so structure is kept)
+data/raw/
+data/processed/
+data/annotations/
+data/.seen_urls.json
+
+# Extra model formats
+*.safetensors
+*.onnx
+*.joblib
+
+# BlazeGraph journal files
+*.jnl

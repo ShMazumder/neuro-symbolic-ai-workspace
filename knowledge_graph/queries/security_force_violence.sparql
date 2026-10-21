@@ -1,0 +1,23 @@
+# Security force violence — all events where perpetrator is a security force
+# Specifically targets RAB/Police crossfire, enforced disappearance, custodial events
+
+PREFIX cameo:    <http://example.org/cameo/>
+PREFIX cameo-bd: <http://example.org/cameo/bd/>
+PREFIX event:    <http://example.org/event/>
+
+SELECT ?evt ?code ?bdCode ?actorName ?district ?date ?sentence
+WHERE {
+  ?evt a cameo:ViolenceEvent ;
+       cameo:actor  ?actor ;
+       cameo:code   ?code .
+  ?actor cameo:actorType "SECURITY_FORCE" ;
+         cameo:actorName  ?actorName .
+  OPTIONAL { ?evt event:bdExtensionCode ?bdCode }
+  OPTIONAL { ?evt cameo:date ?date }
+  OPTIONAL {
+    ?evt cameo:location ?loc .
+    ?loc cameo:district ?district
+  }
+  OPTIONAL { ?evt cameo:sourceSentence ?sentence }
+}
+ORDER BY DESC(?date)
