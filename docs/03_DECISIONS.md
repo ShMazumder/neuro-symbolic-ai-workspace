@@ -1,5 +1,6 @@
-# Technical Decisions (RESOLVED)
+# 03. Technical Decisions (RESOLVED)
 
+> **Reading Order:** Part 03 of 09 · Prev: [`02_ARCHITECTURE.md`](02_ARCHITECTURE.md) · Next: [`04_CAMEO_EXTENSION.md`](04_CAMEO_EXTENSION.md)  
 > **All decisions locked in. Implementing accordingly.**  
 > Resolved: 2026-10-21
 

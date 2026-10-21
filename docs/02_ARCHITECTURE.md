@@ -1,4 +1,6 @@
-# System Architecture
+# 02. System Architecture
+
+> **Reading Order:** Part 02 of 09 · Prev: [`01_ROADMAP.md`](01_ROADMAP.md) · Next: [`03_DECISIONS.md`](03_DECISIONS.md)
 
 ## High-Level Data Flow
 

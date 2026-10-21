@@ -1,4 +1,6 @@
-# Skills & Tools Required
+# 05. Skills & Tools Required
+
+> **Reading Order:** Part 05 of 09 · Prev: [`04_CAMEO_EXTENSION.md`](04_CAMEO_EXTENSION.md) · Next: [`06_PIPELINE_DOCS.md`](06_PIPELINE_DOCS.md)
 
 ## Must-Have (Core Pipeline)
 

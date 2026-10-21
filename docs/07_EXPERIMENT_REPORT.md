@@ -1,8 +1,7 @@
-# Phase 5 Experiment Report: Evaluation & Benchmarking of NeuroSym-BD
+# 07. Phase 5 Experiment Report: Evaluation & Benchmarking of NeuroSym-BD
 
-**Date:** 2026-10-21  
-**Project:** Neuro-Symbolic Conflict Early Warning System for Bangladesh (NeuroSym-BD)  
-**Experiment:** Full Evaluation Suite (Tasks 5.1 – 5.4)
+> **Reading Order:** Part 07 of 09 · Prev: [`06_PIPELINE_DOCS.md`](06_PIPELINE_DOCS.md) · Next: [`08_RESEARCH_OPPORTUNITIES.md`](08_RESEARCH_OPPORTUNITIES.md)  
+> **Date:** 2026-10-21 · **Project:** Neuro-Symbolic Conflict Early Warning System for Bangladesh (NeuroSym-BD) · **Experiment:** Full Evaluation Suite (Tasks 5.1 – 5.4)
 
 ---
 

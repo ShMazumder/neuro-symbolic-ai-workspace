@@ -1,6 +1,6 @@
-# Research Opportunities & Applications
+# 08. Research Opportunities & Applications
 
----
+> **Reading Order:** Part 08 of 09 · Prev: [`07_EXPERIMENT_REPORT.md`](07_EXPERIMENT_REPORT.md) · Next: [`09_REFERENCES.md`](09_REFERENCES.md)
 
 ## Publication-Worthy Research Contributions
 

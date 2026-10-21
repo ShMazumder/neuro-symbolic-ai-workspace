@@ -1,4 +1,6 @@
-# CAMEO Ontology — Violence Codes & Bangladesh Extensions
+# 04. CAMEO Ontology — Violence Codes & Bangladesh Extensions
+
+> **Reading Order:** Part 04 of 09 · Prev: [`03_DECISIONS.md`](03_DECISIONS.md) · Next: [`05_SKILLS_AND_TOOLS.md`](05_SKILLS_AND_TOOLS.md)
 
 ## Standard CAMEO Violence Hierarchy
 

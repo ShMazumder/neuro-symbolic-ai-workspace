@@ -1,5 +1,6 @@
-# Pipeline & Phase Documentation
+# 06. Pipeline & Phase Documentation
 
+> **Reading Order:** Part 06 of 09 · Prev: [`05_SKILLS_AND_TOOLS.md`](05_SKILLS_AND_TOOLS.md) · Next: [`07_EXPERIMENT_REPORT.md`](07_EXPERIMENT_REPORT.md)  
 > Complete technical reference for the Neuro-Symbolic AI Violence Analysis System.
 > Covers all 5 phases, module APIs, data flows, design decisions, and running instructions.
 

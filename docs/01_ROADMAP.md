@@ -1,5 +1,6 @@
-# Research Roadmap
+# 01. Research Roadmap
 
+> **Reading Order:** Part 01 of 09 · Next: [`02_ARCHITECTURE.md`](02_ARCHITECTURE.md)  
 > 5 phases · 20 weeks · Violence analysis via neuro-symbolic AI
 
 ---
