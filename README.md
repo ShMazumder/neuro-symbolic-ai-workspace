@@ -20,6 +20,7 @@ Read the documentation in sequential order:
 | **07** | [`07_EXPERIMENT_REPORT.md`](docs/07_EXPERIMENT_REPORT.md) | Phase 5 evaluation benchmarks, ablation results, and metrics |
 | **08** | [`08_RESEARCH_OPPORTUNITIES.md`](docs/08_RESEARCH_OPPORTUNITIES.md) | Publication targets, novelty angles, and application areas |
 | **09** | [`09_REFERENCES.md`](docs/09_REFERENCES.md) | Bibliography, datasets, ontologies, and external resources |
+| **10** | [`10_PRODUCTION_CHECKLIST.md`](docs/10_PRODUCTION_CHECKLIST.md) | Production readiness gap analysis, security audit, and hardening backlog |
 
 ## Project Structure
 

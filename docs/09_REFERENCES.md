@@ -1,6 +1,6 @@
 # 09. References & Resources
 
-> **Reading Order:** Part 09 of 09 · Prev: [`08_RESEARCH_OPPORTUNITIES.md`](08_RESEARCH_OPPORTUNITIES.md) · [Index / README](../README.md)
+> **Reading Order:** Part 09 of 10 · Prev: [`08_RESEARCH_OPPORTUNITIES.md`](08_RESEARCH_OPPORTUNITIES.md) · Next: [`10_PRODUCTION_CHECKLIST.md`](10_PRODUCTION_CHECKLIST.md)
 
 ## Data Sources
 

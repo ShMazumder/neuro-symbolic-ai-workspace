@@ -59,3 +59,7 @@ data/.seen_urls.json
 
 # BlazeGraph journal files
 *.jnl
+
+# Scratch files
+scratch/
+
