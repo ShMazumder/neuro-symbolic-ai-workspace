@@ -94,21 +94,26 @@ class Entity:
 # ── spaCy NER pipeline ────────────────────────────────────────────────────────
 
 _NLP = None
+_NLP_LOAD_ATTEMPTED = False
 
 
 def _load_nlp():
-    global _NLP
-    if _NLP is None:
+    global _NLP, _NLP_LOAD_ATTEMPTED
+    if not _NLP_LOAD_ATTEMPTED:
+        _NLP_LOAD_ATTEMPTED = True
         try:
             import spacy
             try:
                 _NLP = spacy.load("en_core_web_trf")
                 logger.info("Loaded spaCy transformer model for NER.")
             except OSError:
-                _NLP = spacy.load("en_core_web_sm")
-                logger.warning("Transformer model not available; using en_core_web_sm.")
+                try:
+                    _NLP = spacy.load("en_core_web_sm")
+                    logger.info("Loaded spaCy en_core_web_sm for NER.")
+                except OSError:
+                    logger.warning("spaCy models not found. Using gazetteer regex NER fallback.")
         except ImportError:
-            logger.error("spaCy not installed. Install: pip install spacy && python -m spacy download en_core_web_sm")
+            logger.warning("spaCy not installed. Using gazetteer regex NER fallback.")
     return _NLP
 
 

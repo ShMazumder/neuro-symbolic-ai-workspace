@@ -39,21 +39,26 @@ INSTRUMENTS = frozenset({
 })
 
 
+_NLP = None
+_NLP_LOAD_ATTEMPTED = False
+
+
 def _load_nlp():
-    global _NLP
-    if _NLP is None:
+    global _NLP, _NLP_LOAD_ATTEMPTED
+    if not _NLP_LOAD_ATTEMPTED:
+        _NLP_LOAD_ATTEMPTED = True
         try:
             import spacy
             try:
                 _NLP = spacy.load("en_core_web_trf")
             except OSError:
-                _NLP = spacy.load("en_core_web_sm")
+                try:
+                    _NLP = spacy.load("en_core_web_sm")
+                except OSError:
+                    logger.warning("spaCy models not found. Using regex argument extraction fallback.")
         except ImportError:
-            logger.error("spaCy not installed.")
+            logger.warning("spaCy not installed. Using regex argument extraction fallback.")
     return _NLP
-
-
-_NLP = None
 
 
 def _dep_extract(sentence: str, trigger: TriggerSpan) -> EventArguments:

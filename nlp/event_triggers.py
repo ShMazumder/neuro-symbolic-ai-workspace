@@ -125,21 +125,29 @@ class TriggerSpan:
 # ── spaCy-based detection ─────────────────────────────────────────────────────
 
 _NLP = None   # lazy-loaded spaCy model
+_NLP_LOAD_ATTEMPTED = False
 
 
 def _load_nlp():
-    global _NLP
-    if _NLP is None:
+    global _NLP, _NLP_LOAD_ATTEMPTED
+    if not _NLP_LOAD_ATTEMPTED:
+        _NLP_LOAD_ATTEMPTED = True
         try:
             import spacy
             try:
                 _NLP = spacy.load("en_core_web_trf")
                 logger.info("Loaded spaCy en_core_web_trf.")
             except OSError:
-                _NLP = spacy.load("en_core_web_sm")
-                logger.warning("Transformer model not found; fell back to en_core_web_sm.")
+                try:
+                    _NLP = spacy.load("en_core_web_sm")
+                    logger.info("Loaded spaCy en_core_web_sm.")
+                except OSError:
+                    logger.warning(
+                        "spaCy model not found (run: python -m spacy download en_core_web_sm). "
+                        "Using regex trigger extraction fallback."
+                    )
         except ImportError:
-            logger.error("spaCy not installed.")
+            logger.warning("spaCy not installed. Using regex trigger extraction fallback.")
     return _NLP
 
 
