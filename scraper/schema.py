@@ -4,7 +4,7 @@ Article data schema for The Daily Star ingestion pipeline.
 """
 
 from dataclasses import dataclass, field, asdict
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Optional
 import json
 import uuid
@@ -28,7 +28,7 @@ class Article:
     # Temporal
     published_date: Optional[str] = None   # ISO 8601: "2025-03-13T14:00:00+06:00"
     scraped_at: str = field(
-        default_factory=lambda: datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+        default_factory=lambda: datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     )
 
     # Source metadata

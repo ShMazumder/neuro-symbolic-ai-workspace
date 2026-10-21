@@ -60,9 +60,10 @@ Evaluated against 500 ground-truth conflict event records in Bangladesh:
 | **CAMEO Group Accuracy** | **46.2%** | Broad conflict family alignment |
 | **Actor Identification Accuracy** | 15.4% | Entity resolution alignment |
 
-**Observations:**
-- Broad conflict family classification achieves **46.2%** agreement.
-- Spatio-temporal matching sensitivity is limited by news coverage latency (news reporting vs. real-time field reports).
+**Observations & Limitations:**
+- Broad conflict family classification achieves **46.2%** agreement with ACLED event taxonomies.
+- **Single-Source Coverage Limitation:** Detection recall of 17.3% is an expected theoretical upper-bound artifact of single-outlet data collection (*The Daily Star* in English) versus ACLED's nationwide triangulation (combining dozens of local Bangla newspapers, NGO field monitors, police blotters, and district reporters).
+- **Latency & Reporting Scope:** News reporting carries editorial filtering and 1–3 day latency compared to local incident reports. Scaling to multi-outlet Bengali ingestion (e.g., *Prothom Alo*, *Ittefaq*) is the primary vector to bridge this recall delta.
 
 ---
 

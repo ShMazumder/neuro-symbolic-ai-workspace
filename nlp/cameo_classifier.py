@@ -101,6 +101,24 @@ class ClassificationResult:
     method:      str   # "rule" | "model" | "trigger"
     bd_code:     Optional[str] = None   # BD extension code if applicable
 
+    @property
+    def code(self) -> str:
+        """Alias for cameo_code (backward compatibility)."""
+        return self.cameo_code
+
+    @property
+    def label(self) -> str:
+        """Alias for cameo_label (backward compatibility)."""
+        return self.cameo_label
+
+    @property
+    def is_violence(self) -> bool:
+        """True if the CAMEO code indicates a violence event (root code >= 13 or BD extension)."""
+        if self.cameo_code.isdigit():
+            root = int(self.cameo_code[:2]) if len(self.cameo_code) >= 2 else int(self.cameo_code)
+            return root >= 13
+        return True
+
 
 # ── Rule-based classifier ─────────────────────────────────────────────────────
 
@@ -286,10 +304,5 @@ class CAMEOClassifier:
             cameo_code="182", kind="noun"
         )
         use_model = (mode != "rule_only")
-        res = classify_event(trigger, text, use_model=use_model)
-        # Attribute aliases for compatibility
-        res.code = res.cameo_code
-        res.label = res.cameo_label
-        res.is_violence = int(res.cameo_code) >= 13 if res.cameo_code.isdigit() else True
-        return res
+        return classify_event(trigger, text, use_model=use_model)
 

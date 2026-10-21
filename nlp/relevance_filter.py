@@ -60,7 +60,7 @@ VIOLENCE_PATTERNS: list[re.Pattern] = [
     re.compile(r"\b(enforced\s+disappear|custodial\s+(death|torture))\b", re.I),
     re.compile(r"\b(rape|sexual\s+assault)\b", re.I),
     re.compile(r"\b(bomb(ing|blast)?|explosion|arson)\b", re.I),
-    re.compile(r"\bdowny\s+(killing|violence|murder)\b", re.I),
+    re.compile(r"\bdowry\s+(killing|violence|murder)\b", re.I),
 ]
 
 
