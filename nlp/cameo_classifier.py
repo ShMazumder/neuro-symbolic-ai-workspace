@@ -270,3 +270,26 @@ def classify_event(
         return model_result
 
     return rule_result
+
+
+class CAMEOClassifier:
+    """High-level CAMEO classifier for sentences and article text."""
+
+    def __init__(self, confidence_threshold: float = CONFIDENCE_THRESHOLD):
+        self.confidence_threshold = confidence_threshold
+
+    def classify(self, text: str, mode: str = "hybrid") -> ClassificationResult:
+        from nlp.event_triggers import extract_triggers
+        triggers = extract_triggers(text)
+        trigger = triggers[0] if triggers else TriggerSpan(
+            text="incident", lemma="incident", start=0, end=8,
+            cameo_code="182", kind="noun"
+        )
+        use_model = (mode != "rule_only")
+        res = classify_event(trigger, text, use_model=use_model)
+        # Attribute aliases for compatibility
+        res.code = res.cameo_code
+        res.label = res.cameo_label
+        res.is_violence = int(res.cameo_code) >= 13 if res.cameo_code.isdigit() else True
+        return res
+

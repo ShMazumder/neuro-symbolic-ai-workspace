@@ -11,7 +11,13 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Iterator
 
-import feedparser
+try:
+    import feedparser
+except ImportError:
+    feedparser = None
+
+import requests
+import xml.etree.ElementTree as ET
 
 from scraper.schema import Article, RSS_FEEDS
 
@@ -51,19 +57,37 @@ def _article_path(article: Article) -> Path:
 
 # ── Core poller ────────────────────────────────────────────────────────────────
 
+def _poll_xml_feed(feed_url: str) -> list[dict]:
+    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
+    resp = requests.get(feed_url, headers=headers, timeout=12)
+    resp.raise_for_status()
+    root = ET.fromstring(resp.content)
+    entries = []
+    for it in root.findall(".//item"):
+        title_el = it.find("title")
+        title = "".join(title_el.itertext()).strip() if title_el is not None else ""
+        link_el = it.find("link")
+        link = link_el.text.strip() if link_el is not None and link_el.text else ""
+        desc_el = it.find("description")
+        desc = "".join(desc_el.itertext()).strip() if desc_el is not None else ""
+        pub_el = it.find("pubDate")
+        pub = pub_el.text.strip() if pub_el is not None and pub_el.text else None
+        if link:
+            entries.append({
+                "link": link,
+                "title": title,
+                "summary": desc,
+                "published": pub,
+            })
+    return entries
+
+
 def poll_feeds(
     feeds: dict[str, str] | None = None,
     rate_limit_s: float = 2.0,
 ) -> Iterator[Article]:
     """
     Poll all RSS feeds and yield new Article stubs (no body yet).
-
-    Args:
-        feeds: mapping of {name: url}. Defaults to RSS_FEEDS.
-        rate_limit_s: seconds to sleep between feed requests.
-
-    Yields:
-        Article objects with metadata but empty body (to be filled by crawler).
     """
     if feeds is None:
         feeds = RSS_FEEDS
@@ -73,14 +97,40 @@ def poll_feeds(
 
     for feed_name, feed_url in feeds.items():
         logger.info("Polling %s — %s", feed_name, feed_url)
-        try:
-            parsed = feedparser.parse(feed_url)
-        except Exception as exc:
-            logger.error("Failed to parse %s: %s", feed_url, exc)
-            time.sleep(rate_limit_s)
-            continue
+        entries: list[dict] = []
 
-        for entry in parsed.entries:
+        if feedparser is not None:
+            try:
+                parsed = feedparser.parse(feed_url)
+                for entry in parsed.entries:
+                    entries.append({
+                        "link": entry.get("link", "").strip(),
+                        "title": entry.get("title", "").strip(),
+                        "summary": entry.get("summary", "").strip(),
+                        "published_date": _parse_date(entry),
+                        "tags": [t.get("term", "") for t in entry.get("tags", [])],
+                    })
+            except Exception as exc:
+                logger.warning("Feedparser failed for %s: %s — trying native XML fallback", feed_url, exc)
+
+        # Fallback to direct XML parsing if feedparser unavailable or returned empty
+        if not entries:
+            try:
+                xml_entries = _poll_xml_feed(feed_url)
+                for e in xml_entries:
+                    entries.append({
+                        "link": e["link"],
+                        "title": e["title"],
+                        "summary": e["summary"],
+                        "published_date": e.get("published"),
+                        "tags": [],
+                    })
+            except Exception as exc:
+                logger.error("XML parse failed for %s: %s", feed_url, exc)
+                time.sleep(rate_limit_s)
+                continue
+
+        for entry in entries:
             url: str = entry.get("link", "").strip()
             if not url or url in seen:
                 continue
@@ -90,9 +140,9 @@ def poll_feeds(
                 title=entry.get("title", "").strip(),
                 summary=entry.get("summary", "").strip(),
                 category=feed_name,
-                published_date=_parse_date(entry),
+                published_date=entry.get("published_date"),
                 rss_feed_url=feed_url,
-                tags=[t.get("term", "") for t in entry.get("tags", [])],
+                tags=entry.get("tags", []),
             )
 
             seen.add(url)
@@ -103,6 +153,7 @@ def poll_feeds(
 
     _save_seen(seen)
     logger.info("Polled %d feeds — %d new articles found.", len(feeds), len(new_articles))
+
 
 
 def save_article_stub(article: Article) -> Path:

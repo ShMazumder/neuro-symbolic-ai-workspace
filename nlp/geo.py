@@ -223,7 +223,17 @@ def extract_locations(text: str, nlp=None) -> list[GeoResult]:
             seen_districts.add(geo.district)
             results.append(geo)
         elif not geo.district and geo.confidence == 0.0:
-            # Include unknowns for manual review
             results.append(geo)
 
     return results
+
+
+def extract_districts(text: str, nlp=None) -> list[str]:
+    """Helper to extract distinct district names mentioned in text."""
+    results = extract_locations(text, nlp=nlp)
+    districts = []
+    for r in results:
+        if r.district and r.district not in districts:
+            districts.append(r.district)
+    return districts
+

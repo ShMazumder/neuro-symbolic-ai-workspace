@@ -1,0 +1,42 @@
+{
+  "COERCE": {
+    "precision": 0.772,
+    "recall": 0.88,
+    "f1": 0.822,
+    "tp": 44,
+    "fp": 13,
+    "fn": 6
+  },
+  "ASSAULT": {
+    "precision": 0.823,
+    "recall": 0.812,
+    "f1": 0.818,
+    "tp": 65,
+    "fp": 14,
+    "fn": 15
+  },
+  "FIGHT": {
+    "precision": 0.87,
+    "recall": 0.784,
+    "f1": 0.825,
+    "tp": 40,
+    "fp": 6,
+    "fn": 11
+  },
+  "MASS_VIOLENCE": {
+    "precision": 0.667,
+    "recall": 0.632,
+    "f1": 0.649,
+    "tp": 12,
+    "fp": 6,
+    "fn": 7
+  },
+  "OVERALL": {
+    "precision": 0.805,
+    "recall": 0.805,
+    "f1": 0.805,
+    "tp": 161,
+    "fp": 39,
+    "fn": 39
+  }
+}

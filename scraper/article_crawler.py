@@ -10,7 +10,10 @@ from typing import Optional
 from urllib.parse import urlparse
 
 import requests
-from bs4 import BeautifulSoup
+try:
+    from bs4 import BeautifulSoup
+except ImportError:
+    BeautifulSoup = None
 
 from scraper.schema import Article
 
@@ -131,15 +134,29 @@ def fetch_article(article: Article, rate_limit_s: float = RATE_LIMIT_S) -> Artic
         logger.error("All retries exhausted for %s", article.url)
         raise last_exc  # type: ignore[misc]
 
-    soup = BeautifulSoup(resp.text, "html.parser")
-
-    # Enrich article fields
-    article.body = _extract_body(soup)
-    article.author = article.author or _extract_author(soup)
-    article.published_date = article.published_date or _extract_published_date(soup)
-
-    # Store raw HTML for debugging (optional — comment out to save disk)
-    # article.raw_html = resp.text
+    if BeautifulSoup is not None:
+        soup = BeautifulSoup(resp.text, "html.parser")
+        article.body = _extract_body(soup)
+        article.author = article.author or _extract_author(soup)
+        article.published_date = article.published_date or _extract_published_date(soup)
+    else:
+        # Regex fallback when bs4 is not available
+        paragraphs = re.findall(r"<p[^>]*>(.*?)</p>", resp.text, re.DOTALL | re.IGNORECASE)
+        clean_paras = []
+        for p in paragraphs:
+            text = re.sub(r"<[^>]+>", "", p)
+            text = _clean_text(text)
+            if len(text) > 30 and not any(skip in text.lower() for skip in ["advertisement", "all rights reserved", "subscribe"]):
+                clean_paras.append(text)
+        article.body = "\n\n".join(clean_paras)
+        
+        author_m = re.search(r'name=["\']author["\']\s+content=["\'](.*?)["\']', resp.text, re.IGNORECASE)
+        if author_m:
+            article.author = article.author or author_m.group(1).strip()
+            
+        date_m = re.search(r'property=["\'](?:article|og:article):published_time["\']\s+content=["\'](.*?)["\']', resp.text, re.IGNORECASE)
+        if date_m:
+            article.published_date = article.published_date or date_m.group(1).strip()
 
     logger.debug("Fetched %d chars body from %s", len(article.body), article.url)
     time.sleep(rate_limit_s)

@@ -219,6 +219,10 @@ def detect_triggers(text: str) -> list[TriggerSpan]:
     return deduped
 
 
+# Alias for import compatibility
+extract_triggers = detect_triggers
+
+
 def get_trigger_sentences(text: str) -> list[tuple[str, list[TriggerSpan]]]:
     """
     Split text into sentences and return only those containing triggers.

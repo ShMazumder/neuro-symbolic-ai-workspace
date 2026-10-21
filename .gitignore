@@ -1,5 +1,16 @@
 # Data files
-data/
+data/*
+!data/sample_backup/
+!data/sample_backup/**
+!data/real_news_daily_star.json
+!data/annotations/
+!data/annotations/**
+!data/raw/
+!data/raw/.gitkeep
+!data/processed/
+!data/processed/.gitkeep
+!data/evaluation/
+!data/evaluation/**
 models/
 *.pkl
 *.pt
