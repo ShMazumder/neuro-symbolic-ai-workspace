@@ -44,7 +44,8 @@ neuro-symbolic-ai-workspace/
 
 ```bash
 # 1. Clone
-git clone <repo-url> && cd neuro-symbolic-ai-workspace
+git clone https://github.com/ShMazumder/neuro-symbolic-ai-workspace.git
+cd neuro-symbolic-ai-workspace
 
 # 2. Read the plan in order
 cat docs/01_ROADMAP.md
