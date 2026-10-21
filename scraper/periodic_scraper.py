@@ -133,12 +133,22 @@ def scrape_category_archive(
                 continue
             # Extract links to news stories
             links = set(re.findall(r'href=["\'](/news/[^"\']+)["\']', resp.text))
-            for rel in links:
-                full_url = urljoin("https://www.thedailystar.net", rel)
-                # Skip index or listing URLs
-                if full_url in existing_urls or rel.endswith(category_slug):
-                    continue
-                
+            # Filter out category section roots (e.g. /news/education, /news/politics)
+            article_links = [
+                rel for rel in links
+                if re.search(r'-\d+$', rel) or len(rel.strip("/").split("/")) > 2
+            ]
+            candidates = [
+                urljoin("https://www.thedailystar.net", rel)
+                for rel in article_links
+            ]
+            new_candidates = [u for u in candidates if u not in existing_urls]
+            logger.info(
+                "Found %d article links (%d already in dataset, %d new to crawl)",
+                len(candidates), len(candidates) - len(new_candidates), len(new_candidates)
+            )
+
+            for full_url in new_candidates:
                 stub = Article(url=full_url, category=category_slug.split("/")[-1])
                 try:
                     art = fetch_article(stub, rate_limit_s=rate_limit_s)
@@ -157,6 +167,8 @@ def scrape_category_archive(
     if added:
         save_dataset(dataset)
         logger.info("Archive scrape complete: %d new articles added (Total: %d)", added, len(dataset))
+    else:
+        logger.info("Archive scrape complete: No new articles found (All already present in dataset)")
     return added
 
 
@@ -199,6 +211,7 @@ if __name__ == "__main__":
     if args.bulk:
         categories = [args.category] if args.category else [
             "news/crime-justice",
+            "news/politics",
             "news/bangladesh/crime-justice",
             "news/bangladesh/politics",
         ]
