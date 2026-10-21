@@ -90,14 +90,17 @@ blazegraph-logs:
 # ── Data ingestion ────────────────────────────────────────────────────────────
 scrape:
 	@echo "📰 Fetching Daily Star articles (one-shot)…"
-	$(PYTHON) -c "from scraper.rss_poller import RSSPoller; RSSPoller().fetch_once()"
-	@echo "🕷️  Crawling article bodies…"
-	$(PYTHON) -c "from scraper.article_crawler import ArticleCrawler; ArticleCrawler().crawl_all('$(DATA_RAW)')"
-	@echo "✅ Scraping complete. Articles in $(DATA_RAW)/"
+	$(PYTHON) -m scraper.periodic_scraper --once
+	@echo "✅ Scraping complete. Dataset in data/real_news_daily_star.json"
 
 scrape-daemon:
-	@echo "🔄 Starting RSS poller daemon (runs continuously)…"
-	$(PYTHON) -m scraper.rss_poller &
+	@echo "🔄 Starting periodic scraper daemon (every 1 hour)…"
+	$(PYTHON) -m scraper.periodic_scraper --interval 3600
+
+scrape-bulk:
+	@echo "📚 Bulk crawling archive pages from Daily Star…"
+	$(PYTHON) -m scraper.periodic_scraper --bulk --pages 3
+	@echo "✅ Bulk scraping complete."
 
 # ── NLP pipeline ──────────────────────────────────────────────────────────────
 nlp:
