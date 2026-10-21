@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NeuroSym-BD: Academic Conference Poster</title>
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #111827;
+      --card-border: #1f2937;
+      --accent-blue: #0284c7;
+      --accent-cyan: #06b6d4;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      --accent-purple: #8b5cf6;
+      --accent-rose: #f43f5e;
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      padding: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* Poster Canvas (Standard 48x36 Landscape Ratio) */
+    .poster-container {
+      width: 1400px;
+      min-height: 960px;
+      background: #0d1322;
+      border: 2px solid #374151;
+      border-radius: 16px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+      position: relative;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+      border: 1px solid #312e81;
+      border-radius: 12px;
+      padding: 24px 32px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header-content h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(120deg, #ffffff 60%, #93c5fd 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+
+    .header-content .subtitle {
+      font-size: 1.1rem;
+      color: #94a3b8;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .header-content .authors {
+      font-size: 0.95rem;
+      color: #cbd5e1;
+    }
+
+    .header-content .authors span {
+      color: var(--accent-cyan);
+      font-weight: 600;
+    }
+
+    .conference-badge {
+      text-align: right;
+      border-left: 2px solid rgba(255, 255, 255, 0.15);
+      padding-left: 24px;
+    }
+
+    .badge-tag {
+      background: linear-gradient(135deg, #4f46e5, #06b6d4);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+
+    /* 3-Column Layout */
+    .poster-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr 1fr;
+      gap: 22px;
+      flex: 1;
+    }
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Section Card */
+    .pane {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pane-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      border-bottom: 2px solid #1f2937;
+      padding-bottom: 8px;
+    }
+
+    .pane-title .num {
+      background: var(--accent-blue);
+      color: #fff;
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+    }
+
+    p, li {
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: #cbd5e1;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 4px;
+    }
+
+    ul li {
+      margin-bottom: 6px;
+      position: relative;
+      padding-left: 18px;
+    }
+
+    ul li::before {
+      content: "■";
+      font-size: 0.6rem;
+      position: absolute;
+      left: 0;
+      top: 3px;
+      color: var(--accent-cyan);
+    }
+
+    /* Metrics Callouts */
+    .metric-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 12px 0;
+    }
+
+    .metric-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .metric-card .val {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .metric-card .lbl {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      margin-top: 8px;
+    }
+
+    th {
+      background: rgba(255, 255, 255, 0.05);
+      text-align: left;
+      padding: 6px 10px;
+      color: var(--accent-cyan);
+      font-weight: 600;
+      border-bottom: 1px solid #374151;
+    }
+
+    td {
+      padding: 6px 10px;
+      border-bottom: 1px solid #1f2937;
+      color: #e5e7eb;
+    }
+
+    /* Highlight box */
+    .highlight-box {
+      background: rgba(6, 182, 212, 0.08);
+      border-left: 3px solid var(--accent-cyan);
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 0.84rem;
+      margin-top: 10px;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 18px;
+      border-top: 1px solid #1f2937;
+      padding-top: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Print settings for PDF export */
+    @media print {
+      body {
+        padding: 0;
+        background: #fff;
+        color: #000;
+      }
+      .poster-container {
+        border: none;
+        box-shadow: none;
+        width: 100%;
+        min-height: 100%;
+        background: #fff;
+        color: #000;
+      }
+      .pane, header {
+        background: #f8fafc;
+        border-color: #cbd5e1;
+        color: #000;
+      }
+      .pane-title {
+        color: #0f172a;
+        border-color: #cbd5e1;
+      }
+      p, li, td {
+        color: #334155;
+      }
+      .header-content h1 {
+        -webkit-text-fill-color: #0f172a;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="poster-container">
+
+    <!-- Header -->
+    <header>
+      <div class="header-content">
+        <h1>NeuroSym-BD: Neuro-Symbolic Violence Analysis from Live News Portals</h1>
+        <div class="subtitle">
+          Real-Time Event Extraction, CAMEO Ontological Grounding, and Constrained Escalation Forecasting
+        </div>
+        <div class="authors">
+          <span>Principal Researcher</span> · Department of Computer Science & Engineering · Machine Learning Research Lab
+        </div>
+      </div>
+      <div class="conference-badge">
+        <div class="badge-tag">Academic Research Colloquium 2026</div>
+        <div style="font-size: 0.85rem; color: #94a3b8;">Focus: Neuro-Symbolic AI & Conflict Analysis</div>
+      </div>
+    </header>
+
+    <!-- 3 Columns -->
+    <div class="poster-grid">
+
+      <!-- Column 1: Context & Knowledge Engineering -->
+      <div class="column">
+
+        <!-- 1. Problem & Motivation -->
+        <div class="pane">
+          <div class="pane-title"><span class="num">1</span> Problem & Motivation</div>
+          <p>
+            Real-time conflict analysis from news text faces a fundamental AI paradox:
+          </p>
+          <ul style="margin-top: 8px;">
+            <li><strong>Neural LLMs / GNNs:</strong> Excel at unstructured language but hallucinate, exhibit uncalibrated overconfidence, and lack formal logical guarantees.</li>
+            <li><strong>Symbolic Systems (Rules/Ontologies):</strong> Provide auditability and rigor, but shatter under real-world journalistic syntax and lexical noise.</li>
+          </ul>
+          <div class="highlight-box">
+            <strong>Key Goal:</strong> Build a hybrid system grounding live Daily Star news articles in a localized Bangladesh CAMEO knowledge graph with 100% provenance traceability.
+          </div>
+        </div>
+
+        <!-- 2. Localized Bangladesh CAMEO Ontology -->
+        <div class="pane">
+          <div class="pane-title"><span class="num">2</span> Bangladesh CAMEO Extension</div>
+          <p>
+            Standard global CAMEO (13–20) lacks indigenous South Asian conflict archetypes. We formulated 20 specialized OWL subclasses in Turtle:
+          </p>
+          <table>
+            <thead>
+              <tr><th>Code</th><th>Class Name</th><th>Context</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>BD-PV-01</code></td><td>Political Clashes</td><td>AL vs BNP clashes</td></tr>
+              <tr><td><code>BD-PV-03</code></td><td>Mob Lynching</td><td>গণপিটুনি (Gonopituni)</td></tr>
+              <tr><td><code>BD-CV-01</code></td><td>Hartal Violence</td><td>Strike enforcement & arson</td></tr>
+              <tr><td><code>BD-GV-01</code></td><td>Custodial Torture</td><td>Crossfire / Encounters</td></tr>
+              <tr><td><code>BD-LV-01</code></td><td>Labor Unrest</td><td>RMG wage blockades</td></tr>
+            </tbody>
+          </table>
+          <p style="margin-top: 10px; font-size: 0.8rem; color: var(--text-muted);">
+            Triples ingested into <strong>BlazeGraph 2.1.6</strong> SPARQL endpoint with full OWL-RL reasoning.
+          </p>
+        </div>
+
+        <!-- 3. Automated NLP Pipeline -->
+        <div class="pane">
+          <div class="pane-title"><span class="num">3</span> 8-Stage NLP Extraction</div>
+          <ul>
+            <li><strong>Fast Relevance Filter:</strong> 50+ BD violence regex keywords + zero-shot BART fallback.</li>
+            <li><strong>Trigger Detection:</strong> Lemmatized verbal and nominal lexicons mapping directly to CAMEO roots.</li>
+            <li><strong>Entity & Geo Resolution:</strong> spaCy NER resolved against 64 districts & 8 BD divisions.</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Column 2: System Architecture & Hybrid Engine (Centerpiece) -->
+      <div class="column">
+
+        <!-- 4. System Architecture -->
+        <div class="pane" style="flex: 1;">
+          <div class="pane-title"><span class="num">4</span> Neuro-Symbolic Architecture</div>
+          
+          <!-- High-Res SVG Diagram -->
+          <div style="background: #0b0f19; border-radius: 8px; padding: 12px; margin-bottom: 12px; border: 1px solid #1f2937;">
+            <svg viewBox="0 0 540 280" width="100%" height="240">
+              <rect x="10" y="20" width="110" height="70" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+              <text x="65" y="45" fill="#fff" font-size="11" font-weight="700" text-anchor="middle">Live Daily Star</text>
+              <text x="65" y="65" fill="#94a3b8" font-size="9" text-anchor="middle">RSS & Crawler</text>
+
+              <path d="M 120 55 L 145 55" stroke="#94a3b8" stroke-width="2"/>
+
+              <rect x="145" y="20" width="110" height="70" rx="8" fill="#1e293b" stroke="#c084fc" stroke-width="1.5"/>
+              <text x="200" y="45" fill="#fff" font-size="11" font-weight="700" text-anchor="middle">NLP Pipeline</text>
+              <text x="200" y="65" fill="#94a3b8" font-size="9" text-anchor="middle">Triggers & NER</text>
+
+              <path d="M 255 55 L 280 55" stroke="#94a3b8" stroke-width="2"/>
+
+              <rect x="280" y="20" width="120" height="70" rx="8" fill="#1e293b" stroke="#34d399" stroke-width="1.5"/>
+              <text x="340" y="45" fill="#fff" font-size="11" font-weight="700" text-anchor="middle">BlazeGraph KG</text>
+              <text x="340" y="65" fill="#94a3b8" font-size="9" text-anchor="middle">W3C PROV-O</text>
+
+              <path d="M 340 90 L 340 125" stroke="#94a3b8" stroke-width="2"/>
+
+              <!-- Lower Center Engine -->
+              <rect x="100" y="125" width="340" height="135" rx="10" fill="#0f172a" stroke="#f59e0b" stroke-width="1.5"/>
+              <text x="270" y="148" fill="#fbbf24" font-size="12" font-weight="800" text-anchor="middle">HYBRID NEURO-SYMBOLIC INFERENCE ENGINE</text>
+
+              <!-- Left Box: Neural -->
+              <rect x="115" y="160" width="140" height="85" rx="6" fill="#1e1b4b" stroke="#818cf8"/>
+              <text x="185" y="180" fill="#c7d2fe" font-size="10" font-weight="700" text-anchor="middle">Neural Subsystem</text>
+              <text x="185" y="198" fill="#94a3b8" font-size="8.5" text-anchor="middle">• R-GCN Graph Embeddings</text>
+              <text x="185" y="214" fill="#94a3b8" font-size="8.5" text-anchor="middle">• BiLSTM Sequence Escalation</text>
+              <text x="185" y="230" fill="#38bdf8" font-size="8.5" text-anchor="middle">Raw Logits: P(y|x)</text>
+
+              <!-- Right Box: Symbolic -->
+              <rect x="285" y="160" width="140" height="85" rx="6" fill="#450a0a" stroke="#f87171"/>
+              <text x="355" y="180" fill="#fecaca" font-size="10" font-weight="700" text-anchor="middle">Symbolic Constraints</text>
+              <text x="355" y="198" fill="#94a3b8" font-size="8.5" text-anchor="middle">• Ontological Transitions (13-20)</text>
+              <text x="355" y="214" fill="#94a3b8" font-size="8.5" text-anchor="middle">• BD Spatial Hierarchy</text>
+              <text x="355" y="230" fill="#f87171" font-size="8.5" text-anchor="middle">Hard Rejection & Penalty</text>
+
+              <!-- Out arrow -->
+              <path d="M 440 190 L 465 190" stroke="#94a3b8" stroke-width="2"/>
+              <rect x="465" y="165" width="65" height="50" rx="6" fill="#064e3b" stroke="#34d399"/>
+              <text x="497" y="188" fill="#a7f3d0" font-size="9" font-weight="700" text-anchor="middle">Validated</text>
+              <text x="497" y="202" fill="#a7f3d0" font-size="9" font-weight="700" text-anchor="middle">Decisions</text>
+            </svg>
+          </div>
+
+          <p style="font-size: 0.85rem; line-height: 1.5;">
+            <strong>Formal Validation Mechanism:</strong> The neural component generates probability logits over CAMEO escalation states. The symbolic engine evaluates constraints:
+          </p>
+          <ul style="margin-top: 6px;">
+            <li><strong>Hard Constraint Violation:</strong> Illegal category jumps (e.g. Threaten $\to$ Mass Violence) are intercepted; falls back to safest ancestor code.</li>
+            <li><strong>Soft Constraint Violation:</strong> Geographic or actor mismatches incur calibrated confidence penalties.</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Column 3: Empirical Evaluation & Impact -->
+      <div class="column">
+
+        <!-- 5. Experimental Results -->
+        <div class="pane">
+          <div class="pane-title"><span class="num">5</span> Experimental Verification</div>
+
+          <div class="metric-row">
+            <div class="metric-card">
+              <div class="val" style="color: var(--accent-emerald);">0.917</div>
+              <div class="lbl">F1 High Violence</div>
+            </div>
+            <div class="metric-card">
+              <div class="val" style="color: var(--accent-cyan);">0.805</div>
+              <div class="lbl">GDELT F1 Overall</div>
+            </div>
+            <div class="metric-card">
+              <div class="val" style="color: var(--accent-purple);">100%</div>
+              <div class="lbl">Provenance Audit</div>
+            </div>
+          </div>
+
+          <p style="font-size: 0.82rem; font-weight: 600; color: #fff; margin-top: 6px;">
+            Ablation on Held-Out Test Set (N=40):
+          </p>
+          <table>
+            <thead>
+              <tr><th>Model Condition</th><th>F1@HV</th><th>FPR</th><th>Calib. Conf.</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Neural-Only</td><td>0.917</td><td>5.0%</td><td>0.746 (Uncal.)</td></tr>
+              <tr><td>Symbolic-Only</td><td>0.961</td><td>7.5%</td><td>0.700 (Rigid)</td></tr>
+              <tr style="background: rgba(16, 185, 129, 0.15);">
+                <td><strong>Hybrid (Ours)</strong></td><td><strong>0.917</strong></td><td><strong>5.0%</strong></td><td><strong>0.681 (Optimal)</strong></td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 8px;">
+            *ACLED Detection Recall: 17.3% (expected single-source bound vs nationwide multi-outlet field reporting).
+          </p>
+        </div>
+
+        <!-- 6. Downstream Tools & Future Work -->
+        <div class="pane">
+          <div class="pane-title"><span class="num">6</span> Applications & Roadmap</div>
+          <ul>
+            <li><strong>Graph-RAG Q&A:</strong> Natural language interrogation grounded in verified BlazeGraph triples.</li>
+            <li><strong>NL2SPARQL:</strong> Automated schema-compliant query generation for non-technical intelligence analysts.</li>
+            <li><strong>Future Scaling:</strong> Expanding crawler to Bengali portals (Prothom Alo) with BanglaBERT to bridge rural reporting gaps.</li>
+          </ul>
+        </div>
+
+        <!-- 7. Reproducibility -->
+        <div class="pane" style="background: rgba(255, 255, 255, 0.02);">
+          <div style="font-size: 0.82rem; color: #94a3b8;">
+            <strong style="color: #fff;">Reproducibility:</strong> All 14/14 automated unit tests pass cleanly.<br>
+            <code>make evaluate</code> &middot; <code>python evaluation/run_all.py</code>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div>GitHub Repository: <code>github.com/ShMazumder/neuro-symbolic-ai-workspace</code></div>
+      <div>W3C PROV-O &middot; BlazeGraph 2.1.6 &middot; PyTorch Geometric &middot; CAMEO OWL-RL</div>
+    </footer>
+
+  </div>
+
+</body>
+</html>

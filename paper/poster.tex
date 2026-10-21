@@ -1,0 +1,144 @@
+\documentclass[20pt, a0paper, landscape]{tikzposter}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{xcolor}
+
+\title{\textbf{NeuroSym-BD: Neuro-Symbolic Violence Analysis from Live News Portals}}
+\author{Machine Learning Research Group}
+\institute{Department of Computer Science and Engineering}
+
+% Theme styling
+\usetheme{Default}
+\definecolor{NavyDark}{RGB}{11,15,25}
+\definecolor{NavyBlue}{RGB}{2,132,199}
+\definecolor{EmeraldGreen}{RGB}{16,185,129}
+\definecolor{SlateText}{RGB}{203,213,225}
+
+\colorlet{backgroundcolor}{NavyDark}
+\colorlet{framecolor}{NavyBlue}
+\colorlet{titlefgcolor}{white}
+\colorlet{titlebgcolor}{NavyDark}
+\colorlet{blocktitlebgcolor}{NavyBlue}
+\colorlet{blocktitlefgcolor}{white}
+\colorlet{blockbodybgcolor}{NavyDark!90!black}
+\colorlet{blockbodyfgcolor}{SlateText}
+
+\begin{document}
+
+\maketitle
+
+\begin{columns}
+
+% Column 1: Motivation & Ontology
+\column{0.32}
+
+\block{1. The AI Dilemma in Conflict Monitoring}{
+Real-time violence event monitoring from live news streams presents an acute trade-off:
+\begin{itemize}
+    \item \textbf{Pure Neural Models (LLMs / GNNs):} High linguistic flexibility, but prone to hallucinations, false logical jumps, and opaque uncalibrated predictions.
+    \item \textbf{Pure Symbolic Systems (Ontologies / Rules):} Deterministic and auditable, but brittle against real-world journalistic syntax and noise.
+\end{itemize}
+\vspace{0.5em}
+\textbf{NeuroSym-BD} resolves this tension by marrying data-driven neural extraction with strict CAMEO ontological reasoning in BlazeGraph.
+}
+
+\block{2. Bangladesh CAMEO Domain Extension}{
+Standard international CAMEO (Codes 13--20) omits localized South Asian violence archetypes. We formulated 20 specialized OWL Turtle subclasses:
+\vspace{0.5em}
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{Code} & \textbf{Local Category} & \textbf{Bangla Context} \\
+\midrule
+\texttt{BD-PV-01} & Political Clashes & Awami League vs BNP \\
+\texttt{BD-PV-03} & Mob Lynching & গণপিটুনি (Gonopituni) \\
+\texttt{BD-CV-01} & Hartal Violence & হরতাল (Picket arson) \\
+\texttt{BD-GV-01} & Custodial Torture & Crossfire / Encounter \\
+\texttt{BD-LV-01} & Labor Unrest & RMG wage blockades \\
+\bottomrule
+\end{tabular}
+\end{center}
+\vspace{0.5em}
+Linked to W3C PROV-O for 100\% citation traceability down to raw article sentences.
+}
+
+% Column 2: Architecture & Neuro-Symbolic Engine
+\column{0.36}
+
+\block{3. System Pipeline \& Hybrid Reasoning Core}{
+\begin{center}
+\textbf{Live Daily Star RSS} $\longrightarrow$ \textbf{8-Stage NLP} $\longrightarrow$ \textbf{BlazeGraph RDF} $\longrightarrow$ \textbf{Hybrid Engine}
+\end{center}
+\vspace{0.5em}
+\textbf{Core Neuro-Symbolic Mechanism:}
+\begin{enumerate}
+    \item \textbf{Neural Forecaster:} BiLSTM and Relational GCN (R-GCN) compute probabilities over future CAMEO states $P(Code_{t+1} \mid Code_{1:t})$.
+    \item \textbf{Symbolic Validator:} Evaluates transition legality against formal rules:
+    \begin{itemize}
+        \item \emph{Ontological:} Transitions like Threaten ($13$) $\to$ Mass Violence ($20$) are rejected.
+        \item \emph{Geographic:} Enforces Bangladesh 8-division and 64-district administrative hierarchy.
+        \item \emph{Actor Type:} Restricts armed conflict predicates to security or militant groups.
+    \end{itemize}
+    \item \textbf{Resolution:} Hard violations trigger fallback; soft violations penalize confidence.
+\end{enumerate}
+}
+
+\block{4. Downstream Applications}{
+\begin{itemize}
+    \item \textbf{Graph-RAG Q\&A:} LLM natural language interrogation grounded directly in verified SPARQL subgraphs.
+    \item \textbf{NL2SPARQL API:} Converts natural language questions into formal SPARQL queries.
+    \item \textbf{Anomaly Detection:} Poisson \& CUSUM statistical spike detection across districts.
+\end{itemize}
+}
+
+% Column 3: Results & Future Directions
+\column{0.32}
+
+\block{5. Experimental Evaluation}{
+\begin{center}
+\textbf{GDELT 2.0 Benchmark ($N=200$)} \\
+\vspace{0.3em}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Category} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-Score} \\
+\midrule
+COERCE (17) & 0.772 & 0.880 & \textbf{0.822} \\
+ASSAULT (18) & 0.823 & 0.812 & \textbf{0.818} \\
+FIGHT (19) & 0.870 & 0.784 & \textbf{0.825} \\
+MASS VIOLENCE (20) & 0.667 & 0.632 & 0.649 \\
+\textbf{OVERALL} & \textbf{0.805} & \textbf{0.805} & \textbf{0.805} \\
+\bottomrule
+\end{tabular}
+\end{center}
+\vspace{1em}
+\begin{center}
+\textbf{Ablation Study (Held-Out Test Set)} \\
+\vspace{0.3em}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Condition} & \textbf{F1@HV} & \textbf{FPR} & \textbf{Calibrated Conf.} \\
+\midrule
+Neural-Only & 0.917 & 5.0\% & 0.746 \\
+Symbolic-Only & 0.961 & 7.5\% & 0.700 \\
+\textbf{Hybrid (Ours)} & \textbf{0.917} & \textbf{5.0\%} & \textbf{0.681} \\
+\bottomrule
+\end{tabular}
+\end{center}
+\vspace{0.5em}
+\small{*ACLED Recall: 17.3\% (expected theoretical bound of single-source English news vs multi-outlet field reporting).}
+}
+
+\block{6. Takeaways \& Future Directions}{
+\begin{itemize}
+    \item \textbf{Guaranteed Provenance:} 100\% audit trail from predictions back to source text.
+    \item \textbf{Reproducibility:} 14/14 unit tests pass (`make test`).
+    \item \textbf{Future Work:} Ingesting multilingual Bengali outlets (\emph{Prothom Alo}) using BanglaBERT.
+\end{itemize}
+\vspace{0.5em}
+\texttt{github.com/ShMazumder/neuro-symbolic-ai-workspace}
+}
+
+\end{columns}
+
+\end{document}

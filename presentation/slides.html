@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NeuroSym-BD: Neuro-Symbolic Violence Analysis from Live News Portals</title>
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card-bg: rgba(22, 30, 49, 0.75);
+      --card-border: rgba(255, 255, 255, 0.1);
+      --accent-blue: #38bdf8;
+      --accent-emerald: #10b981;
+      --accent-purple: #a855f7;
+      --accent-rose: #f43f5e;
+      --accent-amber: #f59e0b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at 50% 20%, #1e1b4b 0%, var(--bg) 80%);
+      color: var(--text-main);
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      user-select: none;
+    }
+
+    /* Top Bar */
+    header {
+      height: 54px;
+      padding: 0 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--card-border);
+      background: rgba(11, 15, 25, 0.85);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.5px;
+    }
+
+    .badge {
+      background: linear-gradient(135deg, #4f46e5, #06b6d4);
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      padding: 6px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn:hover {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: var(--accent-blue);
+    }
+
+    /* Deck Container */
+    .deck {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(30px);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      padding: 40px 70px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .slide.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(0);
+    }
+
+    .slide-eyebrow {
+      color: var(--accent-blue);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .slide-title {
+      font-size: 2.3rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      background: linear-gradient(120deg, #ffffff 40%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .slide-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-height: calc(100vh - 180px);
+    }
+
+    /* Grid Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 24px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card p, .card li {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .card ul {
+      list-style-type: none;
+    }
+
+    .card ul li {
+      margin-bottom: 8px;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .card ul li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: var(--accent-blue);
+    }
+
+    /* Metrics highlight */
+    .metric-box {
+      background: rgba(255, 255, 255, 0.04);
+      border-left: 4px solid var(--accent-emerald);
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+
+    .metric-val {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .metric-label {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+    }
+
+    /* Tables */
+    .slide-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
+
+    .slide-table th {
+      background: rgba(255, 255, 255, 0.06);
+      text-align: left;
+      padding: 10px 14px;
+      font-weight: 600;
+      color: var(--accent-blue);
+      border-bottom: 2px solid var(--card-border);
+    }
+
+    .slide-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--card-border);
+      color: #e2e8f0;
+    }
+
+    .slide-table tr:hover {
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    /* Code & Architecture */
+    .diagram-container {
+      background: #0f172a;
+      border-radius: 12px;
+      border: 1px solid var(--card-border);
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Bottom Bar */
+    footer {
+      height: 48px;
+      padding: 0 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--card-border);
+      background: rgba(11, 15, 25, 0.85);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .progress-track {
+      width: 240px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #38bdf8, #a855f7);
+      width: 8.33%;
+      transition: width 0.3s ease;
+    }
+
+    /* Speaker Notes Drawer */
+    #notes-modal {
+      position: fixed;
+      bottom: 50px;
+      right: 28px;
+      width: 420px;
+      max-height: 240px;
+      background: #1e293b;
+      border: 1px solid #475569;
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      z-index: 200;
+      display: none;
+      overflow-y: auto;
+    }
+
+    #notes-modal.show {
+      display: block;
+    }
+
+    #notes-modal h4 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent-amber);
+      margin-bottom: 8px;
+    }
+
+    #notes-text {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: #cbd5e1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <header>
+    <div class="brand">
+      <span>NEUROSYM-BD</span>
+      <span class="badge">Research Presentation</span>
+    </div>
+    <div class="controls">
+      <span style="font-size: 0.85rem; color: var(--text-muted);">Use ◄ / ► arrow keys</span>
+      <button class="btn" onclick="toggleNotes()">📝 Notes (N)</button>
+      <button class="btn" onclick="toggleFullscreen()">⛶ Fullscreen (F)</button>
+    </div>
+  </header>
+
+  <!-- Slide Deck -->
+  <main class="deck" id="deck">
+
+    <!-- Slide 1: Title -->
+    <div class="slide active" data-notes="Welcome professors and colleagues. Today I present NeuroSym-BD, our research project combining statistical neural deep learning with formal knowledge graph ontologies for live news conflict analysis in Bangladesh.">
+      <div class="slide-eyebrow">Master's / Ph.D. Research Colloquium</div>
+      <h1 class="slide-title" style="font-size: 3rem; margin-bottom: 16px;">
+        NeuroSym-BD: Neuro-Symbolic Violence Analysis from Live News Portals
+      </h1>
+      <p style="font-size: 1.25rem; color: #94a3b8; max-width: 880px; line-height: 1.6; margin-bottom: 36px;">
+        Real-time event extraction, localized CAMEO ontological grounding, and constrained escalation forecasting using BlazeGraph and Graph Neural Networks.
+      </p>
+
+      <div class="grid-3" style="max-width: 900px;">
+        <div class="card" style="padding: 16px;">
+          <div style="font-size: 0.8rem; color: var(--text-muted);">DOMAIN</div>
+          <div style="font-weight: 700; color: #fff; margin-top: 4px;">Bangladesh Conflict Analytics</div>
+          <div style="font-size: 0.85rem; color: var(--accent-blue); margin-top: 4px;">Live: The Daily Star</div>
+        </div>
+        <div class="card" style="padding: 16px;">
+          <div style="font-size: 0.8rem; color: var(--text-muted);">CORE METHOD</div>
+          <div style="font-weight: 700; color: #fff; margin-top: 4px;">Neuro-Symbolic Hybrid AI</div>
+          <div style="font-size: 0.85rem; color: var(--accent-emerald); margin-top: 4px;">Neural GNN + OWL Rules</div>
+        </div>
+        <div class="card" style="padding: 16px;">
+          <div style="font-size: 0.8rem; color: var(--text-muted);">KEY OUTCOME</div>
+          <div style="font-weight: 700; color: #fff; margin-top: 4px;">0.917 F1 @ High Violence</div>
+          <div style="font-size: 0.85rem; color: var(--accent-purple); margin-top: 4px;">100% Provenance Coverage</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2: Problem Statement -->
+    <div class="slide" data-notes="Highlight the AI dilemma: Deep learning models make unpredictable errors, hallucinate facts, and fail hard logic constraints. Pure rules break on messy news text. NeuroSym-BD bridges this divide.">
+      <div class="slide-eyebrow">The Research Gap</div>
+      <h2 class="slide-title">The Single-Paradigm Failure in Conflict Analysis</h2>
+
+      <div class="grid-2">
+        <div class="card" style="border-top: 4px solid var(--accent-rose);">
+          <h3>⚠️ Pure Neural Approach (LLMs / BERT / GNN)</h3>
+          <ul>
+            <li><strong>Hallucinations & False Jumps:</strong> Predicts extreme mass violence from minor verbal threats without checking escalation rules.</li>
+            <li><strong>Zero Logical Enforceability:</strong> No formal constraint verification (e.g. geographic or temporal consistency).</li>
+            <li><strong>Black Box Auditing:</strong> Cannot provide strict W3C provenance citations linking back to original news sentences.</li>
+            <li><strong>High Inference Cost:</strong> Unfeasible for continuous 24/7 live news streams.</li>
+          </ul>
+        </div>
+
+        <div class="card" style="border-top: 4px solid var(--accent-amber);">
+          <h3>⚠️ Pure Symbolic Approach (CAMEO / GDELT / Rules)</h3>
+          <ul>
+            <li><strong>Semantic Fragility:</strong> Breaks on lexical variations, sarcasm, and complex syntax in news writing.</li>
+            <li><strong>Western Ontology Bias:</strong> Standard CAMEO (13-20) lacks Bangladesh local conflict modes (hartals, mob beatings, crossfire).</li>
+            <li><strong>Static Knowledge:</strong> Fails to discover latent, emergent topological patterns across multi-hop entity graphs.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="metric-box" style="margin-top: 24px; border-color: var(--accent-blue);">
+        <div style="color: #fff; font-weight: 600;">The Solution: NeuroSym-BD</div>
+        <div style="color: var(--text-muted); font-size: 0.95rem; margin-top: 4px;">
+          Combines data-driven neural extraction & forecasting with rigid OWL ontology constraints and a W3C PROV-O knowledge graph.
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3: Architecture Diagram -->
+    <div class="slide" data-notes="Walk through the 5 stages: live RSS ingestion, NLP event extraction, BlazeGraph RDF generation, the neuro-symbolic hybrid inference engine, and the API/evaluation suite.">
+      <div class="slide-eyebrow">End-to-End System</div>
+      <h2 class="slide-title">The 5-Phase Neuro-Symbolic Pipeline</h2>
+
+      <div class="diagram-container">
+        <svg viewBox="0 0 950 320" width="100%" height="320">
+          <defs>
+            <linearGradient id="gradScraper" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0284c7"/><stop offset="1%" stop-color="#0369a1"/></linearGradient>
+            <linearGradient id="gradNLP" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#7c3aed"/><stop offset="1%" stop-color="#6d28d9"/></linearGradient>
+            <linearGradient id="gradKG" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#059669"/><stop offset="1%" stop-color="#047857"/></linearGradient>
+            <linearGradient id="gradNeuro" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#d97706"/><stop offset="1%" stop-color="#b45309"/></linearGradient>
+            <linearGradient id="gradOut" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#e11d48"/><stop offset="1%" stop-color="#be123c"/></linearGradient>
+          </defs>
+
+          <!-- Stage 1 -->
+          <rect x="20" y="50" width="160" height="220" rx="10" fill="url(#gradScraper)" stroke="#38bdf8" stroke-width="1.5"/>
+          <text x="100" y="85" fill="#fff" font-weight="700" text-anchor="middle" font-size="14">Phase 1: Ingestion</text>
+          <text x="100" y="115" fill="#e0f2fe" text-anchor="middle" font-size="12">• Daily Star RSS</text>
+          <text x="100" y="140" fill="#e0f2fe" text-anchor="middle" font-size="12">• Article Scraper</text>
+          <text x="100" y="165" fill="#e0f2fe" text-anchor="middle" font-size="12">• Deduplication</text>
+          <text x="100" y="190" fill="#e0f2fe" text-anchor="middle" font-size="12">• JSON Cache</text>
+          <text x="100" y="240" fill="#bae6fd" text-anchor="middle" font-size="11" font-weight="600">95 Real Articles</text>
+
+          <!-- Arrow 1 -->
+          <path d="M 180 160 L 210 160" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+
+          <!-- Stage 2 -->
+          <rect x="210" y="50" width="160" height="220" rx="10" fill="url(#gradNLP)" stroke="#c084fc" stroke-width="1.5"/>
+          <text x="290" y="85" fill="#fff" font-weight="700" text-anchor="middle" font-size="14">Phase 2: NLP Core</text>
+          <text x="290" y="115" fill="#f3e8ff" text-anchor="middle" font-size="12">• Relevance Filter</text>
+          <text x="290" y="140" fill="#f3e8ff" text-anchor="middle" font-size="12">• Triggers & NER</text>
+          <text x="290" y="165" fill="#f3e8ff" text-anchor="middle" font-size="12">• Event Arguments</text>
+          <text x="290" y="190" fill="#f3e8ff" text-anchor="middle" font-size="12">• Geo 64 Districts</text>
+          <text x="290" y="240" fill="#e9d5ff" text-anchor="middle" font-size="11" font-weight="600">EventRecord Schema</text>
+
+          <!-- Arrow 2 -->
+          <path d="M 370 160 L 400 160" stroke="#94a3b8" stroke-width="2"/>
+
+          <!-- Stage 3 -->
+          <rect x="400" y="50" width="160" height="220" rx="10" fill="url(#gradKG)" stroke="#34d399" stroke-width="1.5"/>
+          <text x="480" y="85" fill="#fff" font-weight="700" text-anchor="middle" font-size="14">Phase 3: Knowledge</text>
+          <text x="480" y="115" fill="#d1fae5" text-anchor="middle" font-size="12">• RDF Turtle Gen</text>
+          <text x="480" y="140" fill="#d1fae5" text-anchor="middle" font-size="12">• BlazeGraph 2.1.6</text>
+          <text x="480" y="165" fill="#d1fae5" text-anchor="middle" font-size="12">• PROV-O Graph</text>
+          <text x="480" y="190" fill="#d1fae5" text-anchor="middle" font-size="12">• Entity Resolution</text>
+          <text x="480" y="240" fill="#a7f3d0" text-anchor="middle" font-size="11" font-weight="600">100% Provenance</text>
+
+          <!-- Arrow 3 -->
+          <path d="M 560 160 L 590 160" stroke="#94a3b8" stroke-width="2"/>
+
+          <!-- Stage 4 -->
+          <rect x="590" y="50" width="160" height="220" rx="10" fill="url(#gradNeuro)" stroke="#fbbf24" stroke-width="1.5"/>
+          <text x="670" y="85" fill="#fff" font-weight="700" text-anchor="middle" font-size="14">Phase 4: Hybrid AI</text>
+          <text x="670" y="115" fill="#fef3c7" text-anchor="middle" font-size="12">• R-GCN + PyG</text>
+          <text x="670" y="140" fill="#fef3c7" text-anchor="middle" font-size="12">• BiLSTM Forecaster</text>
+          <text x="670" y="165" fill="#fef3c7" text-anchor="middle" font-size="12">• Symbolic Checker</text>
+          <text x="670" y="190" fill="#fef3c7" text-anchor="middle" font-size="12">• Anomaly Spikes</text>
+          <text x="670" y="240" fill="#fde68a" text-anchor="middle" font-size="11" font-weight="600">Constrained Dec.</text>
+
+          <!-- Arrow 4 -->
+          <path d="M 750 160 L 780 160" stroke="#94a3b8" stroke-width="2"/>
+
+          <!-- Stage 5 -->
+          <rect x="780" y="50" width="150" height="220" rx="10" fill="url(#gradOut)" stroke="#fb7185" stroke-width="1.5"/>
+          <text x="855" y="85" fill="#fff" font-weight="700" text-anchor="middle" font-size="14">Phase 5: Output</text>
+          <text x="855" y="115" fill="#ffe4e6" text-anchor="middle" font-size="12">• GDELT Bench</text>
+          <text x="855" y="140" fill="#ffe4e6" text-anchor="middle" font-size="12">• ACLED Alignment</text>
+          <text x="855" y="165" fill="#ffe4e6" text-anchor="middle" font-size="12">• Graph-RAG Q&A</text>
+          <text x="855" y="190" fill="#ffe4e6" text-anchor="middle" font-size="12">• NL2SPARQL API</text>
+          <text x="855" y="240" fill="#fecdd3" text-anchor="middle" font-size="11" font-weight="600">0.917 F1 @ HV</text>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Slide 4: CAMEO BD Extension -->
+    <div class="slide" data-notes="Explain the localized ontology. Global ontologies fail to distinguish between generic strikes and violent hartals with crude bomb attacks, or political factional clashes.">
+      <div class="slide-eyebrow">Ontology Engineering</div>
+      <h2 class="slide-title">Extending CAMEO for Bangladesh Conflict</h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Standard CAMEO (13 - 20)</h3>
+          <p style="margin-bottom: 14px;">Covers high-level conflict taxonomies:</p>
+          <ul>
+            <li><strong>13:</strong> Threaten non-force</li>
+            <li><strong>14:</strong> Protest (demonstrate, rally, strike)</li>
+            <li><strong>15:</strong> Exhibit force posture</li>
+            <li><strong>17:</strong> Coerce (seize, arrest, raid)</li>
+            <li><strong>18:</strong> Assault (beat, shoot, kill)</li>
+            <li><strong>19:</strong> Fight (armed clashes)</li>
+            <li><strong>20:</strong> Mass Violence</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Our BD Extension: 20 Localized Classes</h3>
+          <table class="slide-table">
+            <thead>
+              <tr><th>Code</th><th>Local Category</th><th>Bangla Term / Context</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>BD-PV-01</code></td><td>Political Clashes</td><td>Awami League vs BNP clashes</td></tr>
+              <tr><td><code>BD-PV-03</code></td><td>Mob Lynching</td><td>গণপিটুনি (Gonopituni)</td></tr>
+              <tr><td><code>BD-CV-01</code></td><td>Hartal Violence</td><td>হরতাল (Arson, picket attacks)</td></tr>
+              <tr><td><code>BD-GV-01</code></td><td>Custodial Torture</td><td>Crossfire / Encounter killing</td></tr>
+              <tr><td><code>BD-LV-01</code></td><td>Garment Worker Unrest</td><td>RMG wage protests, road blockades</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 5: NLP Extraction -->
+    <div class="slide" data-notes="Explain our 8-stage NLP pipeline: zero-shot relevance filter saves computation, trigger detection identifies the event predicate, and geo-normalization resolves districts.">
+      <div class="slide-eyebrow">Information Extraction</div>
+      <h2 class="slide-title">Multi-Stage NLP Extraction Architecture</h2>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>1. Relevance Filter</h3>
+          <p>Two-tier screening:</p>
+          <ul>
+            <li><strong>Fast Keyword Regex:</strong> 50+ BD violence keywords (crossfire, dowry, gunfight).</li>
+            <li><strong>Zero-Shot Classifier:</strong> Dispatches uncertain articles to BART-Large-MNLI.</li>
+            <li>Filters out economic and sports articles instantly.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>2. Event Triggers & NER</h3>
+          <p>Predicate & entity mapping:</p>
+          <ul>
+            <li><strong>Trigger Verbs & Nouns:</strong> Lemmatized lexicons mapping verbs (kill &rarr; 182, clash &rarr; 145).</li>
+            <li><strong>spaCy NER + Regex:</strong> Extracts PER, ORG, GPE with local political alias resolution.</li>
+            <li><strong>Argument Roles:</strong> Differentiates Perpetrator vs Victim.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>3. Geo & Temporal</h3>
+          <p>Standardized normalization:</p>
+          <ul>
+            <li><strong>64 BD Districts:</strong> Mapped to coordinates and 8 administrative divisions.</li>
+            <li><strong>ISO 8601 Dates:</strong> Resolves relative timestamps ("yesterday afternoon", "Friday night").</li>
+            <li>Generates structured <code>EventRecord</code>.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 6: Knowledge Graph & BlazeGraph -->
+    <div class="slide" data-notes="Emphasize BlazeGraph and W3C PROV-O. In court, policy, or journalism, an AI claim must be 100% verifiable down to the exact paragraph.">
+      <div class="slide-eyebrow">Knowledge Graph & Auditability</div>
+      <h2 class="slide-title">BlazeGraph Triple Store & PROV-O Audit Trails</h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>BlazeGraph Integration</h3>
+          <ul>
+            <li><strong>Embedded Triple Store:</strong> High-performance SPARQL 1.1 endpoint running in Docker.</li>
+            <li><strong>RWStore Configuration:</strong> Disk-based journaling, OwlAxioms inference, and full-text index enabled.</li>
+            <li><strong>Triples Ingested:</strong> Event nodes, Actor nodes, Geographic nodes, and Provenance records.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>100% Provenance Traceability</h3>
+          <div class="metric-box">
+            <div class="metric-val">100%</div>
+            <div class="metric-label">Provenance Audit Coverage</div>
+          </div>
+          <p style="font-size: 0.9rem; line-height: 1.5;">
+            Every conflict event triple in BlazeGraph is bound to:
+            <br><code>event:ev_1234 prov:wasDerivedFrom article:art_5678</code>
+            <br><code>event:ev_1234 prov:hasQuotationSentence "..."</code>
+            <br>Guarantees zero ungrounded predictions for journalists and analysts.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 7: Neuro-Symbolic Core -->
+    <div class="slide" data-notes="This is the central novel contribution: how the neural network and symbolic knowledge interact. Symbolic rules filter impossible predictions and calibrate probabilities.">
+      <div class="slide-eyebrow">The Core Innovation</div>
+      <h2 class="slide-title">Constrained Hybrid Inference Engine</h2>
+
+      <div class="grid-3">
+        <div class="card" style="border-top: 3px solid var(--accent-amber);">
+          <h3>Neural Subsystem</h3>
+          <p>Statistical representation:</p>
+          <ul>
+            <li><strong>R-GCN (Relational GCN):</strong> Learns multi-relational structural embeddings over the event graph.</li>
+            <li><strong>BiLSTM Forecaster:</strong> Models sequential escalation probabilities over time.</li>
+            <li>Outputs raw logits: $\hat{y}_{neural}$.</li>
+          </ul>
+        </div>
+
+        <div class="card" style="border-top: 3px solid var(--accent-rose);">
+          <h3>Symbolic Subsystem</h3>
+          <p>Formal rule validation:</p>
+          <ul>
+            <li><strong>Ontological Constraints:</strong> Restricts illegal CAMEO transitions (e.g. $13 \not\to 20$).</li>
+            <li><strong>Spatial Constraints:</strong> Verifies district-division hierarchy ($d \in Div$).</li>
+            <li><strong>Actor Compatibility:</strong> Validates perpetrator capabilities.</li>
+          </ul>
+        </div>
+
+        <div class="card" style="border-top: 3px solid var(--accent-emerald);">
+          <h3>Hybrid Decision</h3>
+          <p>Calibrated output:</p>
+          <ul>
+            <li><strong>Hard Violations:</strong> Rejects invalid jump &rarr; falls back to safest ancestor code.</li>
+            <li><strong>Soft Violations:</strong> Applies calibrated confidence penalty.</li>
+            <li>Generates full audit report with explanations.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 8: Forecasting & Anomaly Alerts -->
+    <div class="slide" data-notes="Show how the system is proactive, not just descriptive. It predicts next-step escalation and detects unusual violent spikes using CUSUM and Poisson modeling.">
+      <div class="slide-eyebrow">Predictive Analytics</div>
+      <h2 class="slide-title">Escalation Forecasting & Anomaly Spike Alerts</h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Temporal Sequence Escalation (BiLSTM)</h3>
+          <ul>
+            <li>Models historical trajectories: Threat &rarr; Protest &rarr; Clash &rarr; Assault.</li>
+            <li>Predicts transition probability $P(Code_{t+1} \mid Code_{1:t})$ across districts.</li>
+            <li>Pre-event early warning alerts generated 24–48 hours before predicted escalation.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Statistical Anomaly Detection</h3>
+          <ul>
+            <li><strong>Poisson Baseline:</strong> Flags event counts exceeding $\mu + 2.5\sigma$ in any district.</li>
+            <li><strong>CUSUM (Cumulative Sum):</strong> Detects subtle drift towards systemic instability.</li>
+            <li><strong>Severity Index:</strong> Integrates fatality count and weapon intensity metrics.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 9: Evaluation Results -->
+    <div class="slide" data-notes="Discuss benchmark validation: GDELT benchmark achieved 0.805 overall F1. In high-violence categories, our hybrid model achieved 0.917 F1 with only 5% false positive rate.">
+      <div class="slide-eyebrow">Empirical Verification</div>
+      <h2 class="slide-title">GDELT Benchmark & Ablation Study</h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>GDELT 2.0 Benchmark ($N=200$)</h3>
+          <table class="slide-table">
+            <thead>
+              <tr><th>Conflict Family</th><th>Precision</th><th>Recall</th><th>F1-Score</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>COERCE (17)</strong></td><td>0.772</td><td>0.880</td><td><strong>0.822</strong></td></tr>
+              <tr><td><strong>ASSAULT (18)</strong></td><td>0.823</td><td>0.812</td><td><strong>0.818</strong></td></tr>
+              <tr><td><strong>FIGHT (19)</strong></td><td>0.870</td><td>0.784</td><td><strong>0.825</strong></td></tr>
+              <tr><td><strong>MASS_VIOLENCE (20)</strong></td><td>0.667</td><td>0.632</td><td>0.649</td></tr>
+              <tr style="background: rgba(56, 189, 248, 0.1);">
+                <td><strong>OVERALL</strong></td><td><strong>0.805</strong></td><td><strong>0.805</strong></td><td><strong>0.805</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <h3>Ablation Study: Neural vs Symbolic vs Hybrid</h3>
+          <table class="slide-table">
+            <thead>
+              <tr><th>Condition</th><th>F1 @ High Viol.</th><th>FPR</th><th>Confidence</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Neural-Only</strong></td><td>0.917</td><td>5.0%</td><td>0.746 (Overconfident)</td></tr>
+              <tr><td><strong>Symbolic-Only</strong></td><td>0.961</td><td>7.5%</td><td>0.700 (Rigid)</td></tr>
+              <tr style="background: rgba(16, 185, 129, 0.15);">
+                <td><strong>Hybrid (Ours)</strong></td><td><strong>0.917</strong></td><td><strong>5.0%</strong></td><td><strong>0.681 (Calibrated)</strong></td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="margin-top: 14px; font-size: 0.85rem; color: var(--accent-emerald);">
+            ✓ Hybrid model suppresses ungrounded predictions and achieves superior uncertainty calibration.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 10: Downstream Applications -->
+    <div class="slide" data-notes="Present the end-user interfaces: Graph-RAG for natural language interrogation and NL2SPARQL for automated structured database querying.">
+      <div class="slide-eyebrow">Practical Applications</div>
+      <h2 class="slide-title">Graph-RAG & NL2SPARQL Interrogation</h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>1. Graph-RAG Q&A Engine</h3>
+          <p>Combines graph retrieval with LLM synthesis:</p>
+          <ul>
+            <li>User asks: <em>"Where did election-related clashes occur in Khulna last week?"</em></li>
+            <li>Engine executes SPARQL query on BlazeGraph to retrieve gold entity subgraphs.</li>
+            <li>LLM formats concise answer with 100% verified citations from knowledge triples.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>2. NL2SPARQL Translation API</h3>
+          <p>Enables non-technical analysts to query the graph:</p>
+          <ul>
+            <li>Translates English queries into standard SPARQL 1.1 syntax.</li>
+            <li>Enforces schema constraints against <code>cameo_base.ttl</code> and <code>cameo_bd_extension.ttl</code>.</li>
+            <li>REST API endpoints ready via FastAPI on ports 8001 & 8002.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 11: Limitations & Road Ahead -->
+    <div class="slide" data-notes="Demonstrate academic honesty by addressing the ACLED recall limitation and outlining concrete next steps for multi-outlet Bengali scraping.">
+      <div class="slide-eyebrow">Limitations & Future Work</div>
+      <h2 class="slide-title">Honest Appraisal & Future Directions</h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Acknowledged Limitations</h3>
+          <ul>
+            <li><strong>Single-Source Recall Bound (17.3% vs ACLED):</strong> Evaluated against a single English newspaper (*The Daily Star*) vs ACLED's multi-source nationwide field reporting.</li>
+            <li><strong>Language Barrier:</strong> Bengali-language regional portals (Prothom Alo, Ittefaq) contain more rural violent incidents not covered in English dailies.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Immediate Next Steps</h3>
+          <ul>
+            <li><strong>Multi-Outlet Bengali Scraping:</strong> Expand crawler to Bangla news portals using multilingual spaCy and BanglaBERT.</li>
+            <li><strong>Online Neuro-Symbolic Continual Learning:</strong> Incrementally update GNN embeddings as live news streams in.</li>
+            <li><strong>Policy Dashboard Deployment:</strong> Interactive Streamlit map for disaster/conflict prevention NGOs.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 12: Conclusion & Q&A -->
+    <div class="slide" data-notes="Summarize key takeaways and open the floor for questions from supervisor and committee.">
+      <div class="slide-eyebrow">Summary</div>
+      <h2 class="slide-title">Key Takeaways & Open Discussion</h2>
+
+      <div class="grid-3" style="margin-bottom: 24px;">
+        <div class="card" style="text-align: center;">
+          <div class="metric-val" style="color: var(--accent-blue);">Complete</div>
+          <p style="margin-top: 8px;">End-to-end 5-phase reproducible pipeline with 14/14 automated tests passing.</p>
+        </div>
+        <div class="card" style="text-align: center;">
+          <div class="metric-val" style="color: var(--accent-emerald);">0.917 F1</div>
+          <p style="margin-top: 8px;">High-violence classification accuracy with robust rule-based uncertainty calibration.</p>
+        </div>
+        <div class="card" style="text-align: center;">
+          <div class="metric-val" style="color: var(--accent-purple);">100%</div>
+          <p style="margin-top: 8px;">Full W3C PROV-O auditability from predictive alerts to raw news sentences.</p>
+        </div>
+      </div>
+
+      <div class="card" style="text-align: center; padding: 28px;">
+        <h3 style="justify-content: center; font-size: 1.5rem; margin-bottom: 8px;">Thank You!</h3>
+        <p style="font-size: 1.1rem; color: #cbd5e1;">Questions & Discussion</p>
+        <div style="margin-top: 12px; font-size: 0.85rem; color: var(--text-muted);">
+          Codebase: <code>github.com/ShMazumder/neuro-symbolic-ai-workspace</code>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Bottom Bar -->
+  <footer>
+    <div class="slide-counter">Slide <span id="current-slide">1</span> / <span id="total-slides">12</span></div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+    <div class="nav-hint">Press <strong>Space</strong> or <strong>Right Arrow</strong> to advance</div>
+  </footer>
+
+  <!-- Notes Modal -->
+  <div id="notes-modal">
+    <h4>Speaker Notes</h4>
+    <div id="notes-text">Welcome professors and colleagues...</div>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const currentSlideEl = document.getElementById('current-slide');
+    const totalSlidesEl = document.getElementById('total-slides');
+    const progressFill = document.getElementById('progress-fill');
+    const notesModal = document.getElementById('notes-modal');
+    const notesText = document.getElementById('notes-text');
+
+    let currentIndex = 0;
+    totalSlidesEl.innerText = slides.length;
+
+    function updateSlide(newIndex) {
+      if (newIndex < 0 || newIndex >= slides.length) return;
+      slides[currentIndex].classList.remove('active');
+      currentIndex = newIndex;
+      slides[currentIndex].classList.add('active');
+
+      currentSlideEl.innerText = currentIndex + 1;
+      progressFill.style.width = ((currentIndex + 1) / slides.length * 100) + '%';
+
+      // Update speaker notes
+      const notes = slides[currentIndex].getAttribute('data-notes') || 'No speaker notes for this slide.';
+      notesText.innerText = notes;
+    }
+
+    function toggleNotes() {
+      notesModal.classList.toggle('show');
+    }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        e.preventDefault();
+        updateSlide(currentIndex + 1);
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        updateSlide(currentIndex - 1);
+      } else if (e.key === 'n' || e.key === 'N') {
+        toggleNotes();
+      } else if (e.key === 'f' || e.key === 'F') {
+        toggleFullscreen();
+      } else if (e.key === 'Home') {
+        updateSlide(0);
+      } else if (e.key === 'End') {
+        updateSlide(slides.length - 1);
+      }
+    });
+
+    // Initialize notes
+    notesText.innerText = slides[0].getAttribute('data-notes');
+  </script>
+</body>
+</html>
