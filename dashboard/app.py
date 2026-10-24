@@ -11,6 +11,7 @@ from datetime import datetime
 from pathlib import Path
 
 import pandas as pd
+import pydeck as pdk
 import streamlit as st
 
 # ── Streamlit Page Configuration ──────────────────────────────────────────────
@@ -224,25 +225,29 @@ if view_mode == "🗺️ Conflict Map & Heatmap":
         col_m2.metric("Hotspot Districts", df_map["district"].nunique())
         col_m3.metric("High-Violence Events (≥18)", int(df_map["is_high_violence"].sum()))
 
+        df_map["color"] = df_map["is_high_violence"].apply(
+            lambda v: [244, 63, 94, 220] if v else [56, 189, 248, 190]
+        )
+        layer = pdk.Layer(
+            "ScatterplotLayer",
+            data=df_map,
+            get_position=["lon", "lat"],
+            get_fill_color="color",
+            get_radius=16000,
+            pickable=True,
+        )
+        view_state = pdk.ViewState(
+            latitude=23.6850,
+            longitude=90.3563,
+            zoom=6.8,
+            pitch=35,
+        )
         st.pydeck_chart(
-            {
-                "initialViewState": {
-                    "latitude": 23.6850,
-                    "longitude": 90.3563,
-                    "zoom": 6.8,
-                    "pitch": 40,
-                },
-                "layers": [
-                    {
-                        "@@type": "ScatterplotLayer",
-                        "data": df_map.to_dict(orient="records"),
-                        "getPosition": "@@=[lon, lat]",
-                        "getRadius": 14000,
-                        "getFillColor": "@@=is_high_violence ? [244, 63, 94, 200] : [56, 189, 248, 180]",
-                        "pickable": True,
-                    }
-                ],
-            }
+            pdk.Deck(
+                layers=[layer],
+                initial_view_state=view_state,
+                tooltip={"text": "{district} (CAMEO {cameo_code}):\n{title}"},
+            )
         )
 
         st.subheader("District Incident Breakdown")
