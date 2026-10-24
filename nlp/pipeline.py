@@ -306,19 +306,41 @@ if __name__ == "__main__":
 
     raw_dir = Path("data/raw")
     processed_dir = Path("data/processed")
+    consolidated_path = Path("data/real_news_daily_star.json")
 
-    article_files = list(raw_dir.rglob("*.json"))
-    if not article_files:
-        print(f"No articles found in {raw_dir}. Run scraper first.")
-        sys.exit(1)
+    articles: list[Article] = []
+    seen_urls: set[str] = set()
 
-    articles = []
-    for f in article_files:
+    # 1. Load from consolidated dataset if available
+    if consolidated_path.exists():
         try:
-            articles.append(Article.from_json(f.read_text(encoding="utf-8")))
+            items = json.loads(consolidated_path.read_text(encoding="utf-8"))
+            if isinstance(items, list):
+                for item in items:
+                    art = Article.from_dict(item)
+                    if art.url and art.url not in seen_urls:
+                        articles.append(art)
+                        seen_urls.add(art.url)
+                logger.info("Loaded %d articles from %s", len(articles), consolidated_path)
+        except Exception as e:
+            logger.warning("Error reading %s: %s", consolidated_path, e)
+
+    # 2. Also load individual files from data/raw/
+    for f in raw_dir.rglob("*.json"):
+        if f.name == ".gitkeep":
+            continue
+        try:
+            art = Article.from_json(f.read_text(encoding="utf-8"))
+            if art.url and art.url not in seen_urls:
+                articles.append(art)
+                seen_urls.add(art.url)
         except Exception as e:
             logger.warning("Skipping %s: %s", f, e)
 
-    logger.info("Loaded %d articles.", len(articles))
+    if not articles:
+        print(f"No articles found in {raw_dir} or {consolidated_path}. Run scraper first.")
+        sys.exit(1)
+
+    logger.info("Loaded %d total unique articles for processing.", len(articles))
     events = process_articles(articles, output_dir=processed_dir)
     logger.info("Done. %d events written to %s", len(events), processed_dir)
