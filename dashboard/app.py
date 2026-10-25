@@ -7,7 +7,7 @@ from __future__ import annotations
 
 import json
 import logging
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 import pandas as pd
@@ -321,7 +321,7 @@ elif view_mode == "📰 Live News & Event Stream":
                 st.write(f"**URL:** [{art.get('url')}]({art.get('url')})")
                 st.write(f"**Published:** {art.get('published_date', 'Unknown')}")
                 st.write(f"**Summary:** {art.get('summary', '')}")
-                st.text_area("Body Snippet", (art.get('body', '')[:600] + "..."), height=120)
+                st.text_area("Body Snippet", (art.get('body', '')[:600] + "..."), height=120, key=f"art_body_{i}")
 
 
 # ── View 3: Neuro-Symbolic Inspector ──────────────────────────────────────────
@@ -382,7 +382,7 @@ event:ev_{selected_event.get('event_id', 'ds_001')}
     a cameo:{selected_event.get('cameo_code', '18')} ;
     prov:wasDerivedFrom article:{selected_event.get('article_id', 'art_001')} ;
     prov:hasQuotationSentence "{selected_event.get('source_sentence', 'Text excerpt')}" ;
-    prov:generatedAtTime "{datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')}"^^xsd:dateTime .
+    prov:generatedAtTime "{datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')}"^^xsd:dateTime .
     """, language="turtle")
 
 
