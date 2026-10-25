@@ -1,6 +1,23 @@
 {
   "conditions": [
     {
+      "condition": "Zero-Shot NLI",
+      "total_events": 150,
+      "code_accuracy": 0.133,
+      "binary_accuracy_hv": 0.62,
+      "tp": 25,
+      "fp": 31,
+      "fn": 26,
+      "tn": 68,
+      "precision_hv": 0.446,
+      "recall_hv": 0.49,
+      "f1_hv": 0.467,
+      "false_positive_rate": 0.207,
+      "standard_fpr": 0.313,
+      "explainability_rate": 0.0,
+      "avg_confidence": 0.297
+    },
+    {
       "condition": "Neural-Only",
       "total_events": 150,
       "code_accuracy": 0.22,

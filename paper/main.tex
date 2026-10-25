@@ -430,9 +430,10 @@ Avg.\ model confidence                             & 0.783  \\
 \label{sec:baselines}
 
 To isolate the contributions of symbolic constraint gating versus neural sequence representation,
-we compare NeuroSym-BD against three established architectural paradigms on the held-out conflict benchmark ($n=150$):
+we compare NeuroSym-BD against four established architectural paradigms on the held-out conflict benchmark ($n=150$):
 \begin{enumerate}
   \item \textbf{Keyword \& Gazetteer Heuristic}: A deterministic trigger parser mapping regex and gazetteer entries directly to CAMEO categories without sequence context.
+  \item \textbf{Zero-Shot NLI Transformer (DistilBERT-MNLI)}: A pretrained cross-encoder NLI model evaluating hypothesis entailment for each CAMEO category definition.
   \item \textbf{Dense Neural (MiniLM + LSTM)}: A pretrained Transformer model (\texttt{all-MiniLM-L6-v2}) fused with \texttt{EscalationLSTM} without ontological constraints.
   \item \textbf{Pure Symbolic CAMEO Reasoner}: The rule-based classifier incorporating Bangladesh-specific refinement patterns without neural embeddings.
 \end{enumerate}
@@ -441,7 +442,7 @@ we compare NeuroSym-BD against three established architectural paradigms on the 
 \centering
 \small
 \caption{Comprehensive comparison against competitive architectural baselines on held-out test conflict events ($n=150$).
-Dense Neural uses pretrained SentenceTransformer (\texttt{all-MiniLM-L6-v2}) fused with EscalationLSTM.
+Dense Neural uses pretrained SentenceTransformer (\texttt{all-MiniLM-L6-v2}) fused with EscalationLSTM. Zero-Shot NLI evaluates DistilBERT-MNLI textual entailment against CAMEO definitions.
 BinAcc = binary accuracy on high-violence ($HV \ge 18$). Std-FPR = standard false positive rate $FP/(FP+TN)$. Expl = end-to-end PROV-O provenance trace rate. Hybrid vs Neural false-alarm reduction is statistically significant ($p < 0.001$, exact McNemar test).}
 \label{tab:baselines}
 \begin{tabular}{lcccccc}
@@ -449,6 +450,7 @@ BinAcc = binary accuracy on high-violence ($HV \ge 18$). Std-FPR = standard fals
 \textbf{Architecture} & \textbf{BinAcc} & \textbf{Precision} & \textbf{Recall} & \textbf{F1@HV} & \textbf{Std-FPR} & \textbf{Expl Rate} \\
 \midrule
 Keyword \& Gazetteer Heuristic            & 0.453 & 0.320 & 0.804 & 0.458 & 0.727 & \textbf{1.000} \\
+Zero-Shot NLI (DistilBERT-MNLI)           & 0.620 & 0.446 & 0.490 & 0.467 & 0.313 & 0.000 \\
 Dense Neural (MiniLM + LSTM)              & 0.527 & 0.391 & 0.706 & 0.503 & 0.566 & 0.000 \\
 Pure Symbolic (Rule Engine)               & 0.393 & 0.348 & \textbf{0.902} & 0.503 & 0.869 & \textbf{1.000} \\
 \textbf{NeuroSym-BD (Hybrid Ours)}        & \textbf{0.807} & \textbf{0.762} & 0.627 & \textbf{0.688} & \textbf{0.101} & \textbf{1.000} \\
