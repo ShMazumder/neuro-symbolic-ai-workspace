@@ -1,0 +1,202 @@
+[
+  {
+    "event_id": "evt_4a96e377_000",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/family-seeks-swift-trial-maximum-penalty-4305976",
+    "source_sentence": "Cumilla police have submitted a chargesheet in the murder case of 13-year-old Ishiat Shahriar Oprotim, accusing four people, including two juveniles. The chargesheet was submitted on October 20, Lutfor Rahman, additional superintendent of police, told The Daily Star yesterday. According to the chargesheet, Oprotim was killed after resisting an attempt to snatch Bangladesh Police iPhone. Bangladesh Police was allegedly struck on the head with the handle of a spade during the attack. The incident occurred on September 18 between 5:00pm and 6:00pm in the Sananda area of Lalmai Hill. The accused are Saiful Islam Tuhin, Md Siam, and two 15-year-olds. Police said all four were involved in planning the crime, while Tuhin and the two 15-year-olds directly participated in the killing. KM Firoz Shahriar, the victim’s father, said, “The investigating officer called around 12:30am [yesterday] to inform that the chargesheet had been submitted to the court.” Demanding a speedy trial, Bangladesh Police said Bangladesh Police hoped the court would hand down the maximum punishment to those responsible and that the accused should not escape accountability because of Bangladesh Police age. According to jail authorities, Tuhin and Siam are in Cumilla Central Jail, while the two teenagers are currently being held at the juvenile development centre in Gazipur.",
+    "sentence_offset": [
+      0,
+      1360
+    ],
+    "trigger": "murder",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Cumilla",
+      "district": "Comilla",
+      "division": "Chittagong",
+      "coordinates": [
+        23.4607,
+        91.1809
+      ]
+    },
+    "date": {
+      "raw": "yesterday",
+      "normalized": "2026-10-24"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_4a96e377_001",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/family-seeks-swift-trial-maximum-penalty-4305976",
+    "source_sentence": "Cumilla police have submitted a chargesheet in the murder case of 13-year-old Ishiat Shahriar Oprotim, accusing four people, including two juveniles. The chargesheet was submitted on October 20, Lutfor Rahman, additional superintendent of police, told The Daily Star yesterday. According to the chargesheet, Oprotim was killed after resisting an attempt to snatch Bangladesh Police iPhone. Bangladesh Police was allegedly struck on the head with the handle of a spade during the attack. The incident occurred on September 18 between 5:00pm and 6:00pm in the Sananda area of Lalmai Hill. The accused are Saiful Islam Tuhin, Md Siam, and two 15-year-olds. Police said all four were involved in planning the crime, while Tuhin and the two 15-year-olds directly participated in the killing. KM Firoz Shahriar, the victim’s father, said, “The investigating officer called around 12:30am [yesterday] to inform that the chargesheet had been submitted to the court.” Demanding a speedy trial, Bangladesh Police said Bangladesh Police hoped the court would hand down the maximum punishment to those responsible and that the accused should not escape accountability because of Bangladesh Police age. According to jail authorities, Tuhin and Siam are in Cumilla Central Jail, while the two teenagers are currently being held at the juvenile development centre in Gazipur.",
+    "sentence_offset": [
+      0,
+      1360
+    ],
+    "trigger": "killed",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Cumilla",
+      "district": "Comilla",
+      "division": "Chittagong",
+      "coordinates": [
+        23.4607,
+        91.1809
+      ]
+    },
+    "date": {
+      "raw": "yesterday",
+      "normalized": "2026-10-24"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_4a96e377_002",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/family-seeks-swift-trial-maximum-penalty-4305976",
+    "source_sentence": "Cumilla police have submitted a chargesheet in the murder case of 13-year-old Ishiat Shahriar Oprotim, accusing four people, including two juveniles. The chargesheet was submitted on October 20, Lutfor Rahman, additional superintendent of police, told The Daily Star yesterday. According to the chargesheet, Oprotim was killed after resisting an attempt to snatch Bangladesh Police iPhone. Bangladesh Police was allegedly struck on the head with the handle of a spade during the attack. The incident occurred on September 18 between 5:00pm and 6:00pm in the Sananda area of Lalmai Hill. The accused are Saiful Islam Tuhin, Md Siam, and two 15-year-olds. Police said all four were involved in planning the crime, while Tuhin and the two 15-year-olds directly participated in the killing. KM Firoz Shahriar, the victim’s father, said, “The investigating officer called around 12:30am [yesterday] to inform that the chargesheet had been submitted to the court.” Demanding a speedy trial, Bangladesh Police said Bangladesh Police hoped the court would hand down the maximum punishment to those responsible and that the accused should not escape accountability because of Bangladesh Police age. According to jail authorities, Tuhin and Siam are in Cumilla Central Jail, while the two teenagers are currently being held at the juvenile development centre in Gazipur.",
+    "sentence_offset": [
+      0,
+      1360
+    ],
+    "trigger": "attack",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Cumilla",
+      "district": "Comilla",
+      "division": "Chittagong",
+      "coordinates": [
+        23.4607,
+        91.1809
+      ]
+    },
+    "date": {
+      "raw": "yesterday",
+      "normalized": "2026-10-24"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_4a96e377_003",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/family-seeks-swift-trial-maximum-penalty-4305976",
+    "source_sentence": "Cumilla police have submitted a chargesheet in the murder case of 13-year-old Ishiat Shahriar Oprotim, accusing four people, including two juveniles. The chargesheet was submitted on October 20, Lutfor Rahman, additional superintendent of police, told The Daily Star yesterday. According to the chargesheet, Oprotim was killed after resisting an attempt to snatch Bangladesh Police iPhone. Bangladesh Police was allegedly struck on the head with the handle of a spade during the attack. The incident occurred on September 18 between 5:00pm and 6:00pm in the Sananda area of Lalmai Hill. The accused are Saiful Islam Tuhin, Md Siam, and two 15-year-olds. Police said all four were involved in planning the crime, while Tuhin and the two 15-year-olds directly participated in the killing. KM Firoz Shahriar, the victim’s father, said, “The investigating officer called around 12:30am [yesterday] to inform that the chargesheet had been submitted to the court.” Demanding a speedy trial, Bangladesh Police said Bangladesh Police hoped the court would hand down the maximum punishment to those responsible and that the accused should not escape accountability because of Bangladesh Police age. According to jail authorities, Tuhin and Siam are in Cumilla Central Jail, while the two teenagers are currently being held at the juvenile development centre in Gazipur.",
+    "sentence_offset": [
+      0,
+      1360
+    ],
+    "trigger": "killing",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Cumilla",
+      "district": "Comilla",
+      "division": "Chittagong",
+      "coordinates": [
+        23.4607,
+        91.1809
+      ]
+    },
+    "date": {
+      "raw": "yesterday",
+      "normalized": "2026-10-24"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  }
+]

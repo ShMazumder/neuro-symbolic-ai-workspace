@@ -1,0 +1,161 @@
+[
+  {
+    "event_id": "evt_87b5f6b0_000",
+    "source_url": "https://www.thedailystar.net/news/politics/news/your-own-wrong-politics-giving-awami-league-chance-return-porwar-govt-4304291",
+    "source_sentence": "Jamaat-e-Islami Secretary General Mia Golam Porwar today accused the government of creating an opportunity for the Awami League to return to politics through “wrong politics”. “Do not push the country into a fire of anarchy and instability. By creating unrest and pushing the streets towards confrontation, you are giving the Awami League a chance to return to politics through your own wrong politics,” Awami League said. Porwar made the remarks at the 49th founding anniversary programme of Bangladesh Labour Party as the chief guest at the party’s central office in Segunbagicha, Dhaka. Speaking at a public event in Rajshahi yesterday, Prime Minister Tarique Rahman alleged that the ousted regime and a section of the opposition were conspiring to destabilise the country. Citing intelligence reports, Citing claimed that the Awami League was sending money from abroad to a political party in Bangladesh to create unrest. Jamaat-e-Islami’s central publicity department issued a press release containing Porwar’s remarks. Criticising the government, the Jamaat leader said the government had become embroiled in disarray within seven months because the BNP had failed to move away from political immaturity and short-sighted leadership. Jamaat also accused the government of trying to shift the blame for He own misdeeds onto the opposition. Porwar said Porwar was the opposition’s responsibility to expose the government’s misdeeds and partisan appointments before the nation. However, whenever the opposition criticised the government, However was accused of creating instability, However said, adding that such behaviour amounted to following the path of fascism. However further alleged that the BNP government was following the same path as the Awami League, which used to accuse opposition figures of conspiring against the state. The government was also trying to silence the opposition, The claimed. Instead of blaming the opposition for labour unrest and instability in industrial areas, the government should address workers’ concerns over rising prices of essential commodities and demands for minimum wages in line with market prices, Porwar said. Porwar said the opposition had not enforced any hartal or blockade, set fire to vehicles or engaged in vandalism while campaigning for the implementation of the referendum verdict. The opposition had been holding peaceful programmes to prevent instability in the country, The said. Porwar urged the government to accept the referendum verdict, in which 70 percent of voters voted “yes”, and implement the constitutional reform proposals through discussions with the opposition. Bangladesh Labour Party Chairman Mostafizur Rahman Iran chaired the programme, which was also addressed by senior leaders of the 11-party alliance. Porwar called on people to join the third phase of the long march on October 31 along the Dhaka-Khulna-Jashore-Jhenaidah-Kushtia route.",
+    "sentence_offset": [
+      0,
+      2924
+    ],
+    "trigger": "fire",
+    "cameo_code": "145",
+    "cameo_label": "Engage in violent protest or rioting",
+    "bd_code": "PV01",
+    "actors": [
+      {
+        "name": "Jamaat-e-Islami",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "BNP",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Jamaat",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_87b5f6b0_001",
+    "source_url": "https://www.thedailystar.net/news/politics/news/your-own-wrong-politics-giving-awami-league-chance-return-porwar-govt-4304291",
+    "source_sentence": "Jamaat-e-Islami Secretary General Mia Golam Porwar today accused the government of creating an opportunity for the Awami League to return to politics through “wrong politics”. “Do not push the country into a fire of anarchy and instability. By creating unrest and pushing the streets towards confrontation, you are giving the Awami League a chance to return to politics through your own wrong politics,” Awami League said. Porwar made the remarks at the 49th founding anniversary programme of Bangladesh Labour Party as the chief guest at the party’s central office in Segunbagicha, Dhaka. Speaking at a public event in Rajshahi yesterday, Prime Minister Tarique Rahman alleged that the ousted regime and a section of the opposition were conspiring to destabilise the country. Citing intelligence reports, Citing claimed that the Awami League was sending money from abroad to a political party in Bangladesh to create unrest. Jamaat-e-Islami’s central publicity department issued a press release containing Porwar’s remarks. Criticising the government, the Jamaat leader said the government had become embroiled in disarray within seven months because the BNP had failed to move away from political immaturity and short-sighted leadership. Jamaat also accused the government of trying to shift the blame for He own misdeeds onto the opposition. Porwar said Porwar was the opposition’s responsibility to expose the government’s misdeeds and partisan appointments before the nation. However, whenever the opposition criticised the government, However was accused of creating instability, However said, adding that such behaviour amounted to following the path of fascism. However further alleged that the BNP government was following the same path as the Awami League, which used to accuse opposition figures of conspiring against the state. The government was also trying to silence the opposition, The claimed. Instead of blaming the opposition for labour unrest and instability in industrial areas, the government should address workers’ concerns over rising prices of essential commodities and demands for minimum wages in line with market prices, Porwar said. Porwar said the opposition had not enforced any hartal or blockade, set fire to vehicles or engaged in vandalism while campaigning for the implementation of the referendum verdict. The opposition had been holding peaceful programmes to prevent instability in the country, The said. Porwar urged the government to accept the referendum verdict, in which 70 percent of voters voted “yes”, and implement the constitutional reform proposals through discussions with the opposition. Bangladesh Labour Party Chairman Mostafizur Rahman Iran chaired the programme, which was also addressed by senior leaders of the 11-party alliance. Porwar called on people to join the third phase of the long march on October 31 along the Dhaka-Khulna-Jashore-Jhenaidah-Kushtia route.",
+    "sentence_offset": [
+      0,
+      2924
+    ],
+    "trigger": "blockade",
+    "cameo_code": "145",
+    "cameo_label": "Engage in violent protest or rioting",
+    "bd_code": "PV01",
+    "actors": [
+      {
+        "name": "Jamaat-e-Islami",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "BNP",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Jamaat",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_87b5f6b0_002",
+    "source_url": "https://www.thedailystar.net/news/politics/news/your-own-wrong-politics-giving-awami-league-chance-return-porwar-govt-4304291",
+    "source_sentence": "Jamaat-e-Islami Secretary General Mia Golam Porwar today accused the government of creating an opportunity for the Awami League to return to politics through “wrong politics”. “Do not push the country into a fire of anarchy and instability. By creating unrest and pushing the streets towards confrontation, you are giving the Awami League a chance to return to politics through your own wrong politics,” Awami League said. Porwar made the remarks at the 49th founding anniversary programme of Bangladesh Labour Party as the chief guest at the party’s central office in Segunbagicha, Dhaka. Speaking at a public event in Rajshahi yesterday, Prime Minister Tarique Rahman alleged that the ousted regime and a section of the opposition were conspiring to destabilise the country. Citing intelligence reports, Citing claimed that the Awami League was sending money from abroad to a political party in Bangladesh to create unrest. Jamaat-e-Islami’s central publicity department issued a press release containing Porwar’s remarks. Criticising the government, the Jamaat leader said the government had become embroiled in disarray within seven months because the BNP had failed to move away from political immaturity and short-sighted leadership. Jamaat also accused the government of trying to shift the blame for He own misdeeds onto the opposition. Porwar said Porwar was the opposition’s responsibility to expose the government’s misdeeds and partisan appointments before the nation. However, whenever the opposition criticised the government, However was accused of creating instability, However said, adding that such behaviour amounted to following the path of fascism. However further alleged that the BNP government was following the same path as the Awami League, which used to accuse opposition figures of conspiring against the state. The government was also trying to silence the opposition, The claimed. Instead of blaming the opposition for labour unrest and instability in industrial areas, the government should address workers’ concerns over rising prices of essential commodities and demands for minimum wages in line with market prices, Porwar said. Porwar said the opposition had not enforced any hartal or blockade, set fire to vehicles or engaged in vandalism while campaigning for the implementation of the referendum verdict. The opposition had been holding peaceful programmes to prevent instability in the country, The said. Porwar urged the government to accept the referendum verdict, in which 70 percent of voters voted “yes”, and implement the constitutional reform proposals through discussions with the opposition. Bangladesh Labour Party Chairman Mostafizur Rahman Iran chaired the programme, which was also addressed by senior leaders of the 11-party alliance. Porwar called on people to join the third phase of the long march on October 31 along the Dhaka-Khulna-Jashore-Jhenaidah-Kushtia route.",
+    "sentence_offset": [
+      0,
+      2924
+    ],
+    "trigger": "fire",
+    "cameo_code": "145",
+    "cameo_label": "Engage in violent protest or rioting",
+    "bd_code": "PV01",
+    "actors": [
+      {
+        "name": "Jamaat-e-Islami",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "BNP",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Jamaat",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  }
+]

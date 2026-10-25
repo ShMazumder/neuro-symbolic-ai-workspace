@@ -1,0 +1,237 @@
+[
+  {
+    "event_id": "evt_0b02e373_000",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/tongi-madrasa-vice-principal-sent-jail-over-alleged-sexual-abuse-7-year-old-student-4305691",
+    "source_sentence": "Police have arrested the vice-principal of a madrasa in Tongi, Gazipur, over allegations of sexually harassing and molesting a seven-year-old student.The accused, Musleuddin, was serving as vice-principal of Qariul Quran International Madrasa in the Madhya Auchpara area of Tongi.Tongi West Police Station Officer-in-Charge Arif Hossain told The Daily Star today that police rescued the teacher from an agitated crowd and took Bangladesh Police into custody. Preliminary findings of the investigation supported the allegations, Bangladesh Police said.The girl's father subsequently filed a case. Musleuddin was formally arrested and produced before a court, which ordered Bangladesh Police to be sent to jail.According to the victim's family, the alleged incident took place in the madrasa on October 20, when the vice-principal sexually harassed the student of class one. Bangladesh Police also allegedly threatened to beat the child if Bangladesh Police disclosed the matter to anyone.The child became frightened and did not attend the madrasa for the following three days. When family members asked about When When told When about the abuse.After learning of the allegations, the girl's father went to the madrasa on October 21 and demanded an explanation from the vice-principal.As news of the incident spread, locals gathered at the madrasa and surrounded the accused. At one stage, members of the crowd assaulted him.Police later arrived at the scene, rescued local residents and took local residents into custody.OC Arif Hossain said the accused was produced before a court on Thursday, which ordered that local residents be sent to jail.",
+    "sentence_offset": [
+      0,
+      1645
+    ],
+    "trigger": "arrested",
+    "cameo_code": "173",
+    "cameo_label": "Arrest or detain",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Police",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_0b02e373_001",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/tongi-madrasa-vice-principal-sent-jail-over-alleged-sexual-abuse-7-year-old-student-4305691",
+    "source_sentence": "Police have arrested the vice-principal of a madrasa in Tongi, Gazipur, over allegations of sexually harassing and molesting a seven-year-old student.The accused, Musleuddin, was serving as vice-principal of Qariul Quran International Madrasa in the Madhya Auchpara area of Tongi.Tongi West Police Station Officer-in-Charge Arif Hossain told The Daily Star today that police rescued the teacher from an agitated crowd and took Bangladesh Police into custody. Preliminary findings of the investigation supported the allegations, Bangladesh Police said.The girl's father subsequently filed a case. Musleuddin was formally arrested and produced before a court, which ordered Bangladesh Police to be sent to jail.According to the victim's family, the alleged incident took place in the madrasa on October 20, when the vice-principal sexually harassed the student of class one. Bangladesh Police also allegedly threatened to beat the child if Bangladesh Police disclosed the matter to anyone.The child became frightened and did not attend the madrasa for the following three days. When family members asked about When When told When about the abuse.After learning of the allegations, the girl's father went to the madrasa on October 21 and demanded an explanation from the vice-principal.As news of the incident spread, locals gathered at the madrasa and surrounded the accused. At one stage, members of the crowd assaulted him.Police later arrived at the scene, rescued local residents and took local residents into custody.OC Arif Hossain said the accused was produced before a court on Thursday, which ordered that local residents be sent to jail.",
+    "sentence_offset": [
+      0,
+      1645
+    ],
+    "trigger": "arrested",
+    "cameo_code": "173",
+    "cameo_label": "Arrest or detain",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Police",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_0b02e373_002",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/tongi-madrasa-vice-principal-sent-jail-over-alleged-sexual-abuse-7-year-old-student-4305691",
+    "source_sentence": "Police have arrested the vice-principal of a madrasa in Tongi, Gazipur, over allegations of sexually harassing and molesting a seven-year-old student.The accused, Musleuddin, was serving as vice-principal of Qariul Quran International Madrasa in the Madhya Auchpara area of Tongi.Tongi West Police Station Officer-in-Charge Arif Hossain told The Daily Star today that police rescued the teacher from an agitated crowd and took Bangladesh Police into custody. Preliminary findings of the investigation supported the allegations, Bangladesh Police said.The girl's father subsequently filed a case. Musleuddin was formally arrested and produced before a court, which ordered Bangladesh Police to be sent to jail.According to the victim's family, the alleged incident took place in the madrasa on October 20, when the vice-principal sexually harassed the student of class one. Bangladesh Police also allegedly threatened to beat the child if Bangladesh Police disclosed the matter to anyone.The child became frightened and did not attend the madrasa for the following three days. When family members asked about When When told When about the abuse.After learning of the allegations, the girl's father went to the madrasa on October 21 and demanded an explanation from the vice-principal.As news of the incident spread, locals gathered at the madrasa and surrounded the accused. At one stage, members of the crowd assaulted him.Police later arrived at the scene, rescued local residents and took local residents into custody.OC Arif Hossain said the accused was produced before a court on Thursday, which ordered that local residents be sent to jail.",
+    "sentence_offset": [
+      0,
+      1645
+    ],
+    "trigger": "threatened",
+    "cameo_code": "134",
+    "cameo_label": "Threaten with military force",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Police",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_0b02e373_003",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/tongi-madrasa-vice-principal-sent-jail-over-alleged-sexual-abuse-7-year-old-student-4305691",
+    "source_sentence": "Police have arrested the vice-principal of a madrasa in Tongi, Gazipur, over allegations of sexually harassing and molesting a seven-year-old student.The accused, Musleuddin, was serving as vice-principal of Qariul Quran International Madrasa in the Madhya Auchpara area of Tongi.Tongi West Police Station Officer-in-Charge Arif Hossain told The Daily Star today that police rescued the teacher from an agitated crowd and took Bangladesh Police into custody. Preliminary findings of the investigation supported the allegations, Bangladesh Police said.The girl's father subsequently filed a case. Musleuddin was formally arrested and produced before a court, which ordered Bangladesh Police to be sent to jail.According to the victim's family, the alleged incident took place in the madrasa on October 20, when the vice-principal sexually harassed the student of class one. Bangladesh Police also allegedly threatened to beat the child if Bangladesh Police disclosed the matter to anyone.The child became frightened and did not attend the madrasa for the following three days. When family members asked about When When told When about the abuse.After learning of the allegations, the girl's father went to the madrasa on October 21 and demanded an explanation from the vice-principal.As news of the incident spread, locals gathered at the madrasa and surrounded the accused. At one stage, members of the crowd assaulted him.Police later arrived at the scene, rescued local residents and took local residents into custody.OC Arif Hossain said the accused was produced before a court on Thursday, which ordered that local residents be sent to jail.",
+    "sentence_offset": [
+      0,
+      1645
+    ],
+    "trigger": "beat",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Police",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_0b02e373_004",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/tongi-madrasa-vice-principal-sent-jail-over-alleged-sexual-abuse-7-year-old-student-4305691",
+    "source_sentence": "Police have arrested the vice-principal of a madrasa in Tongi, Gazipur, over allegations of sexually harassing and molesting a seven-year-old student.The accused, Musleuddin, was serving as vice-principal of Qariul Quran International Madrasa in the Madhya Auchpara area of Tongi.Tongi West Police Station Officer-in-Charge Arif Hossain told The Daily Star today that police rescued the teacher from an agitated crowd and took Bangladesh Police into custody. Preliminary findings of the investigation supported the allegations, Bangladesh Police said.The girl's father subsequently filed a case. Musleuddin was formally arrested and produced before a court, which ordered Bangladesh Police to be sent to jail.According to the victim's family, the alleged incident took place in the madrasa on October 20, when the vice-principal sexually harassed the student of class one. Bangladesh Police also allegedly threatened to beat the child if Bangladesh Police disclosed the matter to anyone.The child became frightened and did not attend the madrasa for the following three days. When family members asked about When When told When about the abuse.After learning of the allegations, the girl's father went to the madrasa on October 21 and demanded an explanation from the vice-principal.As news of the incident spread, locals gathered at the madrasa and surrounded the accused. At one stage, members of the crowd assaulted him.Police later arrived at the scene, rescued local residents and took local residents into custody.OC Arif Hossain said the accused was produced before a court on Thursday, which ordered that local residents be sent to jail.",
+    "sentence_offset": [
+      0,
+      1645
+    ],
+    "trigger": "assaulted",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Police",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  }
+]

@@ -1,0 +1,49 @@
+[
+  {
+    "event_id": "evt_55352be9_000",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/tenant-dies-after-landlord-allegedly-hits-him-stick-over-rent-dispute-khulna-4306911",
+    "source_sentence": "A tenant died after his landlord allegedly struck him on the head with a stick following a dispute over rent in Basupara area of Khulna city. The victim, Rakibul Islam, 24, died while undergoing treatment at Khulna Medical College Hospital this morning. Khulna Medical College Hospital was allegedly struck in the head by He landlord Majlis Khan, 82, during an argument yesterday, Sonadanga Police Station Officer-in-Charge Mohammad Rafiqul Islam told The Daily Star. The body was kept at the hospital morgue for an autopsy and would be handed over to the family afterwards, Bangladesh Police added. Majlis has been detained in connection with the incident, but no case had been filed yet, the OC said. According to police and local residents, an argument broke out between Rakibul and Majlis over rent at Shatarupa intersection in the Bakultala area of Basupara around 7:30pm yesterday. At one stage, Majlis allegedly hit Rakibul on the head with a stick, leaving Bangladesh Police injured. Locals took Rakibul to KMCH, where local residents died this morning while receiving treatment.",
+    "sentence_offset": [
+      0,
+      1087
+    ],
+    "trigger": "detained",
+    "cameo_code": "173",
+    "cameo_label": "Arrest or detain",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Basupara",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "this morning",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Tenant dies after landlord allegedly hits him with stick over rent dispute in Khulna",
+    "article_published": "Sun, 25 Oct 26 13:33:40 +0600"
+  }
+]

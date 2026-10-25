@@ -1,0 +1,207 @@
+[
+  {
+    "event_id": "evt_5a10d4ee_000",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/chargesheet-filed-cumillas-oprotim-murder-case-4305646",
+    "source_sentence": "Police have submitted a chargesheet in the murder case of 13-year-old Ishiat Shahriar Oprotim, naming four people, including two juveniles, as accused in the killing. The chargesheet was submitted on October 20 by the case's investigating officer, Rajib Ahmed, Additional Superintendent of Police Lutfor Rahman confirmed to The Daily Star today. According to the chargesheet, Oprotim was killed after resisting an attempt to snatch Bangladesh Police iPhone. Bangladesh Police was allegedly struck on the head with the handle of a spade during the attack. The accused are Saiful Islam Tuhin, Md Siam, and two 15-year-olds. Police said all four were involved in planning the crime, while Tuhin and the two 15-year-olds directly participated in the killing. KM Firoz Shahriar, the victim's father and the plaintiff in the case, said, \"The investigating officer called around 12:30am to inform that the chargesheet had been submitted to the court.\" Bangladesh Police added that Bangladesh Police would meet the investigating officer today.Demanding a speedy trial, Bangladesh Police said Bangladesh Police hoped the court would hand down the maximum punishment to those responsible and that the accused should not escape accountability because of Bangladesh Police age.",
+    "sentence_offset": [
+      0,
+      1265
+    ],
+    "trigger": "murder",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Police",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_5a10d4ee_001",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/chargesheet-filed-cumillas-oprotim-murder-case-4305646",
+    "source_sentence": "Police have submitted a chargesheet in the murder case of 13-year-old Ishiat Shahriar Oprotim, naming four people, including two juveniles, as accused in the killing. The chargesheet was submitted on October 20 by the case's investigating officer, Rajib Ahmed, Additional Superintendent of Police Lutfor Rahman confirmed to The Daily Star today. According to the chargesheet, Oprotim was killed after resisting an attempt to snatch Bangladesh Police iPhone. Bangladesh Police was allegedly struck on the head with the handle of a spade during the attack. The accused are Saiful Islam Tuhin, Md Siam, and two 15-year-olds. Police said all four were involved in planning the crime, while Tuhin and the two 15-year-olds directly participated in the killing. KM Firoz Shahriar, the victim's father and the plaintiff in the case, said, \"The investigating officer called around 12:30am to inform that the chargesheet had been submitted to the court.\" Bangladesh Police added that Bangladesh Police would meet the investigating officer today.Demanding a speedy trial, Bangladesh Police said Bangladesh Police hoped the court would hand down the maximum punishment to those responsible and that the accused should not escape accountability because of Bangladesh Police age.",
+    "sentence_offset": [
+      0,
+      1265
+    ],
+    "trigger": "killing",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Police",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_5a10d4ee_002",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/chargesheet-filed-cumillas-oprotim-murder-case-4305646",
+    "source_sentence": "Police have submitted a chargesheet in the murder case of 13-year-old Ishiat Shahriar Oprotim, naming four people, including two juveniles, as accused in the killing. The chargesheet was submitted on October 20 by the case's investigating officer, Rajib Ahmed, Additional Superintendent of Police Lutfor Rahman confirmed to The Daily Star today. According to the chargesheet, Oprotim was killed after resisting an attempt to snatch Bangladesh Police iPhone. Bangladesh Police was allegedly struck on the head with the handle of a spade during the attack. The accused are Saiful Islam Tuhin, Md Siam, and two 15-year-olds. Police said all four were involved in planning the crime, while Tuhin and the two 15-year-olds directly participated in the killing. KM Firoz Shahriar, the victim's father and the plaintiff in the case, said, \"The investigating officer called around 12:30am to inform that the chargesheet had been submitted to the court.\" Bangladesh Police added that Bangladesh Police would meet the investigating officer today.Demanding a speedy trial, Bangladesh Police said Bangladesh Police hoped the court would hand down the maximum punishment to those responsible and that the accused should not escape accountability because of Bangladesh Police age.",
+    "sentence_offset": [
+      0,
+      1265
+    ],
+    "trigger": "killed",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Police",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_5a10d4ee_003",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/chargesheet-filed-cumillas-oprotim-murder-case-4305646",
+    "source_sentence": "Police have submitted a chargesheet in the murder case of 13-year-old Ishiat Shahriar Oprotim, naming four people, including two juveniles, as accused in the killing. The chargesheet was submitted on October 20 by the case's investigating officer, Rajib Ahmed, Additional Superintendent of Police Lutfor Rahman confirmed to The Daily Star today. According to the chargesheet, Oprotim was killed after resisting an attempt to snatch Bangladesh Police iPhone. Bangladesh Police was allegedly struck on the head with the handle of a spade during the attack. The accused are Saiful Islam Tuhin, Md Siam, and two 15-year-olds. Police said all four were involved in planning the crime, while Tuhin and the two 15-year-olds directly participated in the killing. KM Firoz Shahriar, the victim's father and the plaintiff in the case, said, \"The investigating officer called around 12:30am to inform that the chargesheet had been submitted to the court.\" Bangladesh Police added that Bangladesh Police would meet the investigating officer today.Demanding a speedy trial, Bangladesh Police said Bangladesh Police hoped the court would hand down the maximum punishment to those responsible and that the accused should not escape accountability because of Bangladesh Police age.",
+    "sentence_offset": [
+      0,
+      1265
+    ],
+    "trigger": "attack",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Police",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_5a10d4ee_004",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/chargesheet-filed-cumillas-oprotim-murder-case-4305646",
+    "source_sentence": "Police have submitted a chargesheet in the murder case of 13-year-old Ishiat Shahriar Oprotim, naming four people, including two juveniles, as accused in the killing. The chargesheet was submitted on October 20 by the case's investigating officer, Rajib Ahmed, Additional Superintendent of Police Lutfor Rahman confirmed to The Daily Star today. According to the chargesheet, Oprotim was killed after resisting an attempt to snatch Bangladesh Police iPhone. Bangladesh Police was allegedly struck on the head with the handle of a spade during the attack. The accused are Saiful Islam Tuhin, Md Siam, and two 15-year-olds. Police said all four were involved in planning the crime, while Tuhin and the two 15-year-olds directly participated in the killing. KM Firoz Shahriar, the victim's father and the plaintiff in the case, said, \"The investigating officer called around 12:30am to inform that the chargesheet had been submitted to the court.\" Bangladesh Police added that Bangladesh Police would meet the investigating officer today.Demanding a speedy trial, Bangladesh Police said Bangladesh Police hoped the court would hand down the maximum punishment to those responsible and that the accused should not escape accountability because of Bangladesh Police age.",
+    "sentence_offset": [
+      0,
+      1265
+    ],
+    "trigger": "killing",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Police",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  }
+]

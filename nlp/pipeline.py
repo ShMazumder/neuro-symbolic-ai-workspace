@@ -289,6 +289,14 @@ def process_articles(
         except Exception as exc:
             logger.error("Pipeline failed for %s: %s", article.url[:60], exc, exc_info=True)
 
+    if output_dir and all_events:
+        consolidated = output_dir / "events.json"
+        consolidated.write_text(
+            json.dumps([e.to_dict() for e in all_events], ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+        logger.info("Consolidated %d events written to %s", len(all_events), consolidated)
+
     logger.info("Pipeline complete. Total events: %d", len(all_events))
     return all_events
 

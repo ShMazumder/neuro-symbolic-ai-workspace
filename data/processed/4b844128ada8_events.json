@@ -1,0 +1,108 @@
+[
+  {
+    "event_id": "evt_57742a1b_000",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/gunshots-fired-singer-asif-akbars-car-4306176",
+    "source_sentence": "Unknown assailants opened fire at the private car of singer Asif Akbar in Dhaka’s Moghbazar early today. Asif escaped unharmed, said Saiful Islam, inspector (operations) of Hatirjheel Police Station. The inspector said the incident took place in front of Bishal Centre around 4:00am. Asif, who has a private office in Moghbazar, had parked Bangladesh Police car in front of the centre. Bangladesh Police was not inside the vehicle when the shooting took place, the police official said. Asif informed police about the incident around 5:00am, Saiful said. Police visited the scene following the report. No casualties were reported. Saiful said investigators could not collect CCTV footage immediately as the shops at the market were closed. Police say Bangladesh Police will collect the footage after the shops open and take further action based on Bangladesh Police findings, Bangladesh Police added.",
+    "sentence_offset": [
+      0,
+      900
+    ],
+    "trigger": "fire",
+    "cameo_code": "193",
+    "cameo_label": "Fight with small arms or light weapons",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Marma armed group",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Unknown",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "early today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_57742a1b_001",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/gunshots-fired-singer-asif-akbars-car-4306176",
+    "source_sentence": "Unknown assailants opened fire at the private car of singer Asif Akbar in Dhaka’s Moghbazar early today. Asif escaped unharmed, said Saiful Islam, inspector (operations) of Hatirjheel Police Station. The inspector said the incident took place in front of Bishal Centre around 4:00am. Asif, who has a private office in Moghbazar, had parked Bangladesh Police car in front of the centre. Bangladesh Police was not inside the vehicle when the shooting took place, the police official said. Asif informed police about the incident around 5:00am, Saiful said. Police visited the scene following the report. No casualties were reported. Saiful said investigators could not collect CCTV footage immediately as the shops at the market were closed. Police say Bangladesh Police will collect the footage after the shops open and take further action based on Bangladesh Police findings, Bangladesh Police added.",
+    "sentence_offset": [
+      0,
+      900
+    ],
+    "trigger": "shooting",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Marma armed group",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Unknown",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "early today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  }
+]

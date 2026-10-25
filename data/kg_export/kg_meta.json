@@ -1,11 +1,11 @@
 {
-  "num_nodes": 98,
-  "num_edges": 654,
+  "num_nodes": 176,
+  "num_edges": 1188,
   "num_relations": 4,
   "node_types_summary": {
-    "event": 88,
-    "actor": 7,
-    "location": 3
+    "actor": 10,
+    "location": 7,
+    "event": 159
   },
   "rel_index": {
     "perpetrator": 0,

@@ -1,0 +1,55 @@
+[
+  {
+    "event_id": "evt_e5661521_000",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/2-killed-mob-beating-over-suspected-auto-rickshaw-theft-rangpur-4306896",
+    "source_sentence": "Two men were beaten to death reportedly by a group of people over the alleged theft of a battery-powered auto-rickshaw in Gangachara upazila of Rangpur early today. The deceased were identified as Ejarul Haque alias Rezaul Kana, 46, of Kachua Sardarpara village, and Sadikul Islam, 25, of Kolkond union in Gangachara, said police. The incident took place in the Pukur Khurir Dola canal area of Bagpur Bagherhat village under Barabil union. Abdus Sabur, officer-in-charge of Gangachara Model Police Station, said after recovering the bodies Bangladesh Police were taken to the police station. The bodies would be sent to Rangpur Medical College Hospital for autopsies to determine the exact cause of death. “According to preliminary information from local residents, the two men died in a mob beating following the alleged theft of the auto-rickshaw,” the OC said. According to police and locals, Sohel Mia, a resident of Bagpur Bagherhat village, noticed someone taking an auto-rickshaw from Bangladesh Police house early today. Bangladesh Police raised the alarm, prompting an announcement over the loudspeaker of a nearby mosque calling out, “Thief, thief.” Hearing the announcement, local residents, including people who had gathered for Fajr prayers, chased the two men taking away the auto-rickshaw. At one point, the men left the vehicle on the road and tried to flee. But locals caught local residents in a paddy field at Pukur Khurir Dola in the Uttar Panapukur area, about half a kilometre west of Sohel Mia’s house. local residents were then beaten, and both died at the scene.",
+    "sentence_offset": [
+      0,
+      1587
+    ],
+    "trigger": "mob beating",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "OC03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Two",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "early today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:noun|cameo:rule",
+    "article_title": "2 killed in 'mob beating' over suspected auto-rickshaw theft in Rangpur",
+    "article_published": "Sun, 25 Oct 26 12:45:13 +0600"
+  }
+]

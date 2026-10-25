@@ -1,0 +1,55 @@
+[
+  {
+    "event_id": "evt_40410372_000",
+    "source_url": "https://www.thedailystar.net/news/politics/news/your-wrong-politics-giving-awami-league-chance-return-4304681",
+    "source_sentence": "Jamaat-e-Islami Secretary General Mia Golam Porwar yesterday accused the government of creating an opportunity for the Awami League to return to politics through “wrong politics”. “Do not push the country into a fire of anarchy and instability. By creating unrest and pushing the streets towards confrontation, you are giving the Awami League a chance to return to politics through your own wrong politics,” Awami League said. Porwar made the remarks at the 49th founding anniversary programme of Bangladesh Labour Party as the chief guest at the party’s central office in Segunbagicha, Dhaka. Speaking at an event in Rajshahi on Tuesday, Prime Minister Tarique Rahman alleged that the ousted regime and a section of the opposition were conspiring to destabilise the country. Citing intelligence reports, Citing claimed that the AL was sending money from abroad to a political party in Bangladesh to create unrest. Jamaat-e-Islami’s central publicity department issued a press release containing Porwar’s remarks. The Jamaat leader said the government had become embroiled in disarray within seven months because the BNP had failed to move away from political immaturity and short-sighted leadership.",
+    "sentence_offset": [
+      0,
+      1200
+    ],
+    "trigger": "fire",
+    "cameo_code": "193",
+    "cameo_label": "Fight with small arms or light weapons",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Jamaat-e-Islami",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "BNP",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Jamaat",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "yesterday",
+      "normalized": "2026-10-24"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  }
+]

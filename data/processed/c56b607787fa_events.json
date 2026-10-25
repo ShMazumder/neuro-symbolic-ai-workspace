@@ -1,0 +1,226 @@
+[
+  {
+    "event_id": "evt_858996f6_000",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/gazipur-madrasa-teacher-sent-jail-over-alleged-rape-8-year-old-4305771",
+    "source_sentence": "A Gazipur court today sent two people to jail in a case filed over the alleged rape of an eight-year-old boy by a teacher at a residential Qawmi madrasa in the district. The Gazipur Senior Judicial Magistrate Court passed the order after police produced Md Oliullah Islam, 23, the teacher, and Mohammad Mizan, 38, of the madrasa's governing body, before the court this afternoon, said Gacha Police Station Officer-in-Charge (OC) Golam Rabbani. Police conducted a drive and arrested the two individuals yesterday. Earlier, the victim's mother filed a case with Gacha Police Station against Oliullah, Mizan, and one Md Abdul Quddus Sheikh, 45, in connection with the incident, said the OC. According to the case statement, around 1:00am on October 10, the accused teacher woke up the victim, a Class 3 student, while Bangladesh Police was sleeping along with other residential students in the residential block of the madrasa and took Bangladesh Police to the madrasa's storeroom and raped Bangladesh Police The teacher took the child to the same place at around 1:30am on October 11 and 3:00am on October 12 and raped Bangladesh Police again. The accused also threatened to beat the child if Bangladesh Police told anyone about the incidents, according to the case statement. When the child went home on October 13, October mother noticed signs of abuse while giving October a bath and after confronting October the victim revealed the incidents to October mother. October later filed a complaint with the respective police station which was recorded as a case.",
+    "sentence_offset": [
+      0,
+      1560
+    ],
+    "trigger": "rape",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Gazipur",
+      "district": "Gazipur",
+      "division": "Dhaka",
+      "coordinates": [
+        23.9999,
+        90.4203
+      ]
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_858996f6_001",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/gazipur-madrasa-teacher-sent-jail-over-alleged-rape-8-year-old-4305771",
+    "source_sentence": "A Gazipur court today sent two people to jail in a case filed over the alleged rape of an eight-year-old boy by a teacher at a residential Qawmi madrasa in the district. The Gazipur Senior Judicial Magistrate Court passed the order after police produced Md Oliullah Islam, 23, the teacher, and Mohammad Mizan, 38, of the madrasa's governing body, before the court this afternoon, said Gacha Police Station Officer-in-Charge (OC) Golam Rabbani. Police conducted a drive and arrested the two individuals yesterday. Earlier, the victim's mother filed a case with Gacha Police Station against Oliullah, Mizan, and one Md Abdul Quddus Sheikh, 45, in connection with the incident, said the OC. According to the case statement, around 1:00am on October 10, the accused teacher woke up the victim, a Class 3 student, while Bangladesh Police was sleeping along with other residential students in the residential block of the madrasa and took Bangladesh Police to the madrasa's storeroom and raped Bangladesh Police The teacher took the child to the same place at around 1:30am on October 11 and 3:00am on October 12 and raped Bangladesh Police again. The accused also threatened to beat the child if Bangladesh Police told anyone about the incidents, according to the case statement. When the child went home on October 13, October mother noticed signs of abuse while giving October a bath and after confronting October the victim revealed the incidents to October mother. October later filed a complaint with the respective police station which was recorded as a case.",
+    "sentence_offset": [
+      0,
+      1560
+    ],
+    "trigger": "arrested",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Gazipur",
+      "district": "Gazipur",
+      "division": "Dhaka",
+      "coordinates": [
+        23.9999,
+        90.4203
+      ]
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_858996f6_002",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/gazipur-madrasa-teacher-sent-jail-over-alleged-rape-8-year-old-4305771",
+    "source_sentence": "A Gazipur court today sent two people to jail in a case filed over the alleged rape of an eight-year-old boy by a teacher at a residential Qawmi madrasa in the district. The Gazipur Senior Judicial Magistrate Court passed the order after police produced Md Oliullah Islam, 23, the teacher, and Mohammad Mizan, 38, of the madrasa's governing body, before the court this afternoon, said Gacha Police Station Officer-in-Charge (OC) Golam Rabbani. Police conducted a drive and arrested the two individuals yesterday. Earlier, the victim's mother filed a case with Gacha Police Station against Oliullah, Mizan, and one Md Abdul Quddus Sheikh, 45, in connection with the incident, said the OC. According to the case statement, around 1:00am on October 10, the accused teacher woke up the victim, a Class 3 student, while Bangladesh Police was sleeping along with other residential students in the residential block of the madrasa and took Bangladesh Police to the madrasa's storeroom and raped Bangladesh Police The teacher took the child to the same place at around 1:30am on October 11 and 3:00am on October 12 and raped Bangladesh Police again. The accused also threatened to beat the child if Bangladesh Police told anyone about the incidents, according to the case statement. When the child went home on October 13, October mother noticed signs of abuse while giving October a bath and after confronting October the victim revealed the incidents to October mother. October later filed a complaint with the respective police station which was recorded as a case.",
+    "sentence_offset": [
+      0,
+      1560
+    ],
+    "trigger": "threatened",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Gazipur",
+      "district": "Gazipur",
+      "division": "Dhaka",
+      "coordinates": [
+        23.9999,
+        90.4203
+      ]
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_858996f6_003",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/gazipur-madrasa-teacher-sent-jail-over-alleged-rape-8-year-old-4305771",
+    "source_sentence": "A Gazipur court today sent two people to jail in a case filed over the alleged rape of an eight-year-old boy by a teacher at a residential Qawmi madrasa in the district. The Gazipur Senior Judicial Magistrate Court passed the order after police produced Md Oliullah Islam, 23, the teacher, and Mohammad Mizan, 38, of the madrasa's governing body, before the court this afternoon, said Gacha Police Station Officer-in-Charge (OC) Golam Rabbani. Police conducted a drive and arrested the two individuals yesterday. Earlier, the victim's mother filed a case with Gacha Police Station against Oliullah, Mizan, and one Md Abdul Quddus Sheikh, 45, in connection with the incident, said the OC. According to the case statement, around 1:00am on October 10, the accused teacher woke up the victim, a Class 3 student, while Bangladesh Police was sleeping along with other residential students in the residential block of the madrasa and took Bangladesh Police to the madrasa's storeroom and raped Bangladesh Police The teacher took the child to the same place at around 1:30am on October 11 and 3:00am on October 12 and raped Bangladesh Police again. The accused also threatened to beat the child if Bangladesh Police told anyone about the incidents, according to the case statement. When the child went home on October 13, October mother noticed signs of abuse while giving October a bath and after confronting October the victim revealed the incidents to October mother. October later filed a complaint with the respective police station which was recorded as a case.",
+    "sentence_offset": [
+      0,
+      1560
+    ],
+    "trigger": "beat",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Gazipur",
+      "district": "Gazipur",
+      "division": "Dhaka",
+      "coordinates": [
+        23.9999,
+        90.4203
+      ]
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  }
+]

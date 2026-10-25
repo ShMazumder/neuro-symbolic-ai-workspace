@@ -1,0 +1,43 @@
+[
+  {
+    "event_id": "evt_c90b7251_000",
+    "source_url": "https://www.thedailystar.net/news/bangladesh/accidents-fires/news/road-crash-claims-six-more-lives-3075361",
+    "source_sentence": "A toddler, her mother, and aunt were among six people who died after a bus rammed into an auto-rickshaw in Bakerganj, Barishal, yesterday afternoon. One-and-a-half-year-old Farhana died at Sher-E-Bangla Medical College Hospital, Bangla Medical College Hospital mother Shathi, 22, died on the way to the facility and aunt Tanjila, 30, died at the scene, police said, adding that the family is from Gaurnadi upazila of Barishal. The other deceased are Bakerganj residents Sohag Shikder, 21, Hasib Khan, 25, and Amir Chowdhury, 50. Two others injured in the crash are being treated at the hospital with serious injuries. The bus of Bangladesh Road Transport Corporation, going towards Barishal from Kuakata, was on the wrong side of the road when Bangladesh Police collided with the auto-rickshaw coming from the opposite direction. The crash happened in front of a fire service office, said Bakerganj Upazila Nirbahi Officer Sajal Chandra Shil, adding that the driver managed to flee the scene. Alauddin Milan, officer-in-charge of Bakerganj Police Station, said the auto-rickshaw got completely mangled in the impact. Shah Alam, assistant director at Bangladesh Road Transport Authority office in Barishal, said the bus had no fitness certificate since May 28, 2015, and Bangladesh Police registration expired towards the end of 2017. \"We cannot say anything about the driver because we do not have the identity of the driver. We are searching for information on the driver,\" Bangladesh Police told The Daily Star.",
+    "sentence_offset": [
+      0,
+      1513
+    ],
+    "trigger": "fire",
+    "cameo_code": "193",
+    "cameo_label": "Fight with small arms or light weapons",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Bakerganj",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "yesterday",
+      "normalized": "2026-10-24"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Road crash claims six more lives",
+    "article_published": "Wed, 20 Jul 22 18:00:00 +0600"
+  }
+]

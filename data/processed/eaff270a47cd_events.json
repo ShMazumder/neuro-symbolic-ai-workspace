@@ -1,0 +1,202 @@
+[
+  {
+    "event_id": "evt_9d1a36fb_000",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/two-sent-jail-over-gang-rape-4306061",
+    "source_sentence": "A Netrokona court has sent two men to jail following Netrokona arrest in connection with the alleged gang rape of a 37-year-old woman in Durgapur upazila. The two accused -- Hasibul Hasan, 25, and Hafizul Hasan Rabbi, 26, of Madhyabazar area -- were produced before the Netrokona Senior Judicial Magistrate’s Court on Thursday evening, which ordered Thursday to be sent to jail. Durgapur Police Station OC Khandakar Shaker Ahmed said locals had initially attempted to settle the matter through an arbitration. On information, police went to the area and arrested two of the accused. Police are trying to arrest another accused, Ashik Mia, 26, who is absconding, Bangladesh Police added. According to case statement, the woman, who works at a garment factory in Dhaka, returned to Bangladesh Police village home in Durgapur on October 19. Bangladesh Police husband works as a mason in the capital. Around 12:10am on October 22, three local youths knocked on Bangladesh Police door. When When opened When When allegedly dragged When into an adjacent kitchen and raped When Hearing Hearing screams, family members and neighbours rushed to the scene, prompting the accused to flee.",
+    "sentence_offset": [
+      0,
+      1177
+    ],
+    "trigger": "arrest",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Netrokona",
+      "district": "Netrokona",
+      "division": "Mymensingh",
+      "coordinates": [
+        24.871,
+        90.7269
+      ]
+    },
+    "date": {
+      "raw": "",
+      "normalized": null
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_9d1a36fb_001",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/two-sent-jail-over-gang-rape-4306061",
+    "source_sentence": "A Netrokona court has sent two men to jail following Netrokona arrest in connection with the alleged gang rape of a 37-year-old woman in Durgapur upazila. The two accused -- Hasibul Hasan, 25, and Hafizul Hasan Rabbi, 26, of Madhyabazar area -- were produced before the Netrokona Senior Judicial Magistrate’s Court on Thursday evening, which ordered Thursday to be sent to jail. Durgapur Police Station OC Khandakar Shaker Ahmed said locals had initially attempted to settle the matter through an arbitration. On information, police went to the area and arrested two of the accused. Police are trying to arrest another accused, Ashik Mia, 26, who is absconding, Bangladesh Police added. According to case statement, the woman, who works at a garment factory in Dhaka, returned to Bangladesh Police village home in Durgapur on October 19. Bangladesh Police husband works as a mason in the capital. Around 12:10am on October 22, three local youths knocked on Bangladesh Police door. When When opened When When allegedly dragged When into an adjacent kitchen and raped When Hearing Hearing screams, family members and neighbours rushed to the scene, prompting the accused to flee.",
+    "sentence_offset": [
+      0,
+      1177
+    ],
+    "trigger": "gang rape",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Netrokona",
+      "district": "Netrokona",
+      "division": "Mymensingh",
+      "coordinates": [
+        24.871,
+        90.7269
+      ]
+    },
+    "date": {
+      "raw": "",
+      "normalized": null
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:noun|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_9d1a36fb_002",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/two-sent-jail-over-gang-rape-4306061",
+    "source_sentence": "A Netrokona court has sent two men to jail following Netrokona arrest in connection with the alleged gang rape of a 37-year-old woman in Durgapur upazila. The two accused -- Hasibul Hasan, 25, and Hafizul Hasan Rabbi, 26, of Madhyabazar area -- were produced before the Netrokona Senior Judicial Magistrate’s Court on Thursday evening, which ordered Thursday to be sent to jail. Durgapur Police Station OC Khandakar Shaker Ahmed said locals had initially attempted to settle the matter through an arbitration. On information, police went to the area and arrested two of the accused. Police are trying to arrest another accused, Ashik Mia, 26, who is absconding, Bangladesh Police added. According to case statement, the woman, who works at a garment factory in Dhaka, returned to Bangladesh Police village home in Durgapur on October 19. Bangladesh Police husband works as a mason in the capital. Around 12:10am on October 22, three local youths knocked on Bangladesh Police door. When When opened When When allegedly dragged When into an adjacent kitchen and raped When Hearing Hearing screams, family members and neighbours rushed to the scene, prompting the accused to flee.",
+    "sentence_offset": [
+      0,
+      1177
+    ],
+    "trigger": "arrested",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Netrokona",
+      "district": "Netrokona",
+      "division": "Mymensingh",
+      "coordinates": [
+        24.871,
+        90.7269
+      ]
+    },
+    "date": {
+      "raw": "",
+      "normalized": null
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_9d1a36fb_003",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/two-sent-jail-over-gang-rape-4306061",
+    "source_sentence": "A Netrokona court has sent two men to jail following Netrokona arrest in connection with the alleged gang rape of a 37-year-old woman in Durgapur upazila. The two accused -- Hasibul Hasan, 25, and Hafizul Hasan Rabbi, 26, of Madhyabazar area -- were produced before the Netrokona Senior Judicial Magistrate’s Court on Thursday evening, which ordered Thursday to be sent to jail. Durgapur Police Station OC Khandakar Shaker Ahmed said locals had initially attempted to settle the matter through an arbitration. On information, police went to the area and arrested two of the accused. Police are trying to arrest another accused, Ashik Mia, 26, who is absconding, Bangladesh Police added. According to case statement, the woman, who works at a garment factory in Dhaka, returned to Bangladesh Police village home in Durgapur on October 19. Bangladesh Police husband works as a mason in the capital. Around 12:10am on October 22, three local youths knocked on Bangladesh Police door. When When opened When When allegedly dragged When into an adjacent kitchen and raped When Hearing Hearing screams, family members and neighbours rushed to the scene, prompting the accused to flee.",
+    "sentence_offset": [
+      0,
+      1177
+    ],
+    "trigger": "arrest",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Netrokona",
+      "district": "Netrokona",
+      "division": "Mymensingh",
+      "coordinates": [
+        24.871,
+        90.7269
+      ]
+    },
+    "date": {
+      "raw": "",
+      "normalized": null
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  }
+]

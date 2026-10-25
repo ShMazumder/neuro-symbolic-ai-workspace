@@ -1,0 +1,170 @@
+[
+  {
+    "event_id": "evt_68784340_000",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/case-filed-after-woman-tortured-hair-chopped-jhenaidah-4305826",
+    "source_sentence": "A 40-year-old woman was allegedly tortured and had her hair chopped off by a group of locals in Jhenaidah Sadar upazila. The incident took place on Thursday afternoon. The victim filed a case against five people with Jhenaidah Sadar Police Station that night, police said today. Speaking to The Daily Star, the woman said Bangladesh Police was sitting at home on Thursday afternoon while Bangladesh Police son was sleeping in another room. At that time, a man named Abdur Rashid from a neighbouring village went to Bangladesh Police house and accused Bangladesh Police of having an extramarital relationship with one Anwar Hossain. Shortly afterwards, Anwar’s wife, two daughters and a son entered the house. Anwar allegedly grabbed the woman by They hair, forced They to the ground, cut They hair and smeared chilli powder on parts of They body. Hearing Hearing screams, the woman’s son woke up and came to intervene, but Hearing was also beaten up, the victim said. The woman later received treatment from a local village doctor. The said She filed a written complaint with Jhenaidah Sadar Police Station that night. The woman’s son told The Daily Star that, “When I tried to stop Bangladesh Police Bangladesh Police beat me too. Abdur Rashid, a local influential person, was present and took part in torturing my mother and me,” Bangladesh Police said. Locals alleged that Rashid identifies local residents as a political leader. When this correspondent visited Rashid’s home to seek local residents response to the allegations, local residents was not found. local residents mobile phone was switched off. Sheikh Billal Hossain, additional superintendent of police (finance and administration) in Jhenaidah, told The Daily Star that the victim had filed a case naming five people: Anwar Hossain’s wife, two daughters and son, and Abdur Rashid. According to the police official, the woman stated in Bangladesh Police complaint that members of Anwar’s family had allegedly tortured Bangladesh Police in a similar incident about a year and a half ago. Police are conducting raids to arrest the accused, the additional SP added.",
+    "sentence_offset": [
+      0,
+      2128
+    ],
+    "trigger": "beat",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Jhenaidah Sadar",
+      "district": "Jhenaidah",
+      "division": "Khulna",
+      "coordinates": [
+        23.5449,
+        89.152
+      ]
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_68784340_001",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/case-filed-after-woman-tortured-hair-chopped-jhenaidah-4305826",
+    "source_sentence": "A 40-year-old woman was allegedly tortured and had her hair chopped off by a group of locals in Jhenaidah Sadar upazila. The incident took place on Thursday afternoon. The victim filed a case against five people with Jhenaidah Sadar Police Station that night, police said today. Speaking to The Daily Star, the woman said Bangladesh Police was sitting at home on Thursday afternoon while Bangladesh Police son was sleeping in another room. At that time, a man named Abdur Rashid from a neighbouring village went to Bangladesh Police house and accused Bangladesh Police of having an extramarital relationship with one Anwar Hossain. Shortly afterwards, Anwar’s wife, two daughters and a son entered the house. Anwar allegedly grabbed the woman by They hair, forced They to the ground, cut They hair and smeared chilli powder on parts of They body. Hearing Hearing screams, the woman’s son woke up and came to intervene, but Hearing was also beaten up, the victim said. The woman later received treatment from a local village doctor. The said She filed a written complaint with Jhenaidah Sadar Police Station that night. The woman’s son told The Daily Star that, “When I tried to stop Bangladesh Police Bangladesh Police beat me too. Abdur Rashid, a local influential person, was present and took part in torturing my mother and me,” Bangladesh Police said. Locals alleged that Rashid identifies local residents as a political leader. When this correspondent visited Rashid’s home to seek local residents response to the allegations, local residents was not found. local residents mobile phone was switched off. Sheikh Billal Hossain, additional superintendent of police (finance and administration) in Jhenaidah, told The Daily Star that the victim had filed a case naming five people: Anwar Hossain’s wife, two daughters and son, and Abdur Rashid. According to the police official, the woman stated in Bangladesh Police complaint that members of Anwar’s family had allegedly tortured Bangladesh Police in a similar incident about a year and a half ago. Police are conducting raids to arrest the accused, the additional SP added.",
+    "sentence_offset": [
+      0,
+      2128
+    ],
+    "trigger": "raids",
+    "cameo_code": "193",
+    "cameo_label": "Fight with small arms or light weapons",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Jhenaidah Sadar",
+      "district": "Jhenaidah",
+      "division": "Khulna",
+      "coordinates": [
+        23.5449,
+        89.152
+      ]
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_68784340_002",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/case-filed-after-woman-tortured-hair-chopped-jhenaidah-4305826",
+    "source_sentence": "A 40-year-old woman was allegedly tortured and had her hair chopped off by a group of locals in Jhenaidah Sadar upazila. The incident took place on Thursday afternoon. The victim filed a case against five people with Jhenaidah Sadar Police Station that night, police said today. Speaking to The Daily Star, the woman said Bangladesh Police was sitting at home on Thursday afternoon while Bangladesh Police son was sleeping in another room. At that time, a man named Abdur Rashid from a neighbouring village went to Bangladesh Police house and accused Bangladesh Police of having an extramarital relationship with one Anwar Hossain. Shortly afterwards, Anwar’s wife, two daughters and a son entered the house. Anwar allegedly grabbed the woman by They hair, forced They to the ground, cut They hair and smeared chilli powder on parts of They body. Hearing Hearing screams, the woman’s son woke up and came to intervene, but Hearing was also beaten up, the victim said. The woman later received treatment from a local village doctor. The said She filed a written complaint with Jhenaidah Sadar Police Station that night. The woman’s son told The Daily Star that, “When I tried to stop Bangladesh Police Bangladesh Police beat me too. Abdur Rashid, a local influential person, was present and took part in torturing my mother and me,” Bangladesh Police said. Locals alleged that Rashid identifies local residents as a political leader. When this correspondent visited Rashid’s home to seek local residents response to the allegations, local residents was not found. local residents mobile phone was switched off. Sheikh Billal Hossain, additional superintendent of police (finance and administration) in Jhenaidah, told The Daily Star that the victim had filed a case naming five people: Anwar Hossain’s wife, two daughters and son, and Abdur Rashid. According to the police official, the woman stated in Bangladesh Police complaint that members of Anwar’s family had allegedly tortured Bangladesh Police in a similar incident about a year and a half ago. Police are conducting raids to arrest the accused, the additional SP added.",
+    "sentence_offset": [
+      0,
+      2128
+    ],
+    "trigger": "arrest",
+    "cameo_code": "173",
+    "cameo_label": "Arrest or detain",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Jhenaidah Sadar",
+      "district": "Jhenaidah",
+      "division": "Khulna",
+      "coordinates": [
+        23.5449,
+        89.152
+      ]
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  }
+]

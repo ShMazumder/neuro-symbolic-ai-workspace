@@ -69,8 +69,8 @@ Evaluated on a held-out test partition ($n=150$) of 300 distantly supervised gol
 our hybrid reasoner achieves high-violence ($HV \ge 18$) classification \textbf{F1 = 0.732} and \textbf{96.8\% precision},
 outperforming unconstrained neural sequence baselines (Neural-Only F1 = 0.590, $\Delta$F1 = +0.142, $p = 0.0129 < 0.05$, exact McNemar test).
 Crucially, Description Logic constraint gating slashes the false positive rate down to 0.7\% (standard FPR 1.0\% vs 86.9\% for pure symbolic heuristics) while maintaining 100\% end-to-end PROV-O provenance traceability.
-Cross-source corroboration against 6,691 genuine ACLED conflict events (2020--2026) demonstrates \textbf{83.3\% exact CAMEO code concordance} and \textbf{100.0\% conflict macro-family concordance} across spatio-temporally matched events, while 156 genuine GDELT 2.0 violence events confirm high external macro concordance.
-Finally, a 50-query downstream benchmark demonstrates operational NL2SPARQL with 100.0\% syntax validity, 100.0\% schema compliance, and 54.0\% execution accuracy over the knowledge graph.
+Cross-source corroboration against 6,691 genuine ACLED conflict events (2020--2026) demonstrates \textbf{78.6\% exact CAMEO code concordance} and \textbf{100.0\% conflict macro-family concordance} across 42 spatio-temporally matched events, while 156 genuine GDELT 2.0 violence events confirm high external macro concordance.
+Finally, a 50-query downstream benchmark demonstrates operational NL2SPARQL with 100.0\% syntax validity, 100.0\% schema compliance, and 52.0\% execution accuracy over the knowledge graph.
 
 All code, benchmarks, ontology schemas, and evaluation scripts are released under the MIT License at
 \url{[anonymised for review]}.
@@ -284,8 +284,8 @@ Predictions are evaluated against five formal constraint operators:
 
 To eliminate evaluation ambiguity and potential data leakage, we establish a strict accounting and annotation protocol:
 \begin{itemize}
-  \item \textbf{News Ingestion Corpus}: 120 full-text articles collected from \textit{The Daily Star} (Politics, Crime \& Justice) across 2024--2026.
-  \item \textbf{Extracted Knowledge Graph}: 88 unique multi-actor conflict events represented as 1,973 RDF/Turtle triples with W3C PROV-O provenance in BlazeGraph.
+  \item \textbf{News Ingestion Corpus}: 176 full-text articles collected from \textit{The Daily Star} (Politics, Crime \& Justice) across 2024--2026.
+  \item \textbf{Extracted Knowledge Graph}: 159 unique multi-actor conflict events represented as 3,438 RDF/Turtle triples with W3C PROV-O provenance in BlazeGraph.
   \item \textbf{Gold Benchmark}: 300 genuine conflict events extracted from real newspaper sentences spanning all 8 CAMEO intensity levels (13--20) with fine-grained actor roles, administrative locations, and source sentence offsets.
   \item \textbf{Distantly Supervised Silver-Standard \& Noise Stress Protocol}: Benchmark events were established via distant supervision with rule-based heuristic extraction from national reporting. To evaluate model robustness against label ambiguity and boundary disputes, we implemented an empirical disagreement simulation protocol injecting 20\% boundary noise ($P_o = 77.7\%$, Cohen's $\kappa = 0.737$ multi-class; $P_o = 92.3\%$, Cohen's $\kappa = 0.832$ binary high-violence) adhering to formal conflict coding guidelines (\texttt{docs/annotation\_guidelines.md}).
   \item \textbf{Partitioning Protocol}: The 300 gold benchmark events are partitioned via a deterministic 50/50 split ($\text{seed}=42$) into 150 training/development examples (used for vocabulary and rule tuning) and 150 held-out test events. The held-out test bed contains 51 High-Violence events (CAMEO $\ge 18$) and 99 Non-Violent/Low-Violence events (CAMEO $< 18$). All ablation and baseline comparisons in Tables~\ref{tab:ablation} and~\ref{tab:baselines} are evaluated strictly on this held-out 150-event set.
@@ -346,7 +346,7 @@ Table~\ref{tab:benchmark} summarises empirical alignment against GDELT 2.0 and A
                    & \textbf{Recall}    & \textbf{Acc}      & \textbf{Acc}        & \textbf{Rate} \\
 \midrule
 vs GDELT 2.0 (Genuine 156 events) & 1.000              & ---               & 1.000               & 1.000 \\
-vs ACLED (Genuine 6,691 records)  & 0.390              & 0.390             & \textbf{0.833}      & \textbf{1.000} \\
+vs ACLED (Genuine 6,691 records)  & 0.321              & 0.321             & \textbf{0.786}      & \textbf{1.000} \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -376,9 +376,9 @@ Strategic developments    & Arrests, Weapons seized & 17 (COERCE)         & Arre
 \end{tabular}
 \end{table}
 
-Across 77 system-extracted events evaluated against 6,691 genuine ACLED event records for Bangladesh (2020--2026) in the same temporal window, candidate pairs are matched using spatio-temporal boundary alignment: temporal window $\Delta t \le 21$ days (accounting for ACLED weekly release aggregation) and matching administrative district / division hierarchy.
-This yields 30 confirmed matches ($30/77 = 39.0\%$ detection recall), reflecting the expected single-source bound of an English national daily (\textit{The Daily Star}) compared to ACLED's multi-outlet rural and regional field collection.
-Crucially, across all 30 spatio-temporally matched event pairs, system classifications achieve \textbf{83.3\% exact CAMEO code concordance} ($25/30$) and \textbf{100.0\% conflict macro-family concordance} under the fine-grained sub-event crosswalk.
+Across 131 system-extracted events evaluated against 6,691 genuine ACLED event records for Bangladesh (2020--2026) in the same temporal window, candidate pairs are matched using spatio-temporal boundary alignment: temporal window $\Delta t \le 21$ days (accounting for ACLED weekly release aggregation) and matching administrative district / division hierarchy.
+This yields 42 confirmed matches ($42/131 = 32.1\%$ detection recall), reflecting the expected single-source bound of an English national daily (\textit{The Daily Star}) compared to ACLED's multi-outlet rural and regional field collection.
+Crucially, across all 42 spatio-temporally matched event pairs, system classifications achieve \textbf{78.6\% exact CAMEO code concordance} ($33/42$) and \textbf{100.0\% conflict macro-family concordance} under the fine-grained sub-event crosswalk.
 
 \subsection{Knowledge Graph Embedding Evaluation}
 
@@ -416,13 +416,13 @@ The provenance grounding score calculates the harmonic mean between model confid
 \toprule
 \textbf{Metric} & \textbf{Value} \\
 \midrule
-Provenance coverage (PROV-O article cited)               & 96.0\% \\
+Provenance coverage (PROV-O article cited)               & 98.0\% \\
 Rule coverage (symbolic rule / axiom fired)              & 100.0\% \\
-Category-specific trigger faithfulness (non-circular)    & \textbf{81.2\%} \\
+Category-specific trigger faithfulness (non-circular)    & \textbf{86.7\%} \\
 General conflict relevance                              & 100.0\% \\
-Avg.\ graph neighbours cited                             & 3.21   \\
-Avg.\ provenance grounding score                         & 0.733  \\
-Avg.\ model confidence                                   & 0.787  \\
+Avg.\ graph neighbours cited                             & 3.26   \\
+Avg.\ provenance grounding score                         & 0.721  \\
+Avg.\ model confidence                                   & 0.754  \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -463,8 +463,8 @@ Pure Symbolic (Rule Engine)               & 0.393 & 0.348 & \textbf{0.902} & 0.5
 \label{sec:nl2sparql}
 
 To evaluate practical utility for non-technical intelligence analysts, we constructed a quantitative evaluation benchmark comprising 50 gold question-query pairs across six core analyst querying intents (Table~\ref{tab:nl2sparql}).
-Queries are executed against the materialized RDF knowledge graph (2,440 triples).
-The system achieves 100.0\% syntax validity, 100.0\% schema compliance, an 85.7\% mean structural pattern match, and \textbf{54.0\% execution accuracy} (exact answer set equivalence), confirming that structured knowledge graph queries can be generated and executed reliably.
+Queries are executed against the materialized RDF knowledge graph (3,905 evaluation RDF triples).
+The system achieves 100.0\% syntax validity, 100.0\% schema compliance, an 85.7\% mean structural pattern match, and \textbf{52.0\% execution accuracy} (exact answer set equivalence), confirming that structured knowledge graph queries can be generated and executed reliably.
 
 \begin{table}[h]
 \centering
@@ -475,14 +475,14 @@ The system achieves 100.0\% syntax validity, 100.0\% schema compliance, an 85.7\
 \toprule
 \textbf{Query Category} & \textbf{Queries} & \textbf{Syntax Valid} & \textbf{Struct Match} & \textbf{Execution Acc} \\
 \midrule
-Spatial Hotspots \& Aggregation   & 10 & 100.0\% & 75.0\% & 20.0\% \\
+Spatial Hotspots \& Aggregation   & 10 & 100.0\% & 75.0\% & 10.0\% \\
 Actor Dynamics \& Parties         & 10 & 100.0\% & 81.7\% & 60.0\% \\
 District Location Filtering       & 10 & 100.0\% & 92.9\% & \textbf{80.0\%} \\
 Temporal Trends \& Windows        & 8  & 100.0\% & 89.6\% & 25.0\% \\
 CAMEO Severity Classification     & 8  & 100.0\% & 90.1\% & 62.5\% \\
 Provenance \& Grounding Evidence  & 4  & 100.0\% & 87.5\% & \textbf{100.0\%} \\
 \midrule
-\textbf{Overall Mean}             & \textbf{50} & \textbf{100.0\%} & \textbf{85.7\%} & \textbf{54.0\%} \\
+\textbf{Overall Mean}             & \textbf{50} & \textbf{100.0\%} & \textbf{85.7\%} & \textbf{52.0\%} \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -549,14 +549,14 @@ that symbolic constraints are most valuable for rare but catastrophic errors.
 \paragraph{Provenance as trust infrastructure.}
 The PROV-O provenance layer enables conflict analysts to verify any
 system output against its source article within seconds.
-In our explainability evaluation, 97.0\% of predictions were backed
+In our explainability evaluation, 98.0\% of predictions were backed
 by at least one cited article sentence, and 100.0\% of those sentences
 contained at least one verified violence trigger keyword.
 
 \paragraph{Limitations.}
 (1) The system currently relies on English-language sources (The Daily Star); Bangla-language sources (Prothom Alo, etc.) are under development.
 (2) Coreference resolution for complex multi-party political entities remains challenging in dense reporting.
-(3) ACLED detection recall (23.4\%) reflects strict administrative alignment filters between national English reporting and ACLED's multi-source rural collection.
+(3) ACLED detection recall (32.1\%) reflects strict administrative alignment filters between national English reporting and ACLED's multi-source rural collection.
 (4) Multi-party factional clashes with ambiguous passive voice require ongoing gazetteer expansion.
 
 % ── 6. Conclusion ─────────────────────────────────────────────────────────

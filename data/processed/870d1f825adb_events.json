@@ -1,0 +1,710 @@
+[
+  {
+    "event_id": "evt_25f35c9b_000",
+    "source_url": "https://www.thedailystar.net/news/musabbir-murder-likely-linked-business-dispute-says-db-4078511",
+    "source_sentence": "Detective Branch (DB) of Dhaka Metropolitan Police has said the murder of Mohammad Azizur Rahman Musabbir, former general secretary of Dhaka City North Swechchhasebak Dal, appears to have stemmed from a business dispute. At a press briefing at the DMP Media Centre this afternoon, Additional Commissioner (DB) Md Shafiqul Islam outlined the progress of the investigation, confirming that several suspects have been arrested during operations across Dhaka, Gazipur, Mymensingh, Netrokona, and Kishoreganj. Among those detained are Jinnat, 24, one of the two gunmen, and Mohammad Billal Hossain, alleged to be the main coordinator of the attack. Billal’s uncle, Abdul Kadir, 28, who reportedly helped the suspects flee, was also taken into custody. Another suspect, Mohammad Riaz, 32, believed to have assisted in the planning, has been arrested as well. Police recovered a motorcycle used in the attack and Tk 6,000 in cash from the suspects. The second shooter, identified as Rahim, remains at large. The DB official said the accused had inspected the crime scene prior to the attack. During initial questioning, the detainees confessed to Bangladesh Police roles in the murder, though the firearm used in the shooting has not yet been recovered. During added that while political motives are being examined given Musabbir’s background, initial findings suggest the killing was linked to a business dispute. The DB is also investigating reports that Tk 1.5 million was allegedly sent from abroad to finance the killing. Authorities are further examining a recent human chain staged by Musabbir against extortion, during which clashes occurred and a case was filed. The incident took place last Wednesday around 8:00pm, when gunmen shot Musabbir in an alley near Hotel Super Star on Kazi Nazrul Islam Avenue. Abu Sufian Bepari Masud, general secretary of the Tejgaon Thana Van Workers Union, who was accompanying Mosabbir, was also injured.",
+    "sentence_offset": [
+      0,
+      1939
+    ],
+    "trigger": "murder",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Detective Branch",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Detective Branch",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Detective Branch",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "last Wednesday",
+      "normalized": "2026-10-21"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Musabbir murder likely linked to business dispute, says DB",
+    "article_published": "Sun, 11 Jan 26 20:21:24 +0600"
+  },
+  {
+    "event_id": "evt_25f35c9b_001",
+    "source_url": "https://www.thedailystar.net/news/musabbir-murder-likely-linked-business-dispute-says-db-4078511",
+    "source_sentence": "Detective Branch (DB) of Dhaka Metropolitan Police has said the murder of Mohammad Azizur Rahman Musabbir, former general secretary of Dhaka City North Swechchhasebak Dal, appears to have stemmed from a business dispute. At a press briefing at the DMP Media Centre this afternoon, Additional Commissioner (DB) Md Shafiqul Islam outlined the progress of the investigation, confirming that several suspects have been arrested during operations across Dhaka, Gazipur, Mymensingh, Netrokona, and Kishoreganj. Among those detained are Jinnat, 24, one of the two gunmen, and Mohammad Billal Hossain, alleged to be the main coordinator of the attack. Billal’s uncle, Abdul Kadir, 28, who reportedly helped the suspects flee, was also taken into custody. Another suspect, Mohammad Riaz, 32, believed to have assisted in the planning, has been arrested as well. Police recovered a motorcycle used in the attack and Tk 6,000 in cash from the suspects. The second shooter, identified as Rahim, remains at large. The DB official said the accused had inspected the crime scene prior to the attack. During initial questioning, the detainees confessed to Bangladesh Police roles in the murder, though the firearm used in the shooting has not yet been recovered. During added that while political motives are being examined given Musabbir’s background, initial findings suggest the killing was linked to a business dispute. The DB is also investigating reports that Tk 1.5 million was allegedly sent from abroad to finance the killing. Authorities are further examining a recent human chain staged by Musabbir against extortion, during which clashes occurred and a case was filed. The incident took place last Wednesday around 8:00pm, when gunmen shot Musabbir in an alley near Hotel Super Star on Kazi Nazrul Islam Avenue. Abu Sufian Bepari Masud, general secretary of the Tejgaon Thana Van Workers Union, who was accompanying Mosabbir, was also injured.",
+    "sentence_offset": [
+      0,
+      1939
+    ],
+    "trigger": "arrested",
+    "cameo_code": "173",
+    "cameo_label": "Arrest or detain",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Detective Branch",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Detective Branch",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Detective Branch",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "last Wednesday",
+      "normalized": "2026-10-21"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Musabbir murder likely linked to business dispute, says DB",
+    "article_published": "Sun, 11 Jan 26 20:21:24 +0600"
+  },
+  {
+    "event_id": "evt_25f35c9b_002",
+    "source_url": "https://www.thedailystar.net/news/musabbir-murder-likely-linked-business-dispute-says-db-4078511",
+    "source_sentence": "Detective Branch (DB) of Dhaka Metropolitan Police has said the murder of Mohammad Azizur Rahman Musabbir, former general secretary of Dhaka City North Swechchhasebak Dal, appears to have stemmed from a business dispute. At a press briefing at the DMP Media Centre this afternoon, Additional Commissioner (DB) Md Shafiqul Islam outlined the progress of the investigation, confirming that several suspects have been arrested during operations across Dhaka, Gazipur, Mymensingh, Netrokona, and Kishoreganj. Among those detained are Jinnat, 24, one of the two gunmen, and Mohammad Billal Hossain, alleged to be the main coordinator of the attack. Billal’s uncle, Abdul Kadir, 28, who reportedly helped the suspects flee, was also taken into custody. Another suspect, Mohammad Riaz, 32, believed to have assisted in the planning, has been arrested as well. Police recovered a motorcycle used in the attack and Tk 6,000 in cash from the suspects. The second shooter, identified as Rahim, remains at large. The DB official said the accused had inspected the crime scene prior to the attack. During initial questioning, the detainees confessed to Bangladesh Police roles in the murder, though the firearm used in the shooting has not yet been recovered. During added that while political motives are being examined given Musabbir’s background, initial findings suggest the killing was linked to a business dispute. The DB is also investigating reports that Tk 1.5 million was allegedly sent from abroad to finance the killing. Authorities are further examining a recent human chain staged by Musabbir against extortion, during which clashes occurred and a case was filed. The incident took place last Wednesday around 8:00pm, when gunmen shot Musabbir in an alley near Hotel Super Star on Kazi Nazrul Islam Avenue. Abu Sufian Bepari Masud, general secretary of the Tejgaon Thana Van Workers Union, who was accompanying Mosabbir, was also injured.",
+    "sentence_offset": [
+      0,
+      1939
+    ],
+    "trigger": "detained",
+    "cameo_code": "173",
+    "cameo_label": "Arrest or detain",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Detective Branch",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Detective Branch",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Detective Branch",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "last Wednesday",
+      "normalized": "2026-10-21"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Musabbir murder likely linked to business dispute, says DB",
+    "article_published": "Sun, 11 Jan 26 20:21:24 +0600"
+  },
+  {
+    "event_id": "evt_25f35c9b_003",
+    "source_url": "https://www.thedailystar.net/news/musabbir-murder-likely-linked-business-dispute-says-db-4078511",
+    "source_sentence": "Detective Branch (DB) of Dhaka Metropolitan Police has said the murder of Mohammad Azizur Rahman Musabbir, former general secretary of Dhaka City North Swechchhasebak Dal, appears to have stemmed from a business dispute. At a press briefing at the DMP Media Centre this afternoon, Additional Commissioner (DB) Md Shafiqul Islam outlined the progress of the investigation, confirming that several suspects have been arrested during operations across Dhaka, Gazipur, Mymensingh, Netrokona, and Kishoreganj. Among those detained are Jinnat, 24, one of the two gunmen, and Mohammad Billal Hossain, alleged to be the main coordinator of the attack. Billal’s uncle, Abdul Kadir, 28, who reportedly helped the suspects flee, was also taken into custody. Another suspect, Mohammad Riaz, 32, believed to have assisted in the planning, has been arrested as well. Police recovered a motorcycle used in the attack and Tk 6,000 in cash from the suspects. The second shooter, identified as Rahim, remains at large. The DB official said the accused had inspected the crime scene prior to the attack. During initial questioning, the detainees confessed to Bangladesh Police roles in the murder, though the firearm used in the shooting has not yet been recovered. During added that while political motives are being examined given Musabbir’s background, initial findings suggest the killing was linked to a business dispute. The DB is also investigating reports that Tk 1.5 million was allegedly sent from abroad to finance the killing. Authorities are further examining a recent human chain staged by Musabbir against extortion, during which clashes occurred and a case was filed. The incident took place last Wednesday around 8:00pm, when gunmen shot Musabbir in an alley near Hotel Super Star on Kazi Nazrul Islam Avenue. Abu Sufian Bepari Masud, general secretary of the Tejgaon Thana Van Workers Union, who was accompanying Mosabbir, was also injured.",
+    "sentence_offset": [
+      0,
+      1939
+    ],
+    "trigger": "attack",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Detective Branch",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Detective Branch",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Detective Branch",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "last Wednesday",
+      "normalized": "2026-10-21"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Musabbir murder likely linked to business dispute, says DB",
+    "article_published": "Sun, 11 Jan 26 20:21:24 +0600"
+  },
+  {
+    "event_id": "evt_25f35c9b_004",
+    "source_url": "https://www.thedailystar.net/news/musabbir-murder-likely-linked-business-dispute-says-db-4078511",
+    "source_sentence": "Detective Branch (DB) of Dhaka Metropolitan Police has said the murder of Mohammad Azizur Rahman Musabbir, former general secretary of Dhaka City North Swechchhasebak Dal, appears to have stemmed from a business dispute. At a press briefing at the DMP Media Centre this afternoon, Additional Commissioner (DB) Md Shafiqul Islam outlined the progress of the investigation, confirming that several suspects have been arrested during operations across Dhaka, Gazipur, Mymensingh, Netrokona, and Kishoreganj. Among those detained are Jinnat, 24, one of the two gunmen, and Mohammad Billal Hossain, alleged to be the main coordinator of the attack. Billal’s uncle, Abdul Kadir, 28, who reportedly helped the suspects flee, was also taken into custody. Another suspect, Mohammad Riaz, 32, believed to have assisted in the planning, has been arrested as well. Police recovered a motorcycle used in the attack and Tk 6,000 in cash from the suspects. The second shooter, identified as Rahim, remains at large. The DB official said the accused had inspected the crime scene prior to the attack. During initial questioning, the detainees confessed to Bangladesh Police roles in the murder, though the firearm used in the shooting has not yet been recovered. During added that while political motives are being examined given Musabbir’s background, initial findings suggest the killing was linked to a business dispute. The DB is also investigating reports that Tk 1.5 million was allegedly sent from abroad to finance the killing. Authorities are further examining a recent human chain staged by Musabbir against extortion, during which clashes occurred and a case was filed. The incident took place last Wednesday around 8:00pm, when gunmen shot Musabbir in an alley near Hotel Super Star on Kazi Nazrul Islam Avenue. Abu Sufian Bepari Masud, general secretary of the Tejgaon Thana Van Workers Union, who was accompanying Mosabbir, was also injured.",
+    "sentence_offset": [
+      0,
+      1939
+    ],
+    "trigger": "arrested",
+    "cameo_code": "173",
+    "cameo_label": "Arrest or detain",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Detective Branch",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Detective Branch",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Detective Branch",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "last Wednesday",
+      "normalized": "2026-10-21"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Musabbir murder likely linked to business dispute, says DB",
+    "article_published": "Sun, 11 Jan 26 20:21:24 +0600"
+  },
+  {
+    "event_id": "evt_25f35c9b_005",
+    "source_url": "https://www.thedailystar.net/news/musabbir-murder-likely-linked-business-dispute-says-db-4078511",
+    "source_sentence": "Detective Branch (DB) of Dhaka Metropolitan Police has said the murder of Mohammad Azizur Rahman Musabbir, former general secretary of Dhaka City North Swechchhasebak Dal, appears to have stemmed from a business dispute. At a press briefing at the DMP Media Centre this afternoon, Additional Commissioner (DB) Md Shafiqul Islam outlined the progress of the investigation, confirming that several suspects have been arrested during operations across Dhaka, Gazipur, Mymensingh, Netrokona, and Kishoreganj. Among those detained are Jinnat, 24, one of the two gunmen, and Mohammad Billal Hossain, alleged to be the main coordinator of the attack. Billal’s uncle, Abdul Kadir, 28, who reportedly helped the suspects flee, was also taken into custody. Another suspect, Mohammad Riaz, 32, believed to have assisted in the planning, has been arrested as well. Police recovered a motorcycle used in the attack and Tk 6,000 in cash from the suspects. The second shooter, identified as Rahim, remains at large. The DB official said the accused had inspected the crime scene prior to the attack. During initial questioning, the detainees confessed to Bangladesh Police roles in the murder, though the firearm used in the shooting has not yet been recovered. During added that while political motives are being examined given Musabbir’s background, initial findings suggest the killing was linked to a business dispute. The DB is also investigating reports that Tk 1.5 million was allegedly sent from abroad to finance the killing. Authorities are further examining a recent human chain staged by Musabbir against extortion, during which clashes occurred and a case was filed. The incident took place last Wednesday around 8:00pm, when gunmen shot Musabbir in an alley near Hotel Super Star on Kazi Nazrul Islam Avenue. Abu Sufian Bepari Masud, general secretary of the Tejgaon Thana Van Workers Union, who was accompanying Mosabbir, was also injured.",
+    "sentence_offset": [
+      0,
+      1939
+    ],
+    "trigger": "attack",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Detective Branch",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Detective Branch",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Detective Branch",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "last Wednesday",
+      "normalized": "2026-10-21"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Musabbir murder likely linked to business dispute, says DB",
+    "article_published": "Sun, 11 Jan 26 20:21:24 +0600"
+  },
+  {
+    "event_id": "evt_25f35c9b_006",
+    "source_url": "https://www.thedailystar.net/news/musabbir-murder-likely-linked-business-dispute-says-db-4078511",
+    "source_sentence": "Detective Branch (DB) of Dhaka Metropolitan Police has said the murder of Mohammad Azizur Rahman Musabbir, former general secretary of Dhaka City North Swechchhasebak Dal, appears to have stemmed from a business dispute. At a press briefing at the DMP Media Centre this afternoon, Additional Commissioner (DB) Md Shafiqul Islam outlined the progress of the investigation, confirming that several suspects have been arrested during operations across Dhaka, Gazipur, Mymensingh, Netrokona, and Kishoreganj. Among those detained are Jinnat, 24, one of the two gunmen, and Mohammad Billal Hossain, alleged to be the main coordinator of the attack. Billal’s uncle, Abdul Kadir, 28, who reportedly helped the suspects flee, was also taken into custody. Another suspect, Mohammad Riaz, 32, believed to have assisted in the planning, has been arrested as well. Police recovered a motorcycle used in the attack and Tk 6,000 in cash from the suspects. The second shooter, identified as Rahim, remains at large. The DB official said the accused had inspected the crime scene prior to the attack. During initial questioning, the detainees confessed to Bangladesh Police roles in the murder, though the firearm used in the shooting has not yet been recovered. During added that while political motives are being examined given Musabbir’s background, initial findings suggest the killing was linked to a business dispute. The DB is also investigating reports that Tk 1.5 million was allegedly sent from abroad to finance the killing. Authorities are further examining a recent human chain staged by Musabbir against extortion, during which clashes occurred and a case was filed. The incident took place last Wednesday around 8:00pm, when gunmen shot Musabbir in an alley near Hotel Super Star on Kazi Nazrul Islam Avenue. Abu Sufian Bepari Masud, general secretary of the Tejgaon Thana Van Workers Union, who was accompanying Mosabbir, was also injured.",
+    "sentence_offset": [
+      0,
+      1939
+    ],
+    "trigger": "shooter",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Detective Branch",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Detective Branch",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Detective Branch",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "last Wednesday",
+      "normalized": "2026-10-21"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Musabbir murder likely linked to business dispute, says DB",
+    "article_published": "Sun, 11 Jan 26 20:21:24 +0600"
+  },
+  {
+    "event_id": "evt_25f35c9b_007",
+    "source_url": "https://www.thedailystar.net/news/musabbir-murder-likely-linked-business-dispute-says-db-4078511",
+    "source_sentence": "Detective Branch (DB) of Dhaka Metropolitan Police has said the murder of Mohammad Azizur Rahman Musabbir, former general secretary of Dhaka City North Swechchhasebak Dal, appears to have stemmed from a business dispute. At a press briefing at the DMP Media Centre this afternoon, Additional Commissioner (DB) Md Shafiqul Islam outlined the progress of the investigation, confirming that several suspects have been arrested during operations across Dhaka, Gazipur, Mymensingh, Netrokona, and Kishoreganj. Among those detained are Jinnat, 24, one of the two gunmen, and Mohammad Billal Hossain, alleged to be the main coordinator of the attack. Billal’s uncle, Abdul Kadir, 28, who reportedly helped the suspects flee, was also taken into custody. Another suspect, Mohammad Riaz, 32, believed to have assisted in the planning, has been arrested as well. Police recovered a motorcycle used in the attack and Tk 6,000 in cash from the suspects. The second shooter, identified as Rahim, remains at large. The DB official said the accused had inspected the crime scene prior to the attack. During initial questioning, the detainees confessed to Bangladesh Police roles in the murder, though the firearm used in the shooting has not yet been recovered. During added that while political motives are being examined given Musabbir’s background, initial findings suggest the killing was linked to a business dispute. The DB is also investigating reports that Tk 1.5 million was allegedly sent from abroad to finance the killing. Authorities are further examining a recent human chain staged by Musabbir against extortion, during which clashes occurred and a case was filed. The incident took place last Wednesday around 8:00pm, when gunmen shot Musabbir in an alley near Hotel Super Star on Kazi Nazrul Islam Avenue. Abu Sufian Bepari Masud, general secretary of the Tejgaon Thana Van Workers Union, who was accompanying Mosabbir, was also injured.",
+    "sentence_offset": [
+      0,
+      1939
+    ],
+    "trigger": "attack",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Detective Branch",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Detective Branch",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Detective Branch",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "last Wednesday",
+      "normalized": "2026-10-21"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Musabbir murder likely linked to business dispute, says DB",
+    "article_published": "Sun, 11 Jan 26 20:21:24 +0600"
+  },
+  {
+    "event_id": "evt_25f35c9b_008",
+    "source_url": "https://www.thedailystar.net/news/musabbir-murder-likely-linked-business-dispute-says-db-4078511",
+    "source_sentence": "Detective Branch (DB) of Dhaka Metropolitan Police has said the murder of Mohammad Azizur Rahman Musabbir, former general secretary of Dhaka City North Swechchhasebak Dal, appears to have stemmed from a business dispute. At a press briefing at the DMP Media Centre this afternoon, Additional Commissioner (DB) Md Shafiqul Islam outlined the progress of the investigation, confirming that several suspects have been arrested during operations across Dhaka, Gazipur, Mymensingh, Netrokona, and Kishoreganj. Among those detained are Jinnat, 24, one of the two gunmen, and Mohammad Billal Hossain, alleged to be the main coordinator of the attack. Billal’s uncle, Abdul Kadir, 28, who reportedly helped the suspects flee, was also taken into custody. Another suspect, Mohammad Riaz, 32, believed to have assisted in the planning, has been arrested as well. Police recovered a motorcycle used in the attack and Tk 6,000 in cash from the suspects. The second shooter, identified as Rahim, remains at large. The DB official said the accused had inspected the crime scene prior to the attack. During initial questioning, the detainees confessed to Bangladesh Police roles in the murder, though the firearm used in the shooting has not yet been recovered. During added that while political motives are being examined given Musabbir’s background, initial findings suggest the killing was linked to a business dispute. The DB is also investigating reports that Tk 1.5 million was allegedly sent from abroad to finance the killing. Authorities are further examining a recent human chain staged by Musabbir against extortion, during which clashes occurred and a case was filed. The incident took place last Wednesday around 8:00pm, when gunmen shot Musabbir in an alley near Hotel Super Star on Kazi Nazrul Islam Avenue. Abu Sufian Bepari Masud, general secretary of the Tejgaon Thana Van Workers Union, who was accompanying Mosabbir, was also injured.",
+    "sentence_offset": [
+      0,
+      1939
+    ],
+    "trigger": "murder",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Detective Branch",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Detective Branch",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Detective Branch",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "last Wednesday",
+      "normalized": "2026-10-21"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Musabbir murder likely linked to business dispute, says DB",
+    "article_published": "Sun, 11 Jan 26 20:21:24 +0600"
+  },
+  {
+    "event_id": "evt_25f35c9b_009",
+    "source_url": "https://www.thedailystar.net/news/musabbir-murder-likely-linked-business-dispute-says-db-4078511",
+    "source_sentence": "Detective Branch (DB) of Dhaka Metropolitan Police has said the murder of Mohammad Azizur Rahman Musabbir, former general secretary of Dhaka City North Swechchhasebak Dal, appears to have stemmed from a business dispute. At a press briefing at the DMP Media Centre this afternoon, Additional Commissioner (DB) Md Shafiqul Islam outlined the progress of the investigation, confirming that several suspects have been arrested during operations across Dhaka, Gazipur, Mymensingh, Netrokona, and Kishoreganj. Among those detained are Jinnat, 24, one of the two gunmen, and Mohammad Billal Hossain, alleged to be the main coordinator of the attack. Billal’s uncle, Abdul Kadir, 28, who reportedly helped the suspects flee, was also taken into custody. Another suspect, Mohammad Riaz, 32, believed to have assisted in the planning, has been arrested as well. Police recovered a motorcycle used in the attack and Tk 6,000 in cash from the suspects. The second shooter, identified as Rahim, remains at large. The DB official said the accused had inspected the crime scene prior to the attack. During initial questioning, the detainees confessed to Bangladesh Police roles in the murder, though the firearm used in the shooting has not yet been recovered. During added that while political motives are being examined given Musabbir’s background, initial findings suggest the killing was linked to a business dispute. The DB is also investigating reports that Tk 1.5 million was allegedly sent from abroad to finance the killing. Authorities are further examining a recent human chain staged by Musabbir against extortion, during which clashes occurred and a case was filed. The incident took place last Wednesday around 8:00pm, when gunmen shot Musabbir in an alley near Hotel Super Star on Kazi Nazrul Islam Avenue. Abu Sufian Bepari Masud, general secretary of the Tejgaon Thana Van Workers Union, who was accompanying Mosabbir, was also injured.",
+    "sentence_offset": [
+      0,
+      1939
+    ],
+    "trigger": "shooting",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Detective Branch",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Detective Branch",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Detective Branch",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "last Wednesday",
+      "normalized": "2026-10-21"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Musabbir murder likely linked to business dispute, says DB",
+    "article_published": "Sun, 11 Jan 26 20:21:24 +0600"
+  },
+  {
+    "event_id": "evt_25f35c9b_010",
+    "source_url": "https://www.thedailystar.net/news/musabbir-murder-likely-linked-business-dispute-says-db-4078511",
+    "source_sentence": "Detective Branch (DB) of Dhaka Metropolitan Police has said the murder of Mohammad Azizur Rahman Musabbir, former general secretary of Dhaka City North Swechchhasebak Dal, appears to have stemmed from a business dispute. At a press briefing at the DMP Media Centre this afternoon, Additional Commissioner (DB) Md Shafiqul Islam outlined the progress of the investigation, confirming that several suspects have been arrested during operations across Dhaka, Gazipur, Mymensingh, Netrokona, and Kishoreganj. Among those detained are Jinnat, 24, one of the two gunmen, and Mohammad Billal Hossain, alleged to be the main coordinator of the attack. Billal’s uncle, Abdul Kadir, 28, who reportedly helped the suspects flee, was also taken into custody. Another suspect, Mohammad Riaz, 32, believed to have assisted in the planning, has been arrested as well. Police recovered a motorcycle used in the attack and Tk 6,000 in cash from the suspects. The second shooter, identified as Rahim, remains at large. The DB official said the accused had inspected the crime scene prior to the attack. During initial questioning, the detainees confessed to Bangladesh Police roles in the murder, though the firearm used in the shooting has not yet been recovered. During added that while political motives are being examined given Musabbir’s background, initial findings suggest the killing was linked to a business dispute. The DB is also investigating reports that Tk 1.5 million was allegedly sent from abroad to finance the killing. Authorities are further examining a recent human chain staged by Musabbir against extortion, during which clashes occurred and a case was filed. The incident took place last Wednesday around 8:00pm, when gunmen shot Musabbir in an alley near Hotel Super Star on Kazi Nazrul Islam Avenue. Abu Sufian Bepari Masud, general secretary of the Tejgaon Thana Van Workers Union, who was accompanying Mosabbir, was also injured.",
+    "sentence_offset": [
+      0,
+      1939
+    ],
+    "trigger": "killing",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Detective Branch",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Detective Branch",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Detective Branch",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "last Wednesday",
+      "normalized": "2026-10-21"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Musabbir murder likely linked to business dispute, says DB",
+    "article_published": "Sun, 11 Jan 26 20:21:24 +0600"
+  },
+  {
+    "event_id": "evt_25f35c9b_011",
+    "source_url": "https://www.thedailystar.net/news/musabbir-murder-likely-linked-business-dispute-says-db-4078511",
+    "source_sentence": "Detective Branch (DB) of Dhaka Metropolitan Police has said the murder of Mohammad Azizur Rahman Musabbir, former general secretary of Dhaka City North Swechchhasebak Dal, appears to have stemmed from a business dispute. At a press briefing at the DMP Media Centre this afternoon, Additional Commissioner (DB) Md Shafiqul Islam outlined the progress of the investigation, confirming that several suspects have been arrested during operations across Dhaka, Gazipur, Mymensingh, Netrokona, and Kishoreganj. Among those detained are Jinnat, 24, one of the two gunmen, and Mohammad Billal Hossain, alleged to be the main coordinator of the attack. Billal’s uncle, Abdul Kadir, 28, who reportedly helped the suspects flee, was also taken into custody. Another suspect, Mohammad Riaz, 32, believed to have assisted in the planning, has been arrested as well. Police recovered a motorcycle used in the attack and Tk 6,000 in cash from the suspects. The second shooter, identified as Rahim, remains at large. The DB official said the accused had inspected the crime scene prior to the attack. During initial questioning, the detainees confessed to Bangladesh Police roles in the murder, though the firearm used in the shooting has not yet been recovered. During added that while political motives are being examined given Musabbir’s background, initial findings suggest the killing was linked to a business dispute. The DB is also investigating reports that Tk 1.5 million was allegedly sent from abroad to finance the killing. Authorities are further examining a recent human chain staged by Musabbir against extortion, during which clashes occurred and a case was filed. The incident took place last Wednesday around 8:00pm, when gunmen shot Musabbir in an alley near Hotel Super Star on Kazi Nazrul Islam Avenue. Abu Sufian Bepari Masud, general secretary of the Tejgaon Thana Van Workers Union, who was accompanying Mosabbir, was also injured.",
+    "sentence_offset": [
+      0,
+      1939
+    ],
+    "trigger": "killing",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Detective Branch",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Detective Branch",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Detective Branch",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "last Wednesday",
+      "normalized": "2026-10-21"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Musabbir murder likely linked to business dispute, says DB",
+    "article_published": "Sun, 11 Jan 26 20:21:24 +0600"
+  }
+]

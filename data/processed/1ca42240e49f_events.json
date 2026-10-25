@@ -1,0 +1,166 @@
+[
+  {
+    "event_id": "evt_1918377f_000",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/man-shot-hijacking-motorcycle-noakhali-4306881",
+    "source_sentence": "A tailor was shot, and his motorcycle hijacked in Begumganj upazila of Noakhali yesterday afternoon. However, the motorcycle was later recovered. Locals rescued the victim, Kamrul Hasan, 24, of Newazpur, and took local residents to the 250-bed Noakhali General Hospital. The shooting took place around 5:30pm in Ward 5 of Baro Newazpur village over a previous rivalry, Additional Superintendent of Police (Begumganj Circle) ANM Imran Khan said. “The bullet entered through Bangladesh Police right arm and grazed the skin of Bangladesh Police abdomen, causing minor injuries. Police are investigating the matter and trying to identify the culprits and bring Bangladesh Police to justice,” Bangladesh Police told The Daily Star. Mahbub Kabir, inspector (investigation) and acting officer-in-charge of Begumganj Police Station, said police visited the scene after receiving the information and recovered the motorcycle. Legal action would be taken upon receipt of a formal complaint regarding the shooting, Bangladesh Police added. According to the victim's family and locals, Hasan works as a tailor in Chattogram and returned home on leave two days ago. Yesterday afternoon, Bangladesh Police was riding a motorcycle with Bangladesh Police cousin Rakib towards Bahadurpur village in Alaiyapur Union to meet an acquaintance. When When reached the road in front of When house, a group intercepted When At one point, one of the group opened fire, injuring Hasan in Hasan right arm and the right side of Hasan chest, the sources said. Dr Rajib Ahmed Chowdhury, resident medical officer at the hospital, said Hasan was admitted around 7:00pm. “He has a bullet injury on He arm. There is another bullet-like injury on the upper part of There abdomen, though no bullet was found there. There is currently undergoing treatment and is out of danger,” He said.",
+    "sentence_offset": [
+      0,
+      1849
+    ],
+    "trigger": "hijacked",
+    "cameo_code": "181",
+    "cameo_label": "Abduct, hijack, or take hostage",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Begumganj",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "yesterday",
+      "normalized": "2026-10-24"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Man shot before hijacking motorcycle in Noakhali",
+    "article_published": "Sun, 25 Oct 26 11:35:30 +0600"
+  },
+  {
+    "event_id": "evt_1918377f_001",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/man-shot-hijacking-motorcycle-noakhali-4306881",
+    "source_sentence": "A tailor was shot, and his motorcycle hijacked in Begumganj upazila of Noakhali yesterday afternoon. However, the motorcycle was later recovered. Locals rescued the victim, Kamrul Hasan, 24, of Newazpur, and took local residents to the 250-bed Noakhali General Hospital. The shooting took place around 5:30pm in Ward 5 of Baro Newazpur village over a previous rivalry, Additional Superintendent of Police (Begumganj Circle) ANM Imran Khan said. “The bullet entered through Bangladesh Police right arm and grazed the skin of Bangladesh Police abdomen, causing minor injuries. Police are investigating the matter and trying to identify the culprits and bring Bangladesh Police to justice,” Bangladesh Police told The Daily Star. Mahbub Kabir, inspector (investigation) and acting officer-in-charge of Begumganj Police Station, said police visited the scene after receiving the information and recovered the motorcycle. Legal action would be taken upon receipt of a formal complaint regarding the shooting, Bangladesh Police added. According to the victim's family and locals, Hasan works as a tailor in Chattogram and returned home on leave two days ago. Yesterday afternoon, Bangladesh Police was riding a motorcycle with Bangladesh Police cousin Rakib towards Bahadurpur village in Alaiyapur Union to meet an acquaintance. When When reached the road in front of When house, a group intercepted When At one point, one of the group opened fire, injuring Hasan in Hasan right arm and the right side of Hasan chest, the sources said. Dr Rajib Ahmed Chowdhury, resident medical officer at the hospital, said Hasan was admitted around 7:00pm. “He has a bullet injury on He arm. There is another bullet-like injury on the upper part of There abdomen, though no bullet was found there. There is currently undergoing treatment and is out of danger,” He said.",
+    "sentence_offset": [
+      0,
+      1849
+    ],
+    "trigger": "shooting",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Begumganj",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "yesterday",
+      "normalized": "2026-10-24"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Man shot before hijacking motorcycle in Noakhali",
+    "article_published": "Sun, 25 Oct 26 11:35:30 +0600"
+  },
+  {
+    "event_id": "evt_1918377f_002",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/man-shot-hijacking-motorcycle-noakhali-4306881",
+    "source_sentence": "A tailor was shot, and his motorcycle hijacked in Begumganj upazila of Noakhali yesterday afternoon. However, the motorcycle was later recovered. Locals rescued the victim, Kamrul Hasan, 24, of Newazpur, and took local residents to the 250-bed Noakhali General Hospital. The shooting took place around 5:30pm in Ward 5 of Baro Newazpur village over a previous rivalry, Additional Superintendent of Police (Begumganj Circle) ANM Imran Khan said. “The bullet entered through Bangladesh Police right arm and grazed the skin of Bangladesh Police abdomen, causing minor injuries. Police are investigating the matter and trying to identify the culprits and bring Bangladesh Police to justice,” Bangladesh Police told The Daily Star. Mahbub Kabir, inspector (investigation) and acting officer-in-charge of Begumganj Police Station, said police visited the scene after receiving the information and recovered the motorcycle. Legal action would be taken upon receipt of a formal complaint regarding the shooting, Bangladesh Police added. According to the victim's family and locals, Hasan works as a tailor in Chattogram and returned home on leave two days ago. Yesterday afternoon, Bangladesh Police was riding a motorcycle with Bangladesh Police cousin Rakib towards Bahadurpur village in Alaiyapur Union to meet an acquaintance. When When reached the road in front of When house, a group intercepted When At one point, one of the group opened fire, injuring Hasan in Hasan right arm and the right side of Hasan chest, the sources said. Dr Rajib Ahmed Chowdhury, resident medical officer at the hospital, said Hasan was admitted around 7:00pm. “He has a bullet injury on He arm. There is another bullet-like injury on the upper part of There abdomen, though no bullet was found there. There is currently undergoing treatment and is out of danger,” He said.",
+    "sentence_offset": [
+      0,
+      1849
+    ],
+    "trigger": "shooting",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Begumganj",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "yesterday",
+      "normalized": "2026-10-24"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Man shot before hijacking motorcycle in Noakhali",
+    "article_published": "Sun, 25 Oct 26 11:35:30 +0600"
+  },
+  {
+    "event_id": "evt_1918377f_003",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/man-shot-hijacking-motorcycle-noakhali-4306881",
+    "source_sentence": "A tailor was shot, and his motorcycle hijacked in Begumganj upazila of Noakhali yesterday afternoon. However, the motorcycle was later recovered. Locals rescued the victim, Kamrul Hasan, 24, of Newazpur, and took local residents to the 250-bed Noakhali General Hospital. The shooting took place around 5:30pm in Ward 5 of Baro Newazpur village over a previous rivalry, Additional Superintendent of Police (Begumganj Circle) ANM Imran Khan said. “The bullet entered through Bangladesh Police right arm and grazed the skin of Bangladesh Police abdomen, causing minor injuries. Police are investigating the matter and trying to identify the culprits and bring Bangladesh Police to justice,” Bangladesh Police told The Daily Star. Mahbub Kabir, inspector (investigation) and acting officer-in-charge of Begumganj Police Station, said police visited the scene after receiving the information and recovered the motorcycle. Legal action would be taken upon receipt of a formal complaint regarding the shooting, Bangladesh Police added. According to the victim's family and locals, Hasan works as a tailor in Chattogram and returned home on leave two days ago. Yesterday afternoon, Bangladesh Police was riding a motorcycle with Bangladesh Police cousin Rakib towards Bahadurpur village in Alaiyapur Union to meet an acquaintance. When When reached the road in front of When house, a group intercepted When At one point, one of the group opened fire, injuring Hasan in Hasan right arm and the right side of Hasan chest, the sources said. Dr Rajib Ahmed Chowdhury, resident medical officer at the hospital, said Hasan was admitted around 7:00pm. “He has a bullet injury on He arm. There is another bullet-like injury on the upper part of There abdomen, though no bullet was found there. There is currently undergoing treatment and is out of danger,” He said.",
+    "sentence_offset": [
+      0,
+      1849
+    ],
+    "trigger": "fire",
+    "cameo_code": "193",
+    "cameo_label": "Fight with small arms or light weapons",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Begumganj",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "yesterday",
+      "normalized": "2026-10-24"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Man shot before hijacking motorcycle in Noakhali",
+    "article_published": "Sun, 25 Oct 26 11:35:30 +0600"
+  }
+]

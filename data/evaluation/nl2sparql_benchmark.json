@@ -3,14 +3,14 @@
     "num_test_cases": 50,
     "syntax_validity_rate": 1.0,
     "schema_compliance_rate": 1.0,
-    "execution_accuracy": 0.54,
+    "execution_accuracy": 0.52,
     "mean_structural_pattern_score": 0.857,
     "category_breakdown": {
       "Spatial Hotspots": {
         "total": 10,
         "syntax_validity": 1.0,
         "schema_compliance": 1.0,
-        "execution_accuracy": 0.2,
+        "execution_accuracy": 0.1,
         "avg_structural_score": 0.75
       },
       "Actor Dynamics": {
@@ -59,7 +59,7 @@
       "is_schema_compliant": true,
       "structural_score": 0.75,
       "execution_match": false,
-      "gold_result_count": 3,
+      "gold_result_count": 7,
       "gen_result_count": 20,
       "syntax_errors": []
     },
@@ -71,8 +71,8 @@
       "is_schema_compliant": true,
       "structural_score": 1.0,
       "execution_match": true,
-      "gold_result_count": 3,
-      "gen_result_count": 3,
+      "gold_result_count": 7,
+      "gen_result_count": 7,
       "syntax_errors": []
     },
     {
@@ -83,7 +83,7 @@
       "is_schema_compliant": true,
       "structural_score": 0.75,
       "execution_match": false,
-      "gold_result_count": 3,
+      "gold_result_count": 7,
       "gen_result_count": 20,
       "syntax_errors": []
     },
@@ -95,7 +95,7 @@
       "is_schema_compliant": true,
       "structural_score": 0.75,
       "execution_match": false,
-      "gold_result_count": 3,
+      "gold_result_count": 7,
       "gen_result_count": 20,
       "syntax_errors": []
     },
@@ -107,8 +107,8 @@
       "is_schema_compliant": true,
       "structural_score": 0.0,
       "execution_match": false,
-      "gold_result_count": 3,
-      "gen_result_count": 7,
+      "gold_result_count": 7,
+      "gen_result_count": 10,
       "syntax_errors": []
     },
     {
@@ -119,7 +119,7 @@
       "is_schema_compliant": true,
       "structural_score": 0.75,
       "execution_match": false,
-      "gold_result_count": 3,
+      "gold_result_count": 4,
       "gen_result_count": 20,
       "syntax_errors": []
     },
@@ -131,7 +131,7 @@
       "is_schema_compliant": true,
       "structural_score": 0.75,
       "execution_match": false,
-      "gold_result_count": 3,
+      "gold_result_count": 5,
       "gen_result_count": 20,
       "syntax_errors": []
     },
@@ -143,7 +143,7 @@
       "is_schema_compliant": true,
       "structural_score": 0.75,
       "execution_match": false,
-      "gold_result_count": 3,
+      "gold_result_count": 7,
       "gen_result_count": 20,
       "syntax_errors": []
     },
@@ -156,7 +156,7 @@
       "structural_score": 1.0,
       "execution_match": false,
       "gold_result_count": 1,
-      "gen_result_count": 3,
+      "gen_result_count": 7,
       "syntax_errors": []
     },
     {
@@ -166,9 +166,9 @@
       "is_syntax_valid": true,
       "is_schema_compliant": true,
       "structural_score": 1.0,
-      "execution_match": true,
+      "execution_match": false,
       "gold_result_count": 3,
-      "gen_result_count": 3,
+      "gen_result_count": 7,
       "syntax_errors": []
     },
     {
@@ -179,8 +179,8 @@
       "is_schema_compliant": true,
       "structural_score": 1.0,
       "execution_match": true,
-      "gold_result_count": 7,
-      "gen_result_count": 7,
+      "gold_result_count": 10,
+      "gen_result_count": 10,
       "syntax_errors": []
     },
     {
@@ -191,8 +191,8 @@
       "is_schema_compliant": true,
       "structural_score": 1.0,
       "execution_match": true,
-      "gold_result_count": 7,
-      "gen_result_count": 7,
+      "gold_result_count": 10,
+      "gen_result_count": 10,
       "syntax_errors": []
     },
     {
@@ -216,7 +216,7 @@
       "structural_score": 0.833,
       "execution_match": false,
       "gold_result_count": 0,
-      "gen_result_count": 7,
+      "gen_result_count": 10,
       "syntax_errors": []
     },
     {
@@ -227,8 +227,8 @@
       "is_schema_compliant": true,
       "structural_score": 0.75,
       "execution_match": false,
-      "gold_result_count": 6,
-      "gen_result_count": 7,
+      "gold_result_count": 10,
+      "gen_result_count": 10,
       "syntax_errors": []
     },
     {
@@ -239,8 +239,8 @@
       "is_schema_compliant": true,
       "structural_score": 1.0,
       "execution_match": true,
-      "gold_result_count": 88,
-      "gen_result_count": 88,
+      "gold_result_count": 159,
+      "gen_result_count": 159,
       "syntax_errors": []
     },
     {
@@ -251,8 +251,8 @@
       "is_schema_compliant": true,
       "structural_score": 1.0,
       "execution_match": true,
-      "gold_result_count": 0,
-      "gen_result_count": 0,
+      "gold_result_count": 4,
+      "gen_result_count": 4,
       "syntax_errors": []
     },
     {
@@ -264,7 +264,7 @@
       "structural_score": 0.75,
       "execution_match": false,
       "gold_result_count": 1,
-      "gen_result_count": 7,
+      "gen_result_count": 10,
       "syntax_errors": []
     },
     {
@@ -275,8 +275,8 @@
       "is_schema_compliant": true,
       "structural_score": 1.0,
       "execution_match": false,
-      "gold_result_count": 16,
-      "gen_result_count": 7,
+      "gold_result_count": 19,
+      "gen_result_count": 10,
       "syntax_errors": []
     },
     {
@@ -287,8 +287,8 @@
       "is_schema_compliant": true,
       "structural_score": 0.833,
       "execution_match": true,
-      "gold_result_count": 7,
-      "gen_result_count": 7,
+      "gold_result_count": 10,
+      "gen_result_count": 10,
       "syntax_errors": []
     },
     {
@@ -323,8 +323,8 @@
       "is_schema_compliant": true,
       "structural_score": 1.0,
       "execution_match": true,
-      "gold_result_count": 6,
-      "gen_result_count": 6,
+      "gold_result_count": 11,
+      "gen_result_count": 11,
       "syntax_errors": []
     },
     {
@@ -335,7 +335,7 @@
       "is_schema_compliant": true,
       "structural_score": 0.625,
       "execution_match": false,
-      "gold_result_count": 6,
+      "gold_result_count": 10,
       "gen_result_count": 0,
       "syntax_errors": []
     },
@@ -347,8 +347,8 @@
       "is_schema_compliant": true,
       "structural_score": 1.0,
       "execution_match": true,
-      "gold_result_count": 0,
-      "gen_result_count": 0,
+      "gold_result_count": 4,
+      "gen_result_count": 4,
       "syntax_errors": []
     },
     {
@@ -383,7 +383,7 @@
       "is_schema_compliant": true,
       "structural_score": 1.0,
       "execution_match": false,
-      "gold_result_count": 3,
+      "gold_result_count": 7,
       "gen_result_count": 20,
       "syntax_errors": []
     },
@@ -443,7 +443,7 @@
       "is_schema_compliant": true,
       "structural_score": 0.833,
       "execution_match": false,
-      "gold_result_count": 88,
+      "gold_result_count": 159,
       "gen_result_count": 0,
       "syntax_errors": []
     },
@@ -467,7 +467,7 @@
       "is_schema_compliant": true,
       "structural_score": 0.833,
       "execution_match": false,
-      "gold_result_count": 77,
+      "gold_result_count": 131,
       "gen_result_count": 0,
       "syntax_errors": []
     },
@@ -479,7 +479,7 @@
       "is_schema_compliant": true,
       "structural_score": 0.75,
       "execution_match": false,
-      "gold_result_count": 3,
+      "gold_result_count": 4,
       "gen_result_count": 20,
       "syntax_errors": []
     },
@@ -515,7 +515,7 @@
       "is_schema_compliant": true,
       "structural_score": 0.875,
       "execution_match": false,
-      "gold_result_count": 30,
+      "gold_result_count": 53,
       "gen_result_count": 0,
       "syntax_errors": []
     },
@@ -539,7 +539,7 @@
       "is_schema_compliant": true,
       "structural_score": 0.75,
       "execution_match": false,
-      "gold_result_count": 4,
+      "gold_result_count": 9,
       "gen_result_count": 20,
       "syntax_errors": []
     },

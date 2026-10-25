@@ -1,0 +1,252 @@
+[
+  {
+    "event_id": "evt_86b76667_000",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/pabna-madrasa-teacher-detained-over-alleged-molestation-attempt-locals-set-institution-fire-4305721",
+    "source_sentence": "A madrasa teacher was detained last night over allegations of sexually harassing a student at a residential girls’ madrasa in Pabna Sadar upazila. Enraged locals later vandalised the institution and set local residents on fire early today. The incident took place at Nurani Madrasa in Dorivaudanga village under Varara union of Pabna Sadar upazila. According to police and locals, the arrested teacher, Md Abu Eusuf Pramanik of Khalishpur village, had been teaching at the madrasa for the past five years. Inspector (Investigation) Sanjoy Kumar Shaha said the accused allegedly attempted to molest a student last night; the student managed to escape and informed locals. An angry crowd then rushed to the madrasa, caught the teacher and beat Bangladesh Police severely, prompting police to arrive at the scene, rescue Bangladesh Police and take Bangladesh Police into custody, the inspector said. The madrasa has 60 students, including 30 residential students. Following the incident, outraged locals gathered to protest the alleged misconduct. Police subsequently rescued the residential students and handed Bangladesh Police over to Bangladesh Police parents later that night. However, angry locals vandalised the madrasa building and set local residents on fire early Friday morning. “We are working to take legal action against the accused teacher,” Inspector Shaha said. Police said preparations were under way to file a case over the incident. The situation in the area remained tense, with additional police forces deployed to maintain order.",
+    "sentence_offset": [
+      0,
+      1549
+    ],
+    "trigger": "detained",
+    "cameo_code": "173",
+    "cameo_label": "Arrest or detain",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Pabna Sadar",
+      "district": "Pabna",
+      "division": "Rajshahi",
+      "coordinates": [
+        24.0063,
+        89.2372
+      ]
+    },
+    "date": {
+      "raw": "early today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_86b76667_001",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/pabna-madrasa-teacher-detained-over-alleged-molestation-attempt-locals-set-institution-fire-4305721",
+    "source_sentence": "A madrasa teacher was detained last night over allegations of sexually harassing a student at a residential girls’ madrasa in Pabna Sadar upazila. Enraged locals later vandalised the institution and set local residents on fire early today. The incident took place at Nurani Madrasa in Dorivaudanga village under Varara union of Pabna Sadar upazila. According to police and locals, the arrested teacher, Md Abu Eusuf Pramanik of Khalishpur village, had been teaching at the madrasa for the past five years. Inspector (Investigation) Sanjoy Kumar Shaha said the accused allegedly attempted to molest a student last night; the student managed to escape and informed locals. An angry crowd then rushed to the madrasa, caught the teacher and beat Bangladesh Police severely, prompting police to arrive at the scene, rescue Bangladesh Police and take Bangladesh Police into custody, the inspector said. The madrasa has 60 students, including 30 residential students. Following the incident, outraged locals gathered to protest the alleged misconduct. Police subsequently rescued the residential students and handed Bangladesh Police over to Bangladesh Police parents later that night. However, angry locals vandalised the madrasa building and set local residents on fire early Friday morning. “We are working to take legal action against the accused teacher,” Inspector Shaha said. Police said preparations were under way to file a case over the incident. The situation in the area remained tense, with additional police forces deployed to maintain order.",
+    "sentence_offset": [
+      0,
+      1549
+    ],
+    "trigger": "fire",
+    "cameo_code": "193",
+    "cameo_label": "Fight with small arms or light weapons",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Pabna Sadar",
+      "district": "Pabna",
+      "division": "Rajshahi",
+      "coordinates": [
+        24.0063,
+        89.2372
+      ]
+    },
+    "date": {
+      "raw": "early today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_86b76667_002",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/pabna-madrasa-teacher-detained-over-alleged-molestation-attempt-locals-set-institution-fire-4305721",
+    "source_sentence": "A madrasa teacher was detained last night over allegations of sexually harassing a student at a residential girls’ madrasa in Pabna Sadar upazila. Enraged locals later vandalised the institution and set local residents on fire early today. The incident took place at Nurani Madrasa in Dorivaudanga village under Varara union of Pabna Sadar upazila. According to police and locals, the arrested teacher, Md Abu Eusuf Pramanik of Khalishpur village, had been teaching at the madrasa for the past five years. Inspector (Investigation) Sanjoy Kumar Shaha said the accused allegedly attempted to molest a student last night; the student managed to escape and informed locals. An angry crowd then rushed to the madrasa, caught the teacher and beat Bangladesh Police severely, prompting police to arrive at the scene, rescue Bangladesh Police and take Bangladesh Police into custody, the inspector said. The madrasa has 60 students, including 30 residential students. Following the incident, outraged locals gathered to protest the alleged misconduct. Police subsequently rescued the residential students and handed Bangladesh Police over to Bangladesh Police parents later that night. However, angry locals vandalised the madrasa building and set local residents on fire early Friday morning. “We are working to take legal action against the accused teacher,” Inspector Shaha said. Police said preparations were under way to file a case over the incident. The situation in the area remained tense, with additional police forces deployed to maintain order.",
+    "sentence_offset": [
+      0,
+      1549
+    ],
+    "trigger": "arrested",
+    "cameo_code": "173",
+    "cameo_label": "Arrest or detain",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Pabna Sadar",
+      "district": "Pabna",
+      "division": "Rajshahi",
+      "coordinates": [
+        24.0063,
+        89.2372
+      ]
+    },
+    "date": {
+      "raw": "early today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_86b76667_003",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/pabna-madrasa-teacher-detained-over-alleged-molestation-attempt-locals-set-institution-fire-4305721",
+    "source_sentence": "A madrasa teacher was detained last night over allegations of sexually harassing a student at a residential girls’ madrasa in Pabna Sadar upazila. Enraged locals later vandalised the institution and set local residents on fire early today. The incident took place at Nurani Madrasa in Dorivaudanga village under Varara union of Pabna Sadar upazila. According to police and locals, the arrested teacher, Md Abu Eusuf Pramanik of Khalishpur village, had been teaching at the madrasa for the past five years. Inspector (Investigation) Sanjoy Kumar Shaha said the accused allegedly attempted to molest a student last night; the student managed to escape and informed locals. An angry crowd then rushed to the madrasa, caught the teacher and beat Bangladesh Police severely, prompting police to arrive at the scene, rescue Bangladesh Police and take Bangladesh Police into custody, the inspector said. The madrasa has 60 students, including 30 residential students. Following the incident, outraged locals gathered to protest the alleged misconduct. Police subsequently rescued the residential students and handed Bangladesh Police over to Bangladesh Police parents later that night. However, angry locals vandalised the madrasa building and set local residents on fire early Friday morning. “We are working to take legal action against the accused teacher,” Inspector Shaha said. Police said preparations were under way to file a case over the incident. The situation in the area remained tense, with additional police forces deployed to maintain order.",
+    "sentence_offset": [
+      0,
+      1549
+    ],
+    "trigger": "beat",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Pabna Sadar",
+      "district": "Pabna",
+      "division": "Rajshahi",
+      "coordinates": [
+        24.0063,
+        89.2372
+      ]
+    },
+    "date": {
+      "raw": "early today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_86b76667_004",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/pabna-madrasa-teacher-detained-over-alleged-molestation-attempt-locals-set-institution-fire-4305721",
+    "source_sentence": "A madrasa teacher was detained last night over allegations of sexually harassing a student at a residential girls’ madrasa in Pabna Sadar upazila. Enraged locals later vandalised the institution and set local residents on fire early today. The incident took place at Nurani Madrasa in Dorivaudanga village under Varara union of Pabna Sadar upazila. According to police and locals, the arrested teacher, Md Abu Eusuf Pramanik of Khalishpur village, had been teaching at the madrasa for the past five years. Inspector (Investigation) Sanjoy Kumar Shaha said the accused allegedly attempted to molest a student last night; the student managed to escape and informed locals. An angry crowd then rushed to the madrasa, caught the teacher and beat Bangladesh Police severely, prompting police to arrive at the scene, rescue Bangladesh Police and take Bangladesh Police into custody, the inspector said. The madrasa has 60 students, including 30 residential students. Following the incident, outraged locals gathered to protest the alleged misconduct. Police subsequently rescued the residential students and handed Bangladesh Police over to Bangladesh Police parents later that night. However, angry locals vandalised the madrasa building and set local residents on fire early Friday morning. “We are working to take legal action against the accused teacher,” Inspector Shaha said. Police said preparations were under way to file a case over the incident. The situation in the area remained tense, with additional police forces deployed to maintain order.",
+    "sentence_offset": [
+      0,
+      1549
+    ],
+    "trigger": "fire",
+    "cameo_code": "193",
+    "cameo_label": "Fight with small arms or light weapons",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Pabna Sadar",
+      "district": "Pabna",
+      "division": "Rajshahi",
+      "coordinates": [
+        24.0063,
+        89.2372
+      ]
+    },
+    "date": {
+      "raw": "early today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  }
+]

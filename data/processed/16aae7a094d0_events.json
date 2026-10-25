@@ -1,0 +1,49 @@
+[
+  {
+    "event_id": "evt_6b945970_000",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/crude-bomb-explodes-near-old-ramna-police-station-dhaka-4305816",
+    "source_sentence": "A crude bomb exploded near the Office of the Assistant Commissioner of Police in the Ramna Zone, commonly known as the old Ramna Police Station, in Dhaka tonight. The explosion occurred around 8:00pm, said Sheikh Zahidul Islam, deputy commissioner of Ramna Division. “No casualties were reported,” Bangladesh Police added. Police are investigating the incident.",
+    "sentence_offset": [
+      0,
+      361
+    ],
+    "trigger": "bomb",
+    "cameo_code": "183",
+    "cameo_label": "Non-military bombing",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Office",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "",
+      "normalized": null
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  }
+]

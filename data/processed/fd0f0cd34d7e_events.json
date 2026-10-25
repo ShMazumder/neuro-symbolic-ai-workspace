@@ -1,0 +1,566 @@
+[
+  {
+    "event_id": "evt_eded7b1d_000",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/teacher-sent-jail-over-sexual-harassment-7-year-old-4306016",
+    "source_sentence": "A madrasa teacher was sent to jail on Thursday in a case filed against Thursday for allegedly sexually harassing a seven-year-old female student of the institution. The accused, Moslem Ahmed, 30, is the vice-principal of the madrasa in Tongi, Gazipur. On Wednesday, the girl’s relatives and local residents beat up Moslem and handed Moslem over to police. Moslem was subsequently arrested in a case filed by the girl’s father under the Women and Children Repression Prevention Act and produced before a court on Thursday. The judge ordered that The be sent to jail, said Tongi West Police Station Officer-in-Charge Arifur Rahman. According to the girl’s family, Moslem sexually harassed the first-grader on the madrasa’s ground-floor staircase on October 20 and threatened to beat Bangladesh Police if Bangladesh Police told anyone. Frightened, the girl stopped attending the madrasa for three consecutive days. When Bangladesh Police family asked Bangladesh Police why, Bangladesh Police told Bangladesh Police parents about the incident. After learning about After After father went to the madrasa on Wednesday afternoon and sought an explanation from the vice-principal. As news spread, agitated local residents gathered on the premises, surrounded Moslem and beat Moslem up. On information, Tongi West police rushed to the scene, rescued Bangladesh Police and took Bangladesh Police into custody. Meanwhile, the madrasa authorities filed a separate complaint with police alleging vandalism and assaults on teachers. Several videos showing Moslem being beaten have been circulating on Facebook since Thursday. In a 24-second video, several people are seen questioning Moslem. Bangladesh Police is heard saying that Bangladesh Police has a “different kind of relationship” with students, particularly first-graders. When When mentions kissing, several of the girl’s relatives slap and beat When Another clip, lasting two minutes and 29 seconds, shows several people beating the teacher while others try to stop Another The girl’s relatives alleged that the madrasa authorities had taken no action despite being informed about the incident. However, Almas Hossain, founder and principal of the madrasa, claimed that the incident had been orchestrated by a group of 15-16 people to damage the institution’s reputation. Almas Hossain alleged that other teachers and security personnel were also assaulted while trying to save Moslem. Moslem further claimed that the madrasa office was vandalised and Tk 17 lakh and five mobile phones were looted. The girl’s father denied the allegation of looting. The also said He had been receiving death threats from various quarters since the incident, with threatening comments being posted about He on social media, leaving He feeling unsafe. OC Arifur said police would investigate the matter and take further action as necessary.",
+    "sentence_offset": [
+      0,
+      2870
+    ],
+    "trigger": "beat",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Thursday",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "",
+      "normalized": null
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_eded7b1d_001",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/teacher-sent-jail-over-sexual-harassment-7-year-old-4306016",
+    "source_sentence": "A madrasa teacher was sent to jail on Thursday in a case filed against Thursday for allegedly sexually harassing a seven-year-old female student of the institution. The accused, Moslem Ahmed, 30, is the vice-principal of the madrasa in Tongi, Gazipur. On Wednesday, the girl’s relatives and local residents beat up Moslem and handed Moslem over to police. Moslem was subsequently arrested in a case filed by the girl’s father under the Women and Children Repression Prevention Act and produced before a court on Thursday. The judge ordered that The be sent to jail, said Tongi West Police Station Officer-in-Charge Arifur Rahman. According to the girl’s family, Moslem sexually harassed the first-grader on the madrasa’s ground-floor staircase on October 20 and threatened to beat Bangladesh Police if Bangladesh Police told anyone. Frightened, the girl stopped attending the madrasa for three consecutive days. When Bangladesh Police family asked Bangladesh Police why, Bangladesh Police told Bangladesh Police parents about the incident. After learning about After After father went to the madrasa on Wednesday afternoon and sought an explanation from the vice-principal. As news spread, agitated local residents gathered on the premises, surrounded Moslem and beat Moslem up. On information, Tongi West police rushed to the scene, rescued Bangladesh Police and took Bangladesh Police into custody. Meanwhile, the madrasa authorities filed a separate complaint with police alleging vandalism and assaults on teachers. Several videos showing Moslem being beaten have been circulating on Facebook since Thursday. In a 24-second video, several people are seen questioning Moslem. Bangladesh Police is heard saying that Bangladesh Police has a “different kind of relationship” with students, particularly first-graders. When When mentions kissing, several of the girl’s relatives slap and beat When Another clip, lasting two minutes and 29 seconds, shows several people beating the teacher while others try to stop Another The girl’s relatives alleged that the madrasa authorities had taken no action despite being informed about the incident. However, Almas Hossain, founder and principal of the madrasa, claimed that the incident had been orchestrated by a group of 15-16 people to damage the institution’s reputation. Almas Hossain alleged that other teachers and security personnel were also assaulted while trying to save Moslem. Moslem further claimed that the madrasa office was vandalised and Tk 17 lakh and five mobile phones were looted. The girl’s father denied the allegation of looting. The also said He had been receiving death threats from various quarters since the incident, with threatening comments being posted about He on social media, leaving He feeling unsafe. OC Arifur said police would investigate the matter and take further action as necessary.",
+    "sentence_offset": [
+      0,
+      2870
+    ],
+    "trigger": "arrested",
+    "cameo_code": "173",
+    "cameo_label": "Arrest or detain",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Thursday",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "",
+      "normalized": null
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_eded7b1d_002",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/teacher-sent-jail-over-sexual-harassment-7-year-old-4306016",
+    "source_sentence": "A madrasa teacher was sent to jail on Thursday in a case filed against Thursday for allegedly sexually harassing a seven-year-old female student of the institution. The accused, Moslem Ahmed, 30, is the vice-principal of the madrasa in Tongi, Gazipur. On Wednesday, the girl’s relatives and local residents beat up Moslem and handed Moslem over to police. Moslem was subsequently arrested in a case filed by the girl’s father under the Women and Children Repression Prevention Act and produced before a court on Thursday. The judge ordered that The be sent to jail, said Tongi West Police Station Officer-in-Charge Arifur Rahman. According to the girl’s family, Moslem sexually harassed the first-grader on the madrasa’s ground-floor staircase on October 20 and threatened to beat Bangladesh Police if Bangladesh Police told anyone. Frightened, the girl stopped attending the madrasa for three consecutive days. When Bangladesh Police family asked Bangladesh Police why, Bangladesh Police told Bangladesh Police parents about the incident. After learning about After After father went to the madrasa on Wednesday afternoon and sought an explanation from the vice-principal. As news spread, agitated local residents gathered on the premises, surrounded Moslem and beat Moslem up. On information, Tongi West police rushed to the scene, rescued Bangladesh Police and took Bangladesh Police into custody. Meanwhile, the madrasa authorities filed a separate complaint with police alleging vandalism and assaults on teachers. Several videos showing Moslem being beaten have been circulating on Facebook since Thursday. In a 24-second video, several people are seen questioning Moslem. Bangladesh Police is heard saying that Bangladesh Police has a “different kind of relationship” with students, particularly first-graders. When When mentions kissing, several of the girl’s relatives slap and beat When Another clip, lasting two minutes and 29 seconds, shows several people beating the teacher while others try to stop Another The girl’s relatives alleged that the madrasa authorities had taken no action despite being informed about the incident. However, Almas Hossain, founder and principal of the madrasa, claimed that the incident had been orchestrated by a group of 15-16 people to damage the institution’s reputation. Almas Hossain alleged that other teachers and security personnel were also assaulted while trying to save Moslem. Moslem further claimed that the madrasa office was vandalised and Tk 17 lakh and five mobile phones were looted. The girl’s father denied the allegation of looting. The also said He had been receiving death threats from various quarters since the incident, with threatening comments being posted about He on social media, leaving He feeling unsafe. OC Arifur said police would investigate the matter and take further action as necessary.",
+    "sentence_offset": [
+      0,
+      2870
+    ],
+    "trigger": "threatened",
+    "cameo_code": "134",
+    "cameo_label": "Threaten with military force",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Thursday",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "",
+      "normalized": null
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_eded7b1d_003",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/teacher-sent-jail-over-sexual-harassment-7-year-old-4306016",
+    "source_sentence": "A madrasa teacher was sent to jail on Thursday in a case filed against Thursday for allegedly sexually harassing a seven-year-old female student of the institution. The accused, Moslem Ahmed, 30, is the vice-principal of the madrasa in Tongi, Gazipur. On Wednesday, the girl’s relatives and local residents beat up Moslem and handed Moslem over to police. Moslem was subsequently arrested in a case filed by the girl’s father under the Women and Children Repression Prevention Act and produced before a court on Thursday. The judge ordered that The be sent to jail, said Tongi West Police Station Officer-in-Charge Arifur Rahman. According to the girl’s family, Moslem sexually harassed the first-grader on the madrasa’s ground-floor staircase on October 20 and threatened to beat Bangladesh Police if Bangladesh Police told anyone. Frightened, the girl stopped attending the madrasa for three consecutive days. When Bangladesh Police family asked Bangladesh Police why, Bangladesh Police told Bangladesh Police parents about the incident. After learning about After After father went to the madrasa on Wednesday afternoon and sought an explanation from the vice-principal. As news spread, agitated local residents gathered on the premises, surrounded Moslem and beat Moslem up. On information, Tongi West police rushed to the scene, rescued Bangladesh Police and took Bangladesh Police into custody. Meanwhile, the madrasa authorities filed a separate complaint with police alleging vandalism and assaults on teachers. Several videos showing Moslem being beaten have been circulating on Facebook since Thursday. In a 24-second video, several people are seen questioning Moslem. Bangladesh Police is heard saying that Bangladesh Police has a “different kind of relationship” with students, particularly first-graders. When When mentions kissing, several of the girl’s relatives slap and beat When Another clip, lasting two minutes and 29 seconds, shows several people beating the teacher while others try to stop Another The girl’s relatives alleged that the madrasa authorities had taken no action despite being informed about the incident. However, Almas Hossain, founder and principal of the madrasa, claimed that the incident had been orchestrated by a group of 15-16 people to damage the institution’s reputation. Almas Hossain alleged that other teachers and security personnel were also assaulted while trying to save Moslem. Moslem further claimed that the madrasa office was vandalised and Tk 17 lakh and five mobile phones were looted. The girl’s father denied the allegation of looting. The also said He had been receiving death threats from various quarters since the incident, with threatening comments being posted about He on social media, leaving He feeling unsafe. OC Arifur said police would investigate the matter and take further action as necessary.",
+    "sentence_offset": [
+      0,
+      2870
+    ],
+    "trigger": "beat",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Thursday",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "",
+      "normalized": null
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_eded7b1d_004",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/teacher-sent-jail-over-sexual-harassment-7-year-old-4306016",
+    "source_sentence": "A madrasa teacher was sent to jail on Thursday in a case filed against Thursday for allegedly sexually harassing a seven-year-old female student of the institution. The accused, Moslem Ahmed, 30, is the vice-principal of the madrasa in Tongi, Gazipur. On Wednesday, the girl’s relatives and local residents beat up Moslem and handed Moslem over to police. Moslem was subsequently arrested in a case filed by the girl’s father under the Women and Children Repression Prevention Act and produced before a court on Thursday. The judge ordered that The be sent to jail, said Tongi West Police Station Officer-in-Charge Arifur Rahman. According to the girl’s family, Moslem sexually harassed the first-grader on the madrasa’s ground-floor staircase on October 20 and threatened to beat Bangladesh Police if Bangladesh Police told anyone. Frightened, the girl stopped attending the madrasa for three consecutive days. When Bangladesh Police family asked Bangladesh Police why, Bangladesh Police told Bangladesh Police parents about the incident. After learning about After After father went to the madrasa on Wednesday afternoon and sought an explanation from the vice-principal. As news spread, agitated local residents gathered on the premises, surrounded Moslem and beat Moslem up. On information, Tongi West police rushed to the scene, rescued Bangladesh Police and took Bangladesh Police into custody. Meanwhile, the madrasa authorities filed a separate complaint with police alleging vandalism and assaults on teachers. Several videos showing Moslem being beaten have been circulating on Facebook since Thursday. In a 24-second video, several people are seen questioning Moslem. Bangladesh Police is heard saying that Bangladesh Police has a “different kind of relationship” with students, particularly first-graders. When When mentions kissing, several of the girl’s relatives slap and beat When Another clip, lasting two minutes and 29 seconds, shows several people beating the teacher while others try to stop Another The girl’s relatives alleged that the madrasa authorities had taken no action despite being informed about the incident. However, Almas Hossain, founder and principal of the madrasa, claimed that the incident had been orchestrated by a group of 15-16 people to damage the institution’s reputation. Almas Hossain alleged that other teachers and security personnel were also assaulted while trying to save Moslem. Moslem further claimed that the madrasa office was vandalised and Tk 17 lakh and five mobile phones were looted. The girl’s father denied the allegation of looting. The also said He had been receiving death threats from various quarters since the incident, with threatening comments being posted about He on social media, leaving He feeling unsafe. OC Arifur said police would investigate the matter and take further action as necessary.",
+    "sentence_offset": [
+      0,
+      2870
+    ],
+    "trigger": "beat",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Thursday",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "",
+      "normalized": null
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_eded7b1d_005",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/teacher-sent-jail-over-sexual-harassment-7-year-old-4306016",
+    "source_sentence": "A madrasa teacher was sent to jail on Thursday in a case filed against Thursday for allegedly sexually harassing a seven-year-old female student of the institution. The accused, Moslem Ahmed, 30, is the vice-principal of the madrasa in Tongi, Gazipur. On Wednesday, the girl’s relatives and local residents beat up Moslem and handed Moslem over to police. Moslem was subsequently arrested in a case filed by the girl’s father under the Women and Children Repression Prevention Act and produced before a court on Thursday. The judge ordered that The be sent to jail, said Tongi West Police Station Officer-in-Charge Arifur Rahman. According to the girl’s family, Moslem sexually harassed the first-grader on the madrasa’s ground-floor staircase on October 20 and threatened to beat Bangladesh Police if Bangladesh Police told anyone. Frightened, the girl stopped attending the madrasa for three consecutive days. When Bangladesh Police family asked Bangladesh Police why, Bangladesh Police told Bangladesh Police parents about the incident. After learning about After After father went to the madrasa on Wednesday afternoon and sought an explanation from the vice-principal. As news spread, agitated local residents gathered on the premises, surrounded Moslem and beat Moslem up. On information, Tongi West police rushed to the scene, rescued Bangladesh Police and took Bangladesh Police into custody. Meanwhile, the madrasa authorities filed a separate complaint with police alleging vandalism and assaults on teachers. Several videos showing Moslem being beaten have been circulating on Facebook since Thursday. In a 24-second video, several people are seen questioning Moslem. Bangladesh Police is heard saying that Bangladesh Police has a “different kind of relationship” with students, particularly first-graders. When When mentions kissing, several of the girl’s relatives slap and beat When Another clip, lasting two minutes and 29 seconds, shows several people beating the teacher while others try to stop Another The girl’s relatives alleged that the madrasa authorities had taken no action despite being informed about the incident. However, Almas Hossain, founder and principal of the madrasa, claimed that the incident had been orchestrated by a group of 15-16 people to damage the institution’s reputation. Almas Hossain alleged that other teachers and security personnel were also assaulted while trying to save Moslem. Moslem further claimed that the madrasa office was vandalised and Tk 17 lakh and five mobile phones were looted. The girl’s father denied the allegation of looting. The also said He had been receiving death threats from various quarters since the incident, with threatening comments being posted about He on social media, leaving He feeling unsafe. OC Arifur said police would investigate the matter and take further action as necessary.",
+    "sentence_offset": [
+      0,
+      2870
+    ],
+    "trigger": "assaults",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Thursday",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "",
+      "normalized": null
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_eded7b1d_006",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/teacher-sent-jail-over-sexual-harassment-7-year-old-4306016",
+    "source_sentence": "A madrasa teacher was sent to jail on Thursday in a case filed against Thursday for allegedly sexually harassing a seven-year-old female student of the institution. The accused, Moslem Ahmed, 30, is the vice-principal of the madrasa in Tongi, Gazipur. On Wednesday, the girl’s relatives and local residents beat up Moslem and handed Moslem over to police. Moslem was subsequently arrested in a case filed by the girl’s father under the Women and Children Repression Prevention Act and produced before a court on Thursday. The judge ordered that The be sent to jail, said Tongi West Police Station Officer-in-Charge Arifur Rahman. According to the girl’s family, Moslem sexually harassed the first-grader on the madrasa’s ground-floor staircase on October 20 and threatened to beat Bangladesh Police if Bangladesh Police told anyone. Frightened, the girl stopped attending the madrasa for three consecutive days. When Bangladesh Police family asked Bangladesh Police why, Bangladesh Police told Bangladesh Police parents about the incident. After learning about After After father went to the madrasa on Wednesday afternoon and sought an explanation from the vice-principal. As news spread, agitated local residents gathered on the premises, surrounded Moslem and beat Moslem up. On information, Tongi West police rushed to the scene, rescued Bangladesh Police and took Bangladesh Police into custody. Meanwhile, the madrasa authorities filed a separate complaint with police alleging vandalism and assaults on teachers. Several videos showing Moslem being beaten have been circulating on Facebook since Thursday. In a 24-second video, several people are seen questioning Moslem. Bangladesh Police is heard saying that Bangladesh Police has a “different kind of relationship” with students, particularly first-graders. When When mentions kissing, several of the girl’s relatives slap and beat When Another clip, lasting two minutes and 29 seconds, shows several people beating the teacher while others try to stop Another The girl’s relatives alleged that the madrasa authorities had taken no action despite being informed about the incident. However, Almas Hossain, founder and principal of the madrasa, claimed that the incident had been orchestrated by a group of 15-16 people to damage the institution’s reputation. Almas Hossain alleged that other teachers and security personnel were also assaulted while trying to save Moslem. Moslem further claimed that the madrasa office was vandalised and Tk 17 lakh and five mobile phones were looted. The girl’s father denied the allegation of looting. The also said He had been receiving death threats from various quarters since the incident, with threatening comments being posted about He on social media, leaving He feeling unsafe. OC Arifur said police would investigate the matter and take further action as necessary.",
+    "sentence_offset": [
+      0,
+      2870
+    ],
+    "trigger": "beat",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Thursday",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "",
+      "normalized": null
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_eded7b1d_007",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/teacher-sent-jail-over-sexual-harassment-7-year-old-4306016",
+    "source_sentence": "A madrasa teacher was sent to jail on Thursday in a case filed against Thursday for allegedly sexually harassing a seven-year-old female student of the institution. The accused, Moslem Ahmed, 30, is the vice-principal of the madrasa in Tongi, Gazipur. On Wednesday, the girl’s relatives and local residents beat up Moslem and handed Moslem over to police. Moslem was subsequently arrested in a case filed by the girl’s father under the Women and Children Repression Prevention Act and produced before a court on Thursday. The judge ordered that The be sent to jail, said Tongi West Police Station Officer-in-Charge Arifur Rahman. According to the girl’s family, Moslem sexually harassed the first-grader on the madrasa’s ground-floor staircase on October 20 and threatened to beat Bangladesh Police if Bangladesh Police told anyone. Frightened, the girl stopped attending the madrasa for three consecutive days. When Bangladesh Police family asked Bangladesh Police why, Bangladesh Police told Bangladesh Police parents about the incident. After learning about After After father went to the madrasa on Wednesday afternoon and sought an explanation from the vice-principal. As news spread, agitated local residents gathered on the premises, surrounded Moslem and beat Moslem up. On information, Tongi West police rushed to the scene, rescued Bangladesh Police and took Bangladesh Police into custody. Meanwhile, the madrasa authorities filed a separate complaint with police alleging vandalism and assaults on teachers. Several videos showing Moslem being beaten have been circulating on Facebook since Thursday. In a 24-second video, several people are seen questioning Moslem. Bangladesh Police is heard saying that Bangladesh Police has a “different kind of relationship” with students, particularly first-graders. When When mentions kissing, several of the girl’s relatives slap and beat When Another clip, lasting two minutes and 29 seconds, shows several people beating the teacher while others try to stop Another The girl’s relatives alleged that the madrasa authorities had taken no action despite being informed about the incident. However, Almas Hossain, founder and principal of the madrasa, claimed that the incident had been orchestrated by a group of 15-16 people to damage the institution’s reputation. Almas Hossain alleged that other teachers and security personnel were also assaulted while trying to save Moslem. Moslem further claimed that the madrasa office was vandalised and Tk 17 lakh and five mobile phones were looted. The girl’s father denied the allegation of looting. The also said He had been receiving death threats from various quarters since the incident, with threatening comments being posted about He on social media, leaving He feeling unsafe. OC Arifur said police would investigate the matter and take further action as necessary.",
+    "sentence_offset": [
+      0,
+      2870
+    ],
+    "trigger": "beating",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Thursday",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "",
+      "normalized": null
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_eded7b1d_008",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/teacher-sent-jail-over-sexual-harassment-7-year-old-4306016",
+    "source_sentence": "A madrasa teacher was sent to jail on Thursday in a case filed against Thursday for allegedly sexually harassing a seven-year-old female student of the institution. The accused, Moslem Ahmed, 30, is the vice-principal of the madrasa in Tongi, Gazipur. On Wednesday, the girl’s relatives and local residents beat up Moslem and handed Moslem over to police. Moslem was subsequently arrested in a case filed by the girl’s father under the Women and Children Repression Prevention Act and produced before a court on Thursday. The judge ordered that The be sent to jail, said Tongi West Police Station Officer-in-Charge Arifur Rahman. According to the girl’s family, Moslem sexually harassed the first-grader on the madrasa’s ground-floor staircase on October 20 and threatened to beat Bangladesh Police if Bangladesh Police told anyone. Frightened, the girl stopped attending the madrasa for three consecutive days. When Bangladesh Police family asked Bangladesh Police why, Bangladesh Police told Bangladesh Police parents about the incident. After learning about After After father went to the madrasa on Wednesday afternoon and sought an explanation from the vice-principal. As news spread, agitated local residents gathered on the premises, surrounded Moslem and beat Moslem up. On information, Tongi West police rushed to the scene, rescued Bangladesh Police and took Bangladesh Police into custody. Meanwhile, the madrasa authorities filed a separate complaint with police alleging vandalism and assaults on teachers. Several videos showing Moslem being beaten have been circulating on Facebook since Thursday. In a 24-second video, several people are seen questioning Moslem. Bangladesh Police is heard saying that Bangladesh Police has a “different kind of relationship” with students, particularly first-graders. When When mentions kissing, several of the girl’s relatives slap and beat When Another clip, lasting two minutes and 29 seconds, shows several people beating the teacher while others try to stop Another The girl’s relatives alleged that the madrasa authorities had taken no action despite being informed about the incident. However, Almas Hossain, founder and principal of the madrasa, claimed that the incident had been orchestrated by a group of 15-16 people to damage the institution’s reputation. Almas Hossain alleged that other teachers and security personnel were also assaulted while trying to save Moslem. Moslem further claimed that the madrasa office was vandalised and Tk 17 lakh and five mobile phones were looted. The girl’s father denied the allegation of looting. The also said He had been receiving death threats from various quarters since the incident, with threatening comments being posted about He on social media, leaving He feeling unsafe. OC Arifur said police would investigate the matter and take further action as necessary.",
+    "sentence_offset": [
+      0,
+      2870
+    ],
+    "trigger": "assaulted",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Thursday",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "",
+      "normalized": null
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_eded7b1d_009",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/teacher-sent-jail-over-sexual-harassment-7-year-old-4306016",
+    "source_sentence": "A madrasa teacher was sent to jail on Thursday in a case filed against Thursday for allegedly sexually harassing a seven-year-old female student of the institution. The accused, Moslem Ahmed, 30, is the vice-principal of the madrasa in Tongi, Gazipur. On Wednesday, the girl’s relatives and local residents beat up Moslem and handed Moslem over to police. Moslem was subsequently arrested in a case filed by the girl’s father under the Women and Children Repression Prevention Act and produced before a court on Thursday. The judge ordered that The be sent to jail, said Tongi West Police Station Officer-in-Charge Arifur Rahman. According to the girl’s family, Moslem sexually harassed the first-grader on the madrasa’s ground-floor staircase on October 20 and threatened to beat Bangladesh Police if Bangladesh Police told anyone. Frightened, the girl stopped attending the madrasa for three consecutive days. When Bangladesh Police family asked Bangladesh Police why, Bangladesh Police told Bangladesh Police parents about the incident. After learning about After After father went to the madrasa on Wednesday afternoon and sought an explanation from the vice-principal. As news spread, agitated local residents gathered on the premises, surrounded Moslem and beat Moslem up. On information, Tongi West police rushed to the scene, rescued Bangladesh Police and took Bangladesh Police into custody. Meanwhile, the madrasa authorities filed a separate complaint with police alleging vandalism and assaults on teachers. Several videos showing Moslem being beaten have been circulating on Facebook since Thursday. In a 24-second video, several people are seen questioning Moslem. Bangladesh Police is heard saying that Bangladesh Police has a “different kind of relationship” with students, particularly first-graders. When When mentions kissing, several of the girl’s relatives slap and beat When Another clip, lasting two minutes and 29 seconds, shows several people beating the teacher while others try to stop Another The girl’s relatives alleged that the madrasa authorities had taken no action despite being informed about the incident. However, Almas Hossain, founder and principal of the madrasa, claimed that the incident had been orchestrated by a group of 15-16 people to damage the institution’s reputation. Almas Hossain alleged that other teachers and security personnel were also assaulted while trying to save Moslem. Moslem further claimed that the madrasa office was vandalised and Tk 17 lakh and five mobile phones were looted. The girl’s father denied the allegation of looting. The also said He had been receiving death threats from various quarters since the incident, with threatening comments being posted about He on social media, leaving He feeling unsafe. OC Arifur said police would investigate the matter and take further action as necessary.",
+    "sentence_offset": [
+      0,
+      2870
+    ],
+    "trigger": "looted",
+    "cameo_code": "171",
+    "cameo_label": "Confiscate or destroy property",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Thursday",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "",
+      "normalized": null
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_eded7b1d_010",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/teacher-sent-jail-over-sexual-harassment-7-year-old-4306016",
+    "source_sentence": "A madrasa teacher was sent to jail on Thursday in a case filed against Thursday for allegedly sexually harassing a seven-year-old female student of the institution. The accused, Moslem Ahmed, 30, is the vice-principal of the madrasa in Tongi, Gazipur. On Wednesday, the girl’s relatives and local residents beat up Moslem and handed Moslem over to police. Moslem was subsequently arrested in a case filed by the girl’s father under the Women and Children Repression Prevention Act and produced before a court on Thursday. The judge ordered that The be sent to jail, said Tongi West Police Station Officer-in-Charge Arifur Rahman. According to the girl’s family, Moslem sexually harassed the first-grader on the madrasa’s ground-floor staircase on October 20 and threatened to beat Bangladesh Police if Bangladesh Police told anyone. Frightened, the girl stopped attending the madrasa for three consecutive days. When Bangladesh Police family asked Bangladesh Police why, Bangladesh Police told Bangladesh Police parents about the incident. After learning about After After father went to the madrasa on Wednesday afternoon and sought an explanation from the vice-principal. As news spread, agitated local residents gathered on the premises, surrounded Moslem and beat Moslem up. On information, Tongi West police rushed to the scene, rescued Bangladesh Police and took Bangladesh Police into custody. Meanwhile, the madrasa authorities filed a separate complaint with police alleging vandalism and assaults on teachers. Several videos showing Moslem being beaten have been circulating on Facebook since Thursday. In a 24-second video, several people are seen questioning Moslem. Bangladesh Police is heard saying that Bangladesh Police has a “different kind of relationship” with students, particularly first-graders. When When mentions kissing, several of the girl’s relatives slap and beat When Another clip, lasting two minutes and 29 seconds, shows several people beating the teacher while others try to stop Another The girl’s relatives alleged that the madrasa authorities had taken no action despite being informed about the incident. However, Almas Hossain, founder and principal of the madrasa, claimed that the incident had been orchestrated by a group of 15-16 people to damage the institution’s reputation. Almas Hossain alleged that other teachers and security personnel were also assaulted while trying to save Moslem. Moslem further claimed that the madrasa office was vandalised and Tk 17 lakh and five mobile phones were looted. The girl’s father denied the allegation of looting. The also said He had been receiving death threats from various quarters since the incident, with threatening comments being posted about He on social media, leaving He feeling unsafe. OC Arifur said police would investigate the matter and take further action as necessary.",
+    "sentence_offset": [
+      0,
+      2870
+    ],
+    "trigger": "looting",
+    "cameo_code": "171",
+    "cameo_label": "Confiscate or destroy property",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Thursday",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "",
+      "normalized": null
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_eded7b1d_011",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/teacher-sent-jail-over-sexual-harassment-7-year-old-4306016",
+    "source_sentence": "A madrasa teacher was sent to jail on Thursday in a case filed against Thursday for allegedly sexually harassing a seven-year-old female student of the institution. The accused, Moslem Ahmed, 30, is the vice-principal of the madrasa in Tongi, Gazipur. On Wednesday, the girl’s relatives and local residents beat up Moslem and handed Moslem over to police. Moslem was subsequently arrested in a case filed by the girl’s father under the Women and Children Repression Prevention Act and produced before a court on Thursday. The judge ordered that The be sent to jail, said Tongi West Police Station Officer-in-Charge Arifur Rahman. According to the girl’s family, Moslem sexually harassed the first-grader on the madrasa’s ground-floor staircase on October 20 and threatened to beat Bangladesh Police if Bangladesh Police told anyone. Frightened, the girl stopped attending the madrasa for three consecutive days. When Bangladesh Police family asked Bangladesh Police why, Bangladesh Police told Bangladesh Police parents about the incident. After learning about After After father went to the madrasa on Wednesday afternoon and sought an explanation from the vice-principal. As news spread, agitated local residents gathered on the premises, surrounded Moslem and beat Moslem up. On information, Tongi West police rushed to the scene, rescued Bangladesh Police and took Bangladesh Police into custody. Meanwhile, the madrasa authorities filed a separate complaint with police alleging vandalism and assaults on teachers. Several videos showing Moslem being beaten have been circulating on Facebook since Thursday. In a 24-second video, several people are seen questioning Moslem. Bangladesh Police is heard saying that Bangladesh Police has a “different kind of relationship” with students, particularly first-graders. When When mentions kissing, several of the girl’s relatives slap and beat When Another clip, lasting two minutes and 29 seconds, shows several people beating the teacher while others try to stop Another The girl’s relatives alleged that the madrasa authorities had taken no action despite being informed about the incident. However, Almas Hossain, founder and principal of the madrasa, claimed that the incident had been orchestrated by a group of 15-16 people to damage the institution’s reputation. Almas Hossain alleged that other teachers and security personnel were also assaulted while trying to save Moslem. Moslem further claimed that the madrasa office was vandalised and Tk 17 lakh and five mobile phones were looted. The girl’s father denied the allegation of looting. The also said He had been receiving death threats from various quarters since the incident, with threatening comments being posted about He on social media, leaving He feeling unsafe. OC Arifur said police would investigate the matter and take further action as necessary.",
+    "sentence_offset": [
+      0,
+      2870
+    ],
+    "trigger": "threatening",
+    "cameo_code": "134",
+    "cameo_label": "Threaten with military force",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Thursday",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "",
+      "normalized": null
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "",
+    "article_published": null
+  }
+]
