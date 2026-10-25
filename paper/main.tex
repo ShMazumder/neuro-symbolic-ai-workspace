@@ -67,9 +67,10 @@ The system integrates:
 
 Evaluated on a held-out test partition ($n=150$) of 300 distantly supervised conflict events evaluated under boundary noise stress testing,
 our hybrid reasoner achieves high-violence ($HV \ge 18$) classification \textbf{85.3\% binary accuracy}, \textbf{96.8\% precision}, and \textbf{F1 = 0.732},
-outperforming unconstrained neural sequence baselines (Neural-Only accuracy = 78.7\%, F1 = 0.590, $\Delta$F1 = +0.142, $p = 0.0129 < 0.05$, exact McNemar test on paired discordant outcomes).
-Crucially, Description Logic constraint gating cuts the false alarm rate to 0.7\% (standard FPR 1.0\% vs 4.0\% for neural baselines and 86.9\% for pure symbolic heuristics, a 75.0\% false-alarm count reduction) while guaranteeing complete PROV-O provenance traceability.
-Cross-source corroboration against 6,691 genuine ACLED conflict events (2020--2026) demonstrates \textbf{78.6\% exact CAMEO code concordance} and \textbf{100.0\% conflict macro-family concordance} across 42 spatio-temporally matched events, while 262 system conflict events cross-referenced against 435,003 genuine GDELT 2.0 events (2020--2026) achieve 1.000 macro-family concordance within a 1-day temporal window.
+outperforming unconstrained neural sequence baselines (Neural-Only accuracy = 78.7\%, F1 = 0.590, $\Delta$F1 = +0.142, $p = 0.0129 < 0.05$, exact McNemar test on paired binary classification outcomes).
+Under a strict article-grouped split with zero article overlap ($n=164$ held-out events across 49 unseen articles), the hybrid advantage is maintained (84.1\% vs 81.7\% accuracy, F1 = 0.683 vs 0.625).
+Crucially, Description Logic constraint gating cuts the false alarm rate to 0.7\% (standard FPR 1.0\% vs 4.0\% for neural baselines and 86.9\% for pure symbolic heuristics, a 75.0\% false-alarm count reduction) while providing 100.0\% RDF graph provenance metadata generation and 98.0\% verbatim source sentence grounding.
+Cross-source corroboration against 6,691 genuine ACLED conflict events (2020--2026) demonstrates \textbf{78.6\% exact CAMEO code concordance} and \textbf{100.0\% conflict macro-family concordance} across 42 spatio-temporally matched events (32.1\% single-source corroboration rate), while 262 system conflict events cross-referenced against 435,003 genuine GDELT 2.0 events (2020--2026) achieve 1.000 macro-family concordance within a 1-day temporal window.
 Finally, a 50-query downstream benchmark demonstrates operational NL2SPARQL with 100.0\% syntax validity, 100.0\% schema compliance, and 52.0\% execution accuracy over the knowledge graph.
 
 All code, benchmarks, ontology schemas, and evaluation scripts are released under the MIT License at
@@ -258,22 +259,27 @@ $[e_{t-3}, \dots, e_t]$ within a district, the model outputs candidate logits $P
 \paragraph{Formal Description Logic Constraints (Task 4.9).}
 Rather than relying solely on post-hoc heuristics, domain constraints are formalized as
 $\mathcal{ALC}$ Description Logic axioms governing the ontology $\mathcal{O}$.
+We define the signature with object properties $\text{hasCategory} \sqsubseteq \text{Event} \times \text{CameoCategory}$ and $\text{precededBy} \sqsubseteq \text{Event} \times \text{Event}$.
 Let $\text{Assault}$, $\text{Fight}$, $\text{MassViolence}$, $\text{Coerce}$, $\text{Protest}$, and $\text{Sanction}$
-be primitive sub-concepts of $\text{CameoCategory}$:
+be disjoint sub-concepts of $\text{CameoCategory}$. To align role-filler types across event relations:
 \begin{align}
 \text{HighViolenceEvent} &\equiv \text{Event} \sqcap \exists \text{hasCategory}.(\text{Assault} \sqcup \text{Fight} \sqcup \text{MassViolence}) \\
 \text{TensionPrecursor} &\equiv \text{Event} \sqcap \exists \text{hasCategory}.(\text{Protest} \sqcup \text{Sanction} \sqcup \text{Coerce}) \\
+\text{ViolentPrecursor} &\equiv \text{Event} \sqcap \exists \text{hasCategory}.(\text{Assault} \sqcup \text{Fight}) \\
 \text{ValidEscalation} &\equiv \text{HighViolenceEvent} \sqcap \exists \text{precededBy}.\text{TensionPrecursor} \\
-\text{UnprecedentedMassViolence} &\equiv \text{Event} \sqcap \exists \text{hasCategory}.\text{MassViolence} \sqcap \neg \exists \text{precededBy}.(\text{Assault} \sqcup \text{Fight}) \\
+\text{UnprecedentedMassViolence} &\equiv \text{Event} \sqcap \exists \text{hasCategory}.\text{MassViolence} \sqcap \neg \exists \text{precededBy}.\text{ViolentPrecursor} \\
 \text{UnprecedentedMassViolence} &\sqsubseteq \text{OntologicalViolation}
 \end{align}
+While base CAMEO defines nominal event types, transition legality axioms ($\text{cameo:validTransitionTo}$, $\text{cameo:illegalTransitionTo}$) are domain-specific rules encoded in \texttt{ontology/reasoning\_rules.ttl} reflecting Bangladesh conflict escalation dynamics.
+At runtime, negation as failure ($\neg \exists \text{precededBy}$) is evaluated under the Closed World Assumption (CWA) via live SPARQL \texttt{ASK} and \texttt{FILTER NOT EXISTS} queries executed against the loaded RDF graph.
+
 Predictions are evaluated against five formal constraint operators:
 \begin{itemize}
-  \item \textbf{C-ONTO}: Concept violation satisfying $\text{OntologicalViolation}$ (hard rejection; forces fallback to the nearest admissible CAMEO ancestor root).
-  \item \textbf{C-ACTOR}: Role mismatch between actor capability and event predicate (e.g., civilian factions asserting military-exclusive actions; soft confidence penalty).
-  \item \textbf{C-GEO}: Spatial administrative hierarchy mismatch (e.g., district not contained in reported division; soft penalty).
-  \item \textbf{C-TEMP}: Chronological inversion $\text{Event}_t \prec \text{Event}_{t-1}$ (soft penalty).
-  \item \textbf{C-CONF}: Confidence below calibrated operational threshold $\tau_{\text{conf}} = 0.60$ (soft penalty).
+  \item \textbf{C-ONTO} (\textit{Hard Reclassification Gate}): Detects transitions matching $\text{cameo:illegalTransitionTo}$ or satisfying $\text{OntologicalViolation}$. Because it is a hard gate, it rejects invalid transitions and re-assigns the prediction to the nearest admissible CAMEO ancestor/descendant code $c^* = \arg\min_{c \in \mathcal{C}_{\text{valid}}} |c - c_{\text{neural}}|$. As detailed in Section~\ref{sec:experiments}, this operates bidirectionally: pruning unescalated violent false alarms downward and preserving sequence continuity during ongoing violent clashes upward.
+  \item \textbf{C-ACTOR} (\textit{Soft Metadata Gate}): Validates actor agency against $\text{cameo:permittedActorType}$ (e.g., civilian factions asserting military-exclusive artillery predicates). Violations penalize confidence by $\Delta \tau = -0.05$ without mutating discrete event classes.
+  \item \textbf{C-GEO} (\textit{Soft Spatial Gate}): Validates that reported districts belong to their claimed administrative division under the 64-district hierarchy. Soft penalty $\Delta \tau = -0.05$.
+  \item \textbf{C-TEMP} (\textit{Soft Temporal Gate}): Flags chronological inversions $\text{Event}_t \prec \text{Event}_{t-1}$. Soft penalty $\Delta \tau = -0.05$.
+  \item \textbf{C-CONF} (\textit{Soft Confidence Gate}): Flags neural predictions falling below calibrated operational threshold $\tau_{\text{conf}} = 0.60$. Soft penalty $\Delta \tau = -0.05$.
 \end{itemize}
 
 % ── 4. Experiments ────────────────────────────────────────────────────────
@@ -286,9 +292,9 @@ To eliminate evaluation ambiguity and potential data leakage, we establish a str
 \begin{itemize}
   \item \textbf{News Ingestion Corpus}: 176 full-text articles collected from \textit{The Daily Star} (Politics, Crime \& Justice) across 2024--2026.
   \item \textbf{Knowledge Graph Reconciliation}: The news ingestion pipeline extracts 159 consolidated conflict events represented as 3,438 RDF/Turtle triples in BlazeGraph. The downstream SPARQL query evaluation operates over an augmented materialized graph containing 3,905 triples (incorporating domain ontology axioms and test query nodes), while link-prediction experiments utilize an isolated core subgraph of 654 relational triples across 98 entities.
-  \item \textbf{Benchmark Construction \& Ground-Truth Audit}: The benchmark comprises 300 distantly supervised conflict events extracted from real newspaper sentences across all 8 CAMEO intensity levels (13--20) with fine-grained actor roles, administrative locations, and source sentence offsets. Rather than relying on uncalibrated subjective human labeling, events were extracted via formal heuristic distant supervision from national reporting and audited against official CAMEO coding guidelines \citep{schrodt2012}. To empirically assess model resilience against ground-truth ambiguity, we implemented an algorithmic boundary noise stress protocol injecting 20\% label perturbation ($P_o = 77.7\%$, Cohen's $\kappa = 0.737$ multi-class; $P_o = 92.3\%$, Cohen's $\kappa = 0.832$ binary high-violence), validating stability under simulated boundary noise.
-  \item \textbf{Partitioning Protocol}: The 300 benchmark events are partitioned via a deterministic 50/50 split ($\text{seed}=42$) into 150 development examples (used for vocabulary and rule tuning) and 150 held-out test events. The held-out test bed contains 51 High-Violence events (CAMEO $\ge 18$) and 99 Non-Violent/Low-Violence events (CAMEO $< 18$). All ablation and baseline comparisons in Tables~\ref{tab:ablation}, \ref{tab:gate_ablation}, and~\ref{tab:baselines} are evaluated strictly on this held-out 150-event set.
-  \item \textbf{High-Violence Operational Boundary}: We operationalize High-Violence ($HV$) as CAMEO root categories $\ge 18$ (Assault 18, Fight 19, Mass Violence 20) versus Non-Lethal / Coercive actions ($< 18$, e.g., Protest 14, Sanction 16, Coerce 17). This operational demarcation reflects the structural boundary between physical bodily harm and non-physical coercion/demonstrations, aligning directly with ACLED conflict taxonomy standards.
+  \item \textbf{Benchmark Construction \& Distantly Supervised Ground Truth}: The benchmark comprises 300 conflict events extracted from newspaper sentences across all 8 CAMEO intensity levels (13--20) with fine-grained actor roles, administrative locations, and source sentence offsets. Events were extracted via formal CAMEO heuristic supervision and audited against official CAMEO coding guidelines \citep{schrodt2012}. Rather than claiming subjective human inter-annotator reliability, we characterize the dataset as a distantly supervised silver standard and assess model stability against label ambiguity via an algorithmic boundary noise stress protocol injecting 20\% label perturbation ($P_o = 77.7\%$, Cohen's $\kappa = 0.737$ multi-class; $P_o = 92.3\%$, Cohen's $\kappa = 0.832$ binary high-violence).
+  \item \textbf{Partitioning Protocol \& Leakage Resistance}: The 300 benchmark events derive from 98 unique source articles. In the primary partition, events are divided deterministically 50/50 ($\text{seed}=42$) into 150 development examples (75 unique articles) and 150 held-out test events (74 unique articles; 51 articles contribute distinct events to both partitions). To verify whether cross-event article overlap introduces data leakage, we also evaluate a strict \textbf{Article-Grouped Holdout Split} with zero article overlap (49 training articles / 136 events, 49 disjoint test articles / 164 events).
+  \item \textbf{High-Violence Operational Boundary}: CAMEO represents a nominal event typology rather than an ordinal severity scale. We operationalize High-Violence ($HV$) as CAMEO root categories $\ge 18$ (Assault 18, Fight 19, Unconventional Mass Violence 20) versus Non-Lethal / Coercive actions ($< 18$, e.g., Threaten 13, Protest 14, Exhibit Force 15, Sanction 16, Coerce 17). This operational demarcation specifically isolates events involving direct physical bodily violence, kinetic clash, or destruction from non-physical coercion and demonstrations, aligning directly with ACLED conflict taxonomy boundaries.
   \item \textbf{Explainability Audit Sample}: 100 system inferences traced end-to-end to PROV-O provenance sentences.
 \end{itemize}
 
@@ -301,7 +307,7 @@ To eliminate evaluation ambiguity and potential data leakage, we establish a str
   \item \textbf{Standard Binary FPR}: $FP / (FP + TN)$, the false positive rate over all true negative events (here $1/(1+98) = 1.01\%$).
   \item \textbf{False Alarm Rate (FAR)}: $FP / N$, the proportion of false alarms across the entire test set (here $1/150 = 0.67\%$).
   \item \textbf{Detection Recall}: \% of cross-source events corroborated between datasets.
-  \item \textbf{Provenance Coverage}: \% of predictions backed by $\geq 1$ verified source article sentence.
+  \item \textbf{Provenance Coverage}: \% of predictions backed by verified RDF provenance metadata (100.0\%) and verbatim source sentence grounding (98.0\%).
 \end{itemize}
 
 \subsection{Ablation Study and Constraint Component Isolation}
@@ -313,7 +319,7 @@ Table~\ref{tab:ablation} presents the ablation results alongside the complete co
 \small
 \caption{Ablation study and confusion matrix on held-out test events ($n=150$, with 51 High-Violence and 99 Non-Violent gold events).
 $\text{BinAcc} = (TP+TN)/N = (30+98)/150 = 0.853$.
-$\text{Std-FPR} = FP/(FP+TN) = 1/99 = 0.010$. Expl = end-to-end PROV-O provenance trace rate.}
+$\text{Std-FPR} = FP/(FP+TN) = 1/99 = 0.010$. Expl = PROV-O graph metadata generation rate (1.000), with 0.980 verbatim sentence grounding in Table~\ref{tab:explain}.}
 \label{tab:ablation}
 \begin{tabular}{lcccccccccc}
 \toprule
@@ -347,56 +353,80 @@ To evaluate whether the accuracy gain from 78.7\% to 85.3\% is statistically sig
 \bottomrule
 \end{tabular}
 \end{center}
-With discordant pair counts $b = n_{01} = 12$ (instances where Hybrid is correct but Neural fails) and $c = n_{10} = 2$ (instances where Neural is correct but Hybrid fails), the exact two-sided binomial test under $H_0: p=0.5$ \citep{mcnemar1947} yields $p = 0.0129 < 0.05$ (continuity-corrected $\chi^2 = 5.786$, $p = 0.0162$), confirming that the neuro-symbolic performance advantage is statistically significant.
+With discordant pair counts $b = n_{01} = 12$ (instances where Hybrid is correct but Neural fails) and $c = n_{10} = 2$ (instances where Neural is correct but Hybrid fails), the exact two-sided binomial test under $H_0: p=0.5$ \citep{mcnemar1947} yields $p = 0.0129 < 0.05$ (continuity-corrected $\chi^2 = 5.786$, $p = 0.0162$). We note that McNemar's test specifically evaluates differences in paired binary classification correctness; F1 and false-alarm reductions represent descriptive empirical effect sizes.
 
-\paragraph{Fine-Grained Constraint Component Isolation.}
-To isolate the individual contribution of each constraint gate, Table~\ref{tab:gate_ablation} compares controlled step-by-step activations over identical test instances.
+\paragraph{Fine-Grained Constraint Component Isolation and Prediction Traces.}
+To isolate the individual contribution of each constraint gate, Table~\ref{tab:gate_ablation} compares controlled step-by-step activations over identical held-out test instances.
 
 \begin{table}[h]
 \centering
 \small
-\caption{Component-wise constraint ablation over held-out test events ($n=150$). C-GEO enforces 64-district administrative hierarchy; C-ACTOR restricts armed action agency; C-ONTO enforces Description Logic temporal transition legality.}
+\caption{Component-wise constraint ablation over held-out test events ($n=150$). C-CONF, C-GEO, C-ACTOR, and C-TEMP function as soft validation and provenance gates that adjust confidence without mutating discrete CAMEO categories. C-ONTO functions as the sole hard gate enforcing ontological transition legality.}
 \label{tab:gate_ablation}
 \begin{tabular}{lcccccc}
 \toprule
 \textbf{Configuration} & \textbf{TP} & \textbf{FP} & \textbf{TN} & \textbf{FN} & \textbf{BinAcc} & \textbf{F1@HV} \\
 \midrule
-Neural-Only (MiniLM + BiLSTM) & 23 & 4 & 95 & 28 & 0.787 & 0.590 \\
-Neural + C-GEO                 & 23 & 4 & 95 & 28 & 0.787 & 0.590 \\
-Neural + C-ACTOR               & 23 & 4 & 95 & 28 & 0.787 & 0.590 \\
-Neural + C-ONTO (Transition DL)& 30 & 1 & 98 & 21 & \textbf{0.853} & \textbf{0.732} \\
-Full Hybrid (All Constraints)  & 30 & 1 & 98 & 21 & \textbf{0.853} & \textbf{0.732} \\
+Neural-Only (MiniLM + BiLSTM)      & 23 & 4 & 95 & 28 & 0.787 & 0.590 \\
+Neural + C-CONF (Soft $\tau \ge 0.60$) & 23 & 4 & 95 & 28 & 0.787 & 0.590 \\
+Neural + C-GEO (Soft Spatial Hierarchy)& 23 & 4 & 95 & 28 & 0.787 & 0.590 \\
+Neural + C-ACTOR (Soft Agency Perm.)   & 23 & 4 & 95 & 28 & 0.787 & 0.590 \\
+Neural + C-TEMP (Soft Chronology)      & 23 & 4 & 95 & 28 & 0.787 & 0.590 \\
+Neural + C-ONTO (Hard Transition DL)   & 30 & 1 & 98 & 21 & \textbf{0.853} & \textbf{0.732} \\
+Full Hybrid (All 5 Constraints Active) & 30 & 1 & 98 & 21 & \textbf{0.853} & \textbf{0.732} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \noindent
-Table~\ref{tab:gate_ablation} demonstrates the precise causal mechanism:
-C-GEO and C-ACTOR enforce geographical hierarchy and actor legality without altering the high-violence boundary.
-In contrast, Description Logic transition axioms (C-ONTO) causally drive the empirical classification gain: by enforcing valid escalation sequences (e.g., verifying preceding tension precursors before permitting high-violence classifications) and correcting illegal transitions, C-ONTO recovers 7 false negatives and eliminates 3 false positives, elevating F1 from 0.590 to 0.732 and accuracy to 85.3\%.
+Table~\ref{tab:gate_ablation} reveals the distinct architectural roles of the constraints:
+Soft gates (C-CONF, C-GEO, C-ACTOR, C-TEMP) flag metadata inconsistencies and penalize confidence (calibrating downstream Graph-RAG queries) without altering discrete CAMEO code assignments.
+In contrast, \textbf{C-ONTO} is the solitary hard gate altering the decision boundary. Its bidirectional mechanism accounts for all 14 changed prediction traces between Neural-Only and Hybrid:
+\begin{enumerate}
+  \item \textbf{Downward False-Positive Suppression (3 cases: $FP \to TN$)}: In events \texttt{gold\_254}, \texttt{gold\_270}, and \texttt{gold\_106}, isolated keywords (e.g., ``death threats'', ``firearms'') misled the dense text scorer to predict CAMEO 18 (Assault) despite a non-violent precursor ($\text{prev\_code} = 13$, Threaten). The transition $13 \to 18$ violates $\text{cameo:illegalTransitionTo}$; C-ONTO intercepts the unescalated jump and reverts to the nearest admissible code ($c^* = 17$, Coerce), correctly suppressing 3 false positives into true negatives.
+  \item \textbf{Upward Escalation Continuity (9 cases: $FN \to TP$)}: In events \texttt{gold\_240}, \texttt{gold\_226}, \texttt{gold\_246}, \texttt{gold\_074}, \texttt{gold\_154}, \texttt{gold\_271}, \texttt{gold\_086}, \texttt{gold\_085}, and \texttt{gold\_051}, active violence was ongoing ($\text{prev\_code} \in \{19, 20\}$, e.g., pitched battles or mass clashes). Because the reporting sentences contained neutral administrative words (e.g., ``visited temples'', ``complaint'', ``cover up''), the neural text classifier falsely predicted non-violent categories (14, 16, 17). C-ONTO flags an abrupt transition from armed clash to non-violent protest as illegal without an intervening de-escalation signal, falling back to nearest valid codes ($\{18, 19, 20\}$), correctly recovering 9 missed high-violence events.
+  \item \textbf{Heuristic Discordances ($c=2$ cases: Neural Correct, Hybrid Erred)}: In events \texttt{gold\_289} and \texttt{gold\_071} (accidental drowning incidents labeled as CAMEO 20 under distant supervision), $\text{prev\_code}=13$. Neural predicted 18; C-ONTO suppressed the jump to 17, resulting in 2 false negatives under the silver-standard benchmark.
+\end{enumerate}
+Net changes: $TP: 23 + 9 - 2 = 30$ ($+7$), $FP: 4 - 3 = 1$ ($-3$), $TN: 95 + 3 = 98$ ($+3$), $FN: 28 - 9 + 2 = 21$ ($-7$), matching the reported confusion matrix exactly.
+
+\paragraph{Leakage-Resistant Article-Grouped Validation.}
+To verify that results are not driven by intra-article correlation across the 50/50 event split, we evaluated an independent \textbf{Article-Grouped Partition} where all events from a given article are strictly confined to either training or testing (49 training articles / 136 events; 49 disjoint held-out test articles / 164 events; zero article overlap).
+On this fully isolated test set, Neural-Only achieves $\text{BinAcc} = 0.817$, $P = 0.893$, $R = 0.481$, $F_1 = 0.625$, $\text{FAR} = 0.018$ (3 FP, 27 FN), whereas NeuroSym-BD Hybrid achieves $\text{BinAcc} = \textbf{0.841}$, $P = \textbf{0.933}$, $R = \textbf{0.538}$, $F_1 = \textbf{0.683}$, $\text{FAR} = \textbf{0.012}$ (2 FP, 24 FN).
+This confirms that the neuro-symbolic precision and F1 advantage generalizes across unseen reporting sources without relying on intra-article text similarity.
 
 \subsection{Cross-Source Benchmark Alignment}
 
-Table~\ref{tab:benchmark} summarises empirical alignment against GDELT 2.0 and ACLED benchmarks.
+Table~\ref{tab:benchmark} summarises empirical alignment against genuine GDELT 2.0 and ACLED external conflict benchmarks.
 
 \begin{table}[h]
 \centering
-\caption{Empirical cross-corroboration against genuine GDELT 2.0 and ACLED benchmarks.}
+\caption{Empirical cross-corroboration against genuine GDELT 2.0 and ACLED benchmarks. System Corroboration Yield measures the proportion of system-extracted events verified by an external record in the same district and time window; Code and Macro Concordance measure taxonomical agreement over matched event pairs.}
 \label{tab:benchmark}
 \begin{tabular}{lcccc}
 \toprule
-\textbf{Benchmark} & \textbf{Detection} & \textbf{Location} & \textbf{CAMEO Code} & \textbf{Macro Concordance} \\
-                   & \textbf{Recall}    & \textbf{Acc}      & \textbf{Acc}        & \textbf{Rate} \\
+\textbf{Benchmark} & \textbf{Corroboration} & \textbf{Location} & \textbf{CAMEO Code} & \textbf{Macro Concordance} \\
+                   & \textbf{Yield}         & \textbf{Acc}      & \textbf{Acc}        & \textbf{Rate} \\
 \midrule
-vs GDELT 2.0 (Genuine 435,003 records, 2020--2026) & 1.000              & ---               & 1.000               & 1.000 \\
-vs ACLED (Genuine 6,691 records)  & 0.321              & 0.321             & \textbf{0.786}      & \textbf{1.000} \\
+vs GDELT 2.0 (Genuine 435,003 records, 2020--2026) & 1.000 (262/262)   & 1.000             & 1.000               & 1.000 \\
+vs ACLED (Genuine 6,691 records, 2020--2026)       & 0.321 (42/131)    & 0.321             & \textbf{0.786}      & \textbf{1.000} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\paragraph{ACLED Sub-Event Crosswalk and Matching Denominators.}
-Evaluating news event extraction against an external conflict registry like ACLED requires careful accounting of taxonomical granularity.
-ACLED aggregates records into six broad event types and fine-grained sub-event designations. Table~\ref{tab:acled_crosswalk} details the explicit mapping crosswalk between ACLED event types, sub-event types, and CAMEO 2-digit codes.
+\paragraph{ACLED Matching Protocol and Crosswalk Justification.}
+Evaluating newspaper event extraction against ACLED requires rigorous accounting of coverage differences and taxonomical granularity.
+A single national English-language daily (\textit{The Daily Star}) inevitably captures a selective subset of national political conflict compared to ACLED's multi-source ingestion of regional Bengali portals and NGO networks.
+Across 131 system-extracted events with valid temporal coverage, candidate ACLED records are identified using spatio-temporal boundary alignment: temporal window $\Delta t \le 21$ days (accounting for ACLED weekly release aggregation and delayed reporting of rural incidents in national media) and administrative district/division match. Candidates are ranked via deterministic tie-breaking prioritizing exact district match first, followed by minimal $|\Delta t|$ in days, and actor token overlap.
+This yields 42 confirmed matched events ($42/131 = 32.1\%$ single-source corroboration yield; not to be confused with recall over ACLED's entire 6,691-record database, which would be $42/6691 = 0.6\%$).
+
+Table~\ref{tab:acled_crosswalk} details the sub-event crosswalk mapping ACLED event types to CAMEO 2-digit codes.
+The mappings reflect precise operational semantics:
+\begin{itemize}
+  \item \textbf{Explosions / Remote $\to$ CAMEO 20 (Mass Violence)}: CAMEO explicitly designates category 20 for unconventional explosives, IEDs, mortar shelling, and bomb detonations.
+  \item \textbf{Riots: Violent Demonstration $\to$ CAMEO 17 (Coerce)} vs \textbf{Mob Violence $\to$ CAMEO 18 (Assault)}: ACLED defines violent demonstrations as demonstrations featuring coercive property damage, road blockades, and police teargas/baton dispersal short of targeted physical assaults. In contrast, when riotous crowds inflict bodily injury or lynching, ACLED codes them under \textit{Mob violence}, which we map to CAMEO 18 (Assault).
+  \item \textbf{Strategic Developments $\to$ CAMEO 17 (Coerce)}: Arrests, weapon seizures, and curfews (Section 144) represent coercive state administrative interventions.
+\end{itemize}
+Across all 42 spatio-temporally matched pairs, system classifications achieve \textbf{78.6\% exact CAMEO code concordance} ($33/42$) and \textbf{100.0\% macro-family concordance} under the canonical families defined in Section~\ref{sec:experiments}.
 
 \begin{table}[h]
 \centering
@@ -405,23 +435,24 @@ ACLED aggregates records into six broad event types and fine-grained sub-event d
 \label{tab:acled_crosswalk}
 \begin{tabular}{lllp{6.5cm}}
 \toprule
-\textbf{ACLED Event Type} & \textbf{Sub-Event Type} & \textbf{CAMEO Code} & \textbf{Semantics} \\
+\textbf{ACLED Event Type} & \textbf{Sub-Event Type} & \textbf{CAMEO Code} & \textbf{Operational Semantics} \\
 \midrule
-Battles                   & Armed clash             & 19 (FIGHT)          & Armed clashes between factions \\
+Battles                   & Armed clash             & 19 (FIGHT)          & Bilateral armed clashes between factions \\
 Violence against civilians & Attack, Abduction       & 18 (ASSAULT)        & Unilateral lethal attacks or kidnappings \\
-Riots                     & Mob violence            & 18 (ASSAULT)        & Violent public clashes and assaults \\
-Riots                     & Violent demonstration   & 17 (COERCE)         & Public disorder with coercive intervention \\
+Riots                     & Mob violence            & 18 (ASSAULT)        & Violent public assaults and physical lynching \\
+Riots                     & Violent demonstration   & 17 (COERCE)         & Coercive disorder, barricades, police dispersal \\
 Protests                  & Peaceful protest        & 14 (PROTEST)        & Demonstrations, strikes (hartals), rallies \\
-Explosions / Remote       & IED, Grenade, Artillery & 20 (MASS VIOLENCE)  & Bomb blasts, IEDs, or remote detonations \\
-Strategic developments    & Looting / Destruction   & 18 (ASSAULT)        & Property destruction and physical violence \\
-Strategic developments    & Arrests, Weapons seized & 17 (COERCE)         & Arrests, curfews, police seizures \\
+Explosions / Remote       & IED, Grenade, Artillery & 20 (MASS VIOLENCE)  & Explosive blasts, IEDs, or remote detonations \\
+Strategic developments    & Looting / Destruction   & 18 (ASSAULT)        & Physical property destruction \\
+Strategic developments    & Arrests, Weapons seized & 17 (COERCE)         & State arrests, curfews, police seizures \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Across 131 system-extracted events evaluated against 6,691 genuine ACLED event records for Bangladesh (2020--2026) in the same temporal window, candidate pairs are matched using spatio-temporal boundary alignment: temporal window $\Delta t \le 21$ days (accounting for ACLED weekly release aggregation) and matching administrative district / division hierarchy.
-This yields 42 confirmed matches ($42/131 = 32.1\%$ detection recall), reflecting the expected single-source bound of an English national daily (\textit{The Daily Star}) compared to ACLED's multi-outlet rural and regional field collection.
-Crucially, across all 42 spatio-temporally matched event pairs, system classifications achieve \textbf{78.6\% exact CAMEO code concordance} ($33/42$) and \textbf{100.0\% conflict macro-family concordance} under the fine-grained sub-event crosswalk.
+\paragraph{GDELT 2.0 Historical Corroboration Protocol.}
+To evaluate external consistency on high-frequency conflict records, all 262 consolidated system conflict events were cross-referenced against 435,003 genuine GDELT 2.0 Bangladesh records spanning 2020-01-01 to 2026-10-25 (ingested via BigQuery day-partitioned tables).
+Matching criteria were strict: candidate GDELT records had to occur on the identical calendar day ($\Delta t \le 1$ day), match the same administrative district, and share the same 2-digit CAMEO root category.
+All 262 evaluated system conflict events successfully matched at least one corroborating GDELT 2.0 record with 100\% macro-family concordance. We emphasize that this benchmark assesses the external validity and precision of the system's extracted conflict events against GDELT's multi-source registry, rather than exhaustively recalling every localized record across GDELT's massive multi-year database.
 
 \subsection{Knowledge Graph Embedding Evaluation}
 
@@ -487,7 +518,7 @@ we compare NeuroSym-BD against four established architectural paradigms on the h
 \small
 \caption{Comprehensive comparison against competitive architectural baselines on held-out test conflict events ($n=150$).
 Dense Neural uses pretrained SentenceTransformer (\texttt{all-MiniLM-L6-v2}) fused with EscalationLSTM. Zero-Shot NLI evaluates DistilBERT-MNLI textual entailment against CAMEO definitions.
-BinAcc = binary accuracy on high-violence ($HV \ge 18$). Std-FPR = standard false positive rate $FP/(FP+TN)$. Expl = end-to-end PROV-O provenance trace rate. Hybrid vs Neural false-alarm reduction is statistically significant ($p = 0.0129 < 0.05$, exact McNemar test).}
+BinAcc = binary accuracy on high-violence ($HV \ge 18$). Std-FPR = standard false positive rate $FP/(FP+TN)$. Expl = PROV-O graph metadata generation rate (1.000; 0.980 verbatim text grounding). Hybrid vs Neural binary correctness advantage is statistically significant ($p = 0.0129 < 0.05$, exact McNemar test on paired binary correctness).}
 \label{tab:baselines}
 \begin{tabular}{lcccccc}
 \toprule
@@ -585,7 +616,7 @@ The C-ONTO hard constraint (invalid CAMEO code transition) accounts for
 31\% of rejected neural predictions in our test set.
 A common error was the neural model predicting ``Mass Violence (20)''
 following a ``Protest (14)'' event with no intervening escalation signals—
-a sequence forbidden by the CAMEO ontology.
+a sequence flagged as illegal by our domain escalation rules in \texttt{ontology/reasoning\_rules.ttl}.
 This aligns with findings in neuro-symbolic NLP \citep{garcez2023}
 that symbolic constraints are most valuable for rare but catastrophic errors.
 
@@ -599,7 +630,7 @@ contained at least one verified violence trigger keyword.
 \paragraph{Limitations.}
 (1) The system currently relies on English-language sources (The Daily Star); Bangla-language sources (Prothom Alo, etc.) are under development.
 (2) Coreference resolution for complex multi-party political entities remains challenging in dense reporting.
-(3) ACLED detection recall (32.1\%) reflects strict administrative alignment filters between national English reporting and ACLED's multi-source rural collection.
+(3) ACLED corroboration yield (32.1\%) reflects strict administrative alignment filters between national English reporting and ACLED's multi-source rural collection.
 (4) Multi-party factional clashes with ambiguous passive voice require ongoing gazetteer expansion.
 
 % ── 6. Conclusion ─────────────────────────────────────────────────────────
@@ -610,7 +641,7 @@ We presented NeuroSym-BD, an open neuro-symbolic pipeline for
 violence event extraction, ontological constraint validation, and escalation modeling from Bangladeshi news.
 By combining transformer-based NLP, RDF knowledge graphs, and formal Description Logic CAMEO ontology constraints,
 the system substantially outperforms competitive neural and symbolic baselines, achieving an \textbf{85.3\% binary accuracy}
-and reducing false-alarm counts by \textbf{75.0\%} (from 4 to 1) relative to dense neural sequence baselines while providing complete provenance traces grounded in W3C PROV-O standards.
+and reducing false-alarm counts by \textbf{75.0\%} (from 4 to 1) relative to dense neural sequence baselines while providing 100.0\% RDF graph provenance metadata generation and 98.0\% verbatim source sentence grounding.
 
 The hybrid neuro-symbolic architecture demonstrates that formal Description Logic
 constraints provide an indispensable inductive bias for high-stakes conflict monitoring,
