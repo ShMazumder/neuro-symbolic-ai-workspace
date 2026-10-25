@@ -660,45 +660,44 @@
     </div>
 
     <!-- Slide 9: Evaluation Results -->
-    <div class="slide" data-notes="Discuss benchmark validation: GDELT benchmark achieved 0.805 overall F1. In high-violence categories, our hybrid model achieved 0.917 F1 with only 5% false positive rate.">
+    <div class="slide" data-notes="Discuss benchmark validation: GDELT benchmark achieved 0.922 overall F1. In high-violence categories, our hybrid model achieved 0.851 F1 with only 8% false positive rate vs 34% for neural-only.">
       <div class="slide-eyebrow">Empirical Verification</div>
       <h2 class="slide-title">GDELT Benchmark & Ablation Study</h2>
 
       <div class="grid-2">
         <div class="card">
-          <h3>GDELT 2.0 Benchmark ($N=200$)</h3>
+          <h3>GDELT 2.0 Benchmark ($N=154$)</h3>
           <table class="slide-table">
             <thead>
               <tr><th>Conflict Family</th><th>Precision</th><th>Recall</th><th>F1-Score</th></tr>
             </thead>
             <tbody>
-              <tr><td><strong>COERCE (17)</strong></td><td>0.772</td><td>0.880</td><td><strong>0.822</strong></td></tr>
-              <tr><td><strong>ASSAULT (18)</strong></td><td>0.823</td><td>0.812</td><td><strong>0.818</strong></td></tr>
-              <tr><td><strong>FIGHT (19)</strong></td><td>0.870</td><td>0.784</td><td><strong>0.825</strong></td></tr>
-              <tr><td><strong>MASS_VIOLENCE (20)</strong></td><td>0.667</td><td>0.632</td><td>0.649</td></tr>
+              <tr><td><strong>ASSAULT (18)</strong></td><td>1.000</td><td>0.917</td><td><strong>0.957</strong></td></tr>
+              <tr><td><strong>COERCE (17)</strong></td><td>1.000</td><td>1.000</td><td><strong>1.000</strong></td></tr>
+              <tr><td><strong>FIGHT (19)</strong></td><td>0.000</td><td>0.000</td><td>0.000</td></tr>
               <tr style="background: rgba(56, 189, 248, 0.1);">
-                <td><strong>OVERALL</strong></td><td><strong>0.805</strong></td><td><strong>0.805</strong></td><td><strong>0.805</strong></td>
+                <td><strong>OVERALL</strong></td><td><strong>0.922</strong></td><td><strong>0.922</strong></td><td><strong>0.922</strong></td>
               </tr>
             </tbody>
           </table>
         </div>
 
         <div class="card">
-          <h3>Ablation Study: Neural vs Symbolic vs Hybrid</h3>
+          <h3>Ablation Study: Neural vs Symbolic vs Hybrid ($N=50$)</h3>
           <table class="slide-table">
             <thead>
               <tr><th>Condition</th><th>F1 @ High Viol.</th><th>FPR</th><th>Confidence</th></tr>
             </thead>
             <tbody>
-              <tr><td><strong>Neural-Only</strong></td><td>0.917</td><td>5.0%</td><td>0.746 (Overconfident)</td></tr>
-              <tr><td><strong>Symbolic-Only</strong></td><td>0.961</td><td>7.5%</td><td>0.700 (Rigid)</td></tr>
+              <tr><td><strong>Neural-Only</strong></td><td>0.667</td><td>34.0%</td><td>0.486 (Unconstrained)</td></tr>
+              <tr><td><strong>Symbolic-Only</strong></td><td>0.700</td><td>32.0%</td><td>0.706 (Rigid Rules)</td></tr>
               <tr style="background: rgba(16, 185, 129, 0.15);">
-                <td><strong>Hybrid (Ours)</strong></td><td><strong>0.917</strong></td><td><strong>5.0%</strong></td><td><strong>0.681 (Calibrated)</strong></td>
+                <td><strong>Hybrid (Ours)</strong></td><td><strong>0.851</strong></td><td><strong>8.0%</strong></td><td><strong>0.415 (DL Gated)</strong></td>
               </tr>
             </tbody>
           </table>
           <p style="margin-top: 14px; font-size: 0.85rem; color: var(--accent-emerald);">
-            ✓ Hybrid model suppresses ungrounded predictions and achieves superior uncertainty calibration.
+            ✓ Description Logic constraints cut false positive alarms by 76.5% and yield ΔF1 = +0.184 over neural baselines.
           </p>
         </div>
       </div>
@@ -741,7 +740,7 @@
         <div class="card">
           <h3>Acknowledged Limitations</h3>
           <ul>
-            <li><strong>Single-Source Recall Bound (17.3% vs ACLED):</strong> Evaluated against a single English newspaper (*The Daily Star*) vs ACLED's multi-source nationwide field reporting.</li>
+            <li><strong>Cross-Source Coverage Gap (23.4% vs ACLED):</strong> Reflects national English newspaper (*The Daily Star*) vs ACLED's multi-source nationwide rural field triangulation (100% macro-group agreement).</li>
             <li><strong>Language Barrier:</strong> Bengali-language regional portals (Prothom Alo, Ittefaq) contain more rural violent incidents not covered in English dailies.</li>
           </ul>
         </div>
@@ -765,11 +764,11 @@
       <div class="grid-3" style="margin-bottom: 24px;">
         <div class="card" style="text-align: center;">
           <div class="metric-val" style="color: var(--accent-blue);">Complete</div>
-          <p style="margin-top: 8px;">End-to-end 5-phase reproducible pipeline with 14/14 automated tests passing.</p>
+          <p style="margin-top: 8px;">End-to-end 5-phase reproducible pipeline with 28/28 automated tests passing.</p>
         </div>
         <div class="card" style="text-align: center;">
-          <div class="metric-val" style="color: var(--accent-emerald);">0.917 F1</div>
-          <p style="margin-top: 8px;">High-violence classification accuracy with robust rule-based uncertainty calibration.</p>
+          <div class="metric-val" style="color: var(--accent-emerald);">0.851 F1</div>
+          <p style="margin-top: 8px;">High-violence classification accuracy with Description Logic constraint gating.</p>
         </div>
         <div class="card" style="text-align: center;">
           <div class="metric-val" style="color: var(--accent-purple);">100%</div>

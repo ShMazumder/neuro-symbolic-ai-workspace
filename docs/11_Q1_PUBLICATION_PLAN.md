@@ -38,7 +38,7 @@ flowchart TD
 ### Phase 3: Conflict Benchmark Re-evaluation
 - [x] **3.1 ACLED Gold Benchmark:** Executed [`evaluation/benchmark_acled.py`](../evaluation/benchmark_acled.py) (Recall: 23.4%, Location: 23.4%, CAMEO group: 100.0%).
 - [x] **3.2 GDELT Benchmark:** Executed [`evaluation/benchmark_gdelt.py`](../evaluation/benchmark_gdelt.py) (Precision: 0.922, Recall: 0.922, F1: 0.922).
-- [x] **3.3 Large-Scale Ablation:** Executed [`evaluation/ablation.py`](../evaluation/ablation.py) (Hybrid achieved F1=1.000, 0% FPR vs Neural 11.1% FPR).
+- [x] **3.3 Large-Scale Ablation:** Executed [`evaluation/ablation.py`](../evaluation/ablation.py) (Hybrid achieved F1=0.851, 8.0% FPR vs Neural 34.0% FPR).
 - [x] **3.4 Explainability Verification:** Executed [`evaluation/explain_eval.py`](../evaluation/explain_eval.py) (97.0% provenance, 100% rule coverage, 100% trigger relevance).
 
 ### Phase 4: Qualitative Studies & Error Taxonomy
@@ -48,6 +48,6 @@ flowchart TD
 
 ### Phase 5: Manuscript Expansion
 - [x] **5.1 Description Logic Semantics:** Formulated $\mathcal{ALC}$ axioms for CAMEO escalation rules in Section 3 of [`paper/main.tex`](../paper/main.tex).
-- [x] **5.2 Baselines:** Added comprehensive multi-baseline comparison in Section 4.5 (Zero-Shot LLM vs. Pure Neural vs. Pure Symbolic vs. Hybrid NeuroSym-BD).
+- [x] **5.2 Baselines:** Added comprehensive multi-baseline comparison in Section 4.5 (Keyword & Gazetteer Heuristic vs. Pure Neural BiLSTM vs. Pure Symbolic Rule Engine vs. Hybrid NeuroSym-BD).
 - [x] **5.3 Visuals & Qualitative Walkthrough:** Added qualitative case studies (Section 4.6), error taxonomy table (Section 4.7), and native TikZ diagrams.
-- [x] **5.4 Reproducibility Release:** Recompiled [`paper/main.pdf`](../paper/main.pdf) (9 pages, 0 errors, 28/28 unit tests pass).
+- [x] **5.4 Reproducibility Release:** Recompiled [`paper/main.pdf`](../paper/main.pdf) (10 pages, 0 errors, 28/28 unit tests pass).

@@ -15,11 +15,15 @@ NeuroSym-BD is currently at **Technology Readiness Level 4/5 (TRL 4/5: Component
 ## 2. Production Gap Analysis & Checklist
 
 ### Priority 1: Testing & Code Quality (Critical)
-- [ ] **Unit Tests:** Implement comprehensive `pytest` test suite in `tests/`:
-  - `tests/test_nlp.py`: NER entity extraction, temporal parsing, CAMEO rule classifier.
-  - `tests/test_kg.py`: RDF triple construction, entity resolution, SPARQL query generation.
-  - `tests/test_neurosymbolic.py`: GNN forward pass, BiLSTM sequence prediction, anomaly rules, hybrid filter.
-- [ ] **Integration Tests:** End-to-end data flow test from raw article JSON to hybrid decision output.
+- [x] **Unit Tests:** Implemented comprehensive `pytest` test suite in `tests/` (28/28 passing):
+  - `tests/test_cameo_classifier.py`: CAMEO rule classifier, violence detection, confidence scores.
+  - `tests/test_event_triggers.py`: Trigger extraction, token span offset indexing.
+  - `tests/test_geo.py`: Bangladesh 8-division and 64-district gazetteer normalization and hierarchy.
+  - `tests/test_neurosymbolic.py`: Hybrid validation engine, constraint checking, anomaly rules.
+  - `tests/test_rdf_generator.py`: RDF triple serialization, PROV-O provenance, entity resolution.
+  - `tests/test_relevance_filter.py`: Keyword and pattern-based conflict relevance filtering.
+  - `tests/test_scraper.py`: Article parsing, metadata sanitization, and deduplication.
+- [x] **Integration Tests:** End-to-end data flow test from raw article JSON to hybrid decision output.
 - [ ] **Code Coverage Target:** Achieve $\ge 80\%$ statement and branch test coverage.
 - [ ] **Static Analysis:** Configure `ruff`, `black`, and `mypy` strict typing checks.
 

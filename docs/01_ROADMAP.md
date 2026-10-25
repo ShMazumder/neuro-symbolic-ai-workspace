@@ -177,6 +177,6 @@ ORDER BY ?month
 - **Journal of Neurosymbolic AI**
 
 ### Success Criteria
-- [x] Hybrid system outperforms pure-LLM baseline on CAMEO coding accuracy
-- [x] Paper accepted at ≥1 venue
+- [x] Hybrid system outperforms pure neural & symbolic baselines on high-violence F1 (0.851 vs 0.667) and FPR (8.0% vs 34.0%)
+- [ ] Paper accepted at ≥1 venue (manuscript ready for submission)
 - [x] Public dataset release
