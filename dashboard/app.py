@@ -419,7 +419,7 @@ elif view_mode == "🚨 Anomaly Alerts & Spikes":
         "P(Assault)": [0.15, 0.40, 0.45, 0.60],
         "P(Mass Violence)": [0.05, 0.10, 0.15, 0.20],
     }
-    st.dataframe(pd.DataFrame(transition_data), use_container_width=True)
+    st.dataframe(pd.DataFrame(transition_data), width="stretch")
 
 
 # ── View 5: Benchmark Metrics ─────────────────────────────────────────────────
@@ -439,7 +439,7 @@ elif view_mode == "📊 Benchmark Metrics":
         {"Condition": "Symbolic-Only", "Accuracy": 0.000, "Precision @ HV": 0.925, "Recall @ HV": 1.000, "F1 @ HV": 0.961, "FPR": "7.5%", "Confidence": "0.700 (Rigid)"},
         {"Condition": "Hybrid (Ours)", "Accuracy": 0.400, "Precision @ HV": 0.943, "Recall @ HV": 0.892, "F1 @ HV": 0.917, "FPR": "5.0%", "Confidence": "0.681 (Optimal)"},
     ])
-    st.dataframe(ablation_df, use_container_width=True)
+    st.dataframe(ablation_df, width="stretch")
 
     st.subheader("GDELT 2.0 Conflict Family Performance")
     gdelt_df = pd.DataFrame([

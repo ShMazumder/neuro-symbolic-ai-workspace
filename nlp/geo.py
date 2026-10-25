@@ -137,11 +137,14 @@ class GeoResult:
     method:     str = "failed"
 
 
-def _lookup(name: str) -> Optional[dict]:
-    """Lookup a location name in the gazetteer. Returns record or None."""
+def _lookup(name: str) -> tuple[Optional[str], Optional[dict]]:
+    """Lookup a location name in the gazetteer. Returns (canonical_key, record) or (None, None)."""
     key = name.lower().strip()
     key = LOCATION_ALIASES.get(key, key)
-    return BD_DISTRICTS.get(key)
+    record = BD_DISTRICTS.get(key)
+    if record:
+        return key, record
+    return None, None
 
 
 def normalize_location(raw: str) -> GeoResult:
@@ -159,9 +162,9 @@ def normalize_location(raw: str) -> GeoResult:
         r"\b(district|upazila|union|city|town|thana|municipality)\b", "", raw, flags=re.I
     ).strip()
 
-    record = _lookup(cleaned)
+    canonical_key, record = _lookup(cleaned)
     if record:
-        district = record.get("district", cleaned.title())
+        district = record.get("district", canonical_key.title() if canonical_key else cleaned.title())
         return GeoResult(
             raw=raw,
             district=district,
@@ -174,11 +177,11 @@ def normalize_location(raw: str) -> GeoResult:
 
     # Partial match on longer expressions (e.g. "Savar upazila of Dhaka")
     for part in cleaned.split():
-        record = _lookup(part)
+        canonical_key, record = _lookup(part)
         if record:
             return GeoResult(
                 raw=raw,
-                district=record.get("district", part.title()),
+                district=record.get("district", canonical_key.title() if canonical_key else part.title()),
                 division=record.get("division"),
                 latitude=record.get("lat"),
                 longitude=record.get("lon"),
