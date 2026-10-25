@@ -1,86 +1,86 @@
 {
   "metrics": {
-    "total_system_events": 154,
-    "matched_with_acled": 36,
-    "detection_recall": 0.234,
-    "location_accuracy": 0.234,
+    "total_system_events": 77,
+    "matched_with_acled": 30,
+    "detection_recall": 0.39,
+    "location_accuracy": 0.39,
     "cameo_code_accuracy": 0.0,
-    "cameo_group_accuracy": 1.0,
+    "cameo_group_accuracy": 0.6,
     "actor_identification": 0.0,
-    "summary": "Detection recall: 23.4% | Location accuracy: 23.4% | CAMEO code accuracy: 0.0% | Actor identification: 0.0%"
+    "summary": "Detection recall: 39.0% | Location accuracy: 39.0% | CAMEO code accuracy: 0.0% | Actor identification: 0.0%"
   },
   "sample_alignments": [
     {
       "system_code": 19,
-      "acled_code": null,
+      "acled_code": 14,
       "code_match": false,
       "code_group_match": false,
       "district": "Rangamati",
-      "district_match": false,
+      "district_match": true,
       "system_actor": "Awami League",
-      "acled_actor": "",
+      "acled_actor": "Peaceful protest",
       "date": "2026-10-24",
-      "acled_source": ""
+      "acled_source": "ACLED_GENUINE"
     },
     {
       "system_code": 18,
-      "acled_code": null,
+      "acled_code": 14,
       "code_match": false,
       "code_group_match": false,
       "district": "Rangamati",
-      "district_match": false,
+      "district_match": true,
       "system_actor": "Awami League",
-      "acled_actor": "",
+      "acled_actor": "Peaceful protest",
       "date": "2026-10-24",
-      "acled_source": ""
+      "acled_source": "ACLED_GENUINE"
     },
     {
       "system_code": 19,
-      "acled_code": null,
+      "acled_code": 14,
       "code_match": false,
       "code_group_match": false,
       "district": "Rangamati",
-      "district_match": false,
+      "district_match": true,
       "system_actor": "Awami League",
-      "acled_actor": "",
+      "acled_actor": "Peaceful protest",
       "date": "2026-10-24",
-      "acled_source": ""
+      "acled_source": "ACLED_GENUINE"
     },
     {
       "system_code": 19,
-      "acled_code": null,
+      "acled_code": 14,
       "code_match": false,
       "code_group_match": false,
       "district": "Rangamati",
-      "district_match": false,
+      "district_match": true,
       "system_actor": "Awami League",
-      "acled_actor": "",
+      "acled_actor": "Peaceful protest",
       "date": "2026-10-24",
-      "acled_source": ""
+      "acled_source": "ACLED_GENUINE"
     },
     {
       "system_code": 19,
-      "acled_code": null,
+      "acled_code": 14,
       "code_match": false,
       "code_group_match": false,
       "district": "Rangamati",
-      "district_match": false,
+      "district_match": true,
       "system_actor": "Awami League",
-      "acled_actor": "",
+      "acled_actor": "Peaceful protest",
       "date": "2026-10-24",
-      "acled_source": ""
+      "acled_source": "ACLED_GENUINE"
     },
     {
       "system_code": 19,
-      "acled_code": null,
+      "acled_code": 14,
       "code_match": false,
       "code_group_match": false,
       "district": "Rangamati",
-      "district_match": false,
+      "district_match": true,
       "system_actor": "Awami League",
-      "acled_actor": "",
+      "acled_actor": "Peaceful protest",
       "date": "2026-10-24",
-      "acled_source": ""
+      "acled_source": "ACLED_GENUINE"
     },
     {
       "system_code": 18,
@@ -354,9 +354,9 @@
       "district": "Dhaka",
       "district_match": true,
       "system_actor": "Awami League",
-      "acled_actor": "Unknown armed group",
+      "acled_actor": "Violent demonstration",
       "date": "2026-10-25",
-      "acled_source": "SYNTHETIC"
+      "acled_source": "ACLED_GENUINE"
     },
     {
       "system_code": 18,
@@ -366,9 +366,9 @@
       "district": "Dhaka",
       "district_match": true,
       "system_actor": "Awami League",
-      "acled_actor": "Unknown armed group",
+      "acled_actor": "Violent demonstration",
       "date": "2026-10-25",
-      "acled_source": "SYNTHETIC"
+      "acled_source": "ACLED_GENUINE"
     },
     {
       "system_code": 18,
@@ -378,9 +378,9 @@
       "district": "Dhaka",
       "district_match": true,
       "system_actor": "Awami League",
-      "acled_actor": "Unknown armed group",
+      "acled_actor": "Violent demonstration",
       "date": "2026-10-25",
-      "acled_source": "SYNTHETIC"
+      "acled_source": "ACLED_GENUINE"
     },
     {
       "system_code": 18,
@@ -390,9 +390,9 @@
       "district": "Dhaka",
       "district_match": true,
       "system_actor": "Awami League",
-      "acled_actor": "Unknown armed group",
+      "acled_actor": "Violent demonstration",
       "date": "2026-10-25",
-      "acled_source": "SYNTHETIC"
+      "acled_source": "ACLED_GENUINE"
     },
     {
       "system_code": 18,
@@ -402,9 +402,9 @@
       "district": "Dhaka",
       "district_match": true,
       "system_actor": "Awami League",
-      "acled_actor": "Unknown armed group",
+      "acled_actor": "Violent demonstration",
       "date": "2026-10-25",
-      "acled_source": "SYNTHETIC"
+      "acled_source": "ACLED_GENUINE"
     },
     {
       "system_code": 18,
@@ -414,9 +414,9 @@
       "district": "Dhaka",
       "district_match": true,
       "system_actor": "Awami League",
-      "acled_actor": "Unknown armed group",
+      "acled_actor": "Violent demonstration",
       "date": "2026-10-25",
-      "acled_source": "SYNTHETIC"
+      "acled_source": "ACLED_GENUINE"
     },
     {
       "system_code": 18,
@@ -426,9 +426,9 @@
       "district": "Dhaka",
       "district_match": true,
       "system_actor": "Awami League",
-      "acled_actor": "Unknown armed group",
+      "acled_actor": "Violent demonstration",
       "date": "2026-10-25",
-      "acled_source": "SYNTHETIC"
+      "acled_source": "ACLED_GENUINE"
     },
     {
       "system_code": 18,
@@ -438,9 +438,9 @@
       "district": "Dhaka",
       "district_match": true,
       "system_actor": "Awami League",
-      "acled_actor": "Unknown armed group",
+      "acled_actor": "Violent demonstration",
       "date": "2026-10-25",
-      "acled_source": "SYNTHETIC"
+      "acled_source": "ACLED_GENUINE"
     },
     {
       "system_code": 18,
@@ -450,9 +450,9 @@
       "district": "Dhaka",
       "district_match": true,
       "system_actor": "Awami League",
-      "acled_actor": "Unknown armed group",
+      "acled_actor": "Violent demonstration",
       "date": "2026-10-25",
-      "acled_source": "SYNTHETIC"
+      "acled_source": "ACLED_GENUINE"
     },
     {
       "system_code": 18,
@@ -462,9 +462,9 @@
       "district": "Dhaka",
       "district_match": true,
       "system_actor": "Awami League",
-      "acled_actor": "Unknown armed group",
+      "acled_actor": "Violent demonstration",
       "date": "2026-10-25",
-      "acled_source": "SYNTHETIC"
+      "acled_source": "ACLED_GENUINE"
     },
     {
       "system_code": 18,
@@ -474,9 +474,9 @@
       "district": "Dhaka",
       "district_match": true,
       "system_actor": "Awami League",
-      "acled_actor": "Unknown armed group",
+      "acled_actor": "Violent demonstration",
       "date": "2026-10-25",
-      "acled_source": "SYNTHETIC"
+      "acled_source": "ACLED_GENUINE"
     },
     {
       "system_code": 18,
@@ -486,9 +486,9 @@
       "district": "Dhaka",
       "district_match": true,
       "system_actor": "Awami League",
-      "acled_actor": "Unknown armed group",
+      "acled_actor": "Violent demonstration",
       "date": "2026-10-25",
-      "acled_source": "SYNTHETIC"
+      "acled_source": "ACLED_GENUINE"
     },
     {
       "system_code": 18,
@@ -498,9 +498,9 @@
       "district": "Dhaka",
       "district_match": true,
       "system_actor": "Awami League",
-      "acled_actor": "Unknown armed group",
+      "acled_actor": "Violent demonstration",
       "date": "2026-10-25",
-      "acled_source": "SYNTHETIC"
+      "acled_source": "ACLED_GENUINE"
     },
     {
       "system_code": 18,
@@ -510,9 +510,9 @@
       "district": "Dhaka",
       "district_match": true,
       "system_actor": "Awami League",
-      "acled_actor": "Unknown armed group",
+      "acled_actor": "Violent demonstration",
       "date": "2026-10-25",
-      "acled_source": "SYNTHETIC"
+      "acled_source": "ACLED_GENUINE"
     },
     {
       "system_code": 18,
@@ -522,9 +522,9 @@
       "district": "Dhaka",
       "district_match": true,
       "system_actor": "Awami League",
-      "acled_actor": "Unknown armed group",
+      "acled_actor": "Violent demonstration",
       "date": "2026-10-25",
-      "acled_source": "SYNTHETIC"
+      "acled_source": "ACLED_GENUINE"
     },
     {
       "system_code": 18,
@@ -534,9 +534,9 @@
       "district": "Dhaka",
       "district_match": true,
       "system_actor": "Awami League",
-      "acled_actor": "Unknown armed group",
+      "acled_actor": "Violent demonstration",
       "date": "2026-10-25",
-      "acled_source": "SYNTHETIC"
+      "acled_source": "ACLED_GENUINE"
     },
     {
       "system_code": 18,
@@ -546,9 +546,9 @@
       "district": "Dhaka",
       "district_match": true,
       "system_actor": "Awami League",
-      "acled_actor": "Unknown armed group",
+      "acled_actor": "Violent demonstration",
       "date": "2026-10-25",
-      "acled_source": "SYNTHETIC"
+      "acled_source": "ACLED_GENUINE"
     },
     {
       "system_code": 18,
@@ -558,57 +558,57 @@
       "district": "Dhaka",
       "district_match": true,
       "system_actor": "Awami League",
-      "acled_actor": "Unknown armed group",
+      "acled_actor": "Violent demonstration",
       "date": "2026-10-25",
-      "acled_source": "SYNTHETIC"
+      "acled_source": "ACLED_GENUINE"
     },
     {
       "system_code": 18,
-      "acled_code": null,
+      "acled_code": 14,
       "code_match": false,
       "code_group_match": false,
       "district": "Pabna",
-      "district_match": false,
+      "district_match": true,
       "system_actor": "Awami League",
-      "acled_actor": "",
+      "acled_actor": "Peaceful protest",
       "date": "2026-10-25",
-      "acled_source": ""
+      "acled_source": "ACLED_GENUINE"
     },
     {
       "system_code": 18,
-      "acled_code": null,
+      "acled_code": 14,
       "code_match": false,
       "code_group_match": false,
       "district": "Pabna",
-      "district_match": false,
+      "district_match": true,
       "system_actor": "Awami League",
-      "acled_actor": "",
+      "acled_actor": "Peaceful protest",
       "date": "2026-10-25",
-      "acled_source": ""
+      "acled_source": "ACLED_GENUINE"
     },
     {
       "system_code": 18,
-      "acled_code": null,
+      "acled_code": 14,
       "code_match": false,
       "code_group_match": false,
       "district": "Pabna",
-      "district_match": false,
+      "district_match": true,
       "system_actor": "Awami League",
-      "acled_actor": "",
+      "acled_actor": "Peaceful protest",
       "date": "2026-10-25",
-      "acled_source": ""
+      "acled_source": "ACLED_GENUINE"
     },
     {
       "system_code": 18,
-      "acled_code": null,
+      "acled_code": 14,
       "code_match": false,
       "code_group_match": false,
       "district": "Pabna",
-      "district_match": false,
+      "district_match": true,
       "system_actor": "Awami League",
-      "acled_actor": "",
+      "acled_actor": "Peaceful protest",
       "date": "2026-10-25",
-      "acled_source": ""
+      "acled_source": "ACLED_GENUINE"
     }
   ]
 }

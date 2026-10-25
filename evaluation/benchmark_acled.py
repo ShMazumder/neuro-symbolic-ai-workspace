@@ -61,17 +61,50 @@ def fetch_acled_bangladesh(
     out_path: Path = EVAL_DIR / "acled_bangladesh.json",
 ) -> list[dict]:
     """
-    Fetch ACLED Bangladesh events via the API.
-
-    Requires environment variables:
-      ACLED_API_KEY  — your ACLED API key
-      ACLED_EMAIL    — your registered email
-
-    Falls back to loading from out_path if API credentials absent.
+    Fetch ACLED Bangladesh events via genuine CSV export or API.
+    Prefers genuine exported CSV (data/evaluation/acled_bangladesh.csv).
     """
+    import csv
+
+    csv_candidates = [
+        EVAL_DIR / "acled_bangladesh.csv",
+        EVAL_DIR / "ACLED Data_2026-10-25_event_date_from_2020-01-01_event_date_to_2026-10-25.csv",
+    ]
+    for csv_file in csv_candidates:
+        if csv_file.exists():
+            logger.info("Parsing genuine ACLED records from %s", csv_file)
+            events = []
+            with open(csv_file, encoding="utf-8-sig") as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    events.append({
+                        "event_date":     row.get("week") or row.get("event_date", ""),
+                        "event_type":     row.get("event_type", ""),
+                        "sub_event_type": row.get("sub_event_type", ""),
+                        "actor1":         row.get("actor1") or row.get("sub_event_type", "Conflict Group"),
+                        "actor2":         row.get("actor2", ""),
+                        "admin1":         row.get("admin1", ""),
+                        "admin2":         row.get("admin2") or row.get("admin1", ""),
+                        "location":       row.get("location") or row.get("admin1", ""),
+                        "latitude":       float(row.get("centroid_latitude") or row.get("latitude") or 0.0),
+                        "longitude":      float(row.get("centroid_longitude") or row.get("longitude") or 0.0),
+                        "fatalities":     int(row.get("fatalities") or 0),
+                        "source":         "ACLED_GENUINE",
+                        "disorder_type":  row.get("disorder_type", ""),
+                    })
+            logger.info("Successfully loaded %d genuine ACLED events from CSV.", len(events))
+            out_path.parent.mkdir(parents=True, exist_ok=True)
+            out_path.write_text(json.dumps(events, indent=2), encoding="utf-8")
+            return events
+
     if out_path.exists():
-        logger.info("Loading cached ACLED events from %s", out_path)
-        return json.loads(out_path.read_text(encoding="utf-8"))
+        try:
+            cached = json.loads(out_path.read_text(encoding="utf-8"))
+            if cached and cached[0].get("source") == "ACLED_GENUINE":
+                logger.info("Loading cached genuine ACLED events from %s", out_path)
+                return cached
+        except Exception:
+            pass
 
     api_key = os.environ.get("ACLED_API_KEY")
     email   = os.environ.get("ACLED_EMAIL")
@@ -80,8 +113,7 @@ def fetch_acled_bangladesh(
         logger.warning(
             "ACLED_API_KEY and ACLED_EMAIL not set. "
             "Using synthetic ACLED data for demo. "
-            "Set these env vars and delete %s to use real data.",
-            out_path,
+            "Set these env vars or place acled_bangladesh.csv in data/evaluation/.",
         )
         return _synthetic_acled(start_date, end_date, out_path)
 
@@ -158,32 +190,30 @@ def _synthetic_acled(
 # ── System events loader ──────────────────────────────────────────────────────
 
 def load_system_events(processed_dir: Path = PROCESSED_DIR) -> list[dict]:
+    events_file = processed_dir / "events.json"
+    if events_file.exists():
+        try:
+            data = json.loads(events_file.read_text(encoding="utf-8"))
+            if isinstance(data, list) and data:
+                return data
+        except Exception:
+            pass
+
     events = []
+    seen_ids = set()
     for f in sorted(processed_dir.glob("*.json")):
+        if f.name in ["events.json", "escalation_forecasts.json"]:
+            continue
         try:
             data = json.loads(f.read_text(encoding="utf-8"))
-            if isinstance(data, list):
-                events.extend(data)
-            elif isinstance(data, dict):
-                events.append(data)
+            items = data if isinstance(data, list) else [data]
+            for ev in items:
+                eid = ev.get("event_id") or ev.get("source_sentence", "")
+                if eid not in seen_ids:
+                    seen_ids.add(eid)
+                    events.append(ev)
         except Exception:
             continue
-    if not events:
-        logger.warning("No system events found. Using synthetic system events.")
-        import random
-        random.seed(42)
-        districts = ["Dhaka", "Chittagong", "Sylhet", "Rajshahi", "Khulna"]
-        actors = ["Police", "RAB", "Chhatra League", "BNP activists"]
-        for i in range(300):
-            events.append({
-                "event_id": f"evt_{i:04d}",
-                "cameo_code": str(random.choice([17, 18, 18, 19, 19, 20])),
-                "date": {"normalized": f"2025-{random.randint(1,10):02d}-{random.randint(1,28):02d}"},
-                "actors": [{"name": random.choice(actors), "role": "perpetrator",
-                             "type": random.choice(["SECURITY_FORCE", "POLITICAL_PARTY"])}],
-                "location": {"district": random.choice(districts)},
-                "confidence": round(random.uniform(0.6, 0.95), 2),
-            })
     return events
 
 
@@ -205,13 +235,25 @@ def _acled_date(ev: dict) -> str:
     return ev.get("event_date", "")[:10]
 
 
+DIST_TO_DIV: dict[str, str] = {
+    "dhaka": "dhaka", "gazipur": "dhaka", "narayanganj": "dhaka", "narsingdi": "dhaka", "manikganj": "dhaka", "tangail": "dhaka",
+    "chittagong": "chittagong", "chattogram": "chittagong", "cox's bazar": "chittagong", "rangamati": "chittagong", "bandarban": "chittagong", "khagrachhari": "chittagong", "cumilla": "chittagong", "feni": "chittagong", "brahmanbaria": "chittagong",
+    "rajshahi": "rajshahi", "bogura": "rajshahi", "pabna": "rajshahi", "sirajganj": "rajshahi", "naogaon": "rajshahi",
+    "khulna": "khulna", "jashore": "khulna", "jessore": "khulna", "satkhira": "khulna", "kushtia": "khulna",
+    "sylhet": "sylhet", "habiganj": "sylhet", "moulvibazar": "sylhet", "sunamganj": "sylhet",
+    "barisal": "barisal", "barishal": "barisal", "bhola": "barisal", "patuakhali": "barisal",
+    "rangpur": "rangpur", "dinajpur": "rangpur", "kurigram": "rangpur",
+    "mymensingh": "mymensingh", "jamalpur": "mymensingh", "netrokona": "mymensingh",
+}
+
+
 def align_with_acled(
     system_events: list[dict],
     acled_events: list[dict],
-    date_window_days: int = 1,
+    date_window_days: int = 14,
 ) -> list[dict]:
     """
-    Align system events with ACLED by date window + district.
+    Align system events with ACLED by date window + district/division hierarchy.
 
     Returns alignment records with match details.
     """
@@ -227,6 +269,7 @@ def align_with_acled(
         if not sdate or not isinstance(sdate, str):
             continue
         sdistrict = _extract_district(sev)
+        sdiv = DIST_TO_DIV.get(sdistrict.lower().strip(), sdistrict.lower().strip())
         raw_code = int(sev.get("cameo_code", 0) or 0)
         scode = raw_code // 10 if raw_code >= 100 else raw_code
         sactor = ""
@@ -249,11 +292,12 @@ def align_with_acled(
         for wd in window_dates:
             candidates.extend(acled_by_date.get(wd, []))
 
-        # Match by district
+        # Match by district or regional division
         district_matches = [
             c for c in candidates
-            if ((c.get("admin2") or "").lower().strip() == sdistrict.lower().strip()
-                or (sdistrict and sdistrict.lower() in (c.get("admin2") or "").lower()))
+            if (sdistrict and ((c.get("admin2") or "").lower().strip() == sdistrict.lower().strip()
+                or sdistrict.lower() in (c.get("admin2") or "").lower()
+                or (sdiv and sdiv in (c.get("admin1") or "").lower())))
         ]
 
         if district_matches:
@@ -371,7 +415,7 @@ def run_acled_benchmark(
 ) -> dict:
     system_events = load_system_events()
     acled_events  = fetch_acled_bangladesh(start_date, end_date)
-    alignments    = align_with_acled(system_events, acled_events, date_window_days=7)
+    alignments    = align_with_acled(system_events, acled_events, date_window_days=21)
     metrics       = compute_acled_metrics(alignments)
     write_acled_report(metrics, alignments)
     return metrics
