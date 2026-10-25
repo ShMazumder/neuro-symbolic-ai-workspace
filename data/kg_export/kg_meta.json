@@ -1,0 +1,16 @@
+{
+  "num_nodes": 98,
+  "num_edges": 654,
+  "num_relations": 4,
+  "node_types_summary": {
+    "event": 88,
+    "actor": 7,
+    "location": 3
+  },
+  "rel_index": {
+    "perpetrator": 0,
+    "location": 1,
+    "perpetrator_inv": 2,
+    "location_inv": 3
+  }
+}

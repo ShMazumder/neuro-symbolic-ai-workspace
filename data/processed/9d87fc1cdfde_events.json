@@ -1,0 +1,96 @@
+[
+  {
+    "event_id": "evt_0860c4ce_000",
+    "source_url": "https://www.thedailystar.net/historical/crime/news/man-stabbed-death-jashore-4110881",
+    "source_sentence": "document.addEventListener('DOMContentLoaded', function() { // Share dropdown toggle const shareToggle = document.querySelector('.share-toggle'); const shareMenu = document.querySelector('.share-menu'); if (shareToggle && shareMenu) { shareToggle.addEventListener('click', function(e) { e.stopPropagation(); shareMenu.classList.toggle('hidden'); }); // Close dropdown when clicking outside document.addEventListener('click', function() { shareMenu.classList.add('hidden'); }); shareMenu.addEventListener('click', function(e) { e.stopPropagation(); }); } // Copy link functionality const copyBtn = document.querySelector('.copy-link-btn'); if (copyBtn) { copyBtn.addEventListener('click', function() { const url = this.getAttribute('data-url'); navigator.clipboard.writeText(url).then(function() { // Show success message const originalText = copyBtn.innerHTML; copyBtn.innerHTML = 'Copied!'; setTimeout(function() { copyBtn.innerHTML = originalText; }, 2000); }); }); } }); Our correspondent, Benapole A man was stabbed to death by miscreants in Jashore’s Sharsha upazila on Thursday night. The deceased was identified as Al-Amin, 35, of Baripota village under Nabharan union. The incident took place around 10:30pm in Baripota village. According to police and local residents, Al-Amin was on Bangladesh Police way home after Taraweeh prayers when a group of miscreants attacked Bangladesh Police The attackers stabbed attackers with sharp weapons indiscriminately, leaving attackers critically injured, and fled the scene. Locals rescued local residents in a bloodied condition and rushed local residents to Sharsha Upazila Health Complex, where the on-duty doctor declared local residents dead. Confirming the incident, Officer-in-Charge (OC) of Sharsha Police Station, Maruf Hasan said Bangladesh Police is currently on leave, and the inspector (investigation) is looking into the matter. Inspector (Investigation) Shah Alam of the same police station said police have already started working to identify the motive behind the murder and those involved. “The body has been sent to Jashore General Hospital for an autopsy,” Bangladesh Police added.",
+    "sentence_offset": [
+      0,
+      2149
+    ],
+    "trigger": "attacked",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Share",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "",
+      "normalized": null
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Man stabbed to death in Jashore",
+    "article_published": "Fri, 20 Feb 26 23:03:46 +0600"
+  },
+  {
+    "event_id": "evt_0860c4ce_001",
+    "source_url": "https://www.thedailystar.net/historical/crime/news/man-stabbed-death-jashore-4110881",
+    "source_sentence": "document.addEventListener('DOMContentLoaded', function() { // Share dropdown toggle const shareToggle = document.querySelector('.share-toggle'); const shareMenu = document.querySelector('.share-menu'); if (shareToggle && shareMenu) { shareToggle.addEventListener('click', function(e) { e.stopPropagation(); shareMenu.classList.toggle('hidden'); }); // Close dropdown when clicking outside document.addEventListener('click', function() { shareMenu.classList.add('hidden'); }); shareMenu.addEventListener('click', function(e) { e.stopPropagation(); }); } // Copy link functionality const copyBtn = document.querySelector('.copy-link-btn'); if (copyBtn) { copyBtn.addEventListener('click', function() { const url = this.getAttribute('data-url'); navigator.clipboard.writeText(url).then(function() { // Show success message const originalText = copyBtn.innerHTML; copyBtn.innerHTML = 'Copied!'; setTimeout(function() { copyBtn.innerHTML = originalText; }, 2000); }); }); } }); Our correspondent, Benapole A man was stabbed to death by miscreants in Jashore’s Sharsha upazila on Thursday night. The deceased was identified as Al-Amin, 35, of Baripota village under Nabharan union. The incident took place around 10:30pm in Baripota village. According to police and local residents, Al-Amin was on Bangladesh Police way home after Taraweeh prayers when a group of miscreants attacked Bangladesh Police The attackers stabbed attackers with sharp weapons indiscriminately, leaving attackers critically injured, and fled the scene. Locals rescued local residents in a bloodied condition and rushed local residents to Sharsha Upazila Health Complex, where the on-duty doctor declared local residents dead. Confirming the incident, Officer-in-Charge (OC) of Sharsha Police Station, Maruf Hasan said Bangladesh Police is currently on leave, and the inspector (investigation) is looking into the matter. Inspector (Investigation) Shah Alam of the same police station said police have already started working to identify the motive behind the murder and those involved. “The body has been sent to Jashore General Hospital for an autopsy,” Bangladesh Police added.",
+    "sentence_offset": [
+      0,
+      2149
+    ],
+    "trigger": "murder",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Share",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "",
+      "normalized": null
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Man stabbed to death in Jashore",
+    "article_published": "Fri, 20 Feb 26 23:03:46 +0600"
+  }
+]

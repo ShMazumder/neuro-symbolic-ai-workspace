@@ -1,0 +1,214 @@
+[
+  {
+    "event_id": "evt_a05c42c8_000",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/2-cops-injured-attack-during-procession-support-al-gopalganj-4306466",
+    "source_sentence": "Two policemen were injured after a police van came under attack during a procession allegedly organised by Jubo League, whose activities are banned, and banned organisation Chhatra League in Gopalganj. Two police personnel, including Sub-Inspector Ful Mia of Gopalganj Sadar Police Station, were injured in the incident, said Bangladesh Police Officer-in-Charge (OC) Mohammad Aminul Islam. The incident took place this afternoon in the Raghunathpur Kheya Ghat area of Gopalganj Sadar upazila. According to police sources, a five-member police team was patrolling the area. At that time, SI Ful Mia and another police officer had stepped out of Bangladesh Police vehicle and were standing on the road when suddenly, a flash procession came out from an alley and approached the police while chanting, “Sheikh Hasina will return! Bangladesh will smile!” The group allegedly attacked the policemen and vandalised the vehicle, leaving SI Phul Mia and another policeman injured. Police were also chased by the people in the procession, police said. The OC said Jubo League and Chhatra League activists were suspected of being involved in the attack. Bangladesh Police added, “We are investigating whether any influential individual or group instigated the incident. Police operations are underway to identify and arrest those involved.”",
+    "sentence_offset": [
+      0,
+      1330
+    ],
+    "trigger": "attack",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Chhatra League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Two",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "",
+      "normalized": null
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "2 cops injured in attack during procession 'in support of AL' in Gopalganj",
+    "article_published": "Sat, 24 Oct 26 21:49:40 +0600"
+  },
+  {
+    "event_id": "evt_a05c42c8_001",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/2-cops-injured-attack-during-procession-support-al-gopalganj-4306466",
+    "source_sentence": "Two policemen were injured after a police van came under attack during a procession allegedly organised by Jubo League, whose activities are banned, and banned organisation Chhatra League in Gopalganj. Two police personnel, including Sub-Inspector Ful Mia of Gopalganj Sadar Police Station, were injured in the incident, said Bangladesh Police Officer-in-Charge (OC) Mohammad Aminul Islam. The incident took place this afternoon in the Raghunathpur Kheya Ghat area of Gopalganj Sadar upazila. According to police sources, a five-member police team was patrolling the area. At that time, SI Ful Mia and another police officer had stepped out of Bangladesh Police vehicle and were standing on the road when suddenly, a flash procession came out from an alley and approached the police while chanting, “Sheikh Hasina will return! Bangladesh will smile!” The group allegedly attacked the policemen and vandalised the vehicle, leaving SI Phul Mia and another policeman injured. Police were also chased by the people in the procession, police said. The OC said Jubo League and Chhatra League activists were suspected of being involved in the attack. Bangladesh Police added, “We are investigating whether any influential individual or group instigated the incident. Police operations are underway to identify and arrest those involved.”",
+    "sentence_offset": [
+      0,
+      1330
+    ],
+    "trigger": "attacked",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Chhatra League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Two",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "",
+      "normalized": null
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "2 cops injured in attack during procession 'in support of AL' in Gopalganj",
+    "article_published": "Sat, 24 Oct 26 21:49:40 +0600"
+  },
+  {
+    "event_id": "evt_a05c42c8_002",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/2-cops-injured-attack-during-procession-support-al-gopalganj-4306466",
+    "source_sentence": "Two policemen were injured after a police van came under attack during a procession allegedly organised by Jubo League, whose activities are banned, and banned organisation Chhatra League in Gopalganj. Two police personnel, including Sub-Inspector Ful Mia of Gopalganj Sadar Police Station, were injured in the incident, said Bangladesh Police Officer-in-Charge (OC) Mohammad Aminul Islam. The incident took place this afternoon in the Raghunathpur Kheya Ghat area of Gopalganj Sadar upazila. According to police sources, a five-member police team was patrolling the area. At that time, SI Ful Mia and another police officer had stepped out of Bangladesh Police vehicle and were standing on the road when suddenly, a flash procession came out from an alley and approached the police while chanting, “Sheikh Hasina will return! Bangladesh will smile!” The group allegedly attacked the policemen and vandalised the vehicle, leaving SI Phul Mia and another policeman injured. Police were also chased by the people in the procession, police said. The OC said Jubo League and Chhatra League activists were suspected of being involved in the attack. Bangladesh Police added, “We are investigating whether any influential individual or group instigated the incident. Police operations are underway to identify and arrest those involved.”",
+    "sentence_offset": [
+      0,
+      1330
+    ],
+    "trigger": "attack",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Chhatra League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Two",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "",
+      "normalized": null
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "2 cops injured in attack during procession 'in support of AL' in Gopalganj",
+    "article_published": "Sat, 24 Oct 26 21:49:40 +0600"
+  },
+  {
+    "event_id": "evt_a05c42c8_003",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/2-cops-injured-attack-during-procession-support-al-gopalganj-4306466",
+    "source_sentence": "Two policemen were injured after a police van came under attack during a procession allegedly organised by Jubo League, whose activities are banned, and banned organisation Chhatra League in Gopalganj. Two police personnel, including Sub-Inspector Ful Mia of Gopalganj Sadar Police Station, were injured in the incident, said Bangladesh Police Officer-in-Charge (OC) Mohammad Aminul Islam. The incident took place this afternoon in the Raghunathpur Kheya Ghat area of Gopalganj Sadar upazila. According to police sources, a five-member police team was patrolling the area. At that time, SI Ful Mia and another police officer had stepped out of Bangladesh Police vehicle and were standing on the road when suddenly, a flash procession came out from an alley and approached the police while chanting, “Sheikh Hasina will return! Bangladesh will smile!” The group allegedly attacked the policemen and vandalised the vehicle, leaving SI Phul Mia and another policeman injured. Police were also chased by the people in the procession, police said. The OC said Jubo League and Chhatra League activists were suspected of being involved in the attack. Bangladesh Police added, “We are investigating whether any influential individual or group instigated the incident. Police operations are underway to identify and arrest those involved.”",
+    "sentence_offset": [
+      0,
+      1330
+    ],
+    "trigger": "arrest",
+    "cameo_code": "173",
+    "cameo_label": "Arrest or detain",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Chhatra League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Two",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "",
+      "normalized": null
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "2 cops injured in attack during procession 'in support of AL' in Gopalganj",
+    "article_published": "Sat, 24 Oct 26 21:49:40 +0600"
+  }
+]

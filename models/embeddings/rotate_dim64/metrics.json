@@ -1,0 +1,9 @@
+{
+  "model": "RotatE",
+  "embedding_dim": 64,
+  "num_epochs": 40,
+  "mrr": 0.36946505308151245,
+  "hits_at_1": 0.25,
+  "hits_at_10": 0.640625,
+  "model_path": "models/embeddings/rotate_dim64"
+}

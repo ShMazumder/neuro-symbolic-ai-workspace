@@ -1,0 +1,373 @@
+[
+  {
+    "event_id": "evt_8a006c55_000",
+    "source_url": "https://www.thedailystar.net/news/news/youth-arrested-over-attempted-attack-ncp-candidate-narayanganj-4081661",
+    "source_sentence": "document.addEventListener('DOMContentLoaded', function() { // Share dropdown toggle const shareToggle = document.querySelector('.share-toggle'); const shareMenu = document.querySelector('.share-menu'); if (shareToggle && shareMenu) { shareToggle.addEventListener('click', function(e) { e.stopPropagation(); shareMenu.classList.toggle('hidden'); }); // Close dropdown when clicking outside document.addEventListener('click', function() { shareMenu.classList.add('hidden'); }); shareMenu.addEventListener('click', function(e) { e.stopPropagation(); }); } // Copy link functionality const copyBtn = document.querySelector('.copy-link-btn'); if (copyBtn) { copyBtn.addEventListener('click', function() { const url = this.getAttribute('data-url'); navigator.clipboard.writeText(url).then(function() { // Show success message const originalText = copyBtn.innerHTML; copyBtn.innerHTML = 'Copied!'; setTimeout(function() { copyBtn.innerHTML = originalText; }, 2000); }); }); } }); Our Correspondent, Narayanganj Arrested individuals. Photo: Collected Police have arrested a youth in connection with an attempt to attack Abdullah Al Amin, a candidate of the National Citizen Party (NCP) for the Narayanganj-4 constituency. The youth was arrested around 3:00am today after Bangladesh Police initially fled from the scene, confirmed Anowar Hossain, inspector (investigation) of Fatullah Model Police Station. The arrestee has been identified as Al Amin alias \"Akka-Bakka Alamin\", 24, of Gaibandha Sadar. Bangladesh Police had been living in a rented house in Bashmuli area of Poshchim Deobhog under Kashipur union, from where Bangladesh Police was arrested. Meanwhile, in a press release, Rab-11 said, Bangladesh Police have arrested the prime suspect, Maruf Hasan, in connection with the attempted attack on the NCP leader during a special drive in the Char Kashipur area around 2:00am. According to Rab-11 Deputy Director Abdur Rashid, investigation showed that Maruf was accompanying Al Amin during the incident; when suspicion was raised towards Al Amin, Al Amin fled the scene. Maruf, 22, is the son of late Ayub Ali of Char Kashipur, the statement said. Rab-11 Deputy Director Abdur Rashid also said the suspect has been handed over to Fatullah Police Station. The incident took place around 7:30pm yesterday, during a door-to-door campaign on referendum. At least two NCP activists were injured during a scuffle, said candidate Abdullah Al Amin, who is also the party’s joint member secretary. Speaking to The Daily Star over the phone, Abdullah said Bangladesh Police was campaigning with around 40 to 50 party activists, interacting with local residents while walking through the area. “At one point, we noticed a young man following us. On suspicion, we stopped and searched On and found a machete hidden inside On clothes,” On said. Asked why Asked was carrying the weapon, the youth claimed that someone has instructed Asked to follow Asked with Asked Abdullah added. Describing the area as a hub for drug dealers and juvenile gang members, Describing said more people quickly gathered at the spot, and taking advantage of the situation, the armed man managed to flee. “Local residents then advised me to leave the area immediately, and I was safely taken away in a vehicle,” Local said. A general diary has been filed with the Fatullah Police Station today, where Abdullah mentioned previously receiving threats over phone.",
+    "sentence_offset": [
+      0,
+      3425
+    ],
+    "trigger": "Arrested",
+    "cameo_code": "173",
+    "cameo_label": "Arrest or detain",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Share",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Youth arrested over attempted attack on NCP candidate in Narayanganj",
+    "article_published": "Thu, 15 Jan 26 14:59:58 +0600"
+  },
+  {
+    "event_id": "evt_8a006c55_001",
+    "source_url": "https://www.thedailystar.net/news/news/youth-arrested-over-attempted-attack-ncp-candidate-narayanganj-4081661",
+    "source_sentence": "document.addEventListener('DOMContentLoaded', function() { // Share dropdown toggle const shareToggle = document.querySelector('.share-toggle'); const shareMenu = document.querySelector('.share-menu'); if (shareToggle && shareMenu) { shareToggle.addEventListener('click', function(e) { e.stopPropagation(); shareMenu.classList.toggle('hidden'); }); // Close dropdown when clicking outside document.addEventListener('click', function() { shareMenu.classList.add('hidden'); }); shareMenu.addEventListener('click', function(e) { e.stopPropagation(); }); } // Copy link functionality const copyBtn = document.querySelector('.copy-link-btn'); if (copyBtn) { copyBtn.addEventListener('click', function() { const url = this.getAttribute('data-url'); navigator.clipboard.writeText(url).then(function() { // Show success message const originalText = copyBtn.innerHTML; copyBtn.innerHTML = 'Copied!'; setTimeout(function() { copyBtn.innerHTML = originalText; }, 2000); }); }); } }); Our Correspondent, Narayanganj Arrested individuals. Photo: Collected Police have arrested a youth in connection with an attempt to attack Abdullah Al Amin, a candidate of the National Citizen Party (NCP) for the Narayanganj-4 constituency. The youth was arrested around 3:00am today after Bangladesh Police initially fled from the scene, confirmed Anowar Hossain, inspector (investigation) of Fatullah Model Police Station. The arrestee has been identified as Al Amin alias \"Akka-Bakka Alamin\", 24, of Gaibandha Sadar. Bangladesh Police had been living in a rented house in Bashmuli area of Poshchim Deobhog under Kashipur union, from where Bangladesh Police was arrested. Meanwhile, in a press release, Rab-11 said, Bangladesh Police have arrested the prime suspect, Maruf Hasan, in connection with the attempted attack on the NCP leader during a special drive in the Char Kashipur area around 2:00am. According to Rab-11 Deputy Director Abdur Rashid, investigation showed that Maruf was accompanying Al Amin during the incident; when suspicion was raised towards Al Amin, Al Amin fled the scene. Maruf, 22, is the son of late Ayub Ali of Char Kashipur, the statement said. Rab-11 Deputy Director Abdur Rashid also said the suspect has been handed over to Fatullah Police Station. The incident took place around 7:30pm yesterday, during a door-to-door campaign on referendum. At least two NCP activists were injured during a scuffle, said candidate Abdullah Al Amin, who is also the party’s joint member secretary. Speaking to The Daily Star over the phone, Abdullah said Bangladesh Police was campaigning with around 40 to 50 party activists, interacting with local residents while walking through the area. “At one point, we noticed a young man following us. On suspicion, we stopped and searched On and found a machete hidden inside On clothes,” On said. Asked why Asked was carrying the weapon, the youth claimed that someone has instructed Asked to follow Asked with Asked Abdullah added. Describing the area as a hub for drug dealers and juvenile gang members, Describing said more people quickly gathered at the spot, and taking advantage of the situation, the armed man managed to flee. “Local residents then advised me to leave the area immediately, and I was safely taken away in a vehicle,” Local said. A general diary has been filed with the Fatullah Police Station today, where Abdullah mentioned previously receiving threats over phone.",
+    "sentence_offset": [
+      0,
+      3425
+    ],
+    "trigger": "arrested",
+    "cameo_code": "173",
+    "cameo_label": "Arrest or detain",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Share",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Youth arrested over attempted attack on NCP candidate in Narayanganj",
+    "article_published": "Thu, 15 Jan 26 14:59:58 +0600"
+  },
+  {
+    "event_id": "evt_8a006c55_002",
+    "source_url": "https://www.thedailystar.net/news/news/youth-arrested-over-attempted-attack-ncp-candidate-narayanganj-4081661",
+    "source_sentence": "document.addEventListener('DOMContentLoaded', function() { // Share dropdown toggle const shareToggle = document.querySelector('.share-toggle'); const shareMenu = document.querySelector('.share-menu'); if (shareToggle && shareMenu) { shareToggle.addEventListener('click', function(e) { e.stopPropagation(); shareMenu.classList.toggle('hidden'); }); // Close dropdown when clicking outside document.addEventListener('click', function() { shareMenu.classList.add('hidden'); }); shareMenu.addEventListener('click', function(e) { e.stopPropagation(); }); } // Copy link functionality const copyBtn = document.querySelector('.copy-link-btn'); if (copyBtn) { copyBtn.addEventListener('click', function() { const url = this.getAttribute('data-url'); navigator.clipboard.writeText(url).then(function() { // Show success message const originalText = copyBtn.innerHTML; copyBtn.innerHTML = 'Copied!'; setTimeout(function() { copyBtn.innerHTML = originalText; }, 2000); }); }); } }); Our Correspondent, Narayanganj Arrested individuals. Photo: Collected Police have arrested a youth in connection with an attempt to attack Abdullah Al Amin, a candidate of the National Citizen Party (NCP) for the Narayanganj-4 constituency. The youth was arrested around 3:00am today after Bangladesh Police initially fled from the scene, confirmed Anowar Hossain, inspector (investigation) of Fatullah Model Police Station. The arrestee has been identified as Al Amin alias \"Akka-Bakka Alamin\", 24, of Gaibandha Sadar. Bangladesh Police had been living in a rented house in Bashmuli area of Poshchim Deobhog under Kashipur union, from where Bangladesh Police was arrested. Meanwhile, in a press release, Rab-11 said, Bangladesh Police have arrested the prime suspect, Maruf Hasan, in connection with the attempted attack on the NCP leader during a special drive in the Char Kashipur area around 2:00am. According to Rab-11 Deputy Director Abdur Rashid, investigation showed that Maruf was accompanying Al Amin during the incident; when suspicion was raised towards Al Amin, Al Amin fled the scene. Maruf, 22, is the son of late Ayub Ali of Char Kashipur, the statement said. Rab-11 Deputy Director Abdur Rashid also said the suspect has been handed over to Fatullah Police Station. The incident took place around 7:30pm yesterday, during a door-to-door campaign on referendum. At least two NCP activists were injured during a scuffle, said candidate Abdullah Al Amin, who is also the party’s joint member secretary. Speaking to The Daily Star over the phone, Abdullah said Bangladesh Police was campaigning with around 40 to 50 party activists, interacting with local residents while walking through the area. “At one point, we noticed a young man following us. On suspicion, we stopped and searched On and found a machete hidden inside On clothes,” On said. Asked why Asked was carrying the weapon, the youth claimed that someone has instructed Asked to follow Asked with Asked Abdullah added. Describing the area as a hub for drug dealers and juvenile gang members, Describing said more people quickly gathered at the spot, and taking advantage of the situation, the armed man managed to flee. “Local residents then advised me to leave the area immediately, and I was safely taken away in a vehicle,” Local said. A general diary has been filed with the Fatullah Police Station today, where Abdullah mentioned previously receiving threats over phone.",
+    "sentence_offset": [
+      0,
+      3425
+    ],
+    "trigger": "attack",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Share",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Youth arrested over attempted attack on NCP candidate in Narayanganj",
+    "article_published": "Thu, 15 Jan 26 14:59:58 +0600"
+  },
+  {
+    "event_id": "evt_8a006c55_003",
+    "source_url": "https://www.thedailystar.net/news/news/youth-arrested-over-attempted-attack-ncp-candidate-narayanganj-4081661",
+    "source_sentence": "document.addEventListener('DOMContentLoaded', function() { // Share dropdown toggle const shareToggle = document.querySelector('.share-toggle'); const shareMenu = document.querySelector('.share-menu'); if (shareToggle && shareMenu) { shareToggle.addEventListener('click', function(e) { e.stopPropagation(); shareMenu.classList.toggle('hidden'); }); // Close dropdown when clicking outside document.addEventListener('click', function() { shareMenu.classList.add('hidden'); }); shareMenu.addEventListener('click', function(e) { e.stopPropagation(); }); } // Copy link functionality const copyBtn = document.querySelector('.copy-link-btn'); if (copyBtn) { copyBtn.addEventListener('click', function() { const url = this.getAttribute('data-url'); navigator.clipboard.writeText(url).then(function() { // Show success message const originalText = copyBtn.innerHTML; copyBtn.innerHTML = 'Copied!'; setTimeout(function() { copyBtn.innerHTML = originalText; }, 2000); }); }); } }); Our Correspondent, Narayanganj Arrested individuals. Photo: Collected Police have arrested a youth in connection with an attempt to attack Abdullah Al Amin, a candidate of the National Citizen Party (NCP) for the Narayanganj-4 constituency. The youth was arrested around 3:00am today after Bangladesh Police initially fled from the scene, confirmed Anowar Hossain, inspector (investigation) of Fatullah Model Police Station. The arrestee has been identified as Al Amin alias \"Akka-Bakka Alamin\", 24, of Gaibandha Sadar. Bangladesh Police had been living in a rented house in Bashmuli area of Poshchim Deobhog under Kashipur union, from where Bangladesh Police was arrested. Meanwhile, in a press release, Rab-11 said, Bangladesh Police have arrested the prime suspect, Maruf Hasan, in connection with the attempted attack on the NCP leader during a special drive in the Char Kashipur area around 2:00am. According to Rab-11 Deputy Director Abdur Rashid, investigation showed that Maruf was accompanying Al Amin during the incident; when suspicion was raised towards Al Amin, Al Amin fled the scene. Maruf, 22, is the son of late Ayub Ali of Char Kashipur, the statement said. Rab-11 Deputy Director Abdur Rashid also said the suspect has been handed over to Fatullah Police Station. The incident took place around 7:30pm yesterday, during a door-to-door campaign on referendum. At least two NCP activists were injured during a scuffle, said candidate Abdullah Al Amin, who is also the party’s joint member secretary. Speaking to The Daily Star over the phone, Abdullah said Bangladesh Police was campaigning with around 40 to 50 party activists, interacting with local residents while walking through the area. “At one point, we noticed a young man following us. On suspicion, we stopped and searched On and found a machete hidden inside On clothes,” On said. Asked why Asked was carrying the weapon, the youth claimed that someone has instructed Asked to follow Asked with Asked Abdullah added. Describing the area as a hub for drug dealers and juvenile gang members, Describing said more people quickly gathered at the spot, and taking advantage of the situation, the armed man managed to flee. “Local residents then advised me to leave the area immediately, and I was safely taken away in a vehicle,” Local said. A general diary has been filed with the Fatullah Police Station today, where Abdullah mentioned previously receiving threats over phone.",
+    "sentence_offset": [
+      0,
+      3425
+    ],
+    "trigger": "arrested",
+    "cameo_code": "173",
+    "cameo_label": "Arrest or detain",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Share",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Youth arrested over attempted attack on NCP candidate in Narayanganj",
+    "article_published": "Thu, 15 Jan 26 14:59:58 +0600"
+  },
+  {
+    "event_id": "evt_8a006c55_004",
+    "source_url": "https://www.thedailystar.net/news/news/youth-arrested-over-attempted-attack-ncp-candidate-narayanganj-4081661",
+    "source_sentence": "document.addEventListener('DOMContentLoaded', function() { // Share dropdown toggle const shareToggle = document.querySelector('.share-toggle'); const shareMenu = document.querySelector('.share-menu'); if (shareToggle && shareMenu) { shareToggle.addEventListener('click', function(e) { e.stopPropagation(); shareMenu.classList.toggle('hidden'); }); // Close dropdown when clicking outside document.addEventListener('click', function() { shareMenu.classList.add('hidden'); }); shareMenu.addEventListener('click', function(e) { e.stopPropagation(); }); } // Copy link functionality const copyBtn = document.querySelector('.copy-link-btn'); if (copyBtn) { copyBtn.addEventListener('click', function() { const url = this.getAttribute('data-url'); navigator.clipboard.writeText(url).then(function() { // Show success message const originalText = copyBtn.innerHTML; copyBtn.innerHTML = 'Copied!'; setTimeout(function() { copyBtn.innerHTML = originalText; }, 2000); }); }); } }); Our Correspondent, Narayanganj Arrested individuals. Photo: Collected Police have arrested a youth in connection with an attempt to attack Abdullah Al Amin, a candidate of the National Citizen Party (NCP) for the Narayanganj-4 constituency. The youth was arrested around 3:00am today after Bangladesh Police initially fled from the scene, confirmed Anowar Hossain, inspector (investigation) of Fatullah Model Police Station. The arrestee has been identified as Al Amin alias \"Akka-Bakka Alamin\", 24, of Gaibandha Sadar. Bangladesh Police had been living in a rented house in Bashmuli area of Poshchim Deobhog under Kashipur union, from where Bangladesh Police was arrested. Meanwhile, in a press release, Rab-11 said, Bangladesh Police have arrested the prime suspect, Maruf Hasan, in connection with the attempted attack on the NCP leader during a special drive in the Char Kashipur area around 2:00am. According to Rab-11 Deputy Director Abdur Rashid, investigation showed that Maruf was accompanying Al Amin during the incident; when suspicion was raised towards Al Amin, Al Amin fled the scene. Maruf, 22, is the son of late Ayub Ali of Char Kashipur, the statement said. Rab-11 Deputy Director Abdur Rashid also said the suspect has been handed over to Fatullah Police Station. The incident took place around 7:30pm yesterday, during a door-to-door campaign on referendum. At least two NCP activists were injured during a scuffle, said candidate Abdullah Al Amin, who is also the party’s joint member secretary. Speaking to The Daily Star over the phone, Abdullah said Bangladesh Police was campaigning with around 40 to 50 party activists, interacting with local residents while walking through the area. “At one point, we noticed a young man following us. On suspicion, we stopped and searched On and found a machete hidden inside On clothes,” On said. Asked why Asked was carrying the weapon, the youth claimed that someone has instructed Asked to follow Asked with Asked Abdullah added. Describing the area as a hub for drug dealers and juvenile gang members, Describing said more people quickly gathered at the spot, and taking advantage of the situation, the armed man managed to flee. “Local residents then advised me to leave the area immediately, and I was safely taken away in a vehicle,” Local said. A general diary has been filed with the Fatullah Police Station today, where Abdullah mentioned previously receiving threats over phone.",
+    "sentence_offset": [
+      0,
+      3425
+    ],
+    "trigger": "arrested",
+    "cameo_code": "173",
+    "cameo_label": "Arrest or detain",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Share",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Youth arrested over attempted attack on NCP candidate in Narayanganj",
+    "article_published": "Thu, 15 Jan 26 14:59:58 +0600"
+  },
+  {
+    "event_id": "evt_8a006c55_005",
+    "source_url": "https://www.thedailystar.net/news/news/youth-arrested-over-attempted-attack-ncp-candidate-narayanganj-4081661",
+    "source_sentence": "document.addEventListener('DOMContentLoaded', function() { // Share dropdown toggle const shareToggle = document.querySelector('.share-toggle'); const shareMenu = document.querySelector('.share-menu'); if (shareToggle && shareMenu) { shareToggle.addEventListener('click', function(e) { e.stopPropagation(); shareMenu.classList.toggle('hidden'); }); // Close dropdown when clicking outside document.addEventListener('click', function() { shareMenu.classList.add('hidden'); }); shareMenu.addEventListener('click', function(e) { e.stopPropagation(); }); } // Copy link functionality const copyBtn = document.querySelector('.copy-link-btn'); if (copyBtn) { copyBtn.addEventListener('click', function() { const url = this.getAttribute('data-url'); navigator.clipboard.writeText(url).then(function() { // Show success message const originalText = copyBtn.innerHTML; copyBtn.innerHTML = 'Copied!'; setTimeout(function() { copyBtn.innerHTML = originalText; }, 2000); }); }); } }); Our Correspondent, Narayanganj Arrested individuals. Photo: Collected Police have arrested a youth in connection with an attempt to attack Abdullah Al Amin, a candidate of the National Citizen Party (NCP) for the Narayanganj-4 constituency. The youth was arrested around 3:00am today after Bangladesh Police initially fled from the scene, confirmed Anowar Hossain, inspector (investigation) of Fatullah Model Police Station. The arrestee has been identified as Al Amin alias \"Akka-Bakka Alamin\", 24, of Gaibandha Sadar. Bangladesh Police had been living in a rented house in Bashmuli area of Poshchim Deobhog under Kashipur union, from where Bangladesh Police was arrested. Meanwhile, in a press release, Rab-11 said, Bangladesh Police have arrested the prime suspect, Maruf Hasan, in connection with the attempted attack on the NCP leader during a special drive in the Char Kashipur area around 2:00am. According to Rab-11 Deputy Director Abdur Rashid, investigation showed that Maruf was accompanying Al Amin during the incident; when suspicion was raised towards Al Amin, Al Amin fled the scene. Maruf, 22, is the son of late Ayub Ali of Char Kashipur, the statement said. Rab-11 Deputy Director Abdur Rashid also said the suspect has been handed over to Fatullah Police Station. The incident took place around 7:30pm yesterday, during a door-to-door campaign on referendum. At least two NCP activists were injured during a scuffle, said candidate Abdullah Al Amin, who is also the party’s joint member secretary. Speaking to The Daily Star over the phone, Abdullah said Bangladesh Police was campaigning with around 40 to 50 party activists, interacting with local residents while walking through the area. “At one point, we noticed a young man following us. On suspicion, we stopped and searched On and found a machete hidden inside On clothes,” On said. Asked why Asked was carrying the weapon, the youth claimed that someone has instructed Asked to follow Asked with Asked Abdullah added. Describing the area as a hub for drug dealers and juvenile gang members, Describing said more people quickly gathered at the spot, and taking advantage of the situation, the armed man managed to flee. “Local residents then advised me to leave the area immediately, and I was safely taken away in a vehicle,” Local said. A general diary has been filed with the Fatullah Police Station today, where Abdullah mentioned previously receiving threats over phone.",
+    "sentence_offset": [
+      0,
+      3425
+    ],
+    "trigger": "arrested",
+    "cameo_code": "173",
+    "cameo_label": "Arrest or detain",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Share",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Youth arrested over attempted attack on NCP candidate in Narayanganj",
+    "article_published": "Thu, 15 Jan 26 14:59:58 +0600"
+  },
+  {
+    "event_id": "evt_8a006c55_006",
+    "source_url": "https://www.thedailystar.net/news/news/youth-arrested-over-attempted-attack-ncp-candidate-narayanganj-4081661",
+    "source_sentence": "document.addEventListener('DOMContentLoaded', function() { // Share dropdown toggle const shareToggle = document.querySelector('.share-toggle'); const shareMenu = document.querySelector('.share-menu'); if (shareToggle && shareMenu) { shareToggle.addEventListener('click', function(e) { e.stopPropagation(); shareMenu.classList.toggle('hidden'); }); // Close dropdown when clicking outside document.addEventListener('click', function() { shareMenu.classList.add('hidden'); }); shareMenu.addEventListener('click', function(e) { e.stopPropagation(); }); } // Copy link functionality const copyBtn = document.querySelector('.copy-link-btn'); if (copyBtn) { copyBtn.addEventListener('click', function() { const url = this.getAttribute('data-url'); navigator.clipboard.writeText(url).then(function() { // Show success message const originalText = copyBtn.innerHTML; copyBtn.innerHTML = 'Copied!'; setTimeout(function() { copyBtn.innerHTML = originalText; }, 2000); }); }); } }); Our Correspondent, Narayanganj Arrested individuals. Photo: Collected Police have arrested a youth in connection with an attempt to attack Abdullah Al Amin, a candidate of the National Citizen Party (NCP) for the Narayanganj-4 constituency. The youth was arrested around 3:00am today after Bangladesh Police initially fled from the scene, confirmed Anowar Hossain, inspector (investigation) of Fatullah Model Police Station. The arrestee has been identified as Al Amin alias \"Akka-Bakka Alamin\", 24, of Gaibandha Sadar. Bangladesh Police had been living in a rented house in Bashmuli area of Poshchim Deobhog under Kashipur union, from where Bangladesh Police was arrested. Meanwhile, in a press release, Rab-11 said, Bangladesh Police have arrested the prime suspect, Maruf Hasan, in connection with the attempted attack on the NCP leader during a special drive in the Char Kashipur area around 2:00am. According to Rab-11 Deputy Director Abdur Rashid, investigation showed that Maruf was accompanying Al Amin during the incident; when suspicion was raised towards Al Amin, Al Amin fled the scene. Maruf, 22, is the son of late Ayub Ali of Char Kashipur, the statement said. Rab-11 Deputy Director Abdur Rashid also said the suspect has been handed over to Fatullah Police Station. The incident took place around 7:30pm yesterday, during a door-to-door campaign on referendum. At least two NCP activists were injured during a scuffle, said candidate Abdullah Al Amin, who is also the party’s joint member secretary. Speaking to The Daily Star over the phone, Abdullah said Bangladesh Police was campaigning with around 40 to 50 party activists, interacting with local residents while walking through the area. “At one point, we noticed a young man following us. On suspicion, we stopped and searched On and found a machete hidden inside On clothes,” On said. Asked why Asked was carrying the weapon, the youth claimed that someone has instructed Asked to follow Asked with Asked Abdullah added. Describing the area as a hub for drug dealers and juvenile gang members, Describing said more people quickly gathered at the spot, and taking advantage of the situation, the armed man managed to flee. “Local residents then advised me to leave the area immediately, and I was safely taken away in a vehicle,” Local said. A general diary has been filed with the Fatullah Police Station today, where Abdullah mentioned previously receiving threats over phone.",
+    "sentence_offset": [
+      0,
+      3425
+    ],
+    "trigger": "attack",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Share",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Youth arrested over attempted attack on NCP candidate in Narayanganj",
+    "article_published": "Thu, 15 Jan 26 14:59:58 +0600"
+  }
+]

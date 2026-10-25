@@ -1,0 +1,266 @@
+[
+  {
+    "event_id": "evt_ba5083c7_000",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/half-day-blockade-rangamati-khagrachhari-4306786",
+    "source_sentence": "A half-day blockade of roads and waterways in Rangamati and Khagrachhari yesterday disrupted transport services as protesters demonstrated against alleged attacks, baton charges and vandalism during Thursday’s blockade at Ujo Bazar in Sajek, Rangamati. Called by the Chhatra Janata Sangram Parishad, the blockade began in the morning and ended at noon. In Rangamati, protesters blocked the Rangamati-Khagrachhari road with logs and set fires at Sapchhari Khamar Para and Kutukchhari Dharmaghar. protesters also brought out a procession from Kutukchhari Half Bazar to Dharmaghar. Vehicular movement on the Rangamati-Khagrachhari road remained suspended throughout the morning, while traffic continued on the Rangamati-Chattogram road despite the blockade in Betbunia. Md Yusuf, joint general secretary of the Rangamati-Chattogram Bus-Minibus Workers Union, said bus services on the Rangamati-Khagrachhari route resumed after noon, although passenger numbers were low. In Khagrachhari, no long-distance buses departed, although some auto-rickshaws operated in the town. Protesters burnt tyres at Chengi Bridge, Swonirbhar and Jorabridge in Guimara, while felled trees blocked the Chattogram-Khagrachhari road at Sapmara. Khagrachhari Sadar Police Station OC Md Kay Kislu said police escorted overnight buses from Dhaka into town. Some vehicles stranded in Ramgarh were instructed to enter Khagrachhari after noon. [Our correspondents from Rangamati and Khagrachhari contributed to this report]",
+    "sentence_offset": [
+      0,
+      1491
+    ],
+    "trigger": "blockade",
+    "cameo_code": "191",
+    "cameo_label": "Impose blockade or restrict movement",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Rangamati",
+      "district": "Rangamati",
+      "division": "Chittagong",
+      "coordinates": [
+        22.6415,
+        92.1722
+      ]
+    },
+    "date": {
+      "raw": "yesterday",
+      "normalized": "2026-10-24"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Half-day blockade in Rangamati, Khagrachhari",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_ba5083c7_001",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/half-day-blockade-rangamati-khagrachhari-4306786",
+    "source_sentence": "A half-day blockade of roads and waterways in Rangamati and Khagrachhari yesterday disrupted transport services as protesters demonstrated against alleged attacks, baton charges and vandalism during Thursday’s blockade at Ujo Bazar in Sajek, Rangamati. Called by the Chhatra Janata Sangram Parishad, the blockade began in the morning and ended at noon. In Rangamati, protesters blocked the Rangamati-Khagrachhari road with logs and set fires at Sapchhari Khamar Para and Kutukchhari Dharmaghar. protesters also brought out a procession from Kutukchhari Half Bazar to Dharmaghar. Vehicular movement on the Rangamati-Khagrachhari road remained suspended throughout the morning, while traffic continued on the Rangamati-Chattogram road despite the blockade in Betbunia. Md Yusuf, joint general secretary of the Rangamati-Chattogram Bus-Minibus Workers Union, said bus services on the Rangamati-Khagrachhari route resumed after noon, although passenger numbers were low. In Khagrachhari, no long-distance buses departed, although some auto-rickshaws operated in the town. Protesters burnt tyres at Chengi Bridge, Swonirbhar and Jorabridge in Guimara, while felled trees blocked the Chattogram-Khagrachhari road at Sapmara. Khagrachhari Sadar Police Station OC Md Kay Kislu said police escorted overnight buses from Dhaka into town. Some vehicles stranded in Ramgarh were instructed to enter Khagrachhari after noon. [Our correspondents from Rangamati and Khagrachhari contributed to this report]",
+    "sentence_offset": [
+      0,
+      1491
+    ],
+    "trigger": "attacks",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Rangamati",
+      "district": "Rangamati",
+      "division": "Chittagong",
+      "coordinates": [
+        22.6415,
+        92.1722
+      ]
+    },
+    "date": {
+      "raw": "yesterday",
+      "normalized": "2026-10-24"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Half-day blockade in Rangamati, Khagrachhari",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_ba5083c7_002",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/half-day-blockade-rangamati-khagrachhari-4306786",
+    "source_sentence": "A half-day blockade of roads and waterways in Rangamati and Khagrachhari yesterday disrupted transport services as protesters demonstrated against alleged attacks, baton charges and vandalism during Thursday’s blockade at Ujo Bazar in Sajek, Rangamati. Called by the Chhatra Janata Sangram Parishad, the blockade began in the morning and ended at noon. In Rangamati, protesters blocked the Rangamati-Khagrachhari road with logs and set fires at Sapchhari Khamar Para and Kutukchhari Dharmaghar. protesters also brought out a procession from Kutukchhari Half Bazar to Dharmaghar. Vehicular movement on the Rangamati-Khagrachhari road remained suspended throughout the morning, while traffic continued on the Rangamati-Chattogram road despite the blockade in Betbunia. Md Yusuf, joint general secretary of the Rangamati-Chattogram Bus-Minibus Workers Union, said bus services on the Rangamati-Khagrachhari route resumed after noon, although passenger numbers were low. In Khagrachhari, no long-distance buses departed, although some auto-rickshaws operated in the town. Protesters burnt tyres at Chengi Bridge, Swonirbhar and Jorabridge in Guimara, while felled trees blocked the Chattogram-Khagrachhari road at Sapmara. Khagrachhari Sadar Police Station OC Md Kay Kislu said police escorted overnight buses from Dhaka into town. Some vehicles stranded in Ramgarh were instructed to enter Khagrachhari after noon. [Our correspondents from Rangamati and Khagrachhari contributed to this report]",
+    "sentence_offset": [
+      0,
+      1491
+    ],
+    "trigger": "blockade",
+    "cameo_code": "191",
+    "cameo_label": "Impose blockade or restrict movement",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Rangamati",
+      "district": "Rangamati",
+      "division": "Chittagong",
+      "coordinates": [
+        22.6415,
+        92.1722
+      ]
+    },
+    "date": {
+      "raw": "yesterday",
+      "normalized": "2026-10-24"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Half-day blockade in Rangamati, Khagrachhari",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_ba5083c7_003",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/half-day-blockade-rangamati-khagrachhari-4306786",
+    "source_sentence": "A half-day blockade of roads and waterways in Rangamati and Khagrachhari yesterday disrupted transport services as protesters demonstrated against alleged attacks, baton charges and vandalism during Thursday’s blockade at Ujo Bazar in Sajek, Rangamati. Called by the Chhatra Janata Sangram Parishad, the blockade began in the morning and ended at noon. In Rangamati, protesters blocked the Rangamati-Khagrachhari road with logs and set fires at Sapchhari Khamar Para and Kutukchhari Dharmaghar. protesters also brought out a procession from Kutukchhari Half Bazar to Dharmaghar. Vehicular movement on the Rangamati-Khagrachhari road remained suspended throughout the morning, while traffic continued on the Rangamati-Chattogram road despite the blockade in Betbunia. Md Yusuf, joint general secretary of the Rangamati-Chattogram Bus-Minibus Workers Union, said bus services on the Rangamati-Khagrachhari route resumed after noon, although passenger numbers were low. In Khagrachhari, no long-distance buses departed, although some auto-rickshaws operated in the town. Protesters burnt tyres at Chengi Bridge, Swonirbhar and Jorabridge in Guimara, while felled trees blocked the Chattogram-Khagrachhari road at Sapmara. Khagrachhari Sadar Police Station OC Md Kay Kislu said police escorted overnight buses from Dhaka into town. Some vehicles stranded in Ramgarh were instructed to enter Khagrachhari after noon. [Our correspondents from Rangamati and Khagrachhari contributed to this report]",
+    "sentence_offset": [
+      0,
+      1491
+    ],
+    "trigger": "blockade",
+    "cameo_code": "191",
+    "cameo_label": "Impose blockade or restrict movement",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Rangamati",
+      "district": "Rangamati",
+      "division": "Chittagong",
+      "coordinates": [
+        22.6415,
+        92.1722
+      ]
+    },
+    "date": {
+      "raw": "yesterday",
+      "normalized": "2026-10-24"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Half-day blockade in Rangamati, Khagrachhari",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_ba5083c7_004",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/half-day-blockade-rangamati-khagrachhari-4306786",
+    "source_sentence": "A half-day blockade of roads and waterways in Rangamati and Khagrachhari yesterday disrupted transport services as protesters demonstrated against alleged attacks, baton charges and vandalism during Thursday’s blockade at Ujo Bazar in Sajek, Rangamati. Called by the Chhatra Janata Sangram Parishad, the blockade began in the morning and ended at noon. In Rangamati, protesters blocked the Rangamati-Khagrachhari road with logs and set fires at Sapchhari Khamar Para and Kutukchhari Dharmaghar. protesters also brought out a procession from Kutukchhari Half Bazar to Dharmaghar. Vehicular movement on the Rangamati-Khagrachhari road remained suspended throughout the morning, while traffic continued on the Rangamati-Chattogram road despite the blockade in Betbunia. Md Yusuf, joint general secretary of the Rangamati-Chattogram Bus-Minibus Workers Union, said bus services on the Rangamati-Khagrachhari route resumed after noon, although passenger numbers were low. In Khagrachhari, no long-distance buses departed, although some auto-rickshaws operated in the town. Protesters burnt tyres at Chengi Bridge, Swonirbhar and Jorabridge in Guimara, while felled trees blocked the Chattogram-Khagrachhari road at Sapmara. Khagrachhari Sadar Police Station OC Md Kay Kislu said police escorted overnight buses from Dhaka into town. Some vehicles stranded in Ramgarh were instructed to enter Khagrachhari after noon. [Our correspondents from Rangamati and Khagrachhari contributed to this report]",
+    "sentence_offset": [
+      0,
+      1491
+    ],
+    "trigger": "fires",
+    "cameo_code": "193",
+    "cameo_label": "Fight with small arms or light weapons",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Rangamati",
+      "district": "Rangamati",
+      "division": "Chittagong",
+      "coordinates": [
+        22.6415,
+        92.1722
+      ]
+    },
+    "date": {
+      "raw": "yesterday",
+      "normalized": "2026-10-24"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Half-day blockade in Rangamati, Khagrachhari",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_ba5083c7_005",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/half-day-blockade-rangamati-khagrachhari-4306786",
+    "source_sentence": "A half-day blockade of roads and waterways in Rangamati and Khagrachhari yesterday disrupted transport services as protesters demonstrated against alleged attacks, baton charges and vandalism during Thursday’s blockade at Ujo Bazar in Sajek, Rangamati. Called by the Chhatra Janata Sangram Parishad, the blockade began in the morning and ended at noon. In Rangamati, protesters blocked the Rangamati-Khagrachhari road with logs and set fires at Sapchhari Khamar Para and Kutukchhari Dharmaghar. protesters also brought out a procession from Kutukchhari Half Bazar to Dharmaghar. Vehicular movement on the Rangamati-Khagrachhari road remained suspended throughout the morning, while traffic continued on the Rangamati-Chattogram road despite the blockade in Betbunia. Md Yusuf, joint general secretary of the Rangamati-Chattogram Bus-Minibus Workers Union, said bus services on the Rangamati-Khagrachhari route resumed after noon, although passenger numbers were low. In Khagrachhari, no long-distance buses departed, although some auto-rickshaws operated in the town. Protesters burnt tyres at Chengi Bridge, Swonirbhar and Jorabridge in Guimara, while felled trees blocked the Chattogram-Khagrachhari road at Sapmara. Khagrachhari Sadar Police Station OC Md Kay Kislu said police escorted overnight buses from Dhaka into town. Some vehicles stranded in Ramgarh were instructed to enter Khagrachhari after noon. [Our correspondents from Rangamati and Khagrachhari contributed to this report]",
+    "sentence_offset": [
+      0,
+      1491
+    ],
+    "trigger": "blockade",
+    "cameo_code": "191",
+    "cameo_label": "Impose blockade or restrict movement",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Rangamati",
+      "district": "Rangamati",
+      "division": "Chittagong",
+      "coordinates": [
+        22.6415,
+        92.1722
+      ]
+    },
+    "date": {
+      "raw": "yesterday",
+      "normalized": "2026-10-24"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Half-day blockade in Rangamati, Khagrachhari",
+    "article_published": null
+  }
+]

@@ -8,14 +8,20 @@ data/*
 !data/raw/
 !data/raw/.gitkeep
 !data/processed/
-!data/processed/.gitkeep
+!data/processed/**
 !data/evaluation/
 !data/evaluation/**
-models/
-*.pkl
-*.pt
-*.bin
-*.h5
+!data/kg_export/
+!data/kg_export/**
+
+# Models (trained lightweight checkpoints < 1MB required for inference & evaluation)
+!models/
+!models/**
+!models/**/*.pt
+!models/**/*.pkl
+!models/**/results.json
+!models/**/metrics.json
+!models/**/metadata.json
 
 # Python
 __pycache__/
@@ -62,8 +68,8 @@ credentials/
 *.key
 
 # Data subdirs (gitignored individually so structure is kept)
-data/raw/
-data/processed/
+data/raw/*
+!data/raw/.gitkeep
 data/annotations/*
 !data/annotations/.gitkeep
 !data/annotations/gold_benchmark_events.json

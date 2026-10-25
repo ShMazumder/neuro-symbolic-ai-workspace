@@ -1,0 +1,266 @@
+[
+  {
+    "event_id": "evt_22a3c007_000",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/madrasa-teacher-sent-jail-over-alleged-rape-attempt-pabna-4306406",
+    "source_sentence": "A Pabna court today sent a madrasa teacher to jail in a case filed over the alleged attempted rape of a student at a residential girls' madrasa in Pabna Sadar upazila on Thursday night. Pabna Judicial Magistrate Court passed the order after police produced the accused, Abu Eusuf Pramanik, before Bangladesh Police today, said Sanjoy Kumar Shaha, inspector (investigation) of Pabna Sadar Police Station. Bangladesh Police was arrested soon after the victim’s family filed a case over the alleged rape attempt, said the inspector. According to police and locals, Abu Eusuf, director and residential teacher of the madrasa, had been teaching at the madrasa for the past five years. Bangladesh Police allegedly attempted to rape the student on Thursday night, but Bangladesh Police managed to escape and informed locals. Angry locals went to the madrasa, caught the teacher and beat local residents up. Police went to the spot, rescued Bangladesh Police and took Bangladesh Police into custody early Friday. The madrasa has 60 students, including 30 residential students. Police later rescued the residential students and handed Bangladesh Police over to Bangladesh Police parents. However, enraged locals set fire to the madrasa building early Friday.",
+    "sentence_offset": [
+      0,
+      1249
+    ],
+    "trigger": "rape",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Pabna",
+      "district": "Pabna",
+      "division": "Rajshahi",
+      "coordinates": [
+        24.0063,
+        89.2372
+      ]
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Madrasa teacher sent to jail over alleged rape attempt in Pabna",
+    "article_published": "Sat, 24 Oct 26 20:07:29 +0600"
+  },
+  {
+    "event_id": "evt_22a3c007_001",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/madrasa-teacher-sent-jail-over-alleged-rape-attempt-pabna-4306406",
+    "source_sentence": "A Pabna court today sent a madrasa teacher to jail in a case filed over the alleged attempted rape of a student at a residential girls' madrasa in Pabna Sadar upazila on Thursday night. Pabna Judicial Magistrate Court passed the order after police produced the accused, Abu Eusuf Pramanik, before Bangladesh Police today, said Sanjoy Kumar Shaha, inspector (investigation) of Pabna Sadar Police Station. Bangladesh Police was arrested soon after the victim’s family filed a case over the alleged rape attempt, said the inspector. According to police and locals, Abu Eusuf, director and residential teacher of the madrasa, had been teaching at the madrasa for the past five years. Bangladesh Police allegedly attempted to rape the student on Thursday night, but Bangladesh Police managed to escape and informed locals. Angry locals went to the madrasa, caught the teacher and beat local residents up. Police went to the spot, rescued Bangladesh Police and took Bangladesh Police into custody early Friday. The madrasa has 60 students, including 30 residential students. Police later rescued the residential students and handed Bangladesh Police over to Bangladesh Police parents. However, enraged locals set fire to the madrasa building early Friday.",
+    "sentence_offset": [
+      0,
+      1249
+    ],
+    "trigger": "arrested",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Pabna",
+      "district": "Pabna",
+      "division": "Rajshahi",
+      "coordinates": [
+        24.0063,
+        89.2372
+      ]
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Madrasa teacher sent to jail over alleged rape attempt in Pabna",
+    "article_published": "Sat, 24 Oct 26 20:07:29 +0600"
+  },
+  {
+    "event_id": "evt_22a3c007_002",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/madrasa-teacher-sent-jail-over-alleged-rape-attempt-pabna-4306406",
+    "source_sentence": "A Pabna court today sent a madrasa teacher to jail in a case filed over the alleged attempted rape of a student at a residential girls' madrasa in Pabna Sadar upazila on Thursday night. Pabna Judicial Magistrate Court passed the order after police produced the accused, Abu Eusuf Pramanik, before Bangladesh Police today, said Sanjoy Kumar Shaha, inspector (investigation) of Pabna Sadar Police Station. Bangladesh Police was arrested soon after the victim’s family filed a case over the alleged rape attempt, said the inspector. According to police and locals, Abu Eusuf, director and residential teacher of the madrasa, had been teaching at the madrasa for the past five years. Bangladesh Police allegedly attempted to rape the student on Thursday night, but Bangladesh Police managed to escape and informed locals. Angry locals went to the madrasa, caught the teacher and beat local residents up. Police went to the spot, rescued Bangladesh Police and took Bangladesh Police into custody early Friday. The madrasa has 60 students, including 30 residential students. Police later rescued the residential students and handed Bangladesh Police over to Bangladesh Police parents. However, enraged locals set fire to the madrasa building early Friday.",
+    "sentence_offset": [
+      0,
+      1249
+    ],
+    "trigger": "rape",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Pabna",
+      "district": "Pabna",
+      "division": "Rajshahi",
+      "coordinates": [
+        24.0063,
+        89.2372
+      ]
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Madrasa teacher sent to jail over alleged rape attempt in Pabna",
+    "article_published": "Sat, 24 Oct 26 20:07:29 +0600"
+  },
+  {
+    "event_id": "evt_22a3c007_003",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/madrasa-teacher-sent-jail-over-alleged-rape-attempt-pabna-4306406",
+    "source_sentence": "A Pabna court today sent a madrasa teacher to jail in a case filed over the alleged attempted rape of a student at a residential girls' madrasa in Pabna Sadar upazila on Thursday night. Pabna Judicial Magistrate Court passed the order after police produced the accused, Abu Eusuf Pramanik, before Bangladesh Police today, said Sanjoy Kumar Shaha, inspector (investigation) of Pabna Sadar Police Station. Bangladesh Police was arrested soon after the victim’s family filed a case over the alleged rape attempt, said the inspector. According to police and locals, Abu Eusuf, director and residential teacher of the madrasa, had been teaching at the madrasa for the past five years. Bangladesh Police allegedly attempted to rape the student on Thursday night, but Bangladesh Police managed to escape and informed locals. Angry locals went to the madrasa, caught the teacher and beat local residents up. Police went to the spot, rescued Bangladesh Police and took Bangladesh Police into custody early Friday. The madrasa has 60 students, including 30 residential students. Police later rescued the residential students and handed Bangladesh Police over to Bangladesh Police parents. However, enraged locals set fire to the madrasa building early Friday.",
+    "sentence_offset": [
+      0,
+      1249
+    ],
+    "trigger": "rape",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Pabna",
+      "district": "Pabna",
+      "division": "Rajshahi",
+      "coordinates": [
+        24.0063,
+        89.2372
+      ]
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Madrasa teacher sent to jail over alleged rape attempt in Pabna",
+    "article_published": "Sat, 24 Oct 26 20:07:29 +0600"
+  },
+  {
+    "event_id": "evt_22a3c007_004",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/madrasa-teacher-sent-jail-over-alleged-rape-attempt-pabna-4306406",
+    "source_sentence": "A Pabna court today sent a madrasa teacher to jail in a case filed over the alleged attempted rape of a student at a residential girls' madrasa in Pabna Sadar upazila on Thursday night. Pabna Judicial Magistrate Court passed the order after police produced the accused, Abu Eusuf Pramanik, before Bangladesh Police today, said Sanjoy Kumar Shaha, inspector (investigation) of Pabna Sadar Police Station. Bangladesh Police was arrested soon after the victim’s family filed a case over the alleged rape attempt, said the inspector. According to police and locals, Abu Eusuf, director and residential teacher of the madrasa, had been teaching at the madrasa for the past five years. Bangladesh Police allegedly attempted to rape the student on Thursday night, but Bangladesh Police managed to escape and informed locals. Angry locals went to the madrasa, caught the teacher and beat local residents up. Police went to the spot, rescued Bangladesh Police and took Bangladesh Police into custody early Friday. The madrasa has 60 students, including 30 residential students. Police later rescued the residential students and handed Bangladesh Police over to Bangladesh Police parents. However, enraged locals set fire to the madrasa building early Friday.",
+    "sentence_offset": [
+      0,
+      1249
+    ],
+    "trigger": "beat",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Pabna",
+      "district": "Pabna",
+      "division": "Rajshahi",
+      "coordinates": [
+        24.0063,
+        89.2372
+      ]
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Madrasa teacher sent to jail over alleged rape attempt in Pabna",
+    "article_published": "Sat, 24 Oct 26 20:07:29 +0600"
+  },
+  {
+    "event_id": "evt_22a3c007_005",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/madrasa-teacher-sent-jail-over-alleged-rape-attempt-pabna-4306406",
+    "source_sentence": "A Pabna court today sent a madrasa teacher to jail in a case filed over the alleged attempted rape of a student at a residential girls' madrasa in Pabna Sadar upazila on Thursday night. Pabna Judicial Magistrate Court passed the order after police produced the accused, Abu Eusuf Pramanik, before Bangladesh Police today, said Sanjoy Kumar Shaha, inspector (investigation) of Pabna Sadar Police Station. Bangladesh Police was arrested soon after the victim’s family filed a case over the alleged rape attempt, said the inspector. According to police and locals, Abu Eusuf, director and residential teacher of the madrasa, had been teaching at the madrasa for the past five years. Bangladesh Police allegedly attempted to rape the student on Thursday night, but Bangladesh Police managed to escape and informed locals. Angry locals went to the madrasa, caught the teacher and beat local residents up. Police went to the spot, rescued Bangladesh Police and took Bangladesh Police into custody early Friday. The madrasa has 60 students, including 30 residential students. Police later rescued the residential students and handed Bangladesh Police over to Bangladesh Police parents. However, enraged locals set fire to the madrasa building early Friday.",
+    "sentence_offset": [
+      0,
+      1249
+    ],
+    "trigger": "fire",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Pabna",
+      "district": "Pabna",
+      "division": "Rajshahi",
+      "coordinates": [
+        24.0063,
+        89.2372
+      ]
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Madrasa teacher sent to jail over alleged rape attempt in Pabna",
+    "article_published": "Sat, 24 Oct 26 20:07:29 +0600"
+  }
+]

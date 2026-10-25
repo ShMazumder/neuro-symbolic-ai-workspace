@@ -1,0 +1,327 @@
+[
+  {
+    "event_id": "evt_e6675b69_000",
+    "source_url": "https://www.thedailystar.net/news/bangladesh/crime-justice/news/cu-sexual-assault-fingers-pointed-bcl-men-3076216",
+    "source_sentence": "document.addEventListener('DOMContentLoaded', function() { // Share dropdown toggle const shareToggle = document.querySelector('.share-toggle'); const shareMenu = document.querySelector('.share-menu'); if (shareToggle && shareMenu) { shareToggle.addEventListener('click', function(e) { e.stopPropagation(); shareMenu.classList.toggle('hidden'); }); // Close dropdown when clicking outside document.addEventListener('click', function() { shareMenu.classList.add('hidden'); }); shareMenu.addEventListener('click', function(e) { e.stopPropagation(); }); } // Copy link functionality const copyBtn = document.querySelector('.copy-link-btn'); if (copyBtn) { copyBtn.addEventListener('click', function() { const url = this.getAttribute('data-url'); navigator.clipboard.writeText(url).then(function() { // Show success message const originalText = copyBtn.innerHTML; copyBtn.innerHTML = 'Copied!'; setTimeout(function() { copyBtn.innerHTML = originalText; }, 2000); }); }); } }); FM Mizanur Rahaman Naimur Rahman FM Mizanur Rahaman and Naimur Rahman Those who sexually assaulted a female student on Chittagong University campus on July 17 night are members of Bangladesh Chhatra League, said police sources and CU BCL insiders. An officer of Hathazari Police Station, preferring anonymity, told The Daily Star, \"From witnesses and substantial evidence, we have gathered that the accused are Chhatra League activists. But witnesses faces could not be identified from the CCTV footage.\" According to the CU Proctor Office, the university has around 135 CCTV cameras. However, only half of those have night vision. Ruhul Amin, officer-in-charge of Hathazari Model Police Station, said, \"We are working to arrest those involved in the incident. However, Bangladesh Police identities could not be confirmed, as CCTV footage is not clear and of poor quality. But my teams are working and we are hoping to get results soon.\" Bangladesh Police however, declined to comment on the involvement of BCL men until the investigation is complete. Meanwhile, teachers and students of the university alleged the CU administration has been negligent in involving the law enforcers. Following the incident, former leaders of CU BCL, on Following Facebook profiles, criticised the roles of the current Chhatra League leaders and demanded exemplary punishment to the abusers. The victim, who is a first-year student of the Arts Faculty, filed a case against unidentified people under the Women and Children Repression Prevention Act with Hathazari Police Station on Wednesday night. In the case statement, Bangladesh Police said that on Sunday night a group of five men forcibly picked Bangladesh Police and Bangladesh Police friend up from Hotashar Mor to the Botanical Garden. Bangladesh Police first beat the two up and then tied up the plaintiff and sexually assaulted Bangladesh Police When Bangladesh Police friend tried to save Bangladesh Police the abusers snatched one of Bangladesh Police mobile phones and left the area. Before filing a case with the police, the victim filed a complaint with the proctorial body. The CU admin, instead of taking measures to punish the perpetrators, instructed the female students to return to The dormitories by 10:00pm \"to avoid such situations\". The proctorial body did not inform the police about the sexual assault, a criminal offence, even after receiving a complaint, CU students said. Proctor Robiul Hasan Bhuiyan, however, refuted the allegation, saying Bangladesh Police had informed the police but the victim was unwilling to cooperate initially. \"The [victim] student came to us on Monday morning [a day after the incident]. We immediately started checking the CCTV footage, but Bangladesh Police did not recall the exact time. We then asked Bangladesh Police to go to the police, but Bangladesh Police said Bangladesh Police would think about Bangladesh Police \"When When agreed, me and two assistant proctors took When took When to the police station.\" There was no negligence on the university authority's end, Bangladesh Police added. Protests against the incident began on Wednesday night, as hundreds of female resident students laid siege to the vice chancellor's office. Bangladesh Police also placed a four-point demand, which included assurance of justice and punishment to the attackers within four working days, and round-the-clock security for all students. The protesters further demanded the proctorial body step down if protesters failed to bring justice within four days.&nbsp; The female students also asked the administration to properly investigate all the complaints filed with the CU Sexual Harassment Prevention Cell. Yesterday morning, hundreds of students from CU's chemistry department staged a demonstration in front of the university's administrative building from around 11:00am. Several teachers from different departments joined protesters Under the banner of Progotishil Chhatra Jote and General Students of CU, the students also brought out a procession from the administrative building and marched towards the Central Shahid Minar. Addressing the demonstrators, Vice Chancellor Shireen Akhter said the demands would be met as soon as possible. Meanwhile, BCL central unit has served a show-cause notice to Rezaul Haque Rubel, president of CU BCL, a day after the incident, for violating the organisation's discipline. BCL insiders said Rubel was served the notice as Rubel had asked the victim not to file a complaint with the CU authorities. Speaking to The Daily Star, Rubel, however, said Rubel was asked to show cause as Rubel failed to discharge some of Rubel organisational duties. \"But my rivals are now trying to link me to this incident.\" But claimed He did not ask anyone not to file a complaint; instead, He directly informed the matter to an assistant proctor and an on-duty police official. Iqbal Hossain Tipu, general secretary of CU BCL, told The Daily Star, \"We demand exemplary punishment to the abusers. Bangladesh Police only identity is that Bangladesh Police are abusers.\" Former CU BCL president Md Alamgir Tipu said, \"Those who are directly involved should be punished both academically and legally. If any leader tried to cover up the incident, Bangladesh Police should also be withdrawn from Bangladesh Police post.\" Fazle Rabbi Sugan, former general secretary of CU BCL, told The Daily Star, \"As a former BCL leader, I am ashamed. BCL is a renowned organisation and always stands for student rights.\" The information about the victim's whereabouts is now being protected. CU Proctor Robiul Islam said, \"She is in a safe place under our supervision. We are providing everything We needs. However, for the sake of investigation, However location cannot be disclosed.\"",
+    "sentence_offset": [
+      0,
+      6753
+    ],
+    "trigger": "assaulted",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Chhatra League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Chhatra League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Share",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "Yesterday",
+      "normalized": "2026-10-24"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "CU sexual assault: Fingers pointed at BCL men",
+    "article_published": "Fri, 22 Jul 22 03:00:00 +0600"
+  },
+  {
+    "event_id": "evt_e6675b69_001",
+    "source_url": "https://www.thedailystar.net/news/bangladesh/crime-justice/news/cu-sexual-assault-fingers-pointed-bcl-men-3076216",
+    "source_sentence": "document.addEventListener('DOMContentLoaded', function() { // Share dropdown toggle const shareToggle = document.querySelector('.share-toggle'); const shareMenu = document.querySelector('.share-menu'); if (shareToggle && shareMenu) { shareToggle.addEventListener('click', function(e) { e.stopPropagation(); shareMenu.classList.toggle('hidden'); }); // Close dropdown when clicking outside document.addEventListener('click', function() { shareMenu.classList.add('hidden'); }); shareMenu.addEventListener('click', function(e) { e.stopPropagation(); }); } // Copy link functionality const copyBtn = document.querySelector('.copy-link-btn'); if (copyBtn) { copyBtn.addEventListener('click', function() { const url = this.getAttribute('data-url'); navigator.clipboard.writeText(url).then(function() { // Show success message const originalText = copyBtn.innerHTML; copyBtn.innerHTML = 'Copied!'; setTimeout(function() { copyBtn.innerHTML = originalText; }, 2000); }); }); } }); FM Mizanur Rahaman Naimur Rahman FM Mizanur Rahaman and Naimur Rahman Those who sexually assaulted a female student on Chittagong University campus on July 17 night are members of Bangladesh Chhatra League, said police sources and CU BCL insiders. An officer of Hathazari Police Station, preferring anonymity, told The Daily Star, \"From witnesses and substantial evidence, we have gathered that the accused are Chhatra League activists. But witnesses faces could not be identified from the CCTV footage.\" According to the CU Proctor Office, the university has around 135 CCTV cameras. However, only half of those have night vision. Ruhul Amin, officer-in-charge of Hathazari Model Police Station, said, \"We are working to arrest those involved in the incident. However, Bangladesh Police identities could not be confirmed, as CCTV footage is not clear and of poor quality. But my teams are working and we are hoping to get results soon.\" Bangladesh Police however, declined to comment on the involvement of BCL men until the investigation is complete. Meanwhile, teachers and students of the university alleged the CU administration has been negligent in involving the law enforcers. Following the incident, former leaders of CU BCL, on Following Facebook profiles, criticised the roles of the current Chhatra League leaders and demanded exemplary punishment to the abusers. The victim, who is a first-year student of the Arts Faculty, filed a case against unidentified people under the Women and Children Repression Prevention Act with Hathazari Police Station on Wednesday night. In the case statement, Bangladesh Police said that on Sunday night a group of five men forcibly picked Bangladesh Police and Bangladesh Police friend up from Hotashar Mor to the Botanical Garden. Bangladesh Police first beat the two up and then tied up the plaintiff and sexually assaulted Bangladesh Police When Bangladesh Police friend tried to save Bangladesh Police the abusers snatched one of Bangladesh Police mobile phones and left the area. Before filing a case with the police, the victim filed a complaint with the proctorial body. The CU admin, instead of taking measures to punish the perpetrators, instructed the female students to return to The dormitories by 10:00pm \"to avoid such situations\". The proctorial body did not inform the police about the sexual assault, a criminal offence, even after receiving a complaint, CU students said. Proctor Robiul Hasan Bhuiyan, however, refuted the allegation, saying Bangladesh Police had informed the police but the victim was unwilling to cooperate initially. \"The [victim] student came to us on Monday morning [a day after the incident]. We immediately started checking the CCTV footage, but Bangladesh Police did not recall the exact time. We then asked Bangladesh Police to go to the police, but Bangladesh Police said Bangladesh Police would think about Bangladesh Police \"When When agreed, me and two assistant proctors took When took When to the police station.\" There was no negligence on the university authority's end, Bangladesh Police added. Protests against the incident began on Wednesday night, as hundreds of female resident students laid siege to the vice chancellor's office. Bangladesh Police also placed a four-point demand, which included assurance of justice and punishment to the attackers within four working days, and round-the-clock security for all students. The protesters further demanded the proctorial body step down if protesters failed to bring justice within four days.&nbsp; The female students also asked the administration to properly investigate all the complaints filed with the CU Sexual Harassment Prevention Cell. Yesterday morning, hundreds of students from CU's chemistry department staged a demonstration in front of the university's administrative building from around 11:00am. Several teachers from different departments joined protesters Under the banner of Progotishil Chhatra Jote and General Students of CU, the students also brought out a procession from the administrative building and marched towards the Central Shahid Minar. Addressing the demonstrators, Vice Chancellor Shireen Akhter said the demands would be met as soon as possible. Meanwhile, BCL central unit has served a show-cause notice to Rezaul Haque Rubel, president of CU BCL, a day after the incident, for violating the organisation's discipline. BCL insiders said Rubel was served the notice as Rubel had asked the victim not to file a complaint with the CU authorities. Speaking to The Daily Star, Rubel, however, said Rubel was asked to show cause as Rubel failed to discharge some of Rubel organisational duties. \"But my rivals are now trying to link me to this incident.\" But claimed He did not ask anyone not to file a complaint; instead, He directly informed the matter to an assistant proctor and an on-duty police official. Iqbal Hossain Tipu, general secretary of CU BCL, told The Daily Star, \"We demand exemplary punishment to the abusers. Bangladesh Police only identity is that Bangladesh Police are abusers.\" Former CU BCL president Md Alamgir Tipu said, \"Those who are directly involved should be punished both academically and legally. If any leader tried to cover up the incident, Bangladesh Police should also be withdrawn from Bangladesh Police post.\" Fazle Rabbi Sugan, former general secretary of CU BCL, told The Daily Star, \"As a former BCL leader, I am ashamed. BCL is a renowned organisation and always stands for student rights.\" The information about the victim's whereabouts is now being protected. CU Proctor Robiul Islam said, \"She is in a safe place under our supervision. We are providing everything We needs. However, for the sake of investigation, However location cannot be disclosed.\"",
+    "sentence_offset": [
+      0,
+      6753
+    ],
+    "trigger": "arrest",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Chhatra League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Chhatra League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Share",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "Yesterday",
+      "normalized": "2026-10-24"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "CU sexual assault: Fingers pointed at BCL men",
+    "article_published": "Fri, 22 Jul 22 03:00:00 +0600"
+  },
+  {
+    "event_id": "evt_e6675b69_002",
+    "source_url": "https://www.thedailystar.net/news/bangladesh/crime-justice/news/cu-sexual-assault-fingers-pointed-bcl-men-3076216",
+    "source_sentence": "document.addEventListener('DOMContentLoaded', function() { // Share dropdown toggle const shareToggle = document.querySelector('.share-toggle'); const shareMenu = document.querySelector('.share-menu'); if (shareToggle && shareMenu) { shareToggle.addEventListener('click', function(e) { e.stopPropagation(); shareMenu.classList.toggle('hidden'); }); // Close dropdown when clicking outside document.addEventListener('click', function() { shareMenu.classList.add('hidden'); }); shareMenu.addEventListener('click', function(e) { e.stopPropagation(); }); } // Copy link functionality const copyBtn = document.querySelector('.copy-link-btn'); if (copyBtn) { copyBtn.addEventListener('click', function() { const url = this.getAttribute('data-url'); navigator.clipboard.writeText(url).then(function() { // Show success message const originalText = copyBtn.innerHTML; copyBtn.innerHTML = 'Copied!'; setTimeout(function() { copyBtn.innerHTML = originalText; }, 2000); }); }); } }); FM Mizanur Rahaman Naimur Rahman FM Mizanur Rahaman and Naimur Rahman Those who sexually assaulted a female student on Chittagong University campus on July 17 night are members of Bangladesh Chhatra League, said police sources and CU BCL insiders. An officer of Hathazari Police Station, preferring anonymity, told The Daily Star, \"From witnesses and substantial evidence, we have gathered that the accused are Chhatra League activists. But witnesses faces could not be identified from the CCTV footage.\" According to the CU Proctor Office, the university has around 135 CCTV cameras. However, only half of those have night vision. Ruhul Amin, officer-in-charge of Hathazari Model Police Station, said, \"We are working to arrest those involved in the incident. However, Bangladesh Police identities could not be confirmed, as CCTV footage is not clear and of poor quality. But my teams are working and we are hoping to get results soon.\" Bangladesh Police however, declined to comment on the involvement of BCL men until the investigation is complete. Meanwhile, teachers and students of the university alleged the CU administration has been negligent in involving the law enforcers. Following the incident, former leaders of CU BCL, on Following Facebook profiles, criticised the roles of the current Chhatra League leaders and demanded exemplary punishment to the abusers. The victim, who is a first-year student of the Arts Faculty, filed a case against unidentified people under the Women and Children Repression Prevention Act with Hathazari Police Station on Wednesday night. In the case statement, Bangladesh Police said that on Sunday night a group of five men forcibly picked Bangladesh Police and Bangladesh Police friend up from Hotashar Mor to the Botanical Garden. Bangladesh Police first beat the two up and then tied up the plaintiff and sexually assaulted Bangladesh Police When Bangladesh Police friend tried to save Bangladesh Police the abusers snatched one of Bangladesh Police mobile phones and left the area. Before filing a case with the police, the victim filed a complaint with the proctorial body. The CU admin, instead of taking measures to punish the perpetrators, instructed the female students to return to The dormitories by 10:00pm \"to avoid such situations\". The proctorial body did not inform the police about the sexual assault, a criminal offence, even after receiving a complaint, CU students said. Proctor Robiul Hasan Bhuiyan, however, refuted the allegation, saying Bangladesh Police had informed the police but the victim was unwilling to cooperate initially. \"The [victim] student came to us on Monday morning [a day after the incident]. We immediately started checking the CCTV footage, but Bangladesh Police did not recall the exact time. We then asked Bangladesh Police to go to the police, but Bangladesh Police said Bangladesh Police would think about Bangladesh Police \"When When agreed, me and two assistant proctors took When took When to the police station.\" There was no negligence on the university authority's end, Bangladesh Police added. Protests against the incident began on Wednesday night, as hundreds of female resident students laid siege to the vice chancellor's office. Bangladesh Police also placed a four-point demand, which included assurance of justice and punishment to the attackers within four working days, and round-the-clock security for all students. The protesters further demanded the proctorial body step down if protesters failed to bring justice within four days.&nbsp; The female students also asked the administration to properly investigate all the complaints filed with the CU Sexual Harassment Prevention Cell. Yesterday morning, hundreds of students from CU's chemistry department staged a demonstration in front of the university's administrative building from around 11:00am. Several teachers from different departments joined protesters Under the banner of Progotishil Chhatra Jote and General Students of CU, the students also brought out a procession from the administrative building and marched towards the Central Shahid Minar. Addressing the demonstrators, Vice Chancellor Shireen Akhter said the demands would be met as soon as possible. Meanwhile, BCL central unit has served a show-cause notice to Rezaul Haque Rubel, president of CU BCL, a day after the incident, for violating the organisation's discipline. BCL insiders said Rubel was served the notice as Rubel had asked the victim not to file a complaint with the CU authorities. Speaking to The Daily Star, Rubel, however, said Rubel was asked to show cause as Rubel failed to discharge some of Rubel organisational duties. \"But my rivals are now trying to link me to this incident.\" But claimed He did not ask anyone not to file a complaint; instead, He directly informed the matter to an assistant proctor and an on-duty police official. Iqbal Hossain Tipu, general secretary of CU BCL, told The Daily Star, \"We demand exemplary punishment to the abusers. Bangladesh Police only identity is that Bangladesh Police are abusers.\" Former CU BCL president Md Alamgir Tipu said, \"Those who are directly involved should be punished both academically and legally. If any leader tried to cover up the incident, Bangladesh Police should also be withdrawn from Bangladesh Police post.\" Fazle Rabbi Sugan, former general secretary of CU BCL, told The Daily Star, \"As a former BCL leader, I am ashamed. BCL is a renowned organisation and always stands for student rights.\" The information about the victim's whereabouts is now being protected. CU Proctor Robiul Islam said, \"She is in a safe place under our supervision. We are providing everything We needs. However, for the sake of investigation, However location cannot be disclosed.\"",
+    "sentence_offset": [
+      0,
+      6753
+    ],
+    "trigger": "beat",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Chhatra League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Chhatra League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Share",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "Yesterday",
+      "normalized": "2026-10-24"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "CU sexual assault: Fingers pointed at BCL men",
+    "article_published": "Fri, 22 Jul 22 03:00:00 +0600"
+  },
+  {
+    "event_id": "evt_e6675b69_003",
+    "source_url": "https://www.thedailystar.net/news/bangladesh/crime-justice/news/cu-sexual-assault-fingers-pointed-bcl-men-3076216",
+    "source_sentence": "document.addEventListener('DOMContentLoaded', function() { // Share dropdown toggle const shareToggle = document.querySelector('.share-toggle'); const shareMenu = document.querySelector('.share-menu'); if (shareToggle && shareMenu) { shareToggle.addEventListener('click', function(e) { e.stopPropagation(); shareMenu.classList.toggle('hidden'); }); // Close dropdown when clicking outside document.addEventListener('click', function() { shareMenu.classList.add('hidden'); }); shareMenu.addEventListener('click', function(e) { e.stopPropagation(); }); } // Copy link functionality const copyBtn = document.querySelector('.copy-link-btn'); if (copyBtn) { copyBtn.addEventListener('click', function() { const url = this.getAttribute('data-url'); navigator.clipboard.writeText(url).then(function() { // Show success message const originalText = copyBtn.innerHTML; copyBtn.innerHTML = 'Copied!'; setTimeout(function() { copyBtn.innerHTML = originalText; }, 2000); }); }); } }); FM Mizanur Rahaman Naimur Rahman FM Mizanur Rahaman and Naimur Rahman Those who sexually assaulted a female student on Chittagong University campus on July 17 night are members of Bangladesh Chhatra League, said police sources and CU BCL insiders. An officer of Hathazari Police Station, preferring anonymity, told The Daily Star, \"From witnesses and substantial evidence, we have gathered that the accused are Chhatra League activists. But witnesses faces could not be identified from the CCTV footage.\" According to the CU Proctor Office, the university has around 135 CCTV cameras. However, only half of those have night vision. Ruhul Amin, officer-in-charge of Hathazari Model Police Station, said, \"We are working to arrest those involved in the incident. However, Bangladesh Police identities could not be confirmed, as CCTV footage is not clear and of poor quality. But my teams are working and we are hoping to get results soon.\" Bangladesh Police however, declined to comment on the involvement of BCL men until the investigation is complete. Meanwhile, teachers and students of the university alleged the CU administration has been negligent in involving the law enforcers. Following the incident, former leaders of CU BCL, on Following Facebook profiles, criticised the roles of the current Chhatra League leaders and demanded exemplary punishment to the abusers. The victim, who is a first-year student of the Arts Faculty, filed a case against unidentified people under the Women and Children Repression Prevention Act with Hathazari Police Station on Wednesday night. In the case statement, Bangladesh Police said that on Sunday night a group of five men forcibly picked Bangladesh Police and Bangladesh Police friend up from Hotashar Mor to the Botanical Garden. Bangladesh Police first beat the two up and then tied up the plaintiff and sexually assaulted Bangladesh Police When Bangladesh Police friend tried to save Bangladesh Police the abusers snatched one of Bangladesh Police mobile phones and left the area. Before filing a case with the police, the victim filed a complaint with the proctorial body. The CU admin, instead of taking measures to punish the perpetrators, instructed the female students to return to The dormitories by 10:00pm \"to avoid such situations\". The proctorial body did not inform the police about the sexual assault, a criminal offence, even after receiving a complaint, CU students said. Proctor Robiul Hasan Bhuiyan, however, refuted the allegation, saying Bangladesh Police had informed the police but the victim was unwilling to cooperate initially. \"The [victim] student came to us on Monday morning [a day after the incident]. We immediately started checking the CCTV footage, but Bangladesh Police did not recall the exact time. We then asked Bangladesh Police to go to the police, but Bangladesh Police said Bangladesh Police would think about Bangladesh Police \"When When agreed, me and two assistant proctors took When took When to the police station.\" There was no negligence on the university authority's end, Bangladesh Police added. Protests against the incident began on Wednesday night, as hundreds of female resident students laid siege to the vice chancellor's office. Bangladesh Police also placed a four-point demand, which included assurance of justice and punishment to the attackers within four working days, and round-the-clock security for all students. The protesters further demanded the proctorial body step down if protesters failed to bring justice within four days.&nbsp; The female students also asked the administration to properly investigate all the complaints filed with the CU Sexual Harassment Prevention Cell. Yesterday morning, hundreds of students from CU's chemistry department staged a demonstration in front of the university's administrative building from around 11:00am. Several teachers from different departments joined protesters Under the banner of Progotishil Chhatra Jote and General Students of CU, the students also brought out a procession from the administrative building and marched towards the Central Shahid Minar. Addressing the demonstrators, Vice Chancellor Shireen Akhter said the demands would be met as soon as possible. Meanwhile, BCL central unit has served a show-cause notice to Rezaul Haque Rubel, president of CU BCL, a day after the incident, for violating the organisation's discipline. BCL insiders said Rubel was served the notice as Rubel had asked the victim not to file a complaint with the CU authorities. Speaking to The Daily Star, Rubel, however, said Rubel was asked to show cause as Rubel failed to discharge some of Rubel organisational duties. \"But my rivals are now trying to link me to this incident.\" But claimed He did not ask anyone not to file a complaint; instead, He directly informed the matter to an assistant proctor and an on-duty police official. Iqbal Hossain Tipu, general secretary of CU BCL, told The Daily Star, \"We demand exemplary punishment to the abusers. Bangladesh Police only identity is that Bangladesh Police are abusers.\" Former CU BCL president Md Alamgir Tipu said, \"Those who are directly involved should be punished both academically and legally. If any leader tried to cover up the incident, Bangladesh Police should also be withdrawn from Bangladesh Police post.\" Fazle Rabbi Sugan, former general secretary of CU BCL, told The Daily Star, \"As a former BCL leader, I am ashamed. BCL is a renowned organisation and always stands for student rights.\" The information about the victim's whereabouts is now being protected. CU Proctor Robiul Islam said, \"She is in a safe place under our supervision. We are providing everything We needs. However, for the sake of investigation, However location cannot be disclosed.\"",
+    "sentence_offset": [
+      0,
+      6753
+    ],
+    "trigger": "assaulted",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Chhatra League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Chhatra League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Share",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "Yesterday",
+      "normalized": "2026-10-24"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "CU sexual assault: Fingers pointed at BCL men",
+    "article_published": "Fri, 22 Jul 22 03:00:00 +0600"
+  },
+  {
+    "event_id": "evt_e6675b69_004",
+    "source_url": "https://www.thedailystar.net/news/bangladesh/crime-justice/news/cu-sexual-assault-fingers-pointed-bcl-men-3076216",
+    "source_sentence": "document.addEventListener('DOMContentLoaded', function() { // Share dropdown toggle const shareToggle = document.querySelector('.share-toggle'); const shareMenu = document.querySelector('.share-menu'); if (shareToggle && shareMenu) { shareToggle.addEventListener('click', function(e) { e.stopPropagation(); shareMenu.classList.toggle('hidden'); }); // Close dropdown when clicking outside document.addEventListener('click', function() { shareMenu.classList.add('hidden'); }); shareMenu.addEventListener('click', function(e) { e.stopPropagation(); }); } // Copy link functionality const copyBtn = document.querySelector('.copy-link-btn'); if (copyBtn) { copyBtn.addEventListener('click', function() { const url = this.getAttribute('data-url'); navigator.clipboard.writeText(url).then(function() { // Show success message const originalText = copyBtn.innerHTML; copyBtn.innerHTML = 'Copied!'; setTimeout(function() { copyBtn.innerHTML = originalText; }, 2000); }); }); } }); FM Mizanur Rahaman Naimur Rahman FM Mizanur Rahaman and Naimur Rahman Those who sexually assaulted a female student on Chittagong University campus on July 17 night are members of Bangladesh Chhatra League, said police sources and CU BCL insiders. An officer of Hathazari Police Station, preferring anonymity, told The Daily Star, \"From witnesses and substantial evidence, we have gathered that the accused are Chhatra League activists. But witnesses faces could not be identified from the CCTV footage.\" According to the CU Proctor Office, the university has around 135 CCTV cameras. However, only half of those have night vision. Ruhul Amin, officer-in-charge of Hathazari Model Police Station, said, \"We are working to arrest those involved in the incident. However, Bangladesh Police identities could not be confirmed, as CCTV footage is not clear and of poor quality. But my teams are working and we are hoping to get results soon.\" Bangladesh Police however, declined to comment on the involvement of BCL men until the investigation is complete. Meanwhile, teachers and students of the university alleged the CU administration has been negligent in involving the law enforcers. Following the incident, former leaders of CU BCL, on Following Facebook profiles, criticised the roles of the current Chhatra League leaders and demanded exemplary punishment to the abusers. The victim, who is a first-year student of the Arts Faculty, filed a case against unidentified people under the Women and Children Repression Prevention Act with Hathazari Police Station on Wednesday night. In the case statement, Bangladesh Police said that on Sunday night a group of five men forcibly picked Bangladesh Police and Bangladesh Police friend up from Hotashar Mor to the Botanical Garden. Bangladesh Police first beat the two up and then tied up the plaintiff and sexually assaulted Bangladesh Police When Bangladesh Police friend tried to save Bangladesh Police the abusers snatched one of Bangladesh Police mobile phones and left the area. Before filing a case with the police, the victim filed a complaint with the proctorial body. The CU admin, instead of taking measures to punish the perpetrators, instructed the female students to return to The dormitories by 10:00pm \"to avoid such situations\". The proctorial body did not inform the police about the sexual assault, a criminal offence, even after receiving a complaint, CU students said. Proctor Robiul Hasan Bhuiyan, however, refuted the allegation, saying Bangladesh Police had informed the police but the victim was unwilling to cooperate initially. \"The [victim] student came to us on Monday morning [a day after the incident]. We immediately started checking the CCTV footage, but Bangladesh Police did not recall the exact time. We then asked Bangladesh Police to go to the police, but Bangladesh Police said Bangladesh Police would think about Bangladesh Police \"When When agreed, me and two assistant proctors took When took When to the police station.\" There was no negligence on the university authority's end, Bangladesh Police added. Protests against the incident began on Wednesday night, as hundreds of female resident students laid siege to the vice chancellor's office. Bangladesh Police also placed a four-point demand, which included assurance of justice and punishment to the attackers within four working days, and round-the-clock security for all students. The protesters further demanded the proctorial body step down if protesters failed to bring justice within four days.&nbsp; The female students also asked the administration to properly investigate all the complaints filed with the CU Sexual Harassment Prevention Cell. Yesterday morning, hundreds of students from CU's chemistry department staged a demonstration in front of the university's administrative building from around 11:00am. Several teachers from different departments joined protesters Under the banner of Progotishil Chhatra Jote and General Students of CU, the students also brought out a procession from the administrative building and marched towards the Central Shahid Minar. Addressing the demonstrators, Vice Chancellor Shireen Akhter said the demands would be met as soon as possible. Meanwhile, BCL central unit has served a show-cause notice to Rezaul Haque Rubel, president of CU BCL, a day after the incident, for violating the organisation's discipline. BCL insiders said Rubel was served the notice as Rubel had asked the victim not to file a complaint with the CU authorities. Speaking to The Daily Star, Rubel, however, said Rubel was asked to show cause as Rubel failed to discharge some of Rubel organisational duties. \"But my rivals are now trying to link me to this incident.\" But claimed He did not ask anyone not to file a complaint; instead, He directly informed the matter to an assistant proctor and an on-duty police official. Iqbal Hossain Tipu, general secretary of CU BCL, told The Daily Star, \"We demand exemplary punishment to the abusers. Bangladesh Police only identity is that Bangladesh Police are abusers.\" Former CU BCL president Md Alamgir Tipu said, \"Those who are directly involved should be punished both academically and legally. If any leader tried to cover up the incident, Bangladesh Police should also be withdrawn from Bangladesh Police post.\" Fazle Rabbi Sugan, former general secretary of CU BCL, told The Daily Star, \"As a former BCL leader, I am ashamed. BCL is a renowned organisation and always stands for student rights.\" The information about the victim's whereabouts is now being protected. CU Proctor Robiul Islam said, \"She is in a safe place under our supervision. We are providing everything We needs. However, for the sake of investigation, However location cannot be disclosed.\"",
+    "sentence_offset": [
+      0,
+      6753
+    ],
+    "trigger": "sexual assault",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Chhatra League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Chhatra League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Share",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "Yesterday",
+      "normalized": "2026-10-24"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:noun|cameo:rule",
+    "article_title": "CU sexual assault: Fingers pointed at BCL men",
+    "article_published": "Fri, 22 Jul 22 03:00:00 +0600"
+  }
+]

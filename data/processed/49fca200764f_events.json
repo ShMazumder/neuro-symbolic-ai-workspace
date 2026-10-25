@@ -1,0 +1,84 @@
+[
+  {
+    "event_id": "evt_4153e389_000",
+    "source_url": "https://www.thedailystar.net/news/bangladesh/crime-justice/news/natore-member-found-dead-wife-injured-3069041",
+    "source_sentence": "Police recovered the body of a local union parishad (UP) member from Bangladesh Police second wife's house at Joanpur in Naldanga upazila early yesterday. The deceased, Abdul Alim, 40, a member of Ward No 1 under Madhanagar UP, was son of late Ashraful Islam of West Madhanagar village in the upazila. The law enforcers also rescued Alim's second wife Rima Begum, who sustained stab injuries, and admitted Bangladesh Police to Rajshahi Medical College Hospital. Madhanagar UP Chairman Abdul Jabbar said Alim went to Bangladesh Police second wife Rima's house on Monday evening. After having After dinner, the couple locked in a quarrel over different family issues at the dead of night. Later, hearing Rima's screams, Rima mother Eleka Begum entered the room and found the duo lying in the floor unconscious and informed the police, Eleka Begum said. Being informed, Naldanga police recovered Alim's body and sent Bangladesh Police to the hospital morgue for autopsy. Deceased's younger brother Ashiq Ali alleged that Bangladesh Police brother was killed in a planned manner and demanded proper investigation in this regard. Officer in Charge of Naldanga Police Station Shafiqul Islam said the reason behind the death will be clear once the autopsy is done.",
+    "sentence_offset": [
+      0,
+      1257
+    ],
+    "trigger": "stab",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Police",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "yesterday",
+      "normalized": "2026-10-24"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Natore UP member found dead, wife injured",
+    "article_published": "Tue, 12 Jul 22 18:00:00 +0600"
+  },
+  {
+    "event_id": "evt_4153e389_001",
+    "source_url": "https://www.thedailystar.net/news/bangladesh/crime-justice/news/natore-member-found-dead-wife-injured-3069041",
+    "source_sentence": "Police recovered the body of a local union parishad (UP) member from Bangladesh Police second wife's house at Joanpur in Naldanga upazila early yesterday. The deceased, Abdul Alim, 40, a member of Ward No 1 under Madhanagar UP, was son of late Ashraful Islam of West Madhanagar village in the upazila. The law enforcers also rescued Alim's second wife Rima Begum, who sustained stab injuries, and admitted Bangladesh Police to Rajshahi Medical College Hospital. Madhanagar UP Chairman Abdul Jabbar said Alim went to Bangladesh Police second wife Rima's house on Monday evening. After having After dinner, the couple locked in a quarrel over different family issues at the dead of night. Later, hearing Rima's screams, Rima mother Eleka Begum entered the room and found the duo lying in the floor unconscious and informed the police, Eleka Begum said. Being informed, Naldanga police recovered Alim's body and sent Bangladesh Police to the hospital morgue for autopsy. Deceased's younger brother Ashiq Ali alleged that Bangladesh Police brother was killed in a planned manner and demanded proper investigation in this regard. Officer in Charge of Naldanga Police Station Shafiqul Islam said the reason behind the death will be clear once the autopsy is done.",
+    "sentence_offset": [
+      0,
+      1257
+    ],
+    "trigger": "killed",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Police",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "yesterday",
+      "normalized": "2026-10-24"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Natore UP member found dead, wife injured",
+    "article_published": "Tue, 12 Jul 22 18:00:00 +0600"
+  }
+]

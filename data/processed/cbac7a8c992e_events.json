@@ -1,0 +1,161 @@
+[
+  {
+    "event_id": "evt_40c05eaa_000",
+    "source_url": "https://www.thedailystar.net/news/politics/news/rumeen-locks-horns-sarail-oc-over-security-misconduct-4306091",
+    "source_sentence": "A heated confrontation broke out on Thursday night between Brahmanbaria-2 MP Rumeen Farhana and Sarail Police Station OC Mohammad Monjur Kader Bhuiyan over alleged security lapses and police misconduct. The incident occurred around 8:00pm at the OC’s office, where local residents accused police of assault, bribery and corruption. Videos of the exchange later circulated on social media. According to those present, Rumeen alleged that Bangladesh Police had been denied personal security while visiting Durga Puja mandaps in Sarail, despite receiving police protection in neighbouring Bijoynagar and Ashuganj upazilas. Bangladesh Police also accused the OC of behaving discourteously towards an elected MP and questioned Bangladesh Police alleged political background. The confrontation intensified when local resident Unda Mia accused the OC of taking Tk 30,000 from Bangladesh Police Bangladesh Police alleged that police had assaulted and detained Bangladesh Police when Bangladesh Police visited the station over a case involving a relative before sending Bangladesh Police to court. Police officers present denied the allegations, while the OC said Bangladesh Police did not know the complainant. Rumeen also accused Bangladesh Police of taking money from businesses involved in sand and soil extraction and brick kilns, while maintaining close ties with local Awami League leaders. The OC rejected the allegations, saying Bangladesh Police attended only official state functions. Bangladesh Police also questioned claims involving brick kilns, saying many in the area’s haor region remain submerged for part of the year. Several people demanded the OC’s removal and chanted slogans as tensions rose. Contacted, OC Monjur said Rumeen had arrived with a large group, creating a “mob-like situation”. Rumeen claimed the allegations were false and that He had “coached others to make them”. Regarding Regarding security, Regarding said police had protected Bangladesh Police during Durga Puja as part of overall arrangements but lacked the manpower to assign a separate team to accompany Bangladesh Police Bangladesh Police needed to apply to the SP’s office for a personal security officer. Contacted, Rumeen said elected lawmakers are recognised as VIPs under the state’s “Warrant of Precedence” and the administration’s “Red Book”, entitling Bangladesh Police to special protocol and security. “However, the Sarail OC did not answer my phone calls. Instead, Instead said people will provide security to an elected MP. That is why thousands of people have accompanied me. That are providing my security,” They said. They said She had visited the station to seek clarification about allegations of irregularities and corruption against the OC.",
+    "sentence_offset": [
+      0,
+      2747
+    ],
+    "trigger": "assault",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Thursday",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "",
+      "normalized": null
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Rumeen locks horns with Sarail OC over security, misconduct",
+    "article_published": "Sat, 24 Oct 26 00:00:00 +0600"
+  },
+  {
+    "event_id": "evt_40c05eaa_001",
+    "source_url": "https://www.thedailystar.net/news/politics/news/rumeen-locks-horns-sarail-oc-over-security-misconduct-4306091",
+    "source_sentence": "A heated confrontation broke out on Thursday night between Brahmanbaria-2 MP Rumeen Farhana and Sarail Police Station OC Mohammad Monjur Kader Bhuiyan over alleged security lapses and police misconduct. The incident occurred around 8:00pm at the OC’s office, where local residents accused police of assault, bribery and corruption. Videos of the exchange later circulated on social media. According to those present, Rumeen alleged that Bangladesh Police had been denied personal security while visiting Durga Puja mandaps in Sarail, despite receiving police protection in neighbouring Bijoynagar and Ashuganj upazilas. Bangladesh Police also accused the OC of behaving discourteously towards an elected MP and questioned Bangladesh Police alleged political background. The confrontation intensified when local resident Unda Mia accused the OC of taking Tk 30,000 from Bangladesh Police Bangladesh Police alleged that police had assaulted and detained Bangladesh Police when Bangladesh Police visited the station over a case involving a relative before sending Bangladesh Police to court. Police officers present denied the allegations, while the OC said Bangladesh Police did not know the complainant. Rumeen also accused Bangladesh Police of taking money from businesses involved in sand and soil extraction and brick kilns, while maintaining close ties with local Awami League leaders. The OC rejected the allegations, saying Bangladesh Police attended only official state functions. Bangladesh Police also questioned claims involving brick kilns, saying many in the area’s haor region remain submerged for part of the year. Several people demanded the OC’s removal and chanted slogans as tensions rose. Contacted, OC Monjur said Rumeen had arrived with a large group, creating a “mob-like situation”. Rumeen claimed the allegations were false and that He had “coached others to make them”. Regarding Regarding security, Regarding said police had protected Bangladesh Police during Durga Puja as part of overall arrangements but lacked the manpower to assign a separate team to accompany Bangladesh Police Bangladesh Police needed to apply to the SP’s office for a personal security officer. Contacted, Rumeen said elected lawmakers are recognised as VIPs under the state’s “Warrant of Precedence” and the administration’s “Red Book”, entitling Bangladesh Police to special protocol and security. “However, the Sarail OC did not answer my phone calls. Instead, Instead said people will provide security to an elected MP. That is why thousands of people have accompanied me. That are providing my security,” They said. They said She had visited the station to seek clarification about allegations of irregularities and corruption against the OC.",
+    "sentence_offset": [
+      0,
+      2747
+    ],
+    "trigger": "assaulted",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Thursday",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "",
+      "normalized": null
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Rumeen locks horns with Sarail OC over security, misconduct",
+    "article_published": "Sat, 24 Oct 26 00:00:00 +0600"
+  },
+  {
+    "event_id": "evt_40c05eaa_002",
+    "source_url": "https://www.thedailystar.net/news/politics/news/rumeen-locks-horns-sarail-oc-over-security-misconduct-4306091",
+    "source_sentence": "A heated confrontation broke out on Thursday night between Brahmanbaria-2 MP Rumeen Farhana and Sarail Police Station OC Mohammad Monjur Kader Bhuiyan over alleged security lapses and police misconduct. The incident occurred around 8:00pm at the OC’s office, where local residents accused police of assault, bribery and corruption. Videos of the exchange later circulated on social media. According to those present, Rumeen alleged that Bangladesh Police had been denied personal security while visiting Durga Puja mandaps in Sarail, despite receiving police protection in neighbouring Bijoynagar and Ashuganj upazilas. Bangladesh Police also accused the OC of behaving discourteously towards an elected MP and questioned Bangladesh Police alleged political background. The confrontation intensified when local resident Unda Mia accused the OC of taking Tk 30,000 from Bangladesh Police Bangladesh Police alleged that police had assaulted and detained Bangladesh Police when Bangladesh Police visited the station over a case involving a relative before sending Bangladesh Police to court. Police officers present denied the allegations, while the OC said Bangladesh Police did not know the complainant. Rumeen also accused Bangladesh Police of taking money from businesses involved in sand and soil extraction and brick kilns, while maintaining close ties with local Awami League leaders. The OC rejected the allegations, saying Bangladesh Police attended only official state functions. Bangladesh Police also questioned claims involving brick kilns, saying many in the area’s haor region remain submerged for part of the year. Several people demanded the OC’s removal and chanted slogans as tensions rose. Contacted, OC Monjur said Rumeen had arrived with a large group, creating a “mob-like situation”. Rumeen claimed the allegations were false and that He had “coached others to make them”. Regarding Regarding security, Regarding said police had protected Bangladesh Police during Durga Puja as part of overall arrangements but lacked the manpower to assign a separate team to accompany Bangladesh Police Bangladesh Police needed to apply to the SP’s office for a personal security officer. Contacted, Rumeen said elected lawmakers are recognised as VIPs under the state’s “Warrant of Precedence” and the administration’s “Red Book”, entitling Bangladesh Police to special protocol and security. “However, the Sarail OC did not answer my phone calls. Instead, Instead said people will provide security to an elected MP. That is why thousands of people have accompanied me. That are providing my security,” They said. They said She had visited the station to seek clarification about allegations of irregularities and corruption against the OC.",
+    "sentence_offset": [
+      0,
+      2747
+    ],
+    "trigger": "detained",
+    "cameo_code": "173",
+    "cameo_label": "Arrest or detain",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Thursday",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "",
+      "normalized": null
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Rumeen locks horns with Sarail OC over security, misconduct",
+    "article_published": "Sat, 24 Oct 26 00:00:00 +0600"
+  }
+]

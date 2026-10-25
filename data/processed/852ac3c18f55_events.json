@@ -1,0 +1,237 @@
+[
+  {
+    "event_id": "evt_5a9d12cd_000",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/jubo-dal-leader-grocery-shop-owner-shot-4306676",
+    "source_sentence": "Unidentified criminals shot a local Jubo Dal leader and a grocery shop owner in separate incidents in Khulna yesterday. In Terokhada upazila, Ramim Biswas, 32, president of Jubo Dal’s ward-3 unit in Madhupur union, suffered a bullet wound in an attack by armed assailants in Parhaji village around 11:10am, said Kabir Hossain, inspector (investigation) of Terokhada Police Station. According to a press release issued by district police, Ramim was sitting in a van in front of a house near Khan Bricks in Parhaji village, along the Sen-er Bazar-Madhupur Road. At that time, unidentified assailants on a motorcycle fired at assailants from behind and fled the scene. A bullet hit assailants rib cage. Meanwhile, in the district town, grocery shop owner Dhananjay Kundu, alias Akash Kundu, 45, of the Gachhtala Temple area, was shot on Dakshin Tutpara Cross Road around 6:45pm, said Khulna Sadar Police Station Officer-in-Charge of Lokmon Hossain. Quoting witnesses, the OC said the assailants arrived on a motorcycle, fired a single shot at Akash and fled the scene. Akash sustained a gunshot wound to assailants abdomen. Both of assailants were rescued by locals and taken to Khulna Medical College Hospital. The identities of the attackers and the motive behind the shootings were not immediately known, police said. Security was beefed up following the shooting. The incidents took place on the same day the inspector general of police was on an official visit in the district. IGP Ali Hossain Fakir visited Khulna Police Lines and met police personnel and representatives of different policing committees. The shootings come amid growing concerns over law and order in Khulna. According to district police data, 35 murders were reported in Khulna district between January and the first week of October this year. Police had solved 25 of the cases, while the remaining 10 were yet to be solved, Khulna Superintendent of Police Sarker Omar Faroque said earlier. Meanwhile, Khulna Metropolitan Police (KMP) recorded 33 murders in the city between January and September. Police claimed to have solved 31 of the cases. According to a police list, at least 10 major criminal gangs are active in Khulna city. Clashes, retaliatory attacks, and killings have occurred among these groups over territorial control and revenge. A joint force has launched a special operation in four upazilas to improve law and order, with a focus on curbing drug-related crimes and recovering illegal firearms. The operation began on October 6 in Rupsha, Dighalia, Terokhada, and Batiaghata upazilas, involving the Special Response Battalion (formerly RAB), KMP, and district police. “Most of the targeted killings in Khulna are linked to drug-related activities,” the SP told The Daily Star.",
+    "sentence_offset": [
+      0,
+      2767
+    ],
+    "trigger": "attack",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Unidentified",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "yesterday",
+      "normalized": "2026-10-24"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Jubo Dal leader, grocery shop owner shot",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_5a9d12cd_001",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/jubo-dal-leader-grocery-shop-owner-shot-4306676",
+    "source_sentence": "Unidentified criminals shot a local Jubo Dal leader and a grocery shop owner in separate incidents in Khulna yesterday. In Terokhada upazila, Ramim Biswas, 32, president of Jubo Dal’s ward-3 unit in Madhupur union, suffered a bullet wound in an attack by armed assailants in Parhaji village around 11:10am, said Kabir Hossain, inspector (investigation) of Terokhada Police Station. According to a press release issued by district police, Ramim was sitting in a van in front of a house near Khan Bricks in Parhaji village, along the Sen-er Bazar-Madhupur Road. At that time, unidentified assailants on a motorcycle fired at assailants from behind and fled the scene. A bullet hit assailants rib cage. Meanwhile, in the district town, grocery shop owner Dhananjay Kundu, alias Akash Kundu, 45, of the Gachhtala Temple area, was shot on Dakshin Tutpara Cross Road around 6:45pm, said Khulna Sadar Police Station Officer-in-Charge of Lokmon Hossain. Quoting witnesses, the OC said the assailants arrived on a motorcycle, fired a single shot at Akash and fled the scene. Akash sustained a gunshot wound to assailants abdomen. Both of assailants were rescued by locals and taken to Khulna Medical College Hospital. The identities of the attackers and the motive behind the shootings were not immediately known, police said. Security was beefed up following the shooting. The incidents took place on the same day the inspector general of police was on an official visit in the district. IGP Ali Hossain Fakir visited Khulna Police Lines and met police personnel and representatives of different policing committees. The shootings come amid growing concerns over law and order in Khulna. According to district police data, 35 murders were reported in Khulna district between January and the first week of October this year. Police had solved 25 of the cases, while the remaining 10 were yet to be solved, Khulna Superintendent of Police Sarker Omar Faroque said earlier. Meanwhile, Khulna Metropolitan Police (KMP) recorded 33 murders in the city between January and September. Police claimed to have solved 31 of the cases. According to a police list, at least 10 major criminal gangs are active in Khulna city. Clashes, retaliatory attacks, and killings have occurred among these groups over territorial control and revenge. A joint force has launched a special operation in four upazilas to improve law and order, with a focus on curbing drug-related crimes and recovering illegal firearms. The operation began on October 6 in Rupsha, Dighalia, Terokhada, and Batiaghata upazilas, involving the Special Response Battalion (formerly RAB), KMP, and district police. “Most of the targeted killings in Khulna are linked to drug-related activities,” the SP told The Daily Star.",
+    "sentence_offset": [
+      0,
+      2767
+    ],
+    "trigger": "shooting",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Unidentified",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "yesterday",
+      "normalized": "2026-10-24"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Jubo Dal leader, grocery shop owner shot",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_5a9d12cd_002",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/jubo-dal-leader-grocery-shop-owner-shot-4306676",
+    "source_sentence": "Unidentified criminals shot a local Jubo Dal leader and a grocery shop owner in separate incidents in Khulna yesterday. In Terokhada upazila, Ramim Biswas, 32, president of Jubo Dal’s ward-3 unit in Madhupur union, suffered a bullet wound in an attack by armed assailants in Parhaji village around 11:10am, said Kabir Hossain, inspector (investigation) of Terokhada Police Station. According to a press release issued by district police, Ramim was sitting in a van in front of a house near Khan Bricks in Parhaji village, along the Sen-er Bazar-Madhupur Road. At that time, unidentified assailants on a motorcycle fired at assailants from behind and fled the scene. A bullet hit assailants rib cage. Meanwhile, in the district town, grocery shop owner Dhananjay Kundu, alias Akash Kundu, 45, of the Gachhtala Temple area, was shot on Dakshin Tutpara Cross Road around 6:45pm, said Khulna Sadar Police Station Officer-in-Charge of Lokmon Hossain. Quoting witnesses, the OC said the assailants arrived on a motorcycle, fired a single shot at Akash and fled the scene. Akash sustained a gunshot wound to assailants abdomen. Both of assailants were rescued by locals and taken to Khulna Medical College Hospital. The identities of the attackers and the motive behind the shootings were not immediately known, police said. Security was beefed up following the shooting. The incidents took place on the same day the inspector general of police was on an official visit in the district. IGP Ali Hossain Fakir visited Khulna Police Lines and met police personnel and representatives of different policing committees. The shootings come amid growing concerns over law and order in Khulna. According to district police data, 35 murders were reported in Khulna district between January and the first week of October this year. Police had solved 25 of the cases, while the remaining 10 were yet to be solved, Khulna Superintendent of Police Sarker Omar Faroque said earlier. Meanwhile, Khulna Metropolitan Police (KMP) recorded 33 murders in the city between January and September. Police claimed to have solved 31 of the cases. According to a police list, at least 10 major criminal gangs are active in Khulna city. Clashes, retaliatory attacks, and killings have occurred among these groups over territorial control and revenge. A joint force has launched a special operation in four upazilas to improve law and order, with a focus on curbing drug-related crimes and recovering illegal firearms. The operation began on October 6 in Rupsha, Dighalia, Terokhada, and Batiaghata upazilas, involving the Special Response Battalion (formerly RAB), KMP, and district police. “Most of the targeted killings in Khulna are linked to drug-related activities,” the SP told The Daily Star.",
+    "sentence_offset": [
+      0,
+      2767
+    ],
+    "trigger": "murders",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Unidentified",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "yesterday",
+      "normalized": "2026-10-24"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Jubo Dal leader, grocery shop owner shot",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_5a9d12cd_003",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/jubo-dal-leader-grocery-shop-owner-shot-4306676",
+    "source_sentence": "Unidentified criminals shot a local Jubo Dal leader and a grocery shop owner in separate incidents in Khulna yesterday. In Terokhada upazila, Ramim Biswas, 32, president of Jubo Dal’s ward-3 unit in Madhupur union, suffered a bullet wound in an attack by armed assailants in Parhaji village around 11:10am, said Kabir Hossain, inspector (investigation) of Terokhada Police Station. According to a press release issued by district police, Ramim was sitting in a van in front of a house near Khan Bricks in Parhaji village, along the Sen-er Bazar-Madhupur Road. At that time, unidentified assailants on a motorcycle fired at assailants from behind and fled the scene. A bullet hit assailants rib cage. Meanwhile, in the district town, grocery shop owner Dhananjay Kundu, alias Akash Kundu, 45, of the Gachhtala Temple area, was shot on Dakshin Tutpara Cross Road around 6:45pm, said Khulna Sadar Police Station Officer-in-Charge of Lokmon Hossain. Quoting witnesses, the OC said the assailants arrived on a motorcycle, fired a single shot at Akash and fled the scene. Akash sustained a gunshot wound to assailants abdomen. Both of assailants were rescued by locals and taken to Khulna Medical College Hospital. The identities of the attackers and the motive behind the shootings were not immediately known, police said. Security was beefed up following the shooting. The incidents took place on the same day the inspector general of police was on an official visit in the district. IGP Ali Hossain Fakir visited Khulna Police Lines and met police personnel and representatives of different policing committees. The shootings come amid growing concerns over law and order in Khulna. According to district police data, 35 murders were reported in Khulna district between January and the first week of October this year. Police had solved 25 of the cases, while the remaining 10 were yet to be solved, Khulna Superintendent of Police Sarker Omar Faroque said earlier. Meanwhile, Khulna Metropolitan Police (KMP) recorded 33 murders in the city between January and September. Police claimed to have solved 31 of the cases. According to a police list, at least 10 major criminal gangs are active in Khulna city. Clashes, retaliatory attacks, and killings have occurred among these groups over territorial control and revenge. A joint force has launched a special operation in four upazilas to improve law and order, with a focus on curbing drug-related crimes and recovering illegal firearms. The operation began on October 6 in Rupsha, Dighalia, Terokhada, and Batiaghata upazilas, involving the Special Response Battalion (formerly RAB), KMP, and district police. “Most of the targeted killings in Khulna are linked to drug-related activities,” the SP told The Daily Star.",
+    "sentence_offset": [
+      0,
+      2767
+    ],
+    "trigger": "murders",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Unidentified",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "yesterday",
+      "normalized": "2026-10-24"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Jubo Dal leader, grocery shop owner shot",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_5a9d12cd_004",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/jubo-dal-leader-grocery-shop-owner-shot-4306676",
+    "source_sentence": "Unidentified criminals shot a local Jubo Dal leader and a grocery shop owner in separate incidents in Khulna yesterday. In Terokhada upazila, Ramim Biswas, 32, president of Jubo Dal’s ward-3 unit in Madhupur union, suffered a bullet wound in an attack by armed assailants in Parhaji village around 11:10am, said Kabir Hossain, inspector (investigation) of Terokhada Police Station. According to a press release issued by district police, Ramim was sitting in a van in front of a house near Khan Bricks in Parhaji village, along the Sen-er Bazar-Madhupur Road. At that time, unidentified assailants on a motorcycle fired at assailants from behind and fled the scene. A bullet hit assailants rib cage. Meanwhile, in the district town, grocery shop owner Dhananjay Kundu, alias Akash Kundu, 45, of the Gachhtala Temple area, was shot on Dakshin Tutpara Cross Road around 6:45pm, said Khulna Sadar Police Station Officer-in-Charge of Lokmon Hossain. Quoting witnesses, the OC said the assailants arrived on a motorcycle, fired a single shot at Akash and fled the scene. Akash sustained a gunshot wound to assailants abdomen. Both of assailants were rescued by locals and taken to Khulna Medical College Hospital. The identities of the attackers and the motive behind the shootings were not immediately known, police said. Security was beefed up following the shooting. The incidents took place on the same day the inspector general of police was on an official visit in the district. IGP Ali Hossain Fakir visited Khulna Police Lines and met police personnel and representatives of different policing committees. The shootings come amid growing concerns over law and order in Khulna. According to district police data, 35 murders were reported in Khulna district between January and the first week of October this year. Police had solved 25 of the cases, while the remaining 10 were yet to be solved, Khulna Superintendent of Police Sarker Omar Faroque said earlier. Meanwhile, Khulna Metropolitan Police (KMP) recorded 33 murders in the city between January and September. Police claimed to have solved 31 of the cases. According to a police list, at least 10 major criminal gangs are active in Khulna city. Clashes, retaliatory attacks, and killings have occurred among these groups over territorial control and revenge. A joint force has launched a special operation in four upazilas to improve law and order, with a focus on curbing drug-related crimes and recovering illegal firearms. The operation began on October 6 in Rupsha, Dighalia, Terokhada, and Batiaghata upazilas, involving the Special Response Battalion (formerly RAB), KMP, and district police. “Most of the targeted killings in Khulna are linked to drug-related activities,” the SP told The Daily Star.",
+    "sentence_offset": [
+      0,
+      2767
+    ],
+    "trigger": "attacks",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "CID",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Unidentified",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "yesterday",
+      "normalized": "2026-10-24"
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Jubo Dal leader, grocery shop owner shot",
+    "article_published": null
+  }
+]

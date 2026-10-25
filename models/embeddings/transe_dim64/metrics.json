@@ -1,0 +1,9 @@
+{
+  "model": "TransE",
+  "embedding_dim": 64,
+  "num_epochs": 30,
+  "mrr": 0.2114185094833374,
+  "hits_at_1": 0.0,
+  "hits_at_10": 0.625,
+  "model_path": "models/embeddings/transe_dim64"
+}

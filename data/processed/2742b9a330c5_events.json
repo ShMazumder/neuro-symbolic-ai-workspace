@@ -1,0 +1,72 @@
+[
+  {
+    "event_id": "evt_bc55c6d2_000",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/jubo-dal-activist-hacked-death-barishal-4306816",
+    "source_sentence": "A local Jubo Dal activist was hacked to death by unidentified criminals in Satla area of Wazirpur upazila in Barishal on Friday night. The deceased was identified as Kawsar Hawlader, 37. A group of armed criminals attacked Kawsar when Kawsar along with Rashed Amin and several other Jubo Dal activists were standing on a bridge around 9:30pm, said Wazirpur Model Police Station Officer-in-Charge Rakibul Islam. Kawsar and Rashed jumped into the water beneath the bridge and sheltered in a nearby house. The attackers then entered the house by breaking open the door and hacked Kawsar, said the OC. attackers was taken to Kotalipara Upazila Health Complex where doctors declared attackers dead. Rashed was also injured in the attack, attackers added.",
+    "sentence_offset": [
+      0,
+      749
+    ],
+    "trigger": "attacked",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Jubo Dal",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "",
+      "normalized": null
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Jubo Dal activist hacked to death in Barishal",
+    "article_published": null
+  },
+  {
+    "event_id": "evt_bc55c6d2_001",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/jubo-dal-activist-hacked-death-barishal-4306816",
+    "source_sentence": "A local Jubo Dal activist was hacked to death by unidentified criminals in Satla area of Wazirpur upazila in Barishal on Friday night. The deceased was identified as Kawsar Hawlader, 37. A group of armed criminals attacked Kawsar when Kawsar along with Rashed Amin and several other Jubo Dal activists were standing on a bridge around 9:30pm, said Wazirpur Model Police Station Officer-in-Charge Rakibul Islam. Kawsar and Rashed jumped into the water beneath the bridge and sheltered in a nearby house. The attackers then entered the house by breaking open the door and hacked Kawsar, said the OC. attackers was taken to Kotalipara Upazila Health Complex where doctors declared attackers dead. Rashed was also injured in the attack, attackers added.",
+    "sentence_offset": [
+      0,
+      749
+    ],
+    "trigger": "attack",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": null,
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Jubo Dal",
+      "district": null,
+      "division": null,
+      "coordinates": null
+    },
+    "date": {
+      "raw": "",
+      "normalized": null
+    },
+    "confidence": 0.7,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Jubo Dal activist hacked to death in Barishal",
+    "article_published": null
+  }
+]

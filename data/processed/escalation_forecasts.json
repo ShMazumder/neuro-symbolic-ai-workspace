@@ -1,0 +1,58 @@
+[
+  {
+    "district": null,
+    "window_codes": [
+      18,
+      18,
+      18,
+      18
+    ],
+    "predicted_code": 18,
+    "escalation": false,
+    "confidence": 0.9561,
+    "symbolic_valid": false,
+    "explanation": "Neural model predicts CAMEO 18 (conf=95.61%). Escalation=NO. Symbolic check: Symbolic violation: code 18 requires one of [17, 16] in window, but window contains [18, 18, 18, 18]."
+  },
+  {
+    "district": "Rangamati",
+    "window_codes": [
+      19,
+      19,
+      19,
+      19
+    ],
+    "predicted_code": 19,
+    "escalation": false,
+    "confidence": 0.9429,
+    "symbolic_valid": false,
+    "explanation": "Neural model predicts CAMEO 19 (conf=94.29%). Escalation=NO. Symbolic check: Symbolic violation: code 19 requires one of [17, 18] in window, but window contains [19, 19, 19, 19]."
+  },
+  {
+    "district": "Dhaka",
+    "window_codes": [
+      18,
+      18,
+      18,
+      18
+    ],
+    "predicted_code": 18,
+    "escalation": false,
+    "confidence": 0.9561,
+    "symbolic_valid": false,
+    "explanation": "Neural model predicts CAMEO 18 (conf=95.61%). Escalation=NO. Symbolic check: Symbolic violation: code 18 requires one of [17, 16] in window, but window contains [18, 18, 18, 18]."
+  },
+  {
+    "district": "Pabna",
+    "window_codes": [
+      18,
+      18,
+      18,
+      18
+    ],
+    "predicted_code": 18,
+    "escalation": false,
+    "confidence": 0.9561,
+    "symbolic_valid": false,
+    "explanation": "Neural model predicts CAMEO 18 (conf=95.61%). Escalation=NO. Symbolic check: Symbolic violation: code 18 requires one of [17, 16] in window, but window contains [18, 18, 18, 18]."
+  }
+]

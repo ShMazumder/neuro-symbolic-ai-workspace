@@ -1,0 +1,902 @@
+[
+  {
+    "event_id": "evt_45d12c16_000",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/rape-case-plaintiff-among-21-sued-over-madrasa-looting-vandalism-savar-4306511",
+    "source_sentence": "A case has been filed against 21 people, including the complainant in a case accusing a madrasa headteacher and owner in Savar of raping a 13-year-old student, over allegations of looting and vandalism at the institution. Md Umair, the eldest son of Abdul Bari, 50, the prime accused in the rape case, filed the case with Savar Model Police Station today, naming six people and accusing another 10 to 15 unidentified individuals, said Mohammad Mosharraf Hossain, inspector (investigation) of the police station. The case was filed over allegations of looting and vandalism at the madrasa, the inspector said. According to the case statement, the accused looted Tk 47 lakh in cash, 12 bhori of gold ornaments worth Tk 23 lakh, and other valuables worth Tk 7 lakh from the madrasa. Inspector Mosharraf said, “We had advised the madrasa authorities against naming the complainant in the rape case as an accused in the looting and vandalism case. However, the madrasa authorities intend to accuse However We will not arrest We without an investigation.” Md Umair, who described Md Umair as the madrasa’s assistant administrator, told The Daily Star that the rape case against The Daily Star father was false and fabricated. The Daily Star alleged that false accusations had been brought against He father to grab the madrasa’s land and property and loot He assets. Cash and gold ornaments worth Tk 77 lakh were looted from the madrasa, while the vandalism caused damage worth more than Tk 1 crore, Tk said. Meanwhile, relatives of the rape victim expressed anger over the complainant in the rape case being named as an accused in the case over the madrasa looting and vandalism. Meanwhile also criticised the police for not yet arresting Abdul Bari. According to police, on October 22, police arrested the wife of madrasa headteacher Maulana Md Ab Bari in Savar over allegations that Bangladesh Police had abetted in the alleged rape of the 13-year-old student and threatened the victim into silence. Bari remains on the run. As news of the alleged rape spread, angry locals surrounded and vandalised the madrasa.",
+    "sentence_offset": [
+      0,
+      2109
+    ],
+    "trigger": "looting",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Savar",
+      "district": "Dhaka",
+      "division": "Dhaka",
+      "coordinates": [
+        23.85,
+        90.2667
+      ]
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Rape case plaintiff among 21 sued over madrasa looting, vandalism in Savar",
+    "article_published": "Sat, 24 Oct 26 23:00:45 +0600"
+  },
+  {
+    "event_id": "evt_45d12c16_001",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/rape-case-plaintiff-among-21-sued-over-madrasa-looting-vandalism-savar-4306511",
+    "source_sentence": "A case has been filed against 21 people, including the complainant in a case accusing a madrasa headteacher and owner in Savar of raping a 13-year-old student, over allegations of looting and vandalism at the institution. Md Umair, the eldest son of Abdul Bari, 50, the prime accused in the rape case, filed the case with Savar Model Police Station today, naming six people and accusing another 10 to 15 unidentified individuals, said Mohammad Mosharraf Hossain, inspector (investigation) of the police station. The case was filed over allegations of looting and vandalism at the madrasa, the inspector said. According to the case statement, the accused looted Tk 47 lakh in cash, 12 bhori of gold ornaments worth Tk 23 lakh, and other valuables worth Tk 7 lakh from the madrasa. Inspector Mosharraf said, “We had advised the madrasa authorities against naming the complainant in the rape case as an accused in the looting and vandalism case. However, the madrasa authorities intend to accuse However We will not arrest We without an investigation.” Md Umair, who described Md Umair as the madrasa’s assistant administrator, told The Daily Star that the rape case against The Daily Star father was false and fabricated. The Daily Star alleged that false accusations had been brought against He father to grab the madrasa’s land and property and loot He assets. Cash and gold ornaments worth Tk 77 lakh were looted from the madrasa, while the vandalism caused damage worth more than Tk 1 crore, Tk said. Meanwhile, relatives of the rape victim expressed anger over the complainant in the rape case being named as an accused in the case over the madrasa looting and vandalism. Meanwhile also criticised the police for not yet arresting Abdul Bari. According to police, on October 22, police arrested the wife of madrasa headteacher Maulana Md Ab Bari in Savar over allegations that Bangladesh Police had abetted in the alleged rape of the 13-year-old student and threatened the victim into silence. Bari remains on the run. As news of the alleged rape spread, angry locals surrounded and vandalised the madrasa.",
+    "sentence_offset": [
+      0,
+      2109
+    ],
+    "trigger": "rape",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Savar",
+      "district": "Dhaka",
+      "division": "Dhaka",
+      "coordinates": [
+        23.85,
+        90.2667
+      ]
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Rape case plaintiff among 21 sued over madrasa looting, vandalism in Savar",
+    "article_published": "Sat, 24 Oct 26 23:00:45 +0600"
+  },
+  {
+    "event_id": "evt_45d12c16_002",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/rape-case-plaintiff-among-21-sued-over-madrasa-looting-vandalism-savar-4306511",
+    "source_sentence": "A case has been filed against 21 people, including the complainant in a case accusing a madrasa headteacher and owner in Savar of raping a 13-year-old student, over allegations of looting and vandalism at the institution. Md Umair, the eldest son of Abdul Bari, 50, the prime accused in the rape case, filed the case with Savar Model Police Station today, naming six people and accusing another 10 to 15 unidentified individuals, said Mohammad Mosharraf Hossain, inspector (investigation) of the police station. The case was filed over allegations of looting and vandalism at the madrasa, the inspector said. According to the case statement, the accused looted Tk 47 lakh in cash, 12 bhori of gold ornaments worth Tk 23 lakh, and other valuables worth Tk 7 lakh from the madrasa. Inspector Mosharraf said, “We had advised the madrasa authorities against naming the complainant in the rape case as an accused in the looting and vandalism case. However, the madrasa authorities intend to accuse However We will not arrest We without an investigation.” Md Umair, who described Md Umair as the madrasa’s assistant administrator, told The Daily Star that the rape case against The Daily Star father was false and fabricated. The Daily Star alleged that false accusations had been brought against He father to grab the madrasa’s land and property and loot He assets. Cash and gold ornaments worth Tk 77 lakh were looted from the madrasa, while the vandalism caused damage worth more than Tk 1 crore, Tk said. Meanwhile, relatives of the rape victim expressed anger over the complainant in the rape case being named as an accused in the case over the madrasa looting and vandalism. Meanwhile also criticised the police for not yet arresting Abdul Bari. According to police, on October 22, police arrested the wife of madrasa headteacher Maulana Md Ab Bari in Savar over allegations that Bangladesh Police had abetted in the alleged rape of the 13-year-old student and threatened the victim into silence. Bari remains on the run. As news of the alleged rape spread, angry locals surrounded and vandalised the madrasa.",
+    "sentence_offset": [
+      0,
+      2109
+    ],
+    "trigger": "looting",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Savar",
+      "district": "Dhaka",
+      "division": "Dhaka",
+      "coordinates": [
+        23.85,
+        90.2667
+      ]
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Rape case plaintiff among 21 sued over madrasa looting, vandalism in Savar",
+    "article_published": "Sat, 24 Oct 26 23:00:45 +0600"
+  },
+  {
+    "event_id": "evt_45d12c16_003",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/rape-case-plaintiff-among-21-sued-over-madrasa-looting-vandalism-savar-4306511",
+    "source_sentence": "A case has been filed against 21 people, including the complainant in a case accusing a madrasa headteacher and owner in Savar of raping a 13-year-old student, over allegations of looting and vandalism at the institution. Md Umair, the eldest son of Abdul Bari, 50, the prime accused in the rape case, filed the case with Savar Model Police Station today, naming six people and accusing another 10 to 15 unidentified individuals, said Mohammad Mosharraf Hossain, inspector (investigation) of the police station. The case was filed over allegations of looting and vandalism at the madrasa, the inspector said. According to the case statement, the accused looted Tk 47 lakh in cash, 12 bhori of gold ornaments worth Tk 23 lakh, and other valuables worth Tk 7 lakh from the madrasa. Inspector Mosharraf said, “We had advised the madrasa authorities against naming the complainant in the rape case as an accused in the looting and vandalism case. However, the madrasa authorities intend to accuse However We will not arrest We without an investigation.” Md Umair, who described Md Umair as the madrasa’s assistant administrator, told The Daily Star that the rape case against The Daily Star father was false and fabricated. The Daily Star alleged that false accusations had been brought against He father to grab the madrasa’s land and property and loot He assets. Cash and gold ornaments worth Tk 77 lakh were looted from the madrasa, while the vandalism caused damage worth more than Tk 1 crore, Tk said. Meanwhile, relatives of the rape victim expressed anger over the complainant in the rape case being named as an accused in the case over the madrasa looting and vandalism. Meanwhile also criticised the police for not yet arresting Abdul Bari. According to police, on October 22, police arrested the wife of madrasa headteacher Maulana Md Ab Bari in Savar over allegations that Bangladesh Police had abetted in the alleged rape of the 13-year-old student and threatened the victim into silence. Bari remains on the run. As news of the alleged rape spread, angry locals surrounded and vandalised the madrasa.",
+    "sentence_offset": [
+      0,
+      2109
+    ],
+    "trigger": "looted",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Savar",
+      "district": "Dhaka",
+      "division": "Dhaka",
+      "coordinates": [
+        23.85,
+        90.2667
+      ]
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Rape case plaintiff among 21 sued over madrasa looting, vandalism in Savar",
+    "article_published": "Sat, 24 Oct 26 23:00:45 +0600"
+  },
+  {
+    "event_id": "evt_45d12c16_004",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/rape-case-plaintiff-among-21-sued-over-madrasa-looting-vandalism-savar-4306511",
+    "source_sentence": "A case has been filed against 21 people, including the complainant in a case accusing a madrasa headteacher and owner in Savar of raping a 13-year-old student, over allegations of looting and vandalism at the institution. Md Umair, the eldest son of Abdul Bari, 50, the prime accused in the rape case, filed the case with Savar Model Police Station today, naming six people and accusing another 10 to 15 unidentified individuals, said Mohammad Mosharraf Hossain, inspector (investigation) of the police station. The case was filed over allegations of looting and vandalism at the madrasa, the inspector said. According to the case statement, the accused looted Tk 47 lakh in cash, 12 bhori of gold ornaments worth Tk 23 lakh, and other valuables worth Tk 7 lakh from the madrasa. Inspector Mosharraf said, “We had advised the madrasa authorities against naming the complainant in the rape case as an accused in the looting and vandalism case. However, the madrasa authorities intend to accuse However We will not arrest We without an investigation.” Md Umair, who described Md Umair as the madrasa’s assistant administrator, told The Daily Star that the rape case against The Daily Star father was false and fabricated. The Daily Star alleged that false accusations had been brought against He father to grab the madrasa’s land and property and loot He assets. Cash and gold ornaments worth Tk 77 lakh were looted from the madrasa, while the vandalism caused damage worth more than Tk 1 crore, Tk said. Meanwhile, relatives of the rape victim expressed anger over the complainant in the rape case being named as an accused in the case over the madrasa looting and vandalism. Meanwhile also criticised the police for not yet arresting Abdul Bari. According to police, on October 22, police arrested the wife of madrasa headteacher Maulana Md Ab Bari in Savar over allegations that Bangladesh Police had abetted in the alleged rape of the 13-year-old student and threatened the victim into silence. Bari remains on the run. As news of the alleged rape spread, angry locals surrounded and vandalised the madrasa.",
+    "sentence_offset": [
+      0,
+      2109
+    ],
+    "trigger": "rape",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Savar",
+      "district": "Dhaka",
+      "division": "Dhaka",
+      "coordinates": [
+        23.85,
+        90.2667
+      ]
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Rape case plaintiff among 21 sued over madrasa looting, vandalism in Savar",
+    "article_published": "Sat, 24 Oct 26 23:00:45 +0600"
+  },
+  {
+    "event_id": "evt_45d12c16_005",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/rape-case-plaintiff-among-21-sued-over-madrasa-looting-vandalism-savar-4306511",
+    "source_sentence": "A case has been filed against 21 people, including the complainant in a case accusing a madrasa headteacher and owner in Savar of raping a 13-year-old student, over allegations of looting and vandalism at the institution. Md Umair, the eldest son of Abdul Bari, 50, the prime accused in the rape case, filed the case with Savar Model Police Station today, naming six people and accusing another 10 to 15 unidentified individuals, said Mohammad Mosharraf Hossain, inspector (investigation) of the police station. The case was filed over allegations of looting and vandalism at the madrasa, the inspector said. According to the case statement, the accused looted Tk 47 lakh in cash, 12 bhori of gold ornaments worth Tk 23 lakh, and other valuables worth Tk 7 lakh from the madrasa. Inspector Mosharraf said, “We had advised the madrasa authorities against naming the complainant in the rape case as an accused in the looting and vandalism case. However, the madrasa authorities intend to accuse However We will not arrest We without an investigation.” Md Umair, who described Md Umair as the madrasa’s assistant administrator, told The Daily Star that the rape case against The Daily Star father was false and fabricated. The Daily Star alleged that false accusations had been brought against He father to grab the madrasa’s land and property and loot He assets. Cash and gold ornaments worth Tk 77 lakh were looted from the madrasa, while the vandalism caused damage worth more than Tk 1 crore, Tk said. Meanwhile, relatives of the rape victim expressed anger over the complainant in the rape case being named as an accused in the case over the madrasa looting and vandalism. Meanwhile also criticised the police for not yet arresting Abdul Bari. According to police, on October 22, police arrested the wife of madrasa headteacher Maulana Md Ab Bari in Savar over allegations that Bangladesh Police had abetted in the alleged rape of the 13-year-old student and threatened the victim into silence. Bari remains on the run. As news of the alleged rape spread, angry locals surrounded and vandalised the madrasa.",
+    "sentence_offset": [
+      0,
+      2109
+    ],
+    "trigger": "looting",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Savar",
+      "district": "Dhaka",
+      "division": "Dhaka",
+      "coordinates": [
+        23.85,
+        90.2667
+      ]
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Rape case plaintiff among 21 sued over madrasa looting, vandalism in Savar",
+    "article_published": "Sat, 24 Oct 26 23:00:45 +0600"
+  },
+  {
+    "event_id": "evt_45d12c16_006",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/rape-case-plaintiff-among-21-sued-over-madrasa-looting-vandalism-savar-4306511",
+    "source_sentence": "A case has been filed against 21 people, including the complainant in a case accusing a madrasa headteacher and owner in Savar of raping a 13-year-old student, over allegations of looting and vandalism at the institution. Md Umair, the eldest son of Abdul Bari, 50, the prime accused in the rape case, filed the case with Savar Model Police Station today, naming six people and accusing another 10 to 15 unidentified individuals, said Mohammad Mosharraf Hossain, inspector (investigation) of the police station. The case was filed over allegations of looting and vandalism at the madrasa, the inspector said. According to the case statement, the accused looted Tk 47 lakh in cash, 12 bhori of gold ornaments worth Tk 23 lakh, and other valuables worth Tk 7 lakh from the madrasa. Inspector Mosharraf said, “We had advised the madrasa authorities against naming the complainant in the rape case as an accused in the looting and vandalism case. However, the madrasa authorities intend to accuse However We will not arrest We without an investigation.” Md Umair, who described Md Umair as the madrasa’s assistant administrator, told The Daily Star that the rape case against The Daily Star father was false and fabricated. The Daily Star alleged that false accusations had been brought against He father to grab the madrasa’s land and property and loot He assets. Cash and gold ornaments worth Tk 77 lakh were looted from the madrasa, while the vandalism caused damage worth more than Tk 1 crore, Tk said. Meanwhile, relatives of the rape victim expressed anger over the complainant in the rape case being named as an accused in the case over the madrasa looting and vandalism. Meanwhile also criticised the police for not yet arresting Abdul Bari. According to police, on October 22, police arrested the wife of madrasa headteacher Maulana Md Ab Bari in Savar over allegations that Bangladesh Police had abetted in the alleged rape of the 13-year-old student and threatened the victim into silence. Bari remains on the run. As news of the alleged rape spread, angry locals surrounded and vandalised the madrasa.",
+    "sentence_offset": [
+      0,
+      2109
+    ],
+    "trigger": "arrest",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Savar",
+      "district": "Dhaka",
+      "division": "Dhaka",
+      "coordinates": [
+        23.85,
+        90.2667
+      ]
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Rape case plaintiff among 21 sued over madrasa looting, vandalism in Savar",
+    "article_published": "Sat, 24 Oct 26 23:00:45 +0600"
+  },
+  {
+    "event_id": "evt_45d12c16_007",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/rape-case-plaintiff-among-21-sued-over-madrasa-looting-vandalism-savar-4306511",
+    "source_sentence": "A case has been filed against 21 people, including the complainant in a case accusing a madrasa headteacher and owner in Savar of raping a 13-year-old student, over allegations of looting and vandalism at the institution. Md Umair, the eldest son of Abdul Bari, 50, the prime accused in the rape case, filed the case with Savar Model Police Station today, naming six people and accusing another 10 to 15 unidentified individuals, said Mohammad Mosharraf Hossain, inspector (investigation) of the police station. The case was filed over allegations of looting and vandalism at the madrasa, the inspector said. According to the case statement, the accused looted Tk 47 lakh in cash, 12 bhori of gold ornaments worth Tk 23 lakh, and other valuables worth Tk 7 lakh from the madrasa. Inspector Mosharraf said, “We had advised the madrasa authorities against naming the complainant in the rape case as an accused in the looting and vandalism case. However, the madrasa authorities intend to accuse However We will not arrest We without an investigation.” Md Umair, who described Md Umair as the madrasa’s assistant administrator, told The Daily Star that the rape case against The Daily Star father was false and fabricated. The Daily Star alleged that false accusations had been brought against He father to grab the madrasa’s land and property and loot He assets. Cash and gold ornaments worth Tk 77 lakh were looted from the madrasa, while the vandalism caused damage worth more than Tk 1 crore, Tk said. Meanwhile, relatives of the rape victim expressed anger over the complainant in the rape case being named as an accused in the case over the madrasa looting and vandalism. Meanwhile also criticised the police for not yet arresting Abdul Bari. According to police, on October 22, police arrested the wife of madrasa headteacher Maulana Md Ab Bari in Savar over allegations that Bangladesh Police had abetted in the alleged rape of the 13-year-old student and threatened the victim into silence. Bari remains on the run. As news of the alleged rape spread, angry locals surrounded and vandalised the madrasa.",
+    "sentence_offset": [
+      0,
+      2109
+    ],
+    "trigger": "rape",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Savar",
+      "district": "Dhaka",
+      "division": "Dhaka",
+      "coordinates": [
+        23.85,
+        90.2667
+      ]
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Rape case plaintiff among 21 sued over madrasa looting, vandalism in Savar",
+    "article_published": "Sat, 24 Oct 26 23:00:45 +0600"
+  },
+  {
+    "event_id": "evt_45d12c16_008",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/rape-case-plaintiff-among-21-sued-over-madrasa-looting-vandalism-savar-4306511",
+    "source_sentence": "A case has been filed against 21 people, including the complainant in a case accusing a madrasa headteacher and owner in Savar of raping a 13-year-old student, over allegations of looting and vandalism at the institution. Md Umair, the eldest son of Abdul Bari, 50, the prime accused in the rape case, filed the case with Savar Model Police Station today, naming six people and accusing another 10 to 15 unidentified individuals, said Mohammad Mosharraf Hossain, inspector (investigation) of the police station. The case was filed over allegations of looting and vandalism at the madrasa, the inspector said. According to the case statement, the accused looted Tk 47 lakh in cash, 12 bhori of gold ornaments worth Tk 23 lakh, and other valuables worth Tk 7 lakh from the madrasa. Inspector Mosharraf said, “We had advised the madrasa authorities against naming the complainant in the rape case as an accused in the looting and vandalism case. However, the madrasa authorities intend to accuse However We will not arrest We without an investigation.” Md Umair, who described Md Umair as the madrasa’s assistant administrator, told The Daily Star that the rape case against The Daily Star father was false and fabricated. The Daily Star alleged that false accusations had been brought against He father to grab the madrasa’s land and property and loot He assets. Cash and gold ornaments worth Tk 77 lakh were looted from the madrasa, while the vandalism caused damage worth more than Tk 1 crore, Tk said. Meanwhile, relatives of the rape victim expressed anger over the complainant in the rape case being named as an accused in the case over the madrasa looting and vandalism. Meanwhile also criticised the police for not yet arresting Abdul Bari. According to police, on October 22, police arrested the wife of madrasa headteacher Maulana Md Ab Bari in Savar over allegations that Bangladesh Police had abetted in the alleged rape of the 13-year-old student and threatened the victim into silence. Bari remains on the run. As news of the alleged rape spread, angry locals surrounded and vandalised the madrasa.",
+    "sentence_offset": [
+      0,
+      2109
+    ],
+    "trigger": "loot",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Savar",
+      "district": "Dhaka",
+      "division": "Dhaka",
+      "coordinates": [
+        23.85,
+        90.2667
+      ]
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Rape case plaintiff among 21 sued over madrasa looting, vandalism in Savar",
+    "article_published": "Sat, 24 Oct 26 23:00:45 +0600"
+  },
+  {
+    "event_id": "evt_45d12c16_009",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/rape-case-plaintiff-among-21-sued-over-madrasa-looting-vandalism-savar-4306511",
+    "source_sentence": "A case has been filed against 21 people, including the complainant in a case accusing a madrasa headteacher and owner in Savar of raping a 13-year-old student, over allegations of looting and vandalism at the institution. Md Umair, the eldest son of Abdul Bari, 50, the prime accused in the rape case, filed the case with Savar Model Police Station today, naming six people and accusing another 10 to 15 unidentified individuals, said Mohammad Mosharraf Hossain, inspector (investigation) of the police station. The case was filed over allegations of looting and vandalism at the madrasa, the inspector said. According to the case statement, the accused looted Tk 47 lakh in cash, 12 bhori of gold ornaments worth Tk 23 lakh, and other valuables worth Tk 7 lakh from the madrasa. Inspector Mosharraf said, “We had advised the madrasa authorities against naming the complainant in the rape case as an accused in the looting and vandalism case. However, the madrasa authorities intend to accuse However We will not arrest We without an investigation.” Md Umair, who described Md Umair as the madrasa’s assistant administrator, told The Daily Star that the rape case against The Daily Star father was false and fabricated. The Daily Star alleged that false accusations had been brought against He father to grab the madrasa’s land and property and loot He assets. Cash and gold ornaments worth Tk 77 lakh were looted from the madrasa, while the vandalism caused damage worth more than Tk 1 crore, Tk said. Meanwhile, relatives of the rape victim expressed anger over the complainant in the rape case being named as an accused in the case over the madrasa looting and vandalism. Meanwhile also criticised the police for not yet arresting Abdul Bari. According to police, on October 22, police arrested the wife of madrasa headteacher Maulana Md Ab Bari in Savar over allegations that Bangladesh Police had abetted in the alleged rape of the 13-year-old student and threatened the victim into silence. Bari remains on the run. As news of the alleged rape spread, angry locals surrounded and vandalised the madrasa.",
+    "sentence_offset": [
+      0,
+      2109
+    ],
+    "trigger": "looted",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Savar",
+      "district": "Dhaka",
+      "division": "Dhaka",
+      "coordinates": [
+        23.85,
+        90.2667
+      ]
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Rape case plaintiff among 21 sued over madrasa looting, vandalism in Savar",
+    "article_published": "Sat, 24 Oct 26 23:00:45 +0600"
+  },
+  {
+    "event_id": "evt_45d12c16_010",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/rape-case-plaintiff-among-21-sued-over-madrasa-looting-vandalism-savar-4306511",
+    "source_sentence": "A case has been filed against 21 people, including the complainant in a case accusing a madrasa headteacher and owner in Savar of raping a 13-year-old student, over allegations of looting and vandalism at the institution. Md Umair, the eldest son of Abdul Bari, 50, the prime accused in the rape case, filed the case with Savar Model Police Station today, naming six people and accusing another 10 to 15 unidentified individuals, said Mohammad Mosharraf Hossain, inspector (investigation) of the police station. The case was filed over allegations of looting and vandalism at the madrasa, the inspector said. According to the case statement, the accused looted Tk 47 lakh in cash, 12 bhori of gold ornaments worth Tk 23 lakh, and other valuables worth Tk 7 lakh from the madrasa. Inspector Mosharraf said, “We had advised the madrasa authorities against naming the complainant in the rape case as an accused in the looting and vandalism case. However, the madrasa authorities intend to accuse However We will not arrest We without an investigation.” Md Umair, who described Md Umair as the madrasa’s assistant administrator, told The Daily Star that the rape case against The Daily Star father was false and fabricated. The Daily Star alleged that false accusations had been brought against He father to grab the madrasa’s land and property and loot He assets. Cash and gold ornaments worth Tk 77 lakh were looted from the madrasa, while the vandalism caused damage worth more than Tk 1 crore, Tk said. Meanwhile, relatives of the rape victim expressed anger over the complainant in the rape case being named as an accused in the case over the madrasa looting and vandalism. Meanwhile also criticised the police for not yet arresting Abdul Bari. According to police, on October 22, police arrested the wife of madrasa headteacher Maulana Md Ab Bari in Savar over allegations that Bangladesh Police had abetted in the alleged rape of the 13-year-old student and threatened the victim into silence. Bari remains on the run. As news of the alleged rape spread, angry locals surrounded and vandalised the madrasa.",
+    "sentence_offset": [
+      0,
+      2109
+    ],
+    "trigger": "rape",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Savar",
+      "district": "Dhaka",
+      "division": "Dhaka",
+      "coordinates": [
+        23.85,
+        90.2667
+      ]
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Rape case plaintiff among 21 sued over madrasa looting, vandalism in Savar",
+    "article_published": "Sat, 24 Oct 26 23:00:45 +0600"
+  },
+  {
+    "event_id": "evt_45d12c16_011",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/rape-case-plaintiff-among-21-sued-over-madrasa-looting-vandalism-savar-4306511",
+    "source_sentence": "A case has been filed against 21 people, including the complainant in a case accusing a madrasa headteacher and owner in Savar of raping a 13-year-old student, over allegations of looting and vandalism at the institution. Md Umair, the eldest son of Abdul Bari, 50, the prime accused in the rape case, filed the case with Savar Model Police Station today, naming six people and accusing another 10 to 15 unidentified individuals, said Mohammad Mosharraf Hossain, inspector (investigation) of the police station. The case was filed over allegations of looting and vandalism at the madrasa, the inspector said. According to the case statement, the accused looted Tk 47 lakh in cash, 12 bhori of gold ornaments worth Tk 23 lakh, and other valuables worth Tk 7 lakh from the madrasa. Inspector Mosharraf said, “We had advised the madrasa authorities against naming the complainant in the rape case as an accused in the looting and vandalism case. However, the madrasa authorities intend to accuse However We will not arrest We without an investigation.” Md Umair, who described Md Umair as the madrasa’s assistant administrator, told The Daily Star that the rape case against The Daily Star father was false and fabricated. The Daily Star alleged that false accusations had been brought against He father to grab the madrasa’s land and property and loot He assets. Cash and gold ornaments worth Tk 77 lakh were looted from the madrasa, while the vandalism caused damage worth more than Tk 1 crore, Tk said. Meanwhile, relatives of the rape victim expressed anger over the complainant in the rape case being named as an accused in the case over the madrasa looting and vandalism. Meanwhile also criticised the police for not yet arresting Abdul Bari. According to police, on October 22, police arrested the wife of madrasa headteacher Maulana Md Ab Bari in Savar over allegations that Bangladesh Police had abetted in the alleged rape of the 13-year-old student and threatened the victim into silence. Bari remains on the run. As news of the alleged rape spread, angry locals surrounded and vandalised the madrasa.",
+    "sentence_offset": [
+      0,
+      2109
+    ],
+    "trigger": "rape",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Savar",
+      "district": "Dhaka",
+      "division": "Dhaka",
+      "coordinates": [
+        23.85,
+        90.2667
+      ]
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Rape case plaintiff among 21 sued over madrasa looting, vandalism in Savar",
+    "article_published": "Sat, 24 Oct 26 23:00:45 +0600"
+  },
+  {
+    "event_id": "evt_45d12c16_012",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/rape-case-plaintiff-among-21-sued-over-madrasa-looting-vandalism-savar-4306511",
+    "source_sentence": "A case has been filed against 21 people, including the complainant in a case accusing a madrasa headteacher and owner in Savar of raping a 13-year-old student, over allegations of looting and vandalism at the institution. Md Umair, the eldest son of Abdul Bari, 50, the prime accused in the rape case, filed the case with Savar Model Police Station today, naming six people and accusing another 10 to 15 unidentified individuals, said Mohammad Mosharraf Hossain, inspector (investigation) of the police station. The case was filed over allegations of looting and vandalism at the madrasa, the inspector said. According to the case statement, the accused looted Tk 47 lakh in cash, 12 bhori of gold ornaments worth Tk 23 lakh, and other valuables worth Tk 7 lakh from the madrasa. Inspector Mosharraf said, “We had advised the madrasa authorities against naming the complainant in the rape case as an accused in the looting and vandalism case. However, the madrasa authorities intend to accuse However We will not arrest We without an investigation.” Md Umair, who described Md Umair as the madrasa’s assistant administrator, told The Daily Star that the rape case against The Daily Star father was false and fabricated. The Daily Star alleged that false accusations had been brought against He father to grab the madrasa’s land and property and loot He assets. Cash and gold ornaments worth Tk 77 lakh were looted from the madrasa, while the vandalism caused damage worth more than Tk 1 crore, Tk said. Meanwhile, relatives of the rape victim expressed anger over the complainant in the rape case being named as an accused in the case over the madrasa looting and vandalism. Meanwhile also criticised the police for not yet arresting Abdul Bari. According to police, on October 22, police arrested the wife of madrasa headteacher Maulana Md Ab Bari in Savar over allegations that Bangladesh Police had abetted in the alleged rape of the 13-year-old student and threatened the victim into silence. Bari remains on the run. As news of the alleged rape spread, angry locals surrounded and vandalised the madrasa.",
+    "sentence_offset": [
+      0,
+      2109
+    ],
+    "trigger": "looting",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Savar",
+      "district": "Dhaka",
+      "division": "Dhaka",
+      "coordinates": [
+        23.85,
+        90.2667
+      ]
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Rape case plaintiff among 21 sued over madrasa looting, vandalism in Savar",
+    "article_published": "Sat, 24 Oct 26 23:00:45 +0600"
+  },
+  {
+    "event_id": "evt_45d12c16_013",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/rape-case-plaintiff-among-21-sued-over-madrasa-looting-vandalism-savar-4306511",
+    "source_sentence": "A case has been filed against 21 people, including the complainant in a case accusing a madrasa headteacher and owner in Savar of raping a 13-year-old student, over allegations of looting and vandalism at the institution. Md Umair, the eldest son of Abdul Bari, 50, the prime accused in the rape case, filed the case with Savar Model Police Station today, naming six people and accusing another 10 to 15 unidentified individuals, said Mohammad Mosharraf Hossain, inspector (investigation) of the police station. The case was filed over allegations of looting and vandalism at the madrasa, the inspector said. According to the case statement, the accused looted Tk 47 lakh in cash, 12 bhori of gold ornaments worth Tk 23 lakh, and other valuables worth Tk 7 lakh from the madrasa. Inspector Mosharraf said, “We had advised the madrasa authorities against naming the complainant in the rape case as an accused in the looting and vandalism case. However, the madrasa authorities intend to accuse However We will not arrest We without an investigation.” Md Umair, who described Md Umair as the madrasa’s assistant administrator, told The Daily Star that the rape case against The Daily Star father was false and fabricated. The Daily Star alleged that false accusations had been brought against He father to grab the madrasa’s land and property and loot He assets. Cash and gold ornaments worth Tk 77 lakh were looted from the madrasa, while the vandalism caused damage worth more than Tk 1 crore, Tk said. Meanwhile, relatives of the rape victim expressed anger over the complainant in the rape case being named as an accused in the case over the madrasa looting and vandalism. Meanwhile also criticised the police for not yet arresting Abdul Bari. According to police, on October 22, police arrested the wife of madrasa headteacher Maulana Md Ab Bari in Savar over allegations that Bangladesh Police had abetted in the alleged rape of the 13-year-old student and threatened the victim into silence. Bari remains on the run. As news of the alleged rape spread, angry locals surrounded and vandalised the madrasa.",
+    "sentence_offset": [
+      0,
+      2109
+    ],
+    "trigger": "arresting",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Savar",
+      "district": "Dhaka",
+      "division": "Dhaka",
+      "coordinates": [
+        23.85,
+        90.2667
+      ]
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Rape case plaintiff among 21 sued over madrasa looting, vandalism in Savar",
+    "article_published": "Sat, 24 Oct 26 23:00:45 +0600"
+  },
+  {
+    "event_id": "evt_45d12c16_014",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/rape-case-plaintiff-among-21-sued-over-madrasa-looting-vandalism-savar-4306511",
+    "source_sentence": "A case has been filed against 21 people, including the complainant in a case accusing a madrasa headteacher and owner in Savar of raping a 13-year-old student, over allegations of looting and vandalism at the institution. Md Umair, the eldest son of Abdul Bari, 50, the prime accused in the rape case, filed the case with Savar Model Police Station today, naming six people and accusing another 10 to 15 unidentified individuals, said Mohammad Mosharraf Hossain, inspector (investigation) of the police station. The case was filed over allegations of looting and vandalism at the madrasa, the inspector said. According to the case statement, the accused looted Tk 47 lakh in cash, 12 bhori of gold ornaments worth Tk 23 lakh, and other valuables worth Tk 7 lakh from the madrasa. Inspector Mosharraf said, “We had advised the madrasa authorities against naming the complainant in the rape case as an accused in the looting and vandalism case. However, the madrasa authorities intend to accuse However We will not arrest We without an investigation.” Md Umair, who described Md Umair as the madrasa’s assistant administrator, told The Daily Star that the rape case against The Daily Star father was false and fabricated. The Daily Star alleged that false accusations had been brought against He father to grab the madrasa’s land and property and loot He assets. Cash and gold ornaments worth Tk 77 lakh were looted from the madrasa, while the vandalism caused damage worth more than Tk 1 crore, Tk said. Meanwhile, relatives of the rape victim expressed anger over the complainant in the rape case being named as an accused in the case over the madrasa looting and vandalism. Meanwhile also criticised the police for not yet arresting Abdul Bari. According to police, on October 22, police arrested the wife of madrasa headteacher Maulana Md Ab Bari in Savar over allegations that Bangladesh Police had abetted in the alleged rape of the 13-year-old student and threatened the victim into silence. Bari remains on the run. As news of the alleged rape spread, angry locals surrounded and vandalised the madrasa.",
+    "sentence_offset": [
+      0,
+      2109
+    ],
+    "trigger": "arrested",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Savar",
+      "district": "Dhaka",
+      "division": "Dhaka",
+      "coordinates": [
+        23.85,
+        90.2667
+      ]
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Rape case plaintiff among 21 sued over madrasa looting, vandalism in Savar",
+    "article_published": "Sat, 24 Oct 26 23:00:45 +0600"
+  },
+  {
+    "event_id": "evt_45d12c16_015",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/rape-case-plaintiff-among-21-sued-over-madrasa-looting-vandalism-savar-4306511",
+    "source_sentence": "A case has been filed against 21 people, including the complainant in a case accusing a madrasa headteacher and owner in Savar of raping a 13-year-old student, over allegations of looting and vandalism at the institution. Md Umair, the eldest son of Abdul Bari, 50, the prime accused in the rape case, filed the case with Savar Model Police Station today, naming six people and accusing another 10 to 15 unidentified individuals, said Mohammad Mosharraf Hossain, inspector (investigation) of the police station. The case was filed over allegations of looting and vandalism at the madrasa, the inspector said. According to the case statement, the accused looted Tk 47 lakh in cash, 12 bhori of gold ornaments worth Tk 23 lakh, and other valuables worth Tk 7 lakh from the madrasa. Inspector Mosharraf said, “We had advised the madrasa authorities against naming the complainant in the rape case as an accused in the looting and vandalism case. However, the madrasa authorities intend to accuse However We will not arrest We without an investigation.” Md Umair, who described Md Umair as the madrasa’s assistant administrator, told The Daily Star that the rape case against The Daily Star father was false and fabricated. The Daily Star alleged that false accusations had been brought against He father to grab the madrasa’s land and property and loot He assets. Cash and gold ornaments worth Tk 77 lakh were looted from the madrasa, while the vandalism caused damage worth more than Tk 1 crore, Tk said. Meanwhile, relatives of the rape victim expressed anger over the complainant in the rape case being named as an accused in the case over the madrasa looting and vandalism. Meanwhile also criticised the police for not yet arresting Abdul Bari. According to police, on October 22, police arrested the wife of madrasa headteacher Maulana Md Ab Bari in Savar over allegations that Bangladesh Police had abetted in the alleged rape of the 13-year-old student and threatened the victim into silence. Bari remains on the run. As news of the alleged rape spread, angry locals surrounded and vandalised the madrasa.",
+    "sentence_offset": [
+      0,
+      2109
+    ],
+    "trigger": "rape",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Savar",
+      "district": "Dhaka",
+      "division": "Dhaka",
+      "coordinates": [
+        23.85,
+        90.2667
+      ]
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Rape case plaintiff among 21 sued over madrasa looting, vandalism in Savar",
+    "article_published": "Sat, 24 Oct 26 23:00:45 +0600"
+  },
+  {
+    "event_id": "evt_45d12c16_016",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/rape-case-plaintiff-among-21-sued-over-madrasa-looting-vandalism-savar-4306511",
+    "source_sentence": "A case has been filed against 21 people, including the complainant in a case accusing a madrasa headteacher and owner in Savar of raping a 13-year-old student, over allegations of looting and vandalism at the institution. Md Umair, the eldest son of Abdul Bari, 50, the prime accused in the rape case, filed the case with Savar Model Police Station today, naming six people and accusing another 10 to 15 unidentified individuals, said Mohammad Mosharraf Hossain, inspector (investigation) of the police station. The case was filed over allegations of looting and vandalism at the madrasa, the inspector said. According to the case statement, the accused looted Tk 47 lakh in cash, 12 bhori of gold ornaments worth Tk 23 lakh, and other valuables worth Tk 7 lakh from the madrasa. Inspector Mosharraf said, “We had advised the madrasa authorities against naming the complainant in the rape case as an accused in the looting and vandalism case. However, the madrasa authorities intend to accuse However We will not arrest We without an investigation.” Md Umair, who described Md Umair as the madrasa’s assistant administrator, told The Daily Star that the rape case against The Daily Star father was false and fabricated. The Daily Star alleged that false accusations had been brought against He father to grab the madrasa’s land and property and loot He assets. Cash and gold ornaments worth Tk 77 lakh were looted from the madrasa, while the vandalism caused damage worth more than Tk 1 crore, Tk said. Meanwhile, relatives of the rape victim expressed anger over the complainant in the rape case being named as an accused in the case over the madrasa looting and vandalism. Meanwhile also criticised the police for not yet arresting Abdul Bari. According to police, on October 22, police arrested the wife of madrasa headteacher Maulana Md Ab Bari in Savar over allegations that Bangladesh Police had abetted in the alleged rape of the 13-year-old student and threatened the victim into silence. Bari remains on the run. As news of the alleged rape spread, angry locals surrounded and vandalised the madrasa.",
+    "sentence_offset": [
+      0,
+      2109
+    ],
+    "trigger": "threatened",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Savar",
+      "district": "Dhaka",
+      "division": "Dhaka",
+      "coordinates": [
+        23.85,
+        90.2667
+      ]
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Rape case plaintiff among 21 sued over madrasa looting, vandalism in Savar",
+    "article_published": "Sat, 24 Oct 26 23:00:45 +0600"
+  },
+  {
+    "event_id": "evt_45d12c16_017",
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/rape-case-plaintiff-among-21-sued-over-madrasa-looting-vandalism-savar-4306511",
+    "source_sentence": "A case has been filed against 21 people, including the complainant in a case accusing a madrasa headteacher and owner in Savar of raping a 13-year-old student, over allegations of looting and vandalism at the institution. Md Umair, the eldest son of Abdul Bari, 50, the prime accused in the rape case, filed the case with Savar Model Police Station today, naming six people and accusing another 10 to 15 unidentified individuals, said Mohammad Mosharraf Hossain, inspector (investigation) of the police station. The case was filed over allegations of looting and vandalism at the madrasa, the inspector said. According to the case statement, the accused looted Tk 47 lakh in cash, 12 bhori of gold ornaments worth Tk 23 lakh, and other valuables worth Tk 7 lakh from the madrasa. Inspector Mosharraf said, “We had advised the madrasa authorities against naming the complainant in the rape case as an accused in the looting and vandalism case. However, the madrasa authorities intend to accuse However We will not arrest We without an investigation.” Md Umair, who described Md Umair as the madrasa’s assistant administrator, told The Daily Star that the rape case against The Daily Star father was false and fabricated. The Daily Star alleged that false accusations had been brought against He father to grab the madrasa’s land and property and loot He assets. Cash and gold ornaments worth Tk 77 lakh were looted from the madrasa, while the vandalism caused damage worth more than Tk 1 crore, Tk said. Meanwhile, relatives of the rape victim expressed anger over the complainant in the rape case being named as an accused in the case over the madrasa looting and vandalism. Meanwhile also criticised the police for not yet arresting Abdul Bari. According to police, on October 22, police arrested the wife of madrasa headteacher Maulana Md Ab Bari in Savar over allegations that Bangladesh Police had abetted in the alleged rape of the 13-year-old student and threatened the victim into silence. Bari remains on the run. As news of the alleged rape spread, angry locals surrounded and vandalised the madrasa.",
+    "sentence_offset": [
+      0,
+      2109
+    ],
+    "trigger": "rape",
+    "cameo_code": "182",
+    "cameo_label": "Physically assault — killing, assault, torture",
+    "bd_code": "GV03",
+    "actors": [
+      {
+        "name": "Awami League",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "RAB",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      },
+      {
+        "name": "Bangladesh Police",
+        "role": "perpetrator",
+        "type": "UNKNOWN",
+        "canonical": null
+      }
+    ],
+    "location": {
+      "raw": "Savar",
+      "district": "Dhaka",
+      "division": "Dhaka",
+      "coordinates": [
+        23.85,
+        90.2667
+      ]
+    },
+    "date": {
+      "raw": "today",
+      "normalized": "2026-10-25"
+    },
+    "confidence": 0.85,
+    "extraction_method": "trigger:verb|cameo:rule",
+    "article_title": "Rape case plaintiff among 21 sued over madrasa looting, vandalism in Savar",
+    "article_published": "Sat, 24 Oct 26 23:00:45 +0600"
+  }
+]
