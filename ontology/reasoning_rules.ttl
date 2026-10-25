@@ -137,3 +137,57 @@ event:attributedToOrg
 # Rule R2: If 3+ events share the same location within 7 days,
 #           infer a ViolenceCluster for that location
 # (Implemented in neurosymbolic/anomaly.py)
+
+# ── 9. Ontological Escalation & Transition Matrix Axioms ─────────────────────
+# Description Logic formal axioms governing valid and illegal state transitions.
+
+cameo:CAMEOEventCategory a owl:Class .
+
+cameo:validTransitionTo a owl:ObjectProperty ;
+    rdfs:domain cameo:CAMEOEventCategory ;
+    rdfs:range  cameo:CAMEOEventCategory ;
+    rdfs:label  "valid transition to"@en .
+
+cameo:illegalTransitionTo a owl:ObjectProperty ;
+    rdfs:domain cameo:CAMEOEventCategory ;
+    rdfs:range  cameo:CAMEOEventCategory ;
+    owl:propertyDisjointWith cameo:validTransitionTo ;
+    rdfs:label  "illegal transition to"@en .
+
+cameo:permittedActorType a owl:DatatypeProperty ;
+    rdfs:domain cameo:CAMEOEventCategory ;
+    rdfs:range  xsd:string ;
+    rdfs:label  "permitted actor type"@en .
+
+# Category instances
+cameo:Category13 a cameo:CAMEOEventCategory ; rdfs:label "Threaten" ;
+    cameo:validTransitionTo cameo:Category13, cameo:Category14, cameo:Category15, cameo:Category16, cameo:Category17 ;
+    cameo:illegalTransitionTo cameo:Category18, cameo:Category19, cameo:Category20 .
+
+cameo:Category14 a cameo:CAMEOEventCategory ; rdfs:label "Protest" ;
+    cameo:validTransitionTo cameo:Category13, cameo:Category14, cameo:Category15, cameo:Category16, cameo:Category17 ;
+    cameo:illegalTransitionTo cameo:Category18, cameo:Category19, cameo:Category20 .
+
+cameo:Category15 a cameo:CAMEOEventCategory ; rdfs:label "Exhibit Force" ;
+    cameo:validTransitionTo cameo:Category14, cameo:Category15, cameo:Category16, cameo:Category17, cameo:Category18 ;
+    cameo:illegalTransitionTo cameo:Category19, cameo:Category20 .
+
+cameo:Category16 a cameo:CAMEOEventCategory ; rdfs:label "Reduce Relations" ;
+    cameo:validTransitionTo cameo:Category15, cameo:Category16, cameo:Category17, cameo:Category18 ;
+    cameo:illegalTransitionTo cameo:Category19, cameo:Category20 .
+
+cameo:Category17 a cameo:CAMEOEventCategory ; rdfs:label "Coerce" ;
+    cameo:validTransitionTo cameo:Category16, cameo:Category17, cameo:Category18, cameo:Category19 ;
+    cameo:illegalTransitionTo cameo:Category20 .
+
+cameo:Category18 a cameo:CAMEOEventCategory ; rdfs:label "Assault" ;
+    cameo:validTransitionTo cameo:Category17, cameo:Category18, cameo:Category19, cameo:Category20 ;
+    cameo:permittedActorType "SECURITY_FORCE", "ARMED_GROUP", "POLITICAL_PARTY" .
+
+cameo:Category19 a cameo:CAMEOEventCategory ; rdfs:label "Fight" ;
+    cameo:validTransitionTo cameo:Category18, cameo:Category19, cameo:Category20 ;
+    cameo:permittedActorType "SECURITY_FORCE", "ARMED_GROUP" .
+
+cameo:Category20 a cameo:CAMEOEventCategory ; rdfs:label "Mass Violence" ;
+    cameo:validTransitionTo cameo:Category19, cameo:Category20 ;
+    cameo:permittedActorType "SECURITY_FORCE", "ARMED_GROUP" .

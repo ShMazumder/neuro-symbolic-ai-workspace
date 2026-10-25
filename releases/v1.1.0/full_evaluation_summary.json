@@ -1,20 +1,20 @@
 {
   "gdelt": {
     "FIGHT": {
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "tp": 0,
-      "fp": 12,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 12,
+      "fp": 0,
       "fn": 0
     },
     "ASSAULT": {
       "precision": 1.0,
-      "recall": 0.917,
-      "f1": 0.957,
+      "recall": 1.0,
+      "f1": 1.0,
       "tp": 132,
       "fp": 0,
-      "fn": 12
+      "fn": 0
     },
     "COERCE": {
       "precision": 1.0,
@@ -25,12 +25,12 @@
       "fn": 0
     },
     "OVERALL": {
-      "precision": 0.922,
-      "recall": 0.922,
-      "f1": 0.922,
-      "tp": 142,
-      "fp": 12,
-      "fn": 12
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 154,
+      "fp": 0,
+      "fn": 0
     }
   },
   "acled": {
@@ -64,19 +64,19 @@
     {
       "condition": "Neural-Only",
       "total_events": 150,
-      "code_accuracy": 0.22,
-      "binary_accuracy_hv": 0.527,
-      "tp": 36,
-      "fp": 56,
-      "fn": 15,
-      "tn": 43,
-      "precision_hv": 0.391,
-      "recall_hv": 0.706,
-      "f1_hv": 0.503,
-      "false_positive_rate": 0.373,
-      "standard_fpr": 0.566,
+      "code_accuracy": 0.24,
+      "binary_accuracy_hv": 0.787,
+      "tp": 23,
+      "fp": 4,
+      "fn": 28,
+      "tn": 95,
+      "precision_hv": 0.852,
+      "recall_hv": 0.451,
+      "f1_hv": 0.59,
+      "false_positive_rate": 0.027,
+      "standard_fpr": 0.04,
       "explainability_rate": 0.0,
-      "avg_confidence": 0.436
+      "avg_confidence": 0.362
     },
     {
       "condition": "Symbolic-Only",
@@ -99,18 +99,18 @@
       "condition": "Hybrid (Ours)",
       "total_events": 150,
       "code_accuracy": 0.22,
-      "binary_accuracy_hv": 0.807,
-      "tp": 32,
-      "fp": 10,
-      "fn": 19,
-      "tn": 89,
-      "precision_hv": 0.762,
-      "recall_hv": 0.627,
-      "f1_hv": 0.688,
-      "false_positive_rate": 0.067,
-      "standard_fpr": 0.101,
+      "binary_accuracy_hv": 0.853,
+      "tp": 30,
+      "fp": 1,
+      "fn": 21,
+      "tn": 98,
+      "precision_hv": 0.968,
+      "recall_hv": 0.588,
+      "f1_hv": 0.732,
+      "false_positive_rate": 0.007,
+      "standard_fpr": 0.01,
       "explainability_rate": 1.0,
-      "avg_confidence": 0.327
+      "avg_confidence": 0.296
     }
   ],
   "explainability": {

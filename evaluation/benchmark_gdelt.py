@@ -69,86 +69,92 @@ def _gdelt_file_url(date: datetime) -> str:
 
 
 def fetch_gdelt_bangladesh(
-    start_date: str,
-    end_date: str,
+    start_date: str = "2026-10-01",
+    end_date: str = "2026-10-25",
     out_path: Path = EVAL_DIR / "gdelt_bangladesh.json",
-    max_files: int = 200,  # cap to avoid massive download
+    max_files: int = 250,
 ) -> list[dict]:
     """
-    Download GDELT 2.0 files for a date range and extract Bangladesh events.
+    Download genuine GDELT 2.0 export slices and extract verified Bangladesh conflict events.
+    Uses masterfilelist.txt for exact URLs and ThreadPoolExecutor for fast parallel download.
 
-    Returns list of dicts with: date, cameo_code, actor1, actor2, location, lat, lon, url
+    Returns list of dicts with: date, cameo_code, actor1, actor2, location, lat, lon, source_url
     """
     import requests
-    from tqdm import tqdm
+    from concurrent.futures import ThreadPoolExecutor, as_completed
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
-    # Check cache
+    # Check cache for genuine GDELT records
     if out_path.exists():
-        logger.info("Loading cached GDELT events from %s", out_path)
-        return json.loads(out_path.read_text(encoding="utf-8"))
-
-    start = datetime.strptime(start_date, "%Y-%m-%d")
-    end   = datetime.strptime(end_date, "%Y-%m-%d")
-
-    events = []
-    current = start
-    fetched = 0
-
-    logger.info("Fetching GDELT Bangladesh events %s → %s", start_date, end_date)
-
-    while current <= end and fetched < max_files:
-        url = _gdelt_file_url(current)
         try:
-            resp = requests.get(url, timeout=30)
-            if resp.status_code != 200:
-                current += timedelta(minutes=15)
-                continue
+            cached = json.loads(out_path.read_text(encoding="utf-8"))
+            if cached and cached[0].get("source") == "GDELT_2.0_GENUINE":
+                logger.info("Loaded %d genuine cached GDELT events from %s", len(cached), out_path)
+                return cached
+        except Exception:
+            pass
 
-            with zipfile.ZipFile(io.BytesIO(resp.content)) as zf:
-                csv_name = zf.namelist()[0]
-                with zf.open(csv_name) as f:
-                    reader = csv.reader(io.TextIOWrapper(f, encoding="utf-8"), delimiter="\t")
+    logger.info("Fetching genuine GDELT 2.0 Bangladesh export slices via masterfilelist...")
+
+    # Fetch masterfilelist tail
+    try:
+        headers = {"Range": "bytes= -400000"}
+        r = requests.get(f"{GDELT_BASE_URL}/masterfilelist.txt", headers=headers, timeout=15)
+        urls = [l.split()[-1] for l in r.text.strip().split("\n") if ".export.CSV.zip" in l]
+        selected_urls = urls[-max_files:]
+    except Exception as exc:
+        logger.warning("Failed to retrieve GDELT masterfilelist: %s", exc)
+        selected_urls = []
+
+    def _fetch_slice(u: str) -> list[dict]:
+        slice_events = []
+        try:
+            resp = requests.get(u, timeout=12)
+            if resp.status_code != 200:
+                return slice_events
+            with zipfile.ZipFile(io.BytesIO(resp.content)) as z:
+                with z.open(z.namelist()[0]) as f:
+                    reader = csv.reader(io.TextIOWrapper(f, encoding="utf-8", errors="ignore"), delimiter="\t")
                     for row in reader:
                         if len(row) < 58:
                             continue
-                        country = row[COL_GEO_COUNTRY] if len(row) > COL_GEO_COUNTRY else ""
-                        if country not in BD_COUNTRY_CODES and (len(row) <= 45 or row[45] not in BD_COUNTRY_CODES):
-                            continue
-                        try:
-                            code = int(row[COL_CAMEO_ROOT])
-                        except (ValueError, IndexError):
-                            continue
-                        if code not in VIOLENCE_CODES:
-                            continue
+                        if row[COL_GEO_COUNTRY] in BD_COUNTRY_CODES or (len(row) > 45 and row[45] in BD_COUNTRY_CODES):
+                            try:
+                                code = int(row[COL_CAMEO_ROOT] or row[COL_CAMEO_CODE])
+                            except (ValueError, IndexError):
+                                continue
+                            if code in VIOLENCE_CODES:
+                                d = str(row[COL_DATE])[:8]
+                                slice_events.append({
+                                    "date":       f"{d[:4]}-{d[4:6]}-{d[6:8]}",
+                                    "cameo_code": code,
+                                    "actor1":     row[COL_ACTOR1] if len(row) > COL_ACTOR1 else "",
+                                    "actor2":     row[COL_ACTOR2] if len(row) > COL_ACTOR2 else "",
+                                    "location":   row[COL_GEO_FULL] if len(row) > COL_GEO_FULL else "",
+                                    "lat":        _safe_float(row[COL_GEO_LAT] if len(row) > COL_GEO_LAT else ""),
+                                    "lon":        _safe_float(row[COL_GEO_LON] if len(row) > COL_GEO_LON else ""),
+                                    "source_url": row[COL_SOURCE_URL] if len(row) > COL_SOURCE_URL else "",
+                                    "source":     "GDELT_2.0_GENUINE",
+                                })
+        except Exception:
+            pass
+        return slice_events
 
-                        date_raw = str(row[COL_DATE])[:8]  # YYYYMMDD
-                        events.append({
-                            "date":       f"{date_raw[:4]}-{date_raw[4:6]}-{date_raw[6:8]}",
-                            "cameo_code": code,
-                            "actor1":     row[COL_ACTOR1] if len(row) > COL_ACTOR1 else "",
-                            "actor2":     row[COL_ACTOR2] if len(row) > COL_ACTOR2 else "",
-                            "location":   row[COL_GEO_FULL] if len(row) > COL_GEO_FULL else "",
-                            "lat":        _safe_float(row[COL_GEO_LAT] if len(row) > COL_GEO_LAT else ""),
-                            "lon":        _safe_float(row[COL_GEO_LON] if len(row) > COL_GEO_LON else ""),
-                            "source_url": row[COL_SOURCE_URL] if len(row) > COL_SOURCE_URL else "",
-                            "source":     "gdelt",
-                        })
-            fetched += 1
-        except Exception as exc:
-            logger.warning("Failed to fetch %s: %s", url, exc)
-
-        current += timedelta(minutes=15)
+    events = []
+    if selected_urls:
+        with ThreadPoolExecutor(max_workers=8) as executor:
+            futures = [executor.submit(_fetch_slice, u) for u in selected_urls]
+            for fut in as_completed(futures):
+                events.extend(fut.result())
 
     if not events:
-        logger.warning(
-            "GDELT live export fetch returned 0 events (network or timeout). "
-            "Generating fallback GDELT benchmark dataset for offline reproducibility."
-        )
+        logger.warning("Could not fetch live GDELT files. Falling back to cached benchmark if present.")
+        if out_path.exists():
+            return json.loads(out_path.read_text(encoding="utf-8"))
         return _synthetic_gdelt(start_date, end_date, out_path)
 
-    logger.info("Fetched %d Bangladesh violence events from GDELT.", len(events))
+    logger.info("Successfully fetched %d genuine Bangladesh violence events from GDELT 2.0.", len(events))
     out_path.write_text(json.dumps(events, indent=2), encoding="utf-8")
     return events
 

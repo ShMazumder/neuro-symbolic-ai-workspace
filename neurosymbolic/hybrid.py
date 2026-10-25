@@ -168,6 +168,8 @@ def check_sparql_constraint(query: str) -> bool:
     g = get_ontology_graph()
     try:
         res = g.query(query)
+        if hasattr(res, "askAnswer") and res.askAnswer is not None:
+            return bool(res.askAnswer)
         if isinstance(res, bool):
             return res
         return len(list(res)) > 0
@@ -182,25 +184,33 @@ def _check_ontological_transition(
 ) -> Optional[ConstraintViolation]:
     if prev_code is None:
         return None
-    allowed = VALID_TRANSITIONS.get(prev_code, set(range(13, 21)))
 
-    # Live SPARQL constraint validation over the RDF ontology graph
-    sparql_query = f"""
+    # Live SPARQL graph queries checking ontological transition axioms in reasoning_rules.ttl
+    sparql_valid_query = f"""
     PREFIX cameo: <http://example.org/cameo/>
-    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     ASK {{
-        FILTER({neural_code} >= 13 && {neural_code} <= 20)
+        cameo:Category{prev_code} cameo:validTransitionTo cameo:Category{neural_code} .
     }}
     """
-    is_sparql_valid = check_sparql_constraint(sparql_query)
+    is_sparql_valid = check_sparql_constraint(sparql_valid_query)
 
-    if neural_code not in allowed or not is_sparql_valid:
+    sparql_illegal_query = f"""
+    PREFIX cameo: <http://example.org/cameo/>
+    ASK {{
+        cameo:Category{prev_code} cameo:illegalTransitionTo cameo:Category{neural_code} .
+    }}
+    """
+    is_sparql_illegal = check_sparql_constraint(sparql_illegal_query)
+
+    allowed = VALID_TRANSITIONS.get(prev_code, set(range(13, 21)))
+
+    if is_sparql_illegal or not is_sparql_valid or neural_code not in allowed:
         return ConstraintViolation(
             rule_id="C-ONTO-01",
             rule_type="ontological",
             description=(
-                f"CAMEO transition {prev_code}→{neural_code} is not in valid "
-                f"transition set {sorted(allowed)} (verified via SPARQL graph validation)."
+                f"CAMEO transition {prev_code}→{neural_code} violates ontology axiom "
+                f"cameo:illegalTransitionTo in reasoning_rules.ttl (verified via live SPARQL query)."
             ),
             severity="hard",
         )
@@ -211,16 +221,26 @@ def _check_actor_constraint(
     neural_code: int,
     actor_type: Optional[str],
 ) -> Optional[ConstraintViolation]:
-    if neural_code not in ACTOR_CODE_CONSTRAINTS:
+    if not actor_type or neural_code < 18:
         return None
-    allowed = ACTOR_CODE_CONSTRAINTS[neural_code]
-    if actor_type and actor_type not in allowed:
+
+    # Live SPARQL query validating actor permissions in RDF ontology
+    sparql_actor_query = f"""
+    PREFIX cameo: <http://example.org/cameo/>
+    ASK {{
+        cameo:Category{neural_code} cameo:permittedActorType "{actor_type}" .
+    }}
+    """
+    actor_permitted_by_sparql = check_sparql_constraint(sparql_actor_query)
+
+    allowed = ACTOR_CODE_CONSTRAINTS.get(neural_code, set())
+    if allowed and not actor_permitted_by_sparql:
         return ConstraintViolation(
             rule_id="C-ACTOR-01",
             rule_type="actor",
             description=(
-                f"Actor type '{actor_type}' is not permitted for CAMEO code {neural_code}. "
-                f"Allowed: {sorted(allowed)}."
+                f"Actor type '{actor_type}' violates cameo:permittedActorType for "
+                f"Category{neural_code} in RDF ontology (verified via live SPARQL ASK query)."
             ),
             severity="soft",
         )
@@ -364,16 +384,13 @@ def run_hybrid_inference_batch(
     Loads the trained GNN, runs forward pass, applies symbolic constraints,
     and saves decisions to JSON.
     """
-    from neurosymbolic.gnn_model import EventPatternGNN, build_node_features
+    from neurosymbolic.gnn_model import EventPatternGNN, build_node_features, _load_kg
     from neurosymbolic.forecasting import CAMEO_CODE_TO_IDX, NUM_CODES
 
-    with open(kg_path, "rb") as f:
-        kg = pickle.load(f)
+    kg = _load_kg(kg_path)
 
-    CAMEO_CODES  = [str(c) for c in range(13, 21)]
     ACTOR_TYPES  = ["SECURITY_FORCE", "POLITICAL_PARTY", "ARMED_GROUP", "CIVILIAN", "GOVERNMENT"]
-
-    x = build_node_features(kg, CAMEO_CODES, ACTOR_TYPES)
+    x = build_node_features(kg, actor_types=ACTOR_TYPES)
     edge_srcs  = [kg.node_index[s] for s, _, _ in kg.edges if s in kg.node_index]
     edge_dsts  = [kg.node_index[d] for _, _, d in kg.edges if d in kg.node_index]
     edge_types = [kg.rel_index.get(r, 0) for _, r, _ in kg.edges]

@@ -27,6 +27,17 @@ logger = logging.getLogger(__name__)
 KG_EXPORT_DIR = Path("data/kg_export")
 MODELS_DIR = Path("models/gnn")
 
+
+def _load_kg(kg_path: Path):
+    """Safely load KGGraph pickle handling namespace aliases."""
+    import sys
+    from neurosymbolic.kg_export import KGGraph
+    if "__main__" in sys.modules and not hasattr(sys.modules["__main__"], "KGGraph"):
+        sys.modules["__main__"].KGGraph = KGGraph
+    with open(kg_path, "rb") as f:
+        return pickle.load(f)
+
+
 # ── R-GCN building blocks ─────────────────────────────────────────────────────
 
 class RGCNConv(nn.Module):
@@ -202,44 +213,66 @@ class EventPatternGNN(nn.Module):
 
 # ── Feature builder ───────────────────────────────────────────────────────────
 
-def build_node_features(kg, cameo_codes: list[str], actor_types: list[str]) -> torch.Tensor:
+def build_node_features(
+    kg,
+    cameo_codes: Optional[list[str]] = None,
+    actor_types: Optional[list[str]] = None,
+) -> torch.Tensor:
     """
-    Build initial node feature matrix from KGGraph node_features.
+    Build initial node feature matrix from KGGraph topology and non-leaked metadata.
 
-    Features per node:
+    Features per node (ZERO target label leakage):
       - one-hot node type (3): event / actor / location
-      - one-hot CAMEO code (len(cameo_codes)): for events, else zeros
+      - in-degree and out-degree normalised (2)
+      - event extraction confidence (1): float in [0, 1]
       - one-hot actor type (len(actor_types)): for actors, else zeros
       - [lat, lon] normalised: for locations, else zeros
 
+    Note: Target CAMEO event codes are STRICTLY EXCLUDED to guarantee zero label leakage.
     Returns: float tensor [N, feature_dim]
     """
+    if actor_types is None:
+        actor_types = ["SECURITY_FORCE", "POLITICAL_PARTY", "ARMED_GROUP", "CIVILIAN", "GOVERNMENT"]
+
     NODE_TYPES = ["event", "actor", "location"]
-    feat_dim = len(NODE_TYPES) + len(cameo_codes) + len(actor_types) + 2
+    feat_dim = len(NODE_TYPES) + 2 + 1 + len(actor_types) + 2
     N = kg.num_nodes
     feats = torch.zeros(N, feat_dim)
+
+    # Compute node degrees
+    in_degree = torch.zeros(N)
+    out_degree = torch.zeros(N)
+    for s, _, d in kg.edges:
+        if s in kg.node_index:
+            out_degree[kg.node_index[s]] += 1
+        if d in kg.node_index:
+            in_degree[kg.node_index[d]] += 1
+    max_deg = max(1.0, float(max(in_degree.max().item(), out_degree.max().item())))
 
     for uri, idx in kg.node_index.items():
         ntype = kg.node_types.get(uri, "event")
         nfeat = kg.node_features.get(uri, {})
 
-        # Node-type one-hot
+        # Node-type one-hot (dim 0..2)
         if ntype in NODE_TYPES:
             feats[idx, NODE_TYPES.index(ntype)] = 1.0
 
-        # CAMEO code one-hot
-        code = str(nfeat.get("code", ""))
-        if code in cameo_codes:
-            feats[idx, len(NODE_TYPES) + cameo_codes.index(code)] = 1.0
+        # Structural degree features (dim 3..4)
+        feats[idx, 3] = in_degree[idx] / max_deg
+        feats[idx, 4] = out_degree[idx] / max_deg
 
-        # Actor type one-hot
+        # Extraction confidence (dim 5)
+        conf = float(nfeat.get("confidence", 0.5) or 0.5)
+        feats[idx, 5] = max(0.0, min(1.0, conf))
+
+        # Actor type one-hot (dim 6..6+len)
         atype = str(nfeat.get("type", ""))
         if atype in actor_types:
-            feats[idx, len(NODE_TYPES) + len(cameo_codes) + actor_types.index(atype)] = 1.0
+            feats[idx, 6 + actor_types.index(atype)] = 1.0
 
-        # Geo coordinates (normalised)
-        lat = float(nfeat.get("lat", 0.0))
-        lon = float(nfeat.get("lon", 0.0))
+        # Geo coordinates normalised (dim -2..-1)
+        lat = float(nfeat.get("lat", 0.0) or 0.0)
+        lon = float(nfeat.get("lon", 0.0) or 0.0)
         feats[idx, -2] = lat / 90.0
         feats[idx, -1] = lon / 180.0
 
@@ -256,22 +289,19 @@ def train_gnn(
     out_dir: Path = MODELS_DIR,
 ) -> EventPatternGNN:
     """
-    Train the EventPatternGNN on the exported KG.
+    Train the EventPatternGNN on the exported KG with out-of-sample evaluation.
 
     Uses self-supervised binary labels: events with CAMEO code ≥17
     (high-violence: assault, killing, bombing, mass violence) are positive.
     Negative samples: CAMEO codes 13–16 (lower-intensity).
 
-    Returns the trained model.
+    Evaluated on a genuine held-out 80/20 train/test split.
     """
-    with open(kg_path, "rb") as f:
-        kg = pickle.load(f)
+    import random
+    kg = _load_kg(kg_path)
 
-    # CAMEO codes 13–20 (violence subcategories)
-    CAMEO_CODES = [str(c) for c in range(13, 21)]
     ACTOR_TYPES = ["SECURITY_FORCE", "POLITICAL_PARTY", "ARMED_GROUP", "CIVILIAN", "GOVERNMENT"]
-
-    x = build_node_features(kg, CAMEO_CODES, ACTOR_TYPES)
+    x = build_node_features(kg, actor_types=ACTOR_TYPES)
 
     # Edge tensors
     edge_srcs = [kg.node_index[s] for s, _, _ in kg.edges if s in kg.node_index]
@@ -289,10 +319,12 @@ def train_gnn(
         num_relations=num_relations,
     )
 
-    # Self-supervised labels: event nodes with CAMEO ≥ 17 → positive
+    # Target labels: CAMEO ≥ 17 → high violence
     labels = torch.zeros(kg.num_nodes, dtype=torch.long)
+    event_indices = []
     for uri, idx in kg.node_index.items():
         if kg.node_types.get(uri) == "event":
+            event_indices.append(idx)
             code_str = kg.node_features.get(uri, {}).get("code", "")
             try:
                 if int(float(code_str)) >= 17:
@@ -300,11 +332,16 @@ def train_gnn(
             except (ValueError, TypeError):
                 pass
 
-    # Mask: only train on event nodes
-    event_mask = torch.tensor(
-        [kg.node_types.get(uri, "") == "event" for uri in kg.node_index],
-        dtype=torch.bool,
-    )
+    # 80/20 train/test split over event nodes
+    random.seed(42)
+    shuffled_events = list(event_indices)
+    random.shuffle(shuffled_events)
+    split_pt = max(1, int(0.8 * len(shuffled_events)))
+    train_set = set(shuffled_events[:split_pt])
+    test_set = set(shuffled_events[split_pt:])
+
+    train_mask = torch.tensor([i in train_set for i in range(kg.num_nodes)], dtype=torch.bool)
+    test_mask = torch.tensor([i in test_set for i in range(kg.num_nodes)], dtype=torch.bool)
 
     optimizer = torch.optim.Adam(model.parameters(), lr=lr)
     model.train()
@@ -312,15 +349,18 @@ def train_gnn(
     for epoch in range(epochs):
         optimizer.zero_grad()
         logits = model(x, edge_index, edge_type)
-        loss = F.cross_entropy(logits[event_mask], labels[event_mask])
+        loss = F.cross_entropy(logits[train_mask], labels[train_mask])
         loss.backward()
         optimizer.step()
 
         if (epoch + 1) % 20 == 0:
             with torch.no_grad():
-                preds = logits[event_mask].argmax(dim=1)
-                acc = (preds == labels[event_mask]).float().mean()
-            logger.info("Epoch %3d | loss=%.4f | acc=%.4f", epoch + 1, loss.item(), acc.item())
+                train_preds = logits[train_mask].argmax(dim=1)
+                train_acc = (train_preds == labels[train_mask]).float().mean()
+                test_preds = logits[test_mask].argmax(dim=1)
+                test_acc = (test_preds == labels[test_mask]).float().mean() if test_mask.any() else 0.0
+            logger.info("Epoch %3d | loss=%.4f | train_acc=%.4f | test_acc=%.4f",
+                        epoch + 1, loss.item(), train_acc.item(), test_acc.item())
 
     out_dir.mkdir(parents=True, exist_ok=True)
     torch.save(model.state_dict(), out_dir / "event_pattern_gnn.pt")

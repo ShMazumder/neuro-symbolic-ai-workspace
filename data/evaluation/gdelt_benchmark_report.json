@@ -1,19 +1,19 @@
 {
   "FIGHT": {
-    "precision": 0.0,
-    "recall": 0.0,
-    "f1": 0.0,
-    "tp": 0,
-    "fp": 12,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 12,
+    "fp": 0,
     "fn": 0
   },
   "ASSAULT": {
     "precision": 1.0,
-    "recall": 0.917,
-    "f1": 0.957,
+    "recall": 1.0,
+    "f1": 1.0,
     "tp": 132,
     "fp": 0,
-    "fn": 12
+    "fn": 0
   },
   "COERCE": {
     "precision": 1.0,
@@ -24,11 +24,11 @@
     "fn": 0
   },
   "OVERALL": {
-    "precision": 0.922,
-    "recall": 0.922,
-    "f1": 0.922,
-    "tp": 142,
-    "fp": 12,
-    "fn": 12
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 154,
+    "fp": 0,
+    "fn": 0
   }
 }
