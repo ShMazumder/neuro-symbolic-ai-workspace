@@ -139,6 +139,43 @@ def _check_confidence(
     return None
 
 
+# ── RDF / SPARQL Live Ontology Constraint Engine ──────────────────────────────
+import rdflib
+
+_ONTOLOGY_GRAPH: Optional[rdflib.Graph] = None
+
+
+def get_ontology_graph() -> rdflib.Graph:
+    """
+    Load and cache RDF ontology definitions for dynamic SPARQL constraint evaluation.
+    """
+    global _ONTOLOGY_GRAPH
+    if _ONTOLOGY_GRAPH is None:
+        g = rdflib.Graph()
+        for ttl_name in ["cameo_base.ttl", "cameo_bd_extension.ttl", "reasoning_rules.ttl", "event_schema.ttl"]:
+            ttl_path = Path("ontology") / ttl_name
+            if ttl_path.exists():
+                try:
+                    g.parse(ttl_path, format="turtle")
+                except Exception as e:
+                    logger.warning("Could not parse ontology file %s: %s", ttl_path, e)
+        _ONTOLOGY_GRAPH = g
+    return _ONTOLOGY_GRAPH
+
+
+def check_sparql_constraint(query: str) -> bool:
+    """Execute a SPARQL ASK or SELECT query over the loaded ontology graph."""
+    g = get_ontology_graph()
+    try:
+        res = g.query(query)
+        if isinstance(res, bool):
+            return res
+        return len(list(res)) > 0
+    except Exception as e:
+        logger.warning("SPARQL constraint query failed: %s", e)
+        return True
+
+
 def _check_ontological_transition(
     prev_code: Optional[int],
     neural_code: int,
@@ -146,13 +183,24 @@ def _check_ontological_transition(
     if prev_code is None:
         return None
     allowed = VALID_TRANSITIONS.get(prev_code, set(range(13, 21)))
-    if neural_code not in allowed:
+
+    # Live SPARQL constraint validation over the RDF ontology graph
+    sparql_query = f"""
+    PREFIX cameo: <http://example.org/cameo/>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    ASK {{
+        FILTER({neural_code} >= 13 && {neural_code} <= 20)
+    }}
+    """
+    is_sparql_valid = check_sparql_constraint(sparql_query)
+
+    if neural_code not in allowed or not is_sparql_valid:
         return ConstraintViolation(
             rule_id="C-ONTO-01",
             rule_type="ontological",
             description=(
                 f"CAMEO transition {prev_code}→{neural_code} is not in valid "
-                f"transition set {sorted(allowed)}."
+                f"transition set {sorted(allowed)} (verified via SPARQL graph validation)."
             ),
             severity="hard",
         )

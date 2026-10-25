@@ -154,9 +154,23 @@ def _synthetic_test_set(n: int) -> list[dict]:
     ]
 
 
-# ── Neural Logits Estimator ───────────────────────────────────────────────────
+# ── Neural Dense Semantic Classifier ──────────────────────────────────────────
 
-# Distinct lexicons for CAMEO code semantic scoring
+_ST_MODEL = None
+_PROTO_EMBS = None
+
+_CAMEO_PROTOTYPES = {
+    13: "Political threats, strike ultimatum, verbal coercion, and intimidation warning.",
+    14: "Protest rallies, student demonstrations, human chains, sit-ins, and street processions.",
+    15: "Security patrol, paramilitary checkpoints, military deployment, and troop mobilization.",
+    16: "Imposing section 144 curfew, sanctions, summoning diplomats, and official protest notes.",
+    17: "Police raids, mass arrests, detaining opposition activists, and property confiscation.",
+    18: "Violent assault, physical attacks, stabbing, police beating, custodial torture, and killings.",
+    19: "Armed clashes, pitched street battles, gunfire, exchange of fire, tear gas, and rubber bullets.",
+    20: "Bomb explosions, improvised explosive devices, petrol bomb blasts, and arson destruction.",
+}
+
+# Distinct lexicons for CAMEO code semantic scoring (lexical fallback)
 _CAMEO_LEXICONS = {
     13: ["threaten", "warn", "warning", "ultimatum", "vowed", "demand", "deadline"],
     14: ["protest", "rally", "march", "demonstration", "sit-in", "human chain", "hunger strike", "slogan"],
@@ -169,10 +183,24 @@ _CAMEO_LEXICONS = {
 }
 
 
+def _get_sentence_transformer():
+    global _ST_MODEL, _PROTO_EMBS
+    if _ST_MODEL is None:
+        try:
+            from sentence_transformers import SentenceTransformer
+            _ST_MODEL = SentenceTransformer("all-MiniLM-L6-v2")
+            protos = [_CAMEO_PROTOTYPES[c] for c in range(13, 21)]
+            _PROTO_EMBS = torch.tensor(_ST_MODEL.encode(protos, normalize_embeddings=True))
+        except Exception as e:
+            logger.warning("Could not load SentenceTransformer (%s). Using lexical fallback.", e)
+            _ST_MODEL = False
+    return _ST_MODEL, _PROTO_EMBS
+
+
 def _compute_event_neural_logits(ev: dict, lstm_model) -> torch.Tensor:
     """
-    Computes genuine neural class logits over the 8 CAMEO categories (13 to 20).
-    Fuses temporal sequence forecasting from EscalationLSTM with text semantic scoring.
+    Computes genuine dense neural class logits over the 8 CAMEO categories (13 to 20).
+    Fuses temporal sequence forecasting from EscalationLSTM with Dense Transformer embeddings.
     Does NOT access gold_cameo_code or target labels (zero data leakage).
     """
     from neurosymbolic.forecasting import _codes_to_tensor, NUM_CODES
@@ -191,19 +219,25 @@ def _compute_event_neural_logits(ev: dict, lstm_model) -> torch.Tensor:
     with torch.no_grad():
         seq_logits = lstm_model(x).squeeze(0)  # shape: [8]
 
-    # 2. Semantic text scoring logits
-    sentence = ev.get("source_sentence", "").lower()
-    text_scores = torch.zeros(NUM_CODES)
-    for c_idx, code in enumerate(range(13, 21)):
-        keywords = _CAMEO_LEXICONS.get(code, [])
-        matches = sum(1 for kw in keywords if kw in sentence)
-        text_scores[c_idx] = float(matches) * 1.5
+    # 2. Dense Semantic Text Scoring Logits via SentenceTransformer
+    sentence = ev.get("source_sentence", "")
+    st_model, proto_embs = _get_sentence_transformer()
 
-    # If no keywords matched, soften distribution
-    if text_scores.sum() == 0:
-        text_scores = torch.ones(NUM_CODES) * 0.1
-
-    text_logits = torch.log_softmax(text_scores, dim=-1)
+    if st_model and proto_embs is not None and sentence.strip():
+        with torch.no_grad():
+            sent_emb = torch.tensor(st_model.encode(sentence, normalize_embeddings=True))
+            sims = torch.matmul(proto_embs, sent_emb)  # shape: [8]
+            text_logits = torch.log_softmax(sims / 0.15, dim=-1)
+    else:
+        # Robust fallback
+        text_scores = torch.zeros(NUM_CODES)
+        for c_idx, code in enumerate(range(13, 21)):
+            keywords = _CAMEO_LEXICONS.get(code, [])
+            matches = sum(1 for kw in keywords if kw in sentence.lower())
+            text_scores[c_idx] = float(matches) * 1.5
+        if text_scores.sum() == 0:
+            text_scores = torch.ones(NUM_CODES) * 0.1
+        text_logits = torch.log_softmax(text_scores, dim=-1)
 
     # 3. Fused representation
     fused_logits = 0.45 * seq_logits + 0.55 * text_logits
@@ -424,9 +458,11 @@ def run_ablation(
     ]
 
     results = []
+    all_condition_preds = {}
     for name, runner in conditions:
         logger.info("Running condition: %s", name)
         preds  = runner(test_events)
+        all_condition_preds[name] = preds
         result = _compute_result(name, test_events, preds)
         results.append(result)
         logger.info(
@@ -435,17 +471,44 @@ def run_ablation(
             result.recall_hv, result.f1_hv, result.explainability_rate,
         )
 
+    # Statistical significance testing (McNemar's test on discordant pairs)
+    neural_preds = all_condition_preds["Neural-Only"]
+    hybrid_preds = all_condition_preds["Hybrid (Ours)"]
+    b = sum(
+        1 for ev, np, hp in zip(test_events, neural_preds, hybrid_preds)
+        if ((_to_cameo_root(hp["predicted_code"]) >= 18) == (_to_cameo_root(ev.get("gold_cameo_code", 0)) >= 18))
+        and not ((_to_cameo_root(np["predicted_code"]) >= 18) == (_to_cameo_root(ev.get("gold_cameo_code", 0)) >= 18))
+    )
+    c = sum(
+        1 for ev, np, hp in zip(test_events, neural_preds, hybrid_preds)
+        if not ((_to_cameo_root(hp["predicted_code"]) >= 18) == (_to_cameo_root(ev.get("gold_cameo_code", 0)) >= 18))
+        and ((_to_cameo_root(np["predicted_code"]) >= 18) == (_to_cameo_root(ev.get("gold_cameo_code", 0)) >= 18))
+    )
+    from scipy.stats import binomtest
+    p_val_mcnemar = float(binomtest(b, b + c, p=0.5).pvalue) if (b + c) > 0 else 1.0
+
+    stat_report = {
+        "mcnemar_b": b,
+        "mcnemar_c": c,
+        "p_value": round(p_val_mcnemar, 4),
+        "significant_p05": p_val_mcnemar < 0.05,
+    }
+
     out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_dict = {
+        "conditions": [r.to_dict() for r in results],
+        "statistical_significance": stat_report,
+    }
     out_path.write_text(
-        json.dumps([r.to_dict() for r in results], indent=2),
+        json.dumps(out_dict, indent=2),
         encoding="utf-8",
     )
 
-    _print_table(results)
+    _print_table(results, stat_report)
     return results
 
 
-def _print_table(results: list[AblationResult]) -> None:
+def _print_table(results: list[AblationResult], stat_report: Optional[dict] = None) -> None:
     print("\n=== Ablation Study Results ===")
     print(f"{'Condition':<20} {'Acc':>6} {'P@HV':>6} {'R@HV':>6} {'F1@HV':>6} {'FPR':>6} {'Expl':>6}")
     print("-" * 65)
@@ -458,6 +521,8 @@ def _print_table(results: list[AblationResult]) -> None:
     print()
     best = max(results, key=lambda r: r.f1_hv)
     print(f"Best F1@HighViolence: {best.condition}  ({best.f1_hv:.3f})")
+    if stat_report:
+        print(f"Statistical Significance (Hybrid vs Neural McNemar): p={stat_report.get('p_value')} (Significant at p<0.05: {stat_report.get('significant_p05')})")
 
 
 if __name__ == "__main__":
