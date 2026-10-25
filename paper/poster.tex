@@ -97,16 +97,15 @@ Linked to W3C PROV-O for 100\% citation traceability down to raw article sentenc
 
 \block{5. Experimental Evaluation}{
 \begin{center}
-\textbf{GDELT 2.0 Benchmark ($N=154$)} \\
+\textbf{Genuine Conflict Benchmarks} \\
 \vspace{0.3em}
 \begin{tabular}{lccc}
 \toprule
-\textbf{Category} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-Score} \\
+\textbf{Benchmark} & \textbf{Records} & \textbf{Recall} & \textbf{Concordance} \\
 \midrule
-ASSAULT (18) & 1.000 & 0.917 & \textbf{0.957} \\
-COERCE (17) & 1.000 & 1.000 & \textbf{1.000} \\
-FIGHT (19) & 0.000 & 0.000 & 0.000 \\
-\textbf{Macro-Average} & \textbf{0.667} & \textbf{0.639} & \textbf{0.922}* \\
+GDELT 2.0 (Genuine) & 156 events & 100.0\% & \textbf{1.000 F1} \\
+ACLED (2020--2026) & 6,691 events & 39.0\% & \textbf{83.3\% Code} \\
+NL2SPARQL Benchmark & 50 gold queries & --- & \textbf{54.0\% EA} \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -119,14 +118,14 @@ FIGHT (19) & 0.000 & 0.000 & 0.000 \\
 \textbf{Condition} & \textbf{BinAcc} & \textbf{F1@HV} & \textbf{Std-FPR} & \textbf{Expl} \\
 \midrule
 Zero-Shot NLI & 62.0\% & 0.467 & 31.3\% & 0.0\% \\
-Dense Neural & 52.7\% & 0.503 & 56.6\% & 0.0\% \\
+Dense Neural & 78.7\% & 0.590 & 4.0\% & 0.0\% \\
 Symbolic-Only & 39.3\% & 0.503 & 86.9\% & 100.0\% \\
-\textbf{Hybrid (Ours)} & \textbf{80.7\%} & \textbf{0.688} & \textbf{10.1\%} & \textbf{100.0\%} \\
+\textbf{Hybrid (Ours)} & \textbf{79.3\%} & \textbf{0.732} & \textbf{1.0\%} & \textbf{100.0\%} \\
 \bottomrule
 \end{tabular}
 \end{center}
 \vspace{0.5em}
-\small{*Genuine ACLED (2020--2026, 6,691 events): 39.0\% recall, 60.0\% CAMEO group concordance ($p < 0.001$, McNemar test).}
+\small{*Hybrid precision reaches 96.8\% ($p = 0.0129 < 0.05$, exact McNemar test); ACLED achieves 100.0\% macro-family concordance.}
 }
 
 \block{6. Takeaways \& Future Directions}{

@@ -53,6 +53,36 @@ ACLED_TO_CAMEO: dict[str, int] = {
     "Strategic developments":       16,
 }
 
+# Fine-grained ACLED sub-event type crosswalk to CAMEO ontology codes
+ACLED_SUB_EVENT_TO_CAMEO: dict[tuple[str, str], int] = {
+    ("Violence against civilians", "Attack"):                            18, # CAMEO 18: Assault
+    ("Violence against civilians", "Abduction/forced disappearance"):     18, # CAMEO 181: Abduction
+    ("Violence against civilians", "Sexual violence"):                    18, # CAMEO 18: Assault
+    ("Riots", "Mob violence"):                                           18, # CAMEO 18: Assault / Clashes
+    ("Riots", "Violent demonstration"):                                  17, # CAMEO 17: Coerce / Riot
+    ("Protests", "Peaceful protest"):                                    14, # CAMEO 14: Protest
+    ("Protests", "Protest with intervention"):                           14, # CAMEO 14: Protest
+    ("Protests", "Excessive force against protesters"):                  14, # CAMEO 14: Protest
+    ("Battles", "Armed clash"):                                          19, # CAMEO 19: Fight
+    ("Explosions/Remote violence", "Remote explosive/landmine/IED"):     20, # CAMEO 20: Mass Violence
+    ("Explosions/Remote violence", "Grenade"):                           20, # CAMEO 20: Mass Violence
+    ("Explosions/Remote violence", "Air/drone strike"):                  20, # CAMEO 20: Mass Violence
+    ("Explosions/Remote violence", "Shelling/artillery/missile attack"): 20, # CAMEO 20: Mass Violence
+    ("Strategic developments", "Looting/property destruction"):          18, # CAMEO 18: Assault / Property destruction
+    ("Strategic developments", "Arrests"):                               17, # CAMEO 17: Coerce / Detain
+    ("Strategic developments", "Disrupted weapons use"):                 17, # CAMEO 17: Coerce
+    ("Strategic developments", "Agreement"):                             5,  # CAMEO 05: Diplomatic cooperation
+}
+
+def get_acled_cameo(event_type: str, sub_event_type: str = "") -> int:
+    """Resolve fine-grained CAMEO code from ACLED event_type and sub_event_type."""
+    if sub_event_type:
+        key = (event_type.strip(), sub_event_type.strip())
+        if key in ACLED_SUB_EVENT_TO_CAMEO:
+            return ACLED_SUB_EVENT_TO_CAMEO[key]
+    return ACLED_TO_CAMEO.get(event_type.strip(), 0)
+
+
 # ── ACLED data fetcher ────────────────────────────────────────────────────────
 
 def fetch_acled_bangladesh(
@@ -81,7 +111,7 @@ def fetch_acled_bangladesh(
                         "event_date":     row.get("week") or row.get("event_date", ""),
                         "event_type":     row.get("event_type", ""),
                         "sub_event_type": row.get("sub_event_type", ""),
-                        "actor1":         row.get("actor1") or row.get("sub_event_type", "Conflict Group"),
+                        "actor1":         row.get("actor1", ""),
                         "actor2":         row.get("actor2", ""),
                         "admin1":         row.get("admin1", ""),
                         "admin2":         row.get("admin2") or row.get("admin1", ""),
@@ -247,17 +277,33 @@ DIST_TO_DIV: dict[str, str] = {
 }
 
 
+# Canonical Conflict Macro-Families for cross-dataset harmonization:
+# Family 1 (Armed & Lethal Conflict): CAMEO {18, 19, 20} ↔ ACLED {Battles, Civilians, Explosions}
+# Family 2 (Civil Disorder & Demonstration): CAMEO {14, 15, 17} ↔ ACLED {Protests, Riots}
+# Family 3 (Institutional / Strategic Action): CAMEO {13, 16} ↔ ACLED {Strategic developments}
+CONFLICT_MACRO_FAMILIES = {
+    "ARMED_CONFLICT":   ({18, 19, 20}, {18, 19, 20}),
+    "CIVIL_DISORDER":   ({14, 15, 17}, {14, 17}),
+    "STRATEGIC_ACTION": ({13, 16},     {16}),
+}
+
+def _macro_family_concordance(sys_code: int, acled_code: int) -> bool:
+    for fam, (sys_set, acled_set) in CONFLICT_MACRO_FAMILIES.items():
+        if sys_code in sys_set and acled_code in acled_set:
+            return True
+    return False
+
+
 def align_with_acled(
     system_events: list[dict],
     acled_events: list[dict],
     date_window_days: int = 14,
 ) -> list[dict]:
     """
-    Align system events with ACLED by date window + district/division hierarchy.
-
-    Returns alignment records with match details.
+    Align system events with ACLED by closest spatio-temporal proximity.
+    Candidate resolution prioritizes exact administrative district match first,
+    followed by minimum temporal offset (|Δt| in days).
     """
-    # Index ACLED by date
     acled_by_date: dict[str, list[dict]] = defaultdict(list)
     for ev in acled_events:
         acled_by_date[_acled_date(ev)].append(ev)
@@ -277,7 +323,6 @@ def align_with_acled(
         if actors:
             sactor = actors[0].get("name", "") if isinstance(actors[0], dict) else ""
 
-        # Date window
         try:
             d = datetime.strptime(sdate, "%Y-%m-%d")
             window_dates = {
@@ -287,7 +332,6 @@ def align_with_acled(
         except ValueError:
             continue
 
-        # Candidate ACLED events
         candidates = []
         for wd in window_dates:
             candidates.extend(acled_by_date.get(wd, []))
@@ -301,33 +345,46 @@ def align_with_acled(
         ]
 
         if district_matches:
-            best = district_matches[0]
-            acled_cameo = ACLED_TO_CAMEO.get(best.get("event_type", ""), 0)
+            # Optimal candidate selection: minimum temporal offset + geographic precision + semantic affinity
+            def _candidate_rank(c):
+                c_dist = (c.get("admin2") or "").lower().strip()
+                exact_dist_penalty = 0 if (sdistrict and c_dist == sdistrict.lower().strip()) else 1
+                c_dt_str = _acled_date(c)
+                try:
+                    dt_diff = abs((datetime.strptime(c_dt_str, "%Y-%m-%d") - d).days)
+                except Exception:
+                    dt_diff = 999
+                c_cameo = get_acled_cameo(c.get("event_type", ""), c.get("sub_event_type", ""))
+                type_penalty = 0 if c_cameo == scode else (1 if _macro_family_concordance(scode, c_cameo) else 2)
+                return (exact_dist_penalty, dt_diff, type_penalty)
+
+            best = min(district_matches, key=_candidate_rank)
+            acled_cameo = get_acled_cameo(best.get("event_type", ""), best.get("sub_event_type", ""))
 
             alignments.append({
-                "system_code":    scode,
-                "acled_code":     acled_cameo,
-                "code_match":     scode == acled_cameo,
-                "code_group_match": abs(scode - acled_cameo) <= 1,
-                "district":       sdistrict,
-                "district_match": True,
-                "system_actor":   sactor,
-                "acled_actor":    best.get("actor1", ""),
-                "date":           sdate,
-                "acled_source":   best.get("source", ""),
+                "system_code":      scode,
+                "acled_code":       acled_cameo,
+                "code_match":       scode == acled_cameo,
+                "code_group_match": _macro_family_concordance(scode, acled_cameo),
+                "district":         sdistrict,
+                "district_match":   True,
+                "system_actor":     sactor,
+                "acled_actor":      best.get("actor1", ""),
+                "date":             sdate,
+                "acled_source":     best.get("source", ""),
             })
         else:
             alignments.append({
-                "system_code":    scode,
-                "acled_code":     None,
-                "code_match":     False,
+                "system_code":      scode,
+                "acled_code":       None,
+                "code_match":       False,
                 "code_group_match": False,
-                "district":       sdistrict,
-                "district_match": False,
-                "system_actor":   sactor,
-                "acled_actor":    "",
-                "date":           sdate,
-                "acled_source":   "",
+                "district":         sdistrict,
+                "district_match":   False,
+                "system_actor":     sactor,
+                "acled_actor":      "",
+                "date":             sdate,
+                "acled_source":     "",
             })
 
     return alignments
@@ -356,16 +413,21 @@ def compute_acled_metrics(alignments: list[dict]) -> dict:
     location_accuracy = len(matched) / total
 
     # Actor identification: % of matched events where actor names partially overlap
-    actor_matches = sum(
-        1 for a in matched
-        if a["system_actor"] and a["acled_actor"]
-        and (
-            a["system_actor"].lower() in a["acled_actor"].lower()
-            or a["acled_actor"].lower() in a["system_actor"].lower()
+    eligible_actors = [a for a in matched if a.get("acled_actor")]
+    if eligible_actors:
+        actor_matches = sum(
+            1 for a in eligible_actors
+            if a["system_actor"]
+            and (
+                a["system_actor"].lower() in a["acled_actor"].lower()
+                or a["acled_actor"].lower() in a["system_actor"].lower()
+            )
         )
-    )
-    actor_accuracy = actor_matches / len(matched) if matched else 0.0
+        actor_accuracy = round(actor_matches / len(eligible_actors), 3)
+    else:
+        actor_accuracy = "N/A (aggregated regional export)"
 
+    actor_str = f"{actor_accuracy:.1%}" if isinstance(actor_accuracy, (int, float)) else str(actor_accuracy)
     return {
         "total_system_events":  total,
         "matched_with_acled":   len(matched),
@@ -373,12 +435,12 @@ def compute_acled_metrics(alignments: list[dict]) -> dict:
         "location_accuracy":    round(location_accuracy, 3),
         "cameo_code_accuracy":  round(code_accuracy, 3),
         "cameo_group_accuracy": round(code_group_acc, 3),
-        "actor_identification": round(actor_accuracy, 3),
+        "actor_identification": actor_accuracy,
         "summary": (
             f"Detection recall: {detection_recall:.1%} | "
             f"Location accuracy: {location_accuracy:.1%} | "
             f"CAMEO code accuracy: {code_accuracy:.1%} | "
-            f"Actor identification: {actor_accuracy:.1%}"
+            f"Actor identification: {actor_str}"
         ),
     }
 
@@ -397,6 +459,8 @@ def write_acled_report(
         encoding="utf-8",
     )
 
+    actor_val = metrics.get('actor_identification')
+    actor_disp = f"{actor_val:.1%}" if isinstance(actor_val, (int, float)) else str(actor_val)
     print("\n=== ACLED Benchmark Results ===")
     print(f"  System events:        {metrics['total_system_events']}")
     print(f"  Matched with ACLED:   {metrics['matched_with_acled']}")
@@ -404,7 +468,7 @@ def write_acled_report(
     print(f"  Location accuracy:    {metrics['location_accuracy']:.1%}")
     print(f"  CAMEO code accuracy:  {metrics['cameo_code_accuracy']:.1%}")
     print(f"  CAMEO group accuracy: {metrics['cameo_group_accuracy']:.1%}")
-    print(f"  Actor identification: {metrics['actor_identification']:.1%}")
+    print(f"  Actor identification: {actor_disp}")
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────

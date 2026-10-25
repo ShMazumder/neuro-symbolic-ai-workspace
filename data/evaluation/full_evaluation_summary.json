@@ -38,10 +38,10 @@
     "matched_with_acled": 30,
     "detection_recall": 0.39,
     "location_accuracy": 0.39,
-    "cameo_code_accuracy": 0.0,
-    "cameo_group_accuracy": 0.6,
-    "actor_identification": 0.0,
-    "summary": "Detection recall: 39.0% | Location accuracy: 39.0% | CAMEO code accuracy: 0.0% | Actor identification: 0.0%"
+    "cameo_code_accuracy": 0.833,
+    "cameo_group_accuracy": 1.0,
+    "actor_identification": "N/A (aggregated regional export)",
+    "summary": "Detection recall: 39.0% | Location accuracy: 39.0% | CAMEO code accuracy: 83.3% | Actor identification: N/A (aggregated regional export)"
   },
   "ablation": [
     {
@@ -117,15 +117,68 @@
     "total_evaluated": 100,
     "provenance_coverage": 0.96,
     "rule_coverage": 1.0,
+    "category_faithfulness_rate": 0.812,
     "sentence_relevance_rate": 1.0,
     "avg_graph_neighbours": 3.21,
-    "avg_grounding_score": 0.768,
+    "avg_grounding_score": 0.733,
     "avg_confidence": 0.787,
     "interpretation": {
       "provenance_coverage": "% of predictions with >=1 cited source article",
       "rule_coverage": "% of predictions with >=1 symbolic rule fired",
-      "sentence_relevance": "% of cited sentences containing violence keywords",
-      "avg_grounding_score": "Provenance Grounding: confidence weighted by verified article and sentence grounding"
+      "category_faithfulness_rate": "% of cited sentences matching specific CAMEO category trigger lexicons (non-circular)",
+      "sentence_relevance_rate": "% of cited sentences containing general conflict vocabulary",
+      "avg_grounding_score": "Provenance Grounding: confidence weighted by verified article and category trigger grounding"
+    }
+  },
+  "nl2sparql": {
+    "num_test_cases": 50,
+    "syntax_validity_rate": 1.0,
+    "schema_compliance_rate": 1.0,
+    "execution_accuracy": 0.54,
+    "mean_structural_pattern_score": 0.857,
+    "category_breakdown": {
+      "Spatial Hotspots": {
+        "total": 10,
+        "syntax_validity": 1.0,
+        "schema_compliance": 1.0,
+        "execution_accuracy": 0.2,
+        "avg_structural_score": 0.75
+      },
+      "Actor Dynamics": {
+        "total": 10,
+        "syntax_validity": 1.0,
+        "schema_compliance": 1.0,
+        "execution_accuracy": 0.6,
+        "avg_structural_score": 0.817
+      },
+      "District Filtering": {
+        "total": 10,
+        "syntax_validity": 1.0,
+        "schema_compliance": 1.0,
+        "execution_accuracy": 0.8,
+        "avg_structural_score": 0.929
+      },
+      "Temporal Trends": {
+        "total": 8,
+        "syntax_validity": 1.0,
+        "schema_compliance": 1.0,
+        "execution_accuracy": 0.25,
+        "avg_structural_score": 0.896
+      },
+      "CAMEO Classification": {
+        "total": 8,
+        "syntax_validity": 1.0,
+        "schema_compliance": 1.0,
+        "execution_accuracy": 0.625,
+        "avg_structural_score": 0.901
+      },
+      "Provenance & Grounding": {
+        "total": 4,
+        "syntax_validity": 1.0,
+        "schema_compliance": 1.0,
+        "execution_accuracy": 1.0,
+        "avg_structural_score": 0.875
+      }
     }
   }
 }

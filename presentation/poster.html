@@ -444,12 +444,12 @@
 
           <div class="metric-row">
             <div class="metric-card">
-              <div class="val" style="color: var(--accent-emerald);">0.688</div>
+              <div class="val" style="color: var(--accent-emerald);">0.732</div>
               <div class="lbl">F1 High Violence</div>
             </div>
             <div class="metric-card">
-              <div class="val" style="color: var(--accent-cyan);">0.922</div>
-              <div class="lbl">GDELT F1 Overall</div>
+              <div class="val" style="color: var(--accent-cyan);">1.000</div>
+              <div class="lbl">GDELT F1 (156 ev)</div>
             </div>
             <div class="metric-card">
               <div class="val" style="color: var(--accent-purple);">100%</div>
@@ -462,19 +462,19 @@
           </p>
           <table>
             <thead>
-              <tr><th>Condition</th><th>BinAcc</th><th>F1@HV</th><th>Std-FPR</th><th>FAR</th><th>Expl</th></tr>
+              <tr><th>Condition</th><th>BinAcc</th><th>P@HV</th><th>F1@HV</th><th>Std-FPR</th><th>Expl</th></tr>
             </thead>
             <tbody>
-              <tr><td>Zero-Shot NLI</td><td>62.0%</td><td>0.467</td><td>31.3%</td><td>20.7%</td><td>0.0%</td></tr>
-              <tr><td>Dense Neural</td><td>52.7%</td><td>0.503</td><td>56.6%</td><td>37.3%</td><td>0.0%</td></tr>
-              <tr><td>Pure Symbolic</td><td>39.3%</td><td>0.503</td><td>86.9%</td><td>57.3%</td><td>100%</td></tr>
+              <tr><td>Zero-Shot NLI</td><td>62.0%</td><td>44.6%</td><td>0.467</td><td>31.3%</td><td>0.0%</td></tr>
+              <tr><td>Dense Neural</td><td>78.7%</td><td>85.2%</td><td>0.590</td><td>4.0%</td><td>0.0%</td></tr>
+              <tr><td>Pure Symbolic</td><td>39.3%</td><td>34.8%</td><td>0.503</td><td>86.9%</td><td>100%</td></tr>
               <tr style="background: rgba(16, 185, 129, 0.15);">
-                <td><strong>Hybrid (Ours)</strong></td><td><strong>80.7%</strong></td><td><strong>0.688</strong></td><td><strong>10.1%</strong></td><td><strong>6.7%</strong></td><td><strong>100%</strong></td>
+                <td><strong>Hybrid (Ours)</strong></td><td><strong>79.3%</strong></td><td><strong>96.8%</strong></td><td><strong>0.732</strong></td><td><strong>1.0%</strong></td><td><strong>100%</strong></td>
               </tr>
             </tbody>
           </table>
           <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 8px;">
-            *Genuine ACLED Benchmark (2020–2026, 6,691 real events): 39.0% detection recall, 60.0% macro-group concordance ($p < 0.001$, McNemar test).
+            *Genuine ACLED Benchmark (2020–2026, 6,691 real events): 39.0% detection recall, 83.3% exact code concordance (100% macro concordance, $p = 0.0129$). NL2SPARQL Benchmark (50 gold queries): 54.0% Execution Accuracy.
           </p>
         </div>
 

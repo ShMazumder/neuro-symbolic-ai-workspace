@@ -297,11 +297,120 @@ LIMIT 20""",
 ]
 
 
+KNOWN_DISTRICTS = [
+    "Dhaka", "Chittagong", "Sylhet", "Rajshahi", "Khulna", "Barisal", "Rangpur",
+    "Mymensingh", "Gazipur", "Narayanganj", "Pabna", "Bogura", "Cox's Bazar",
+    "Rangamati", "Jessore", "Comilla"
+]
+
 def _fallback_query(question: str) -> Optional[str]:
-    """Match question against fallback templates. Returns query or None."""
+    """Match question against fallback templates with entity slot filling."""
+    q_lower = question.lower()
+
+    # 1. District-specific queries
+    for dist in KNOWN_DISTRICTS:
+        if dist.lower() in q_lower:
+            if "how many" in q_lower or "count" in q_lower:
+                return f"""PREFIX cameo: <http://example.org/cameo/>
+SELECT (COUNT(?evt) AS ?count)
+WHERE {{
+  ?evt a cameo:ViolenceEvent ;
+       cameo:location ?loc .
+  ?loc cameo:district "{dist}" .
+}}"""
+            if "source" in q_lower or "provenance" in q_lower or "article" in q_lower:
+                return f"""PREFIX cameo: <http://example.org/cameo/>
+PREFIX prov:  <http://www.w3.org/ns/prov#>
+SELECT ?evt ?articleUrl ?sentenceText
+WHERE {{
+  ?evt a cameo:ViolenceEvent ;
+       cameo:location ?loc ;
+       prov:wasDerivedFrom ?src .
+  ?loc cameo:district "{dist}" .
+  ?src cameo:articleUrl ?articleUrl ;
+       cameo:sentenceText ?sentenceText .
+}}"""
+            return f"""PREFIX cameo: <http://example.org/cameo/>
+SELECT ?evt ?code ?date
+WHERE {{
+  ?evt a cameo:ViolenceEvent ;
+       cameo:code ?code ;
+       cameo:date ?date ;
+       cameo:location ?loc .
+  ?loc cameo:district "{dist}" .
+}}"""
+
+    # 2. Actor-specific queries
+    for actor in ["Awami League", "BNP", "Chhatra League", "Police", "RAB"]:
+        if actor.lower() in q_lower:
+            return f"""PREFIX cameo: <http://example.org/cameo/>
+SELECT ?evt ?code ?date
+WHERE {{
+  ?evt a cameo:ViolenceEvent ;
+       cameo:actor ?actor ;
+       cameo:code ?code ;
+       cameo:date ?date .
+  ?actor cameo:actorName ?name .
+  FILTER (REGEX(?name, "{actor}", "i"))
+}}"""
+
+    # 3. CAMEO Code-specific queries
+    if "assault" in q_lower or "18" in q_lower:
+        return """PREFIX cameo: <http://example.org/cameo/>
+SELECT ?evt ?date ?district
+WHERE {
+  ?evt a cameo:ViolenceEvent ;
+       cameo:code 18 ;
+       cameo:date ?date ;
+       cameo:location ?loc .
+  ?loc cameo:district ?district .
+}"""
+    if "battle" in q_lower or "clash" in q_lower or "19" in q_lower:
+        return """PREFIX cameo: <http://example.org/cameo/>
+SELECT ?evt ?date ?district
+WHERE {
+  ?evt a cameo:ViolenceEvent ;
+       cameo:code 19 ;
+       cameo:date ?date ;
+       cameo:location ?loc .
+  ?loc cameo:district ?district .
+}"""
+    if "bomb" in q_lower or "explosion" in q_lower or "mass violence" in q_lower or "20" in q_lower:
+        return """PREFIX cameo: <http://example.org/cameo/>
+SELECT ?evt ?date ?district
+WHERE {
+  ?evt a cameo:ViolenceEvent ;
+       cameo:code 20 ;
+       cameo:date ?date ;
+       cameo:location ?loc .
+  ?loc cameo:district ?district .
+}"""
+    if "protest" in q_lower or "demonstrat" in q_lower or "14" in q_lower:
+        return """PREFIX cameo: <http://example.org/cameo/>
+SELECT ?evt ?date ?district
+WHERE {
+  ?evt a cameo:ViolenceEvent ;
+       cameo:code 14 ;
+       cameo:date ?date ;
+       cameo:location ?loc .
+  ?loc cameo:district ?district .
+}"""
+    if "curfew" in q_lower or "arrest" in q_lower or "coerce" in q_lower or "17" in q_lower:
+        return """PREFIX cameo: <http://example.org/cameo/>
+SELECT ?evt ?date ?district
+WHERE {
+  ?evt a cameo:ViolenceEvent ;
+       cameo:code 17 ;
+       cameo:date ?date ;
+       cameo:location ?loc .
+  ?loc cameo:district ?district .
+}"""
+
+    # 4. Pattern template matching
     for pattern, template in _FALLBACK_TEMPLATES:
         if pattern.search(question):
             return template
+
     # Generic fallback: recent events
     return """PREFIX cameo: <http://example.org/cameo/>
 SELECT ?evt ?code ?date ?district

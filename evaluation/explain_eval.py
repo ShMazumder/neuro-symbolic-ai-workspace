@@ -21,6 +21,7 @@ from __future__ import annotations
 import json
 import logging
 import random
+import re
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
@@ -30,15 +31,19 @@ logger = logging.getLogger(__name__)
 EVAL_DIR      = Path("data/evaluation")
 PROCESSED_DIR = Path("data/processed")
 
-# Violence-related keywords used to assess sentence relevance
-VIOLENCE_KEYWORDS = {
-    "kill", "killed", "killing", "death", "dead", "murder", "murdered", "shoot", "shot", "shooting",
-    "attack", "attacked", "clash", "clashed", "clashes", "bomb", "explosion", "fire",
-    "arrest", "arrested", "detain", "detained", "assault", "assaulted", "beat", "beaten",
-    "injure", "injured", "wound", "wounded", "protest", "protests", "rally", "violence", "violent",
-    "mob", "force", "law enforcement", "police", "rab", "bgb", "military", "stab", "stabbed",
-    "looting", "vandalism", "vandalised", "vandalized", "gunfire", "strike", "blockade", "rape", "raped",
+# Category-specific trigger lexicons to evaluate semantic justification per CAMEO code
+CATEGORY_SPECIFIC_TRIGGERS: dict[int, set[str]] = {
+    14: {"protest", "protests", "protesting", "rally", "procession", "march", "demonstration", "blockade", "strike", "hartal", "slogan"},
+    17: {"arrest", "arrested", "detain", "detained", "curfew", "section 144", "custody", "remand", "charge", "disperse", "crackdown"},
+    18: {"kill", "killed", "killing", "death", "murder", "stab", "stabbed", "shoot", "shot", "beat", "beaten", "assault", "assaulted", "attack", "injured", "injure", "wound", "wounded"},
+    19: {"clash", "clashed", "clashes", "gunfire", "exchange of fire", "battle", "factional", "armed clash", "crossfire", "gunfight"},
+    20: {"bomb", "bombs", "bombing", "explosion", "cocktail", "ied", "grenade", "blast", "explosive"},
 }
+
+GENERAL_CONFLICT_KEYWORDS = {
+    kw for s in CATEGORY_SPECIFIC_TRIGGERS.values() for kw in s
+} | {"violence", "violent", "mob", "police", "rab", "bgb", "security force"}
+
 
 # ── Data structures ───────────────────────────────────────────────────────────
 
@@ -50,36 +55,46 @@ class ExplainEvalRecord:
     confidence:       float
     has_provenance:   bool
     num_sources:      int
-    sentence_relevant: Optional[bool]   # None if no sentence available
+    sentence_relevant: Optional[bool]        # General conflict relevance
+    category_faithful: Optional[bool]        # Category-specific trigger match (non-circular)
     num_rules_fired:  int
     num_neighbours:   int
-    provenance_grounding_score: float   # Score: confidence * has_provenance * (1.0 if sent_relevant else 0.5)
+    provenance_grounding_score: float        # Score: confidence * has_provenance * (1.0 if cat_faithful else 0.7)
     narrative_length: int
 
     def to_dict(self) -> dict:
         return {
-            "event_id":         self.event_id,
-            "prediction_type":  self.prediction_type,
-            "label":            self.label,
-            "confidence":       round(self.confidence, 3),
-            "has_provenance":   self.has_provenance,
-            "num_sources":      self.num_sources,
+            "event_id":          self.event_id,
+            "prediction_type":   self.prediction_type,
+            "label":             self.label,
+            "confidence":        round(self.confidence, 3),
+            "has_provenance":    self.has_provenance,
+            "num_sources":       self.num_sources,
             "sentence_relevant": self.sentence_relevant,
-            "num_rules_fired":  self.num_rules_fired,
-            "num_neighbours":   self.num_neighbours,
+            "category_faithful": self.category_faithful,
+            "num_rules_fired":   self.num_rules_fired,
+            "num_neighbours":    self.num_neighbours,
             "provenance_grounding_score": round(self.provenance_grounding_score, 3),
-            "narrative_length": self.narrative_length,
+            "narrative_length":  self.narrative_length,
         }
 
 
 # ── Sentence relevance checker ────────────────────────────────────────────────
 
-def _is_sentence_relevant(sentence: Optional[str]) -> Optional[bool]:
-    """Check if a cited sentence contains violence keywords."""
+def _evaluate_sentence_relevance(sentence: Optional[str], cameo_code: int = 18) -> tuple[Optional[bool], Optional[bool]]:
+    """
+    Evaluates whether the cited sentence contains:
+      1. Category-specific semantic justification for the assigned CAMEO code.
+      2. General conflict vocabulary.
+    Returns (category_faithful, general_relevant).
+    """
     if not sentence:
-        return None
+        return (None, None)
     sl = sentence.lower()
-    return any(kw in sl for kw in VIOLENCE_KEYWORDS)
+    cat_triggers = CATEGORY_SPECIFIC_TRIGGERS.get(cameo_code, CATEGORY_SPECIFIC_TRIGGERS[18])
+    cat_match = any(t in sl for t in cat_triggers)
+    gen_match = any(kw in sl for kw in GENERAL_CONFLICT_KEYWORDS)
+    return (cat_match, gen_match)
 
 
 # ── Explanation generator ─────────────────────────────────────────────────────
@@ -217,11 +232,19 @@ def evaluate_explanations(explanations: list[dict]) -> tuple[list[ExplainEvalRec
         has_provenance = any(e.get("article_url") for e in evidence)
         num_sources    = len({e["article_url"] for e in evidence if e.get("article_url")})
         sentences      = [e.get("sentence_text") for e in evidence if e.get("sentence_text")]
-        sent_relevant  = _is_sentence_relevant(sentences[0]) if sentences else None
+
+        # Extract target CAMEO code from explanation metadata or narrative
+        c_m = re.search(r"\b(1[3-9]|20)\b", str(exp.get("label", "")) + " " + str(exp.get("narrative", "")))
+        cameo_code = int(c_m.group(1)) if c_m else 18
+
+        cat_faithful, sent_relevant = (
+            _evaluate_sentence_relevance(sentences[0], cameo_code=cameo_code)
+            if sentences else (None, None)
+        )
         num_rules      = len(exp.get("symbolic_rules_fired", []))
         num_neighbours = sum(1 for e in evidence if e.get("triple"))
         confidence     = float(exp.get("confidence", 0.0))
-        grounding_score = confidence * (1.0 if (has_provenance and sent_relevant is not False) else 0.5)
+        grounding_score = confidence * (1.0 if (has_provenance and cat_faithful) else (0.8 if (has_provenance and sent_relevant) else 0.4))
         narrative      = exp.get("narrative", "")
 
         records.append(ExplainEvalRecord(
@@ -232,6 +255,7 @@ def evaluate_explanations(explanations: list[dict]) -> tuple[list[ExplainEvalRec
             has_provenance=has_provenance,
             num_sources=num_sources,
             sentence_relevant=sent_relevant,
+            category_faithful=cat_faithful,
             num_rules_fired=num_rules,
             num_neighbours=num_neighbours,
             provenance_grounding_score=grounding_score,
@@ -247,23 +271,28 @@ def evaluate_explanations(explanations: list[dict]) -> tuple[list[ExplainEvalRec
     relevance_set = [r for r in records if r.sentence_relevant is not None]
     rel_rate      = (sum(1 for r in relevance_set if r.sentence_relevant) / len(relevance_set)
                      if relevance_set else None)
+    cat_faith_set = [r for r in records if r.category_faithful is not None]
+    cat_faith_rate = (sum(1 for r in cat_faith_set if r.category_faithful) / len(cat_faith_set)
+                      if cat_faith_set else None)
     avg_neighbours = sum(r.num_neighbours for r in records) / n
     avg_grounding  = sum(r.provenance_grounding_score for r in records) / n
     avg_conf       = sum(r.confidence for r in records) / n
 
     summary = {
-        "total_evaluated":        n,
-        "provenance_coverage":    round(prov_rate, 3),
-        "rule_coverage":          round(rule_rate, 3),
-        "sentence_relevance_rate": round(rel_rate, 3) if rel_rate is not None else "N/A",
-        "avg_graph_neighbours":   round(avg_neighbours, 2),
-        "avg_grounding_score":    round(avg_grounding, 3),
-        "avg_confidence":         round(avg_conf, 3),
+        "total_evaluated":            n,
+        "provenance_coverage":        round(prov_rate, 3),
+        "rule_coverage":              round(rule_rate, 3),
+        "category_faithfulness_rate": round(cat_faith_rate, 3) if cat_faith_rate is not None else "N/A",
+        "sentence_relevance_rate":    round(rel_rate, 3) if rel_rate is not None else "N/A",
+        "avg_graph_neighbours":       round(avg_neighbours, 2),
+        "avg_grounding_score":        round(avg_grounding, 3),
+        "avg_confidence":             round(avg_conf, 3),
         "interpretation": {
-            "provenance_coverage":  "% of predictions with >=1 cited source article",
-            "rule_coverage":        "% of predictions with >=1 symbolic rule fired",
-            "sentence_relevance":   "% of cited sentences containing violence keywords",
-            "avg_grounding_score":  "Provenance Grounding: confidence weighted by verified article and sentence grounding",
+            "provenance_coverage":        "% of predictions with >=1 cited source article",
+            "rule_coverage":              "% of predictions with >=1 symbolic rule fired",
+            "category_faithfulness_rate": "% of cited sentences matching specific CAMEO category trigger lexicons (non-circular)",
+            "sentence_relevance_rate":    "% of cited sentences containing general conflict vocabulary",
+            "avg_grounding_score":        "Provenance Grounding: confidence weighted by verified article and category trigger grounding",
         },
     }
 

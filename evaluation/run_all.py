@@ -63,6 +63,17 @@ def main():
         logger.error("Explainability eval failed: %s", e)
         results["explainability"] = {"error": str(e)}
 
+    # 5.5 NL2SPARQL & Graph-RAG Benchmark
+    print("\n[5.5] NL2SPARQL & Graph-RAG Benchmark…")
+    try:
+        from evaluation.benchmark_nl2sparql import NL2SPARQLEvaluator
+        evaluator = NL2SPARQLEvaluator()
+        nl2sparql_out = evaluator.run_benchmark()
+        results["nl2sparql"] = nl2sparql_out.get("metrics", {})
+    except Exception as e:
+        logger.error("NL2SPARQL benchmark failed: %s", e)
+        results["nl2sparql"] = {"error": str(e)}
+
     # Unified summary
     EVAL_DIR.mkdir(parents=True, exist_ok=True)
     summary_path = EVAL_DIR / "full_evaluation_summary.json"
