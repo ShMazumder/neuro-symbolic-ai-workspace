@@ -52,15 +52,18 @@ class AblationResult:
     condition:          str
     total_events:       int
     correct_codes:      int
-    code_accuracy:      float
+    code_accuracy:      float        # 8-class macro CAMEO category accuracy
     high_violence_tp:   int
     high_violence_fp:   int
     high_violence_fn:   int
+    high_violence_tn:   int
+    binary_accuracy_hv: float        # Binary accuracy (TP + TN) / Total on High Violence
     precision_hv:       float
     recall_hv:          float
     f1_hv:              float
-    false_positive_rate: float
-    explainability_rate: float   # % of predictions with provenance
+    false_positive_rate: float       # False alarm rate: FP / Total
+    standard_fpr:       float        # Standard binary FPR: FP / (FP + TN)
+    explainability_rate: float       # % of predictions with provenance
     avg_confidence:     float
 
     def to_dict(self) -> dict:
@@ -68,10 +71,16 @@ class AblationResult:
             "condition":           self.condition,
             "total_events":        self.total_events,
             "code_accuracy":       round(self.code_accuracy, 3),
+            "binary_accuracy_hv":  round(self.binary_accuracy_hv, 3),
+            "tp":                  self.high_violence_tp,
+            "fp":                  self.high_violence_fp,
+            "fn":                  self.high_violence_fn,
+            "tn":                  self.high_violence_tn,
             "precision_hv":        round(self.precision_hv, 3),
             "recall_hv":           round(self.recall_hv, 3),
             "f1_hv":               round(self.f1_hv, 3),
             "false_positive_rate": round(self.false_positive_rate, 3),
+            "standard_fpr":        round(self.standard_fpr, 3),
             "explainability_rate": round(self.explainability_rate, 3),
             "avg_confidence":      round(self.avg_confidence, 3),
         }
@@ -338,8 +347,7 @@ def _to_cameo_root(code: int) -> int:
 def _compute_result(condition: str, test_events: list[dict], preds: list[dict]) -> AblationResult:
     total = len(test_events)
     correct = 0
-    tp = fp = fn = 0
-    fp_total = 0
+    tp = fp = fn = tn = 0
     confs = []
     explainable = 0
 
@@ -366,16 +374,18 @@ def _compute_result(condition: str, test_events: list[dict], preds: list[dict]) 
         gold_hv = gold_root >= 18
         pred_hv = pred_root >= 18
 
-        if pred_hv and gold_hv:   tp += 1
-        if pred_hv and not gold_hv: fp += 1
-        if not pred_hv and gold_hv: fn += 1
-        if pred_hv and not gold_hv: fp_total += 1
+        if pred_hv and gold_hv:       tp += 1
+        elif pred_hv and not gold_hv: fp += 1
+        elif not pred_hv and gold_hv: fn += 1
+        else:                         tn += 1
 
-    acc = correct / total if total else 0.0
+    code_acc = correct / total if total else 0.0
+    bin_acc  = (tp + tn) / total if total else 0.0
     p   = tp / (tp + fp) if (tp + fp) > 0 else 0.0
     r   = tp / (tp + fn) if (tp + fn) > 0 else 0.0
     f1  = 2 * p * r / (p + r) if (p + r) > 0 else 0.0
-    fpr = fp_total / total if total else 0.0
+    far = fp / total if total else 0.0
+    std_fpr = fp / (fp + tn) if (fp + tn) > 0 else 0.0
     exp_rate = explainable / total if total else 0.0
     avg_conf = sum(confs) / len(confs) if confs else 0.0
 
@@ -383,14 +393,17 @@ def _compute_result(condition: str, test_events: list[dict], preds: list[dict]) 
         condition=condition,
         total_events=total,
         correct_codes=correct,
-        code_accuracy=acc,
+        code_accuracy=code_acc,
         high_violence_tp=tp,
         high_violence_fp=fp,
         high_violence_fn=fn,
+        high_violence_tn=tn,
+        binary_accuracy_hv=bin_acc,
         precision_hv=p,
         recall_hv=r,
         f1_hv=f1,
-        false_positive_rate=fpr,
+        false_positive_rate=far,
+        standard_fpr=std_fpr,
         explainability_rate=exp_rate,
         avg_confidence=avg_conf,
     )
