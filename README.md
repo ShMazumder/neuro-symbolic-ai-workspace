@@ -72,32 +72,25 @@ pip install -r requirements.txt
 
 ---
 
-## How to Run the End-to-End Research Notebook
+## Research Notebooks Suite
 
-The primary research artifact for interactive execution, visualization, and log auditing is [`notebooks/end_to_end_pipeline.ipynb`](notebooks/end_to_end_pipeline.ipynb).
+The repository provides both a consolidated end-to-end notebook and a modular 4-part research artifact suite for step-by-step experimentation and Q1 paper reproducibility:
+
+### 1. Modular Research Suite
+- **[`notebooks/01_nlp_extraction_and_ner.ipynb`](notebooks/01_nlp_extraction_and_ner.ipynb)**: Raw news ingestion, relevance filter, 8-stage NLP pipeline, Bangladesh political NER, and CAMEO event trigger classification.
+- **[`notebooks/02_knowledge_graph_and_sparql.ipynb`](notebooks/02_knowledge_graph_and_sparql.ipynb)**: RDF Turtle serialization, Bangladesh CAMEO extension ontology, PROV-O provenance inspection, and in-memory SPARQL queries.
+- **[`notebooks/03_neural_models_training_results.ipynb`](notebooks/03_neural_models_training_results.ipynb)**: PyKEEN KGE link prediction (RotatE vs. TransE), Relational GNN (EventPatternGNN) with PCA latent space projection, and BiLSTM escalation forecasting with DL precondition checks.
+- **[`notebooks/04_conflict_benchmarks_and_ablation.ipynb`](notebooks/04_conflict_benchmarks_and_ablation.ipynb)**: External conflict ground-truth alignment (GDELT 2.0 & ACLED), 3-condition architecture ablation study, 5 qualitative conflict case studies, and systematic error taxonomy.
+
+### 2. Consolidated Pipeline Demonstration
+- **[`notebooks/end_to_end_pipeline.ipynb`](notebooks/end_to_end_pipeline.ipynb)**: All-in-one execution pipeline from scraper to evaluation summary.
 
 ### Running in Jupyter Lab / Notebook
 ```bash
-jupyter lab notebooks/end_to_end_pipeline.ipynb
-# or
-jupyter notebook notebooks/end_to_end_pipeline.ipynb
+jupyter lab notebooks/
+# or open a specific modular notebook
+jupyter notebook notebooks/03_neural_models_training_results.ipynb
 ```
-
-### Running in VS Code / Antigravity IDE
-1. Open the workspace root in your IDE.
-2. Select your Python interpreter (`.venv` or system Python with PyTorch).
-3. Open [`notebooks/end_to_end_pipeline.ipynb`](notebooks/end_to_end_pipeline.ipynb).
-4. Click **Run All** (or execute cells sequentially).
-
-### What the Notebook Executes:
-- **Cell 1–2 (Environment):** Verifies PyTorch, project path, and unified logger.
-- **Cell 3–4 (Ingestion):** Loads real Bangladeshi news from [`data/real_news_daily_star.json`](data/real_news_daily_star.json).
-- **Cell 5–6 (NLP Pipeline):** Runs rule-based + transformer NER, district extraction (64 Bangladesh districts), temporal normalizer, and CAMEO conflict coding.
-- **Cell 7–8 (Knowledge Graph):** Builds RDF N-Triples and inserts into semantic store (CAMEO + BD extensions).
-- **Cell 9–10 (Neuro-Symbolic Reasoning):** Evaluates neural event scores against First-Order Logic / OWL constraint checks.
-- **Cell 11–12 (Anomaly Detection):** Detects statistical conflict surges on time-series window.
-- **Cell 13–16 (Evaluation & Benchmarks):** Computes Precision/Recall/F1 against ACLED/GDELT, ablation metrics, and renders summary tables.
-- **Cell 17 (Audit & Provenance):** Displays end-to-end event lineage and production checklist.
 
 ---
 
