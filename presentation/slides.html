@@ -96,6 +96,8 @@
       flex: 1;
       position: relative;
       overflow: hidden;
+      width: 100%;
+      height: 100%;
     }
 
     .slide {
@@ -105,19 +107,107 @@
       width: 100%;
       height: 100%;
       opacity: 0;
+      visibility: hidden;
       pointer-events: none;
-      transform: translateX(30px);
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateX(100%);
+      transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
       padding: 40px 70px;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      will-change: transform;
     }
 
+    /* Active on-screen */
     .slide.active {
       opacity: 1;
+      visibility: visible;
       pointer-events: auto;
       transform: translateX(0);
+      z-index: 2;
+    }
+
+    /* Right Arrow: Current slide glides from screen to left outside */
+    .slide.slide-to-left {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: none;
+      transform: translateX(-100%);
+      z-index: 1;
+      transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    /* Left Arrow: Current slide glides from screen to right outside */
+    .slide.slide-to-right {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: none;
+      transform: translateX(100%);
+      z-index: 1;
+      transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    /* Right Arrow: Next slide placed instantly at right outside */
+    .slide.prepare-from-right {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: none;
+      transform: translateX(100%);
+      transition: none !important;
+      z-index: 2;
+    }
+
+    /* Left Arrow: Previous slide placed instantly at left outside */
+    .slide.prepare-from-left {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: none;
+      transform: translateX(-100%);
+      transition: none !important;
+      z-index: 2;
+    }
+
+    /* Floating Arrow Navigation */
+    .nav-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(15, 23, 42, 0.65);
+      border: 1px solid var(--card-border);
+      color: #f8fafc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 90;
+      backdrop-filter: blur(8px);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      opacity: 0.5;
+    }
+
+    .nav-arrow:hover:not(:disabled) {
+      opacity: 1;
+      background: rgba(30, 41, 59, 0.95);
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.35);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .nav-arrow-left {
+      left: 14px;
+    }
+
+    .nav-arrow-right {
+      right: 14px;
+    }
+
+    .nav-arrow:disabled {
+      opacity: 0.12;
+      cursor: not-allowed;
+      pointer-events: none;
     }
 
     .slide-eyebrow {
@@ -341,7 +431,8 @@
       <span class="badge">Research Presentation</span>
     </div>
     <div class="controls">
-      <span style="font-size: 0.85rem; color: var(--text-muted);">Use ◄ / ► arrow keys</span>
+      <button class="btn" id="btn-prev" onclick="prevSlide()" title="Previous Slide (Left Arrow)">◀ Prev</button>
+      <button class="btn" id="btn-next" onclick="nextSlide()" title="Next Slide (Right Arrow)">Next ▶</button>
       <button class="btn" onclick="toggleNotes()">📝 Notes (N)</button>
       <button class="btn" onclick="toggleFullscreen()">⛶ Fullscreen (F)</button>
     </div>
@@ -349,6 +440,14 @@
 
   <!-- Slide Deck -->
   <main class="deck" id="deck">
+
+    <!-- Seamless Floating Arrow Navigation -->
+    <button class="nav-arrow nav-arrow-left" id="arrow-prev" onclick="prevSlide()" aria-label="Previous Slide (Left Arrow)" title="Previous Slide (Left Arrow)">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+    <button class="nav-arrow nav-arrow-right" id="arrow-next" onclick="nextSlide()" aria-label="Next Slide (Right Arrow)" title="Next Slide (Right Arrow)">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
 
     <!-- Slide 1: Title -->
     <div class="slide active" data-notes="Welcome professors and colleagues. Today I present NeuroSym-BD, our research project combining statistical neural deep learning with formal knowledge graph ontologies for live news conflict analysis in Bangladesh.">
@@ -793,7 +892,7 @@
     <div class="progress-track">
       <div class="progress-fill" id="progress-fill"></div>
     </div>
-    <div class="nav-hint">Press <strong>Space</strong> or <strong>Right Arrow</strong> to advance</div>
+    <div class="nav-hint">Use <strong>◄ / ► Arrow Keys</strong> or on-screen buttons to slide</div>
   </footer>
 
   <!-- Notes Modal -->
@@ -809,22 +908,87 @@
     const progressFill = document.getElementById('progress-fill');
     const notesModal = document.getElementById('notes-modal');
     const notesText = document.getElementById('notes-text');
+    const arrowPrev = document.getElementById('arrow-prev');
+    const arrowNext = document.getElementById('arrow-next');
+    const btnPrev = document.getElementById('btn-prev');
+    const btnNext = document.getElementById('btn-next');
 
     let currentIndex = 0;
+    let isAnimating = false;
+    const ANIMATION_DURATION = 450; // ms
+
     totalSlidesEl.innerText = slides.length;
 
-    function updateSlide(newIndex) {
-      if (newIndex < 0 || newIndex >= slides.length) return;
-      slides[currentIndex].classList.remove('active');
-      currentIndex = newIndex;
-      slides[currentIndex].classList.add('active');
+    function updateNavButtons() {
+      const isFirst = currentIndex === 0;
+      const isLast = currentIndex === slides.length - 1;
+      if (arrowPrev) arrowPrev.disabled = isFirst;
+      if (arrowNext) arrowNext.disabled = isLast;
+      if (btnPrev) btnPrev.disabled = isFirst;
+      if (btnNext) btnNext.disabled = isLast;
+    }
 
+    function goToSlide(targetIndex, direction) {
+      if (targetIndex < 0 || targetIndex >= slides.length || targetIndex === currentIndex) return;
+      if (isAnimating) return;
+
+      isAnimating = true;
+      const currentSlide = slides[currentIndex];
+      const targetSlide = slides[targetIndex];
+
+      if (!direction) {
+        direction = targetIndex > currentIndex ? 'next' : 'prev';
+      }
+
+      if (direction === 'next') {
+        // Next slide starts from right outside
+        targetSlide.className = 'slide prepare-from-right';
+        void targetSlide.offsetWidth; // Force synchronous reflow
+
+        // Animate: current moves to left outside, target glides in from right outside to screen
+        requestAnimationFrame(() => {
+          currentSlide.className = 'slide slide-to-left';
+          targetSlide.className = 'slide active';
+        });
+      } else {
+        // Prev slide starts from left outside
+        targetSlide.className = 'slide prepare-from-left';
+        void targetSlide.offsetWidth; // Force synchronous reflow
+
+        // Animate: current moves to right outside, target glides in from left outside to screen
+        requestAnimationFrame(() => {
+          currentSlide.className = 'slide slide-to-right';
+          targetSlide.className = 'slide active';
+        });
+      }
+
+      currentIndex = targetIndex;
       currentSlideEl.innerText = currentIndex + 1;
       progressFill.style.width = ((currentIndex + 1) / slides.length * 100) + '%';
 
       // Update speaker notes
-      const notes = slides[currentIndex].getAttribute('data-notes') || 'No speaker notes for this slide.';
+      const notes = targetSlide.getAttribute('data-notes') || 'No speaker notes for this slide.';
       notesText.innerText = notes;
+
+      updateNavButtons();
+
+      setTimeout(() => {
+        // Reset old slide
+        currentSlide.className = 'slide';
+        isAnimating = false;
+      }, ANIMATION_DURATION + 30);
+    }
+
+    function nextSlide() {
+      if (currentIndex < slides.length - 1) {
+        goToSlide(currentIndex + 1, 'next');
+      }
+    }
+
+    function prevSlide() {
+      if (currentIndex > 0) {
+        goToSlide(currentIndex - 1, 'prev');
+      }
     }
 
     function toggleNotes() {
@@ -845,23 +1009,46 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
         e.preventDefault();
-        updateSlide(currentIndex + 1);
+        nextSlide();
       } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
         e.preventDefault();
-        updateSlide(currentIndex - 1);
+        prevSlide();
       } else if (e.key === 'n' || e.key === 'N') {
         toggleNotes();
       } else if (e.key === 'f' || e.key === 'F') {
         toggleFullscreen();
       } else if (e.key === 'Home') {
-        updateSlide(0);
+        e.preventDefault();
+        goToSlide(0, 'prev');
       } else if (e.key === 'End') {
-        updateSlide(slides.length - 1);
+        e.preventDefault();
+        goToSlide(slides.length - 1, 'next');
       }
     });
 
-    // Initialize notes
+    // Touch Swipe Gestures
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    document.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    document.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const diff = touchEndX - touchStartX;
+      if (Math.abs(diff) > 45) {
+        if (diff < 0) {
+          nextSlide();
+        } else {
+          prevSlide();
+        }
+      }
+    }, { passive: true });
+
+    // Initialize
     notesText.innerText = slides[0].getAttribute('data-notes');
+    updateNavButtons();
   </script>
 </body>
 </html>
