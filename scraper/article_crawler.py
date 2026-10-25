@@ -188,9 +188,125 @@ def crawl_articles(
     return results
 
 
+# ── Archive Crawler (Task 1.1) ────────────────────────────────────────────────
+
+ARCHIVE_CATEGORIES = [
+    "news/crime-justice",
+    "news/bangladesh",
+    "news/bangladesh/politics",
+    "news/city",
+]
+
+
+def crawl_archive(
+    categories: list[str] = ARCHIVE_CATEGORIES,
+    max_pages_per_category: int = 10,
+    max_articles_total: int = 500,
+    rate_limit_s: float = 0.5,
+    save_raw: bool = True,
+) -> list[Article]:
+    """
+    Paginate through Daily Star archive sections and extract articles.
+
+    Args:
+        categories: Category path suffixes to crawl.
+        max_pages_per_category: Maximum pages to paginate per category.
+        max_articles_total: Global limit on articles to scrape.
+        rate_limit_s: Sleep between requests.
+        save_raw: Whether to persist article JSONs to data/raw/.
+    """
+    import hashlib
+    import json
+    from pathlib import Path
+
+    raw_dir = Path("data/raw")
+    seen_file = Path("data/.seen_urls.json")
+
+    seen: set[str] = set()
+    if seen_file.exists():
+        try:
+            seen = set(json.loads(seen_file.read_text(encoding="utf-8")))
+        except Exception:
+            seen = set()
+
+    crawled: list[Article] = []
+
+    for cat in categories:
+        if len(crawled) >= max_articles_total:
+            break
+        logger.info("--- Starting archive category: %s ---", cat)
+
+        for page in range(0, max_pages_per_category):
+            if len(crawled) >= max_articles_total:
+                break
+
+            url = f"https://www.thedailystar.net/{cat}?page={page}"
+            logger.info("Fetching index page %d: %s", page, url)
+
+            try:
+                resp = requests.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT)
+                if resp.status_code != 200:
+                    logger.warning("Index page %s returned HTTP %d", url, resp.status_code)
+                    break
+            except Exception as e:
+                logger.error("Failed to fetch index %s: %s", url, e)
+                break
+
+            soup = BeautifulSoup(resp.text, "html.parser") if BeautifulSoup else None
+            page_links = []
+
+            if soup:
+                for a in soup.find_all("a", href=True):
+                    href = a["href"]
+                    if re.search(r"/(news/|crime-justice/|bangladesh/)", href) and re.search(r"-\d+$", href):
+                        full = href if href.startswith("http") else "https://www.thedailystar.net" + href
+                        if full not in seen and full not in page_links:
+                            title = _clean_text(a.get_text()) or ""
+                            page_links.append((full, title))
+
+            logger.info("Found %d new article links on page %d", len(page_links), page)
+            if not page_links:
+                continue
+
+            for art_url, art_title in page_links:
+                if len(crawled) >= max_articles_total:
+                    break
+                stub = Article(
+                    url=art_url,
+                    title=art_title,
+                    category=cat,
+                    source="thedailystar.net",
+                )
+                try:
+                    full_art = fetch_article(stub, rate_limit_s=rate_limit_s)
+                    if full_art.body and len(full_art.body) > 100:
+                        crawled.append(full_art)
+                        seen.add(art_url)
+
+                        if save_raw:
+                            date_str = (full_art.published_date or full_art.scraped_at)[:10]
+                            slug = hashlib.md5(art_url.encode()).hexdigest()[:12]
+                            target_path = raw_dir / date_str / f"{slug}.json"
+                            target_path.parent.mkdir(parents=True, exist_ok=True)
+                            target_path.write_text(full_art.to_json(), encoding="utf-8")
+
+                        logger.info("Crawled [%d/%d]: %s", len(crawled), max_articles_total, full_art.title[:60])
+                except Exception as e:
+                    logger.warning("Error fetching %s: %s", art_url, e)
+
+            # Checkpoint seen file after every index page
+            seen_file.parent.mkdir(parents=True, exist_ok=True)
+            seen_file.write_text(json.dumps(sorted(seen), indent=2), encoding="utf-8")
+            time.sleep(rate_limit_s)
+
+    logger.info("Archive crawling complete. Total new articles: %d", len(crawled))
+    return crawled
+
+
 # ── CLI entry point ────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
+    import argparse
     import json
     import sys
     from pathlib import Path
@@ -200,15 +316,28 @@ if __name__ == "__main__":
         format="%(asctime)s  %(levelname)-8s  %(name)s  %(message)s",
     )
 
-    if len(sys.argv) < 2:
-        print("Usage: python -m scraper.article_crawler <article_stub.json>")
-        sys.exit(1)
+    parser = argparse.ArgumentParser(description="Daily Star Article Crawler")
+    parser.add_argument("--archive", action="store_true", help="Crawl archive sections")
+    parser.add_argument("--max-pages", type=int, default=5, help="Max pages per category")
+    parser.add_argument("--max-articles", type=int, default=100, help="Max total articles")
+    parser.add_argument("--rate-limit", type=float, default=0.3, help="Rate limit delay in seconds")
+    parser.add_argument("stub", nargs="?", help="Optional article stub JSON path")
 
-    stub_path = Path(sys.argv[1])
-    article = Article.from_json(stub_path.read_text(encoding="utf-8"))
-    article = fetch_article(article)
+    args = parser.parse_args()
 
-    out_path = stub_path.with_stem(stub_path.stem + "_full")
-    out_path.write_text(article.to_json(), encoding="utf-8")
-    print(f"Saved to {out_path}")
-    print(f"Body preview:\n{article.body[:500]}")
+    if args.archive:
+        crawl_archive(
+            max_pages_per_category=args.max_pages,
+            max_articles_total=args.max_articles,
+            rate_limit_s=args.rate_limit,
+        )
+    elif args.stub:
+        stub_path = Path(args.stub)
+        article = Article.from_json(stub_path.read_text(encoding="utf-8"))
+        article = fetch_article(article)
+        out_path = stub_path.with_stem(stub_path.stem + "_full")
+        out_path.write_text(article.to_json(), encoding="utf-8")
+        print(f"Saved to {out_path}")
+        print(f"Body preview:\n{article.body[:500]}")
+    else:
+        parser.print_help()

@@ -145,11 +145,11 @@ def event_to_graph(event: dict, g: Optional[Graph] = None) -> Graph:
         g.add((evt_uri, EVENT["date_raw"], Literal(date_rec["raw"])))
 
     if event.get("article_published"):
-        try:
-            g.add((evt_uri, EVENT.articlePublishedDate,
-                   Literal(event["article_published"][:10], datatype=XSD.date)))
-        except Exception:
-            pass
+        pub = str(event["article_published"])
+        if re.match(r"^\d{4}-\d{2}-\d{2}", pub):
+            g.add((evt_uri, EVENT.articlePublishedDate, Literal(pub[:10], datatype=XSD.date)))
+        else:
+            g.add((evt_uri, EVENT.articlePublishedDate, Literal(pub)))
 
     # ── Counts ────────────────────────────────────────────────────────────────
     for field_name, prop in [

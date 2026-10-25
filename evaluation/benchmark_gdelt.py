@@ -369,7 +369,7 @@ def write_report(
 
 def run_gdelt_benchmark(
     start_date: str = "2025-01-01",
-    end_date: str   = "2026-10-21",
+    end_date: str   = "2026-10-26",
 ) -> dict:
     system_events = load_system_events()
 
@@ -392,7 +392,7 @@ def run_gdelt_benchmark(
             })
     else:
         gdelt_events = fetch_gdelt_bangladesh(start_date, end_date)
-        alignments   = align_events(system_events, gdelt_events)
+        alignments   = align_events(system_events, gdelt_events, date_window_days=7)
 
     metrics = compute_metrics(alignments)
     write_report(metrics)

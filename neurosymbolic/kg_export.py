@@ -85,11 +85,11 @@ class KGGraph:
     """
     Exported knowledge graph in tensor-ready format.
 
-    node_index: {uri → int}  — unified node ID space
-    node_types: {uri → str}  — "event" | "actor" | "location"
-    node_features: {uri → dict}  — feature dicts per node
+    node_index: {uri -> int}  — unified node ID space
+    node_types: {uri -> str}  — "event" | "actor" | "location"
+    node_features: {uri -> dict}  — feature dicts per node
     edges: list of (src_uri, rel_type, dst_uri)
-    rel_types: {rel_str → int}  — relation type index
+    rel_types: {rel_str -> int}  — relation type index
     """
     node_index:    dict = field(default_factory=dict)
     node_types:    dict = field(default_factory=dict)
@@ -119,13 +119,88 @@ def _rows(result: Optional[dict]) -> list[dict]:
     ]
 
 
+def export_kg_from_events(events_path: Path = Path("data/processed/events.json")) -> KGGraph:
+    """Build KGGraph offline directly from structured events JSON."""
+    kg = KGGraph()
+    node_counter = [0]
+
+    def _add_node(uri: str, ntype: str, features: dict = {}) -> int:
+        if uri not in kg.node_index:
+            kg.node_index[uri] = node_counter[0]
+            kg.node_types[uri] = ntype
+            kg.node_features[uri] = features
+            node_counter[0] += 1
+        return kg.node_index[uri]
+
+    rel_counter = [0]
+    def _rel_id(rel: str) -> int:
+        if rel not in kg.rel_index:
+            kg.rel_index[rel] = rel_counter[0]
+            rel_counter[0] += 1
+        return kg.rel_index[rel]
+
+    if not events_path.exists():
+        logger.warning("Events file %s not found.", events_path)
+        return kg
+
+    events = json.loads(events_path.read_text(encoding="utf-8"))
+    for ev in events:
+        eid = ev.get("event_id", "")
+        if not eid:
+            continue
+        e_uri = f"http://example.org/event/{eid}"
+        d_val = ev.get("date")
+        sdate = d_val.get("normalized", "") if isinstance(d_val, dict) else (d_val if isinstance(d_val, str) else "")
+        dist = ev.get("district") or (ev.get("location", {}).get("district", "") if isinstance(ev.get("location"), dict) else "")
+
+        _add_node(e_uri, "event", {
+            "code":       str(ev.get("cameo_code", "17")),
+            "bd_code":    str(ev.get("bd_code", "")),
+            "confidence": float(ev.get("confidence", 0.7)),
+            "date":       sdate,
+            "district":   dist,
+        })
+
+        if dist:
+            loc_uri = f"http://example.org/location/{dist.replace(' ', '_')}"
+            _add_node(loc_uri, "location", {"district": dist, "lat": 0.0, "lon": 0.0})
+            kg.edges.append((e_uri, "location", loc_uri))
+            _rel_id("location")
+
+        for a in ev.get("actors", []):
+            if isinstance(a, dict) and a.get("name"):
+                aname = a["name"]
+                atype = a.get("type", "UNKNOWN")
+                arole = a.get("role", "actor")
+                a_uri = f"http://example.org/actor/{aname.replace(' ', '_')}"
+                _add_node(a_uri, "actor", {"name": aname, "type": atype})
+                kg.edges.append((e_uri, arole, a_uri))
+                _rel_id(arole)
+
+    for src, rel, dst in list(kg.edges):
+        inv_rel = f"{rel}_inv"
+        kg.edges.append((dst, inv_rel, src))
+        _rel_id(inv_rel)
+
+    logger.info("Offline KG export complete: %d nodes, %d edges, %d relations.",
+                kg.num_nodes, kg.num_edges, kg.num_relations)
+    return kg
+
+
 def export_kg(endpoint: str = SPARQL_ENDPOINT) -> KGGraph:
     """
     Query BlazeGraph and build a KGGraph object.
-
-    Returns a KGGraph with all nodes indexed and edges as triples.
+    Falls back to offline events.json export if endpoint is unreachable.
     """
     from knowledge_graph.ingest import sparql_query
+
+    try:
+        test_rows = _rows(sparql_query(_Q_EVENTS, endpoint))
+        if not test_rows:
+            raise ConnectionError("No rows returned from BlazeGraph endpoint.")
+    except Exception as exc:
+        logger.info("BlazeGraph offline (%s) — using offline export from events.json", exc)
+        return export_kg_from_events()
 
     kg = KGGraph()
     node_counter = [0]
@@ -146,7 +221,7 @@ def export_kg(endpoint: str = SPARQL_ENDPOINT) -> KGGraph:
         return kg.rel_index[rel]
 
     logger.info("Exporting events…")
-    for row in _rows(sparql_query(_Q_EVENTS, endpoint)):
+    for row in test_rows:
         uri = row["evt"]
         _add_node(uri, "event", {
             "code":       row.get("code", ""),

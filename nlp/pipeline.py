@@ -94,9 +94,9 @@ class EventRecord:
 
 @dataclass
 class PipelineConfig:
-    use_model_filter:   bool = True    # use zero-shot model for uncertain articles
-    use_neural_coref:   bool = True    # use fastcoref if available
-    use_model_classifier: bool = True  # use zero-shot CAMEO classifier for low-conf
+    use_model_filter:   bool = False   # use zero-shot model for uncertain articles (requires BART download)
+    use_neural_coref:   bool = False   # use fastcoref if available
+    use_model_classifier: bool = False # use zero-shot CAMEO classifier for low-conf
     min_confidence:     float = 0.5    # discard events below this threshold
     max_events_per_article: int = 20   # safety cap
 

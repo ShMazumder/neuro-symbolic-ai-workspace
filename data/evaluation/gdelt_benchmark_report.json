@@ -1,29 +1,5 @@
 {
-  "ASSAULT": {
-    "precision": 0.0,
-    "recall": 0.0,
-    "f1": 0.0,
-    "tp": 0,
-    "fp": 120,
-    "fn": 0
-  },
-  "COERCE": {
-    "precision": 0.0,
-    "recall": 0.0,
-    "f1": 0.0,
-    "tp": 0,
-    "fp": 31,
-    "fn": 0
-  },
   "FIGHT": {
-    "precision": 1.0,
-    "recall": 0.013,
-    "f1": 0.025,
-    "tp": 1,
-    "fp": 0,
-    "fn": 78
-  },
-  "THREATEN_PROTEST": {
     "precision": 0.0,
     "recall": 0.0,
     "f1": 0.0,
@@ -31,12 +7,28 @@
     "fp": 12,
     "fn": 0
   },
+  "ASSAULT": {
+    "precision": 1.0,
+    "recall": 0.917,
+    "f1": 0.957,
+    "tp": 132,
+    "fp": 0,
+    "fn": 12
+  },
+  "COERCE": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 10,
+    "fp": 0,
+    "fn": 0
+  },
   "OVERALL": {
-    "precision": 0.006,
-    "recall": 0.013,
-    "f1": 0.008,
-    "tp": 1,
-    "fp": 163,
-    "fn": 78
+    "precision": 0.922,
+    "recall": 0.922,
+    "f1": 0.922,
+    "tp": 142,
+    "fp": 12,
+    "fn": 12
   }
 }

@@ -367,7 +367,7 @@ def write_acled_report(
 
 def run_acled_benchmark(
     start_date: str = "2025-01-01",
-    end_date:   str = "2026-10-21",
+    end_date:   str = "2026-10-26",
 ) -> dict:
     system_events = load_system_events()
     acled_events  = fetch_acled_bangladesh(start_date, end_date)

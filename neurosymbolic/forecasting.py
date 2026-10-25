@@ -150,11 +150,13 @@ def build_district_sequences(kg_path: Path = KG_EXPORT_DIR / "kg_graph.pkl") -> 
         code_str  = feat.get("code", "")
         try:
             code = int(float(code_str))
+            if code >= 100:
+                code = code // 10
         except (ValueError, TypeError):
             continue
         if code < 13 or code > 20:
             continue
-        district_events.setdefault(district, []).append((date_str, code))
+        district_events.setdefault(district, []).append((date_str or "", code))
 
     # Sort by date, strip to code sequence
     sequences = {}
@@ -185,7 +187,7 @@ def forecast_district(
     district: str,
     code_sequence: list[int],
     model: EscalationLSTM,
-    window: int = 8,
+    window: int = 4,
 ) -> EscalationForecast:
     """
     Run neuro-symbolic forecasting for a single district.
@@ -228,7 +230,7 @@ def forecast_district(
 
 def train_forecasting_model(
     kg_path: Path = KG_EXPORT_DIR / "kg_graph.pkl",
-    window: int = 8,
+    window: int = 4,
     epochs: int = 150,
     lr: float = 1e-3,
     out_dir: Path = MODELS_DIR,
@@ -290,7 +292,7 @@ def train_forecasting_model(
 def run_all_forecasts(
     kg_path: Path = KG_EXPORT_DIR / "kg_graph.pkl",
     model_path: Optional[Path] = None,
-    window: int = 8,
+    window: int = 4,
     out_path: Path = Path("data/processed/escalation_forecasts.json"),
 ) -> list[EscalationForecast]:
     """Load trained model, run forecasts for all districts, save JSON."""
