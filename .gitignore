@@ -11,6 +11,8 @@ data/*
 !data/processed/**
 !data/evaluation/
 !data/evaluation/**
+data/evaluation/gdelt_bangladesh.json
+data/evaluation/gdelt_bangladesh_recent3d.json
 !data/kg_export/
 !data/kg_export/**
 

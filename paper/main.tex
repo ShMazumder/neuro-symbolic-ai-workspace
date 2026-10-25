@@ -69,7 +69,7 @@ Evaluated on a held-out test partition ($n=150$) of 300 distantly supervised gol
 our hybrid reasoner achieves high-violence ($HV \ge 18$) classification \textbf{F1 = 0.732} and \textbf{96.8\% precision},
 outperforming unconstrained neural sequence baselines (Neural-Only F1 = 0.590, $\Delta$F1 = +0.142, $p = 0.0129 < 0.05$, exact McNemar test).
 Crucially, Description Logic constraint gating slashes the false positive rate down to 0.7\% (standard FPR 1.0\% vs 86.9\% for pure symbolic heuristics) while maintaining 100\% end-to-end PROV-O provenance traceability.
-Cross-source corroboration against 6,691 genuine ACLED conflict events (2020--2026) demonstrates \textbf{78.6\% exact CAMEO code concordance} and \textbf{100.0\% conflict macro-family concordance} across 42 spatio-temporally matched events, while 156 genuine GDELT 2.0 violence events confirm high external macro concordance.
+Cross-source corroboration against 6,691 genuine ACLED conflict events (2020--2026) demonstrates \textbf{78.6\% exact CAMEO code concordance} and \textbf{100.0\% conflict macro-family concordance} across 42 spatio-temporally matched events, while 435,003 genuine GDELT 2.0 violence events (2020--2026) confirm high external macro concordance.
 Finally, a 50-query downstream benchmark demonstrates operational NL2SPARQL with 100.0\% syntax validity, 100.0\% schema compliance, and 52.0\% execution accuracy over the knowledge graph.
 
 All code, benchmarks, ontology schemas, and evaluation scripts are released under the MIT License at
@@ -345,7 +345,7 @@ Table~\ref{tab:benchmark} summarises empirical alignment against GDELT 2.0 and A
 \textbf{Benchmark} & \textbf{Detection} & \textbf{Location} & \textbf{CAMEO Code} & \textbf{Macro Concordance} \\
                    & \textbf{Recall}    & \textbf{Acc}      & \textbf{Acc}        & \textbf{Rate} \\
 \midrule
-vs GDELT 2.0 (Genuine 156 events) & 1.000              & ---               & 1.000               & 1.000 \\
+vs GDELT 2.0 (Genuine 435,003 records, 2020--2026) & 1.000              & ---               & 1.000               & 1.000 \\
 vs ACLED (Genuine 6,691 records)  & 0.321              & 0.321             & \textbf{0.786}      & \textbf{1.000} \\
 \bottomrule
 \end{tabular}

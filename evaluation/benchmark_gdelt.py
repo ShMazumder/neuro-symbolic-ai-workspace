@@ -85,7 +85,19 @@ def fetch_gdelt_bangladesh(
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
-    # Check cache for genuine GDELT records
+    # Check cache for genuine GDELT records (supports compressed .json.gz or raw .json)
+    gz_path = out_path.with_name(out_path.name + ".gz") if not str(out_path).endswith(".gz") else out_path
+    if gz_path.exists():
+        try:
+            import gzip
+            with gzip.open(gz_path, "rt", encoding="utf-8") as gf:
+                cached = json.load(gf)
+            if cached and cached[0].get("source") == "GDELT_2.0_GENUINE":
+                logger.info("Loaded %d genuine cached GDELT events from %s", len(cached), gz_path)
+                return cached
+        except Exception:
+            pass
+
     if out_path.exists():
         try:
             cached = json.loads(out_path.read_text(encoding="utf-8"))
@@ -270,8 +282,11 @@ def align_events(
             gdelt_candidates.extend(gdelt_by_date.get(d, []))
 
         if gdelt_candidates:
-            # Match to nearest CAMEO code
-            gdelt_codes = [g["cameo_code"] for g in gdelt_candidates]
+            # Match to nearest CAMEO root code (convert 3-digit to 2-digit if needed)
+            gdelt_codes = [
+                int(g["cameo_code"]) // 10 if int(g["cameo_code"]) >= 100 else int(g["cameo_code"])
+                for g in gdelt_candidates
+            ]
             best_gdelt = min(gdelt_codes, key=lambda c: abs(c - scode))
             alignments.append({
                 "date":        sdate,
