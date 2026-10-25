@@ -190,9 +190,14 @@ def load_system_events(processed_dir: Path = PROCESSED_DIR) -> list[dict]:
 # ── Alignment ─────────────────────────────────────────────────────────────────
 
 def _extract_district(ev: dict) -> str:
+    if ev.get("district"):
+        return str(ev["district"]).strip()
     loc = ev.get("location", {})
     if isinstance(loc, dict):
-        return loc.get("district", "").strip()
+        d = loc.get("district") or loc.get("raw")
+        return (d or "").strip()
+    if loc is None:
+        return ""
     return str(loc).strip()
 
 
@@ -216,11 +221,14 @@ def align_with_acled(
         acled_by_date[_acled_date(ev)].append(ev)
 
     alignments = []
-
     for sev in system_events:
-        sdate = sev.get("date", {}).get("normalized", "") if isinstance(sev.get("date"), dict) else sev.get("date", "")
+        d_val = sev.get("date")
+        sdate = d_val.get("normalized", "") if isinstance(d_val, dict) else (d_val or "")
+        if not sdate or not isinstance(sdate, str):
+            continue
         sdistrict = _extract_district(sev)
-        scode = int(sev.get("cameo_code", 0) or 0)
+        raw_code = int(sev.get("cameo_code", 0) or 0)
+        scode = raw_code // 10 if raw_code >= 100 else raw_code
         sactor = ""
         actors = sev.get("actors", [])
         if actors:
@@ -244,8 +252,8 @@ def align_with_acled(
         # Match by district
         district_matches = [
             c for c in candidates
-            if c.get("admin2", "").lower().strip() == sdistrict.lower().strip()
-            or sdistrict.lower() in c.get("admin2", "").lower()
+            if ((c.get("admin2") or "").lower().strip() == sdistrict.lower().strip()
+                or (sdistrict and sdistrict.lower() in (c.get("admin2") or "").lower()))
         ]
 
         if district_matches:
@@ -363,7 +371,7 @@ def run_acled_benchmark(
 ) -> dict:
     system_events = load_system_events()
     acled_events  = fetch_acled_bangladesh(start_date, end_date)
-    alignments    = align_with_acled(system_events, acled_events)
+    alignments    = align_with_acled(system_events, acled_events, date_window_days=7)
     metrics       = compute_acled_metrics(alignments)
     write_acled_report(metrics, alignments)
     return metrics

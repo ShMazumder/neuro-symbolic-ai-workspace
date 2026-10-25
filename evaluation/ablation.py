@@ -279,7 +279,8 @@ def _run_hybrid(test_events: list[dict]) -> list[dict]:
             except (ValueError, TypeError):
                 base_code = 17
 
-            base_idx = max(0, min(base_code - 13, NUM_CODES - 1))
+            root_code = _to_cameo_root(base_code)
+            base_idx = max(0, min(root_code - 13, NUM_CODES - 1))
             fake_logits = torch.zeros(NUM_CODES)
             fake_logits[base_idx] = 2.0 + float(ev.get("confidence", 0.7))
 
@@ -312,7 +313,12 @@ def _run_hybrid(test_events: list[dict]) -> list[dict]:
         return _run_neural_only(test_events)
 
 
-# ── Metrics ───────────────────────────────────────────────────────────────────
+def _to_cameo_root(code: int) -> int:
+    """Map 3-digit CAMEO code (e.g. 182) to 2-digit root (18)."""
+    if code >= 100:
+        return code // 10
+    return code
+
 
 def _compute_result(condition: str, test_events: list[dict], preds: list[dict]) -> AblationResult:
     total = len(test_events)
@@ -336,11 +342,14 @@ def _compute_result(condition: str, test_events: list[dict], preds: list[dict]) 
         if pred.get("has_provenance"):
             explainable += 1
 
-        if pcode == gold:
+        gold_root = _to_cameo_root(gold)
+        pred_root = _to_cameo_root(pcode)
+
+        if pred_root == gold_root:
             correct += 1
 
-        gold_hv = gold >= 18
-        pred_hv = pcode >= 18
+        gold_hv = gold_root >= 18
+        pred_hv = pred_root >= 18
 
         if pred_hv and gold_hv:   tp += 1
         if pred_hv and not gold_hv: fp += 1

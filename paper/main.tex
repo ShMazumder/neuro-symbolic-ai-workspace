@@ -30,6 +30,8 @@
 \usepackage{subcaption}
 \usepackage[margin=2.5cm]{geometry}
 \usepackage{natbib}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc, fit}
 
 % ── Metadata ─────────────────────────────────────────────────────────────────
 \title{
@@ -38,9 +40,9 @@
 }
 
 \author{
-  [Authors Anonymised for Review]\\
-  [Institution Anonymised for Review]\\
-  \texttt{[email anonymised]}
+  Anonymous Authors\\
+  Anonymous Institution\\
+  \texttt{anonymised@institution.org}
 }
 
 \date{}
@@ -139,13 +141,33 @@ targets BD conflict event extraction.
 
 Figure~\ref{fig:arch} shows the full NeuroSym-BD pipeline.
 
-\begin{figure}[h]
+\begin{figure}[t]
 \centering
-% \includegraphics[width=\linewidth]{figures/architecture.pdf}
-% [Figure: System architecture diagram — see docs/02_ARCHITECTURE.md]
-\fbox{\parbox{0.9\linewidth}{\centering [Architecture diagram placeholder — see docs/02_ARCHITECTURE.md]}}
-\caption{NeuroSym-BD system architecture: data layer → NLP layer →
-  knowledge graph → neuro-symbolic reasoning → API layer.}
+\begin{tikzpicture}[
+  scale=0.88, transform shape,
+  node distance=0.7cm and 0.6cm,
+  block/.style={rectangle, draw=blue!70, fill=blue!5, rounded corners=3pt, text width=2.4cm, minimum height=1.1cm, align=center, font=\footnotesize\bfseries},
+  nlp/.style={rectangle, draw=teal!70, fill=teal!5, rounded corners=3pt, text width=2.5cm, minimum height=1.1cm, align=center, font=\footnotesize\bfseries},
+  kg/.style={rectangle, draw=orange!70, fill=orange!5, rounded corners=3pt, text width=2.5cm, minimum height=1.1cm, align=center, font=\footnotesize\bfseries},
+  reason/.style={rectangle, draw=purple!70, fill=purple!5, rounded corners=3pt, text width=2.6cm, minimum height=1.1cm, align=center, font=\footnotesize\bfseries},
+  api/.style={rectangle, draw=gray!70, fill=gray!10, rounded corners=3pt, text width=2.4cm, minimum height=1.1cm, align=center, font=\footnotesize\bfseries},
+  arrow/.style={-{Stealth[scale=1.0]}, thick, draw=black!75},
+  feedback/.style={-{Stealth[scale=0.9]}, dashed, thick, draw=purple!80}
+]
+  \node[block] (data) {Data Layer\\ \scriptsize Daily Star RSS/Crawler};
+  \node[nlp, right=of data] (nlp) {NLP Extraction\\ \scriptsize 8-stage CAMEO pipeline};
+  \node[kg, right=of nlp] (kg) {Knowledge Graph\\ \scriptsize BlazeGraph + PROV-O};
+  \node[reason, below=0.9cm of kg] (reason) {Neuro-Symbolic\\ \scriptsize GNN + Symbolic Rules};
+  \node[api, below=0.9cm of nlp] (api) {API \& Analyst UI\\ \scriptsize Graph-RAG / NL2SPARQL};
+
+  \draw[arrow] (data) -- (nlp);
+  \draw[arrow] (nlp) -- (kg);
+  \draw[arrow] (kg) -- (reason);
+  \draw[arrow] (reason) -- (api);
+  \draw[arrow] (kg) -- (api);
+  \draw[feedback] (reason.west) -- node[above, font=\tiny\itshape, text=purple!90] {Constraint Filter} (api.east);
+\end{tikzpicture}
+\caption{NeuroSym-BD system architecture: news ingestion $\to$ 8-stage NLP pipeline $\to$ RDF Knowledge Graph $\to$ hybrid neuro-symbolic reasoning with symbolic verification $\to$ analyst API layer.}
 \label{fig:arch}
 \end{figure}
 
@@ -158,13 +180,32 @@ as JSON with schema $\{id, url, title, body, published\_date, category, scraped\
 \subsection{NLP Pipeline}
 The 8-stage pipeline (Figure~\ref{fig:nlp}) processes each article:
 
-\begin{figure}[h]
+\begin{figure}[t]
 \centering
-\fbox{\parbox{0.9\linewidth}{\small
-\texttt{relevance\_filter $\to$ coref $\to$ ner $\to$ event\_triggers}\\
-\texttt{$\to$ event\_args $\to$ cameo\_classifier $\to$ temporal $\to$ geo}
-}}
-\caption{NLP pipeline stages.}
+\begin{tikzpicture}[
+  scale=0.85, transform shape,
+  stage/.style={rectangle, draw=teal!80, fill=teal!6, rounded corners=2pt, text width=2.1cm, minimum height=0.75cm, align=center, font=\scriptsize},
+  arrow/.style={-{Stealth[scale=0.85]}, thick, draw=teal!80}
+]
+  \node[stage] (s1) {1. Relevance Filter};
+  \node[stage, right=0.35cm of s1] (s2) {2. Coreference};
+  \node[stage, right=0.35cm of s2] (s3) {3. BD NER};
+  \node[stage, right=0.35cm of s3] (s4) {4. Event Triggers};
+
+  \node[stage, below=0.5cm of s4] (s5) {5. Event Args};
+  \node[stage, left=0.35cm of s5] (s6) {6. CAMEO Classifier};
+  \node[stage, left=0.35cm of s6] (s7) {7. Temporal Norm};
+  \node[stage, left=0.35cm of s7] (s8) {8. Geo Extraction};
+
+  \draw[arrow] (s1) -- (s2);
+  \draw[arrow] (s2) -- (s3);
+  \draw[arrow] (s3) -- (s4);
+  \draw[arrow] (s4) -- (s5);
+  \draw[arrow] (s5) -- (s6);
+  \draw[arrow] (s6) -- (s7);
+  \draw[arrow] (s7) -- (s8);
+\end{tikzpicture}
+\caption{The 8-stage NLP extraction pipeline transforming unstructured text into grounded CAMEO event tuples.}
 \label{fig:nlp}
 \end{figure}
 
@@ -367,8 +408,8 @@ contained at least one violence keyword confirming relevance.
 (1) The system currently relies on a single English-language source
 (The Daily Star); Bangla-language sources (Prothom Alo, etc.) are future work.
 (2) Coreference resolution for Bangla political entities remains imperfect.
-(3) ACLED detection recall (78.3\%) indicates that \textapprox21.7\% of
-real events are missed—primarily brief mention events buried in larger
+(3) ACLED detection recall (78.3\%) indicates that $\approx 21.7\%$ of
+real events are missed---primarily brief mention events buried in larger
 articles.
 (4) Ground truth alignment uses date+district proximity, not exact sentence
 matching, which introduces alignment noise.
@@ -393,7 +434,7 @@ satellite imagery for spatial verification, and explore causal reasoning
 over escalation chains.
 
 % ── References ───────────────────────────────────────────────────────────
-\bibliographystyle{acl_natbib}
+\bibliographystyle{plainnat}
 \bibliography{references}
 
 \appendix

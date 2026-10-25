@@ -32,10 +32,12 @@ PROCESSED_DIR = Path("data/processed")
 
 # Violence-related keywords used to assess sentence relevance
 VIOLENCE_KEYWORDS = {
-    "kill", "killed", "death", "dead", "murder", "shoot", "shot", "attack",
-    "clash", "clashed", "bomb", "explosion", "fire", "arrest", "detain",
-    "assault", "beat", "injure", "wound", "protest", "rally", "violence",
-    "mob", "force", "law enforcement", "police", "rab", "bgb", "military",
+    "kill", "killed", "killing", "death", "dead", "murder", "murdered", "shoot", "shot", "shooting",
+    "attack", "attacked", "clash", "clashed", "clashes", "bomb", "explosion", "fire",
+    "arrest", "arrested", "detain", "detained", "assault", "assaulted", "beat", "beaten",
+    "injure", "injured", "wound", "wounded", "protest", "protests", "rally", "violence", "violent",
+    "mob", "force", "law enforcement", "police", "rab", "bgb", "military", "stab", "stabbed",
+    "looting", "vandalism", "vandalised", "vandalized", "gunfire", "strike", "blockade", "rape", "raped",
 }
 
 # ── Data structures ───────────────────────────────────────────────────────────
@@ -142,8 +144,10 @@ def _generate_fallback_explanations(events: list[dict], n: int = 100) -> list[di
         event_id = ev.get("event_id", f"syn_{random.randint(1000,9999)}")
         confidence = float(ev.get("confidence", 0.7))
         code = int(float(ev.get("cameo_code", 17)))
-        source_url = ev.get("source_url", "")
-        sentence = ev.get("source_sentence", "")
+        source_url = ev.get("source_url") or ev.get("article_url", "")
+        sentence = ev.get("source_sentence") or ev.get("sentence", "")
+        if not sentence or sentence == "document." or len(sentence) < 15:
+            sentence = ev.get("title") or ev.get("article_title") or sentence
         actors = ev.get("actors", [])
         loc = ev.get("location", {})
 

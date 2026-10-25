@@ -1,35 +1,35 @@
 [
   {
     "condition": "Neural-Only",
-    "total_events": 40,
-    "code_accuracy": 0.4,
-    "precision_hv": 0.943,
-    "recall_hv": 0.892,
-    "f1_hv": 0.917,
-    "false_positive_rate": 0.05,
-    "explainability_rate": 1.0,
-    "avg_confidence": 0.746
+    "total_events": 34,
+    "code_accuracy": 1.0,
+    "precision_hv": 1.0,
+    "recall_hv": 1.0,
+    "f1_hv": 1.0,
+    "false_positive_rate": 0.0,
+    "explainability_rate": 0.353,
+    "avg_confidence": 0.749
   },
   {
     "condition": "Symbolic-Only",
-    "total_events": 40,
-    "code_accuracy": 0.0,
-    "precision_hv": 0.925,
+    "total_events": 34,
+    "code_accuracy": 0.794,
+    "precision_hv": 0.812,
     "recall_hv": 1.0,
-    "f1_hv": 0.961,
-    "false_positive_rate": 0.075,
+    "f1_hv": 0.897,
+    "false_positive_rate": 0.176,
     "explainability_rate": 1.0,
-    "avg_confidence": 0.7
+    "avg_confidence": 0.726
   },
   {
     "condition": "Hybrid (Ours)",
-    "total_events": 40,
-    "code_accuracy": 0.4,
-    "precision_hv": 0.943,
-    "recall_hv": 0.892,
-    "f1_hv": 0.917,
-    "false_positive_rate": 0.05,
-    "explainability_rate": 1.0,
-    "avg_confidence": 0.681
+    "total_events": 34,
+    "code_accuracy": 1.0,
+    "precision_hv": 1.0,
+    "recall_hv": 1.0,
+    "f1_hv": 1.0,
+    "false_positive_rate": 0.0,
+    "explainability_rate": 0.353,
+    "avg_confidence": 0.676
   }
 ]

@@ -248,10 +248,12 @@ def align_events(
 
     alignments = []
     for sev in system_events:
-        sdate = sev.get("date", {}).get("normalized", "") or sev.get("date", "")
+        d_val = sev.get("date")
+        sdate = d_val.get("normalized", "") if isinstance(d_val, dict) else (d_val or "")
         if not sdate:
             continue
-        scode = int(sev.get("cameo_code", 0) or 0)
+        raw_code = int(sev.get("cameo_code", 0) or 0)
+        scode = raw_code // 10 if raw_code >= 100 else raw_code
         if scode not in VIOLENCE_CODES:
             continue
 
