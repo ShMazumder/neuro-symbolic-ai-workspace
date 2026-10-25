@@ -64,10 +64,11 @@ ACLED_SUB_EVENT_TO_CAMEO: dict[tuple[str, str], int] = {
     ("Protests", "Protest with intervention"):                           14, # CAMEO 14: Protest
     ("Protests", "Excessive force against protesters"):                  14, # CAMEO 14: Protest
     ("Battles", "Armed clash"):                                          19, # CAMEO 19: Fight
-    ("Explosions/Remote violence", "Remote explosive/landmine/IED"):     20, # CAMEO 20: Mass Violence
-    ("Explosions/Remote violence", "Grenade"):                           20, # CAMEO 20: Mass Violence
-    ("Explosions/Remote violence", "Air/drone strike"):                  20, # CAMEO 20: Mass Violence
-    ("Explosions/Remote violence", "Shelling/artillery/missile attack"): 20, # CAMEO 20: Mass Violence
+    ("Explosions/Remote violence", "Remote explosive/landmine/IED"):     18, # CAMEO 183: Bombing under Assault
+    ("Explosions/Remote violence", "Grenade"):                           18, # CAMEO 183: Bombing under Assault
+    ("Explosions/Remote violence", "Air/drone strike"):                  19, # CAMEO 195: Air strike under Fight
+    ("Explosions/Remote violence", "Shelling/artillery/missile attack"): 19, # CAMEO 194: Artillery under Fight
+    ("Explosions/Remote violence", "Chemical weapon"):                   20, # CAMEO 20: Unconventional Mass Violence
     ("Strategic developments", "Looting/property destruction"):          18, # CAMEO 18: Assault / Property destruction
     ("Strategic developments", "Arrests"):                               17, # CAMEO 17: Coerce / Detain
     ("Strategic developments", "Disrupted weapons use"):                 17, # CAMEO 17: Coerce
