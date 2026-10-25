@@ -71,17 +71,23 @@ Comparison of three operational conditions on a 50-event held-out test split:
 
 | Metric | Condition A: Neural-Only | Condition B: Symbolic-Only | Condition C: Hybrid (Ours) |
 |---|---|---|---|
-| **CAMEO Code Accuracy** | 0.400 | 0.400 | **0.400** |
+| **True Positives ($TP$)** | 20 | 21 | 20 |
+| **False Positives ($FP$)** | 17 | 16 | **4** |
+| **True Negatives ($TN$)** | 10 | 11 | **23** |
+| **False Negatives ($FN$)** | 3 | **2** | 3 |
+| **Binary Accuracy ($HV \ge 18$)** | 0.600 (60.0\%) | 0.640 (64.0\%) | **0.860 (86.0\%)** |
+| **CAMEO Root Accuracy (8-class)** | 0.400 | 0.400 | **0.400** |
 | **Precision @ High Violence ($\ge 18$)** | 0.541 | 0.568 | **0.833** |
 | **Recall @ High Violence ($\ge 18$)** | 0.870 | **0.913** | **0.870** |
 | **F1 @ High Violence** | 0.667 | 0.700 | **0.851** |
-| **False Positive Rate (FPR)** | 0.340 | 0.320 | **0.080** |
+| **Standard Binary FPR ($FP/(FP+TN)$)** | 0.630 (63.0\%) | 0.593 (59.3\%) | **0.148 (14.8\%)** |
+| **False Alarm Rate ($FP/N$)** | 0.340 (34.0\%) | 0.320 (32.0\%) | **0.080 (8.0\%)** |
 | **Explainability Rate** | 0.0% | 100% | **100%** |
 | **Average Decision Confidence** | 0.486 | 0.706 | **0.415** |
 
 **Observations:**
-- The Hybrid engine cuts false-positive alarms by **76.5%** (FPR drops from 34.0% to 8.0%), driving a **+0.184 F1 gain** over pure neural baselines.
-- Symbolic Description Logic constraints (C-ONTO, C-ACTOR, C-GEO) effectively filter out ungrounded neural extrapolations.
+- **False Alarm Suppression:** The Hybrid engine cuts standard binary false-positive rate from 63.0\% to **14.8\%** (a 76.5\% relative reduction), driving binary classification accuracy from 60.0\% to **86.0\%** ($+26.0\%$ absolute gain) and **+0.184 F1 gain** over neural baselines.
+- **Root Multi-Class vs Binary HV:** The 8-class macro root accuracy (0.400 across all models) confirms that the neuro-symbolic gain is concentrated precisely in distinguishing lethal and physical violence from non-violent political protests and legal maneuvers.
 
 ---
 

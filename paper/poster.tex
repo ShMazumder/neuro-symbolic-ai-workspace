@@ -114,13 +114,13 @@ FIGHT (19) & 0.000 & 0.000 & 0.000 \\
 \begin{center}
 \textbf{Ablation Study (Held-Out Test Set)} \\
 \vspace{0.3em}
-\begin{tabular}{lccc}
+\begin{tabular}{lcccc}
 \toprule
-\textbf{Condition} & \textbf{F1@HV} & \textbf{FPR} & \textbf{Explainability} \\
+\textbf{Condition} & \textbf{BinAcc} & \textbf{F1@HV} & \textbf{Std-FPR} & \textbf{Expl} \\
 \midrule
-Neural-Only & 0.667 & 34.0\% & 0.0\% \\
-Symbolic-Only & 0.700 & 32.0\% & 100.0\% \\
-\textbf{Hybrid (Ours)} & \textbf{0.851} & \textbf{8.0\%} & \textbf{100.0\%} \\
+Neural-Only & 60.0\% & 0.667 & 63.0\% & 0.0\% \\
+Symbolic-Only & 64.0\% & 0.700 & 59.3\% & 100.0\% \\
+\textbf{Hybrid (Ours)} & \textbf{86.0\%} & \textbf{0.851} & \textbf{14.8\%} & \textbf{100.0\%} \\
 \bottomrule
 \end{tabular}
 \end{center}

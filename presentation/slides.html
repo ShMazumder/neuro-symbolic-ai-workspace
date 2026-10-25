@@ -785,13 +785,13 @@
           <h3>Ablation Study: Neural vs Symbolic vs Hybrid ($N=50$)</h3>
           <table class="slide-table">
             <thead>
-              <tr><th>Condition</th><th>F1 @ High Viol.</th><th>FPR</th><th>Confidence</th></tr>
+              <tr><th>Condition</th><th>BinAcc</th><th>F1 @ HV</th><th>Std-FPR</th><th>FAR</th></tr>
             </thead>
             <tbody>
-              <tr><td><strong>Neural-Only</strong></td><td>0.667</td><td>34.0%</td><td>0.486 (Unconstrained)</td></tr>
-              <tr><td><strong>Symbolic-Only</strong></td><td>0.700</td><td>32.0%</td><td>0.706 (Rigid Rules)</td></tr>
+              <tr><td><strong>Neural-Only</strong></td><td>60.0%</td><td>0.667</td><td>63.0%</td><td>34.0%</td></tr>
+              <tr><td><strong>Symbolic-Only</strong></td><td>64.0%</td><td>0.700</td><td>59.3%</td><td>32.0%</td></tr>
               <tr style="background: rgba(16, 185, 129, 0.15);">
-                <td><strong>Hybrid (Ours)</strong></td><td><strong>0.851</strong></td><td><strong>8.0%</strong></td><td><strong>0.415 (DL Gated)</strong></td>
+                <td><strong>Hybrid (Ours)</strong></td><td><strong>86.0%</strong></td><td><strong>0.851</strong></td><td><strong>14.8%</strong></td><td><strong>8.0%</strong></td>
               </tr>
             </tbody>
           </table>
