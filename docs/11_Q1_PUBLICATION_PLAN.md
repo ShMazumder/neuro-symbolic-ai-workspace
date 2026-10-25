@@ -36,9 +36,9 @@ flowchart TD
 - [x] **2.4 Sequence Forecaster:** Trained BiLSTM via [`neurosymbolic/forecasting.py`](../neurosymbolic/forecasting.py) $\to$ `models/forecasting/escalation_lstm.pt` (Accuracy: 90.28%).
 
 ### Phase 3: Conflict Benchmark Re-evaluation
-- [x] **3.1 ACLED Gold Benchmark:** Executed [`evaluation/benchmark_acled.py`](../evaluation/benchmark_acled.py) (Recall: 23.4%, Location: 23.4%, CAMEO group: 100.0%).
+- [x] **3.1 Genuine ACLED Gold Benchmark:** Executed [`evaluation/benchmark_acled.py`](../evaluation/benchmark_acled.py) on 6,691 real events (Recall: 39.0%, Location: 39.0%, CAMEO group concordance: 60.0%).
 - [x] **3.2 GDELT Benchmark:** Executed [`evaluation/benchmark_gdelt.py`](../evaluation/benchmark_gdelt.py) (Precision: 0.922, Recall: 0.922, F1: 0.922).
-- [x] **3.3 Large-Scale Ablation:** Executed [`evaluation/ablation.py`](../evaluation/ablation.py) (Hybrid achieved F1=0.851, 8.0% FPR vs Neural 34.0% FPR).
+- [x] **3.3 Rigorous Human Annotation & Large-Scale Ablation:** Created $N=300$ double-annotated gold benchmark ([`data/annotations/human_annotation_study.json`](../data/annotations/human_annotation_study.json), Cohen's $\kappa=0.737, 0.832$); executed [`evaluation/ablation.py`](../evaluation/ablation.py) across $N=150$ test events (Hybrid achieved BinAcc 80.7%, F1=0.688, 6.7% FAR vs Neural 37.3% FAR, $p < 0.001$).
 - [x] **3.4 Explainability Verification:** Executed [`evaluation/explain_eval.py`](../evaluation/explain_eval.py) (97.0% provenance, 100% rule coverage, 100% trigger relevance).
 
 ### Phase 4: Qualitative Studies & Error Taxonomy

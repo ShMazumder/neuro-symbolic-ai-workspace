@@ -1,0 +1,5437 @@
+[
+  {
+    "event_id": "gold_001",
+    "source_sentence": "He is involved in the local nursery business.",
+    "gold_cameo_code": 18,
+    "prev_code": 18,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/historical/crime/news/arson-attacks-minorities-homes-ctg-six-more-held-4080756"
+  },
+  {
+    "event_id": "gold_002",
+    "source_sentence": "Although a ring dam was built here by Water Development Board (WDB) last year, it is now under threat of erosion, villagers said.",
+    "gold_cameo_code": 13,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Civilian Demonstrators / Locals",
+        "type": "CIVILIAN",
+        "role": "target"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/news/payra-erosion-threatens-barguna-villages-3056336"
+  },
+  {
+    "event_id": "gold_003",
+    "source_sentence": "Khelafat Majlis Secretary General Jalaluddin Ahmad delivered the welcome address.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/political-parties/news/khelafat-majlis-hosts-diplomats-calls-balanced-foreign-policy-4291251"
+  },
+  {
+    "event_id": "gold_004",
+    "source_sentence": "Police detained three people, including a police constable, with 120 yaba pills in Gazipur's Sreepur late last night.",
+    "gold_cameo_code": 17,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Gazipur",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/constable-among-three-detained-yaba-gazipur-4306351"
+  },
+  {
+    "event_id": "gold_005",
+    "source_sentence": "At one point, a member of his entourage threatened to shoot, while one of his bodyguards kicked a young man as the group attempted to detain several people.",
+    "gold_cameo_code": 16,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/ishraque-announce-resignation-state-minister-today-4302301"
+  },
+  {
+    "event_id": "gold_006",
+    "source_sentence": "Six months after his departure, Saudi police arrested him and a Bangladeshi woman for allegedly committing an \u201cimmoral act\u201d at a mosque in Makkah.",
+    "gold_cameo_code": 17,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/our-son-was-killed-without-fair-trial-4303011"
+  },
+  {
+    "event_id": "gold_007",
+    "source_sentence": "AM Salahuddin told the HC bench they have some limitations in preventing passengers from travelling on the roof.",
+    "gold_cameo_code": 14,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/news/you-cannot-remain-silent-3076231"
+  },
+  {
+    "event_id": "gold_008",
+    "source_sentence": "\u201cMany women had to support their families while male Jamaat members were in jail during the Awami League government, leaving them unprepared for electoral politics,\u201d said Mardia.",
+    "gold_cameo_code": 14,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Political Party Cadres",
+        "type": "POLITICAL_PARTY",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/political-parties/news/70-jamaat-women-felt-unprepared-polls-4298316"
+  },
+  {
+    "event_id": "gold_009",
+    "source_sentence": "In December last year, several arson attacks took place in Raozan and Rangunia late at night after doors were locked from the outside.",
+    "gold_cameo_code": 18,
+    "prev_code": 18,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/historical/crime/news/arson-attacks-minorities-homes-ctg-six-more-held-4080756"
+  },
+  {
+    "event_id": "gold_010",
+    "source_sentence": "Further details of the investigation will be shared at a press briefing scheduled to be held at the CID headquarters later today.",
+    "gold_cameo_code": 17,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/historical/crime/news/ec-office-assistant-among-two-arrested-over-nid-forgery-data-sale-4081591"
+  },
+  {
+    "event_id": "gold_011",
+    "source_sentence": "According to the report, 1,013 incidents of political violence left 73 dead and 6,473 injured.",
+    "gold_cameo_code": 18,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/accidents-and-fires/news/least-187-killed-mob-violence-nine-months-4303056"
+  },
+  {
+    "event_id": "gold_012",
+    "source_sentence": "Meanwhile, 56 attacks on minorities resulted in the vandalism of 21 temples and 47 homes, while 535 workers died in workplace incidents.",
+    "gold_cameo_code": 20,
+    "prev_code": 20,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      },
+      {
+        "name": "Civilian Demonstrators / Locals",
+        "type": "CIVILIAN",
+        "role": "target"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/accidents-and-fires/news/least-187-killed-mob-violence-nine-months-4303056"
+  },
+  {
+    "event_id": "gold_013",
+    "source_sentence": "In the Facebook live video, the female tourist said, \u201cI set out to travel the country on foot one month ago.",
+    "gold_cameo_code": 17,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/historical/crime/news/man-arrested-over-harassment-female-tourist-travelling-across-country-foot-4080666"
+  },
+  {
+    "event_id": "gold_014",
+    "source_sentence": "Contacted, Aminul Islam said that he was digging a pond on his own land and it matters little to him whose land and homesteads being devoured.",
+    "gold_cameo_code": 13,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/crime-justice/news/illegal-pond-threat-surrounding-cropland-3069061"
+  },
+  {
+    "event_id": "gold_015",
+    "source_sentence": "Dhaka Metropolitan Magistrate Ariful Islam passed the order after the Criminal Investigation Department (CID) produced him before the court seeking a three-day remand, said Additional Public Prosecutor Muhammad Shamsud Doha Sumon.",
+    "gold_cameo_code": 17,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/diamond-world-md-dilip-agarwala-remanded-tk-678cr-money-laundering-case-4303426"
+  },
+  {
+    "event_id": "gold_016",
+    "source_sentence": "\u201cRelations with neighbouring countries should be built on mutual respect, fair trade and humanitarian dialogue,\u201d he said.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/political-parties/news/khelafat-majlis-hosts-diplomats-calls-balanced-foreign-policy-4291251"
+  },
+  {
+    "event_id": "gold_017",
+    "source_sentence": "Wasfia is best known for being the only Bangladeshi to climb the Seven Summits -- the highest mountains of every continent.",
+    "gold_cameo_code": 14,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/news/wasfia-first-bangladeshi-conquer-k2-3076981"
+  },
+  {
+    "event_id": "gold_018",
+    "source_sentence": "The following day, his wife, Anandita Sangma, filed a murder case with Durgapur Police Station against seven to eight unidentified individuals.",
+    "gold_cameo_code": 20,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/another-suspect-arrested-over-journalist-alif-murder-4304091"
+  },
+  {
+    "event_id": "gold_019",
+    "source_sentence": "He added that the commission had to work within a tight timeframe as several important events were scheduled over the next six to seven months, including two Eid festivals, two public examinations and Bishwa Ijtema.",
+    "gold_cameo_code": 16,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/election/news/polls-begin-jan-21-end-may-27-2027-4296756"
+  },
+  {
+    "event_id": "gold_020",
+    "source_sentence": "Among the 73 people killed in political violence, 46 were from the BNP, eight from Jamaat-e-Islami and six from the Awami League.",
+    "gold_cameo_code": 18,
+    "prev_code": 18,
+    "actors": [
+      {
+        "name": "Political Party Cadres",
+        "type": "POLITICAL_PARTY",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/accidents-and-fires/news/least-187-killed-mob-violence-nine-months-4303056"
+  },
+  {
+    "event_id": "gold_021",
+    "source_sentence": "The group has been earning more than Tk 1 crore per month from the illicit activities, CID Special Superintendent Jasim Uddin Khan said today.",
+    "gold_cameo_code": 17,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/historical/crime/news/ec-office-assistant-among-two-arrested-over-nid-forgery-data-sale-4081591"
+  },
+  {
+    "event_id": "gold_022",
+    "source_sentence": "Earlier, on September 3, 2024, he was arrested by the then Rapid Action Battalion in a case over the killing of teenager Hridoy Ahmed during July Uprising.",
+    "gold_cameo_code": 17,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/diamond-world-md-dilip-agarwala-remanded-tk-678cr-money-laundering-case-4303426"
+  },
+  {
+    "event_id": "gold_023",
+    "source_sentence": "The accused, Abdullah Al Mamun Dulal, 53, was produced before a court yesterday after being arrested in a case filed by the victim\u2019s father.",
+    "gold_cameo_code": 17,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/man-arrested-over-rape-13-yr-old-boy-4302981"
+  },
+  {
+    "event_id": "gold_024",
+    "source_sentence": "Locals said that after the devastating cyclone Sidr in 2007, the dyke has not been repaired much.",
+    "gold_cameo_code": 13,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Civilian Demonstrators / Locals",
+        "type": "CIVILIAN",
+        "role": "target"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/news/payra-erosion-threatens-barguna-villages-3056336"
+  },
+  {
+    "event_id": "gold_025",
+    "source_sentence": "Nicknaming K2 the \"Savage Mountain\", the article said, \"Unlike Everest, it is not possible to 'walk' to the top; all sides of K2 are extremely steep and see frequent rockfalls and avalanches.\"",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/news/wasfia-first-bangladeshi-conquer-k2-3076981"
+  },
+  {
+    "event_id": "gold_026",
+    "source_sentence": "To achieve that objective, the Bailey bridge over the river Ratnai needs to be replaced with a stronger and wider bridge as soon as possible, he also said.",
+    "gold_cameo_code": 14,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/transport/news/ramshackle-ratnai-bridge-impediment-development-3071956"
+  },
+  {
+    "event_id": "gold_027",
+    "source_sentence": "Later, she set out on foot for Kurigram on the morning of January 11.",
+    "gold_cameo_code": 17,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Kurigram",
+      "division": "Rangpur"
+    },
+    "source_url": "https://www.thedailystar.net/historical/crime/news/man-arrested-over-harassment-female-tourist-travelling-across-country-foot-4080666"
+  },
+  {
+    "event_id": "gold_028",
+    "source_sentence": "However, as the villagers refused his offer, he started digging a pond on his eight bighas of land illegally posing threats to surrounding cropland and homesteads, inhabitants of Dwarkuti village said.",
+    "gold_cameo_code": 13,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Civilian Demonstrators / Locals",
+        "type": "CIVILIAN",
+        "role": "target"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/crime-justice/news/illegal-pond-threat-surrounding-cropland-3069061"
+  },
+  {
+    "event_id": "gold_029",
+    "source_sentence": "According to police, the female tourist had been travelling on foot across different districts of the country for the past month.",
+    "gold_cameo_code": 17,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/historical/crime/news/man-arrested-over-harassment-female-tourist-travelling-across-country-foot-4080666"
+  },
+  {
+    "event_id": "gold_030",
+    "source_sentence": "The incident occurred around 8:00pm at the OC\u2019s office, where local residents accused police of assault, bribery and corruption.",
+    "gold_cameo_code": 18,
+    "prev_code": 18,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/rumeen-locks-horns-sarail-oc-over-security-misconduct-4306091"
+  },
+  {
+    "event_id": "gold_031",
+    "source_sentence": "Later, hearing Rima's screams, her mother Eleka Begum entered the room and found the duo lying in the floor unconscious and informed the police, he said.",
+    "gold_cameo_code": 18,
+    "prev_code": 18,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/crime-justice/news/natore-member-found-dead-wife-injured-3069041"
+  },
+  {
+    "event_id": "gold_032",
+    "source_sentence": "Representatives of several Hindu organisations, including the Hindu Bouddha Christian Oikya Parishad, Bangladesh Puja Udjapan Parishad, Bangladesh National Hindu Grand Alliance and Mahanagar Sarbojanin Puja Committee, also attended.",
+    "gold_cameo_code": 16,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/govt-opposition-should-jointly-protect-hindu-communitys-rights-jamaat-ameer-4298756"
+  },
+  {
+    "event_id": "gold_033",
+    "source_sentence": "The incident propelled him into the spotlight and earned him immense popularity among BNP activists.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      },
+      {
+        "name": "Political Party Cadres",
+        "type": "POLITICAL_PARTY",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/ishraque-the-headlines-often-the-wrong-reasons-4302776"
+  },
+  {
+    "event_id": "gold_034",
+    "source_sentence": "The death toll was more than two-and-a-half times the 73 deaths recorded in political clashes during the same period.",
+    "gold_cameo_code": 19,
+    "prev_code": 19,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/accidents-and-fires/news/least-187-killed-mob-violence-nine-months-4303056"
+  },
+  {
+    "event_id": "gold_035",
+    "source_sentence": "The talks are going well because political parties are giving thoughtful opinions.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Political Party Cadres",
+        "type": "POLITICAL_PARTY",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/politics/news/ecs-dialogue-parties-runs-snag-3075346"
+  },
+  {
+    "event_id": "gold_036",
+    "source_sentence": "Rafiqul Alam, general secretary of Aditmari upazila AL, said Aminul deserves to be punished.",
+    "gold_cameo_code": 13,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/crime-justice/news/illegal-pond-threat-surrounding-cropland-3069061"
+  },
+  {
+    "event_id": "gold_037",
+    "source_sentence": "According to police sources, a five-member police team was patrolling the area.",
+    "gold_cameo_code": 15,
+    "prev_code": 15,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/2-cops-injured-attack-during-procession-support-al-gopalganj-4306466"
+  },
+  {
+    "event_id": "gold_038",
+    "source_sentence": "\u201cWe have identified one individual who is the mastermind and played an active leadership role in the incidents.",
+    "gold_cameo_code": 20,
+    "prev_code": 20,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/historical/crime/news/arson-attacks-minorities-homes-ctg-six-more-held-4080756"
+  },
+  {
+    "event_id": "gold_039",
+    "source_sentence": "Nasrul said the overall power supply deficit is now crossing the 1,500MW mark daily.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/news/need-1-week-assess-situation-3076976"
+  },
+  {
+    "event_id": "gold_040",
+    "source_sentence": "Police and local sources said patrols had been stepped up and teams were searching the surrounding hills.",
+    "gold_cameo_code": 15,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/50-vehicles-robbed-one-day-coxs-bazar-road-victims-4303681"
+  },
+  {
+    "event_id": "gold_041",
+    "source_sentence": "He alleged that the BNP was avoiding implementation of the July Charter by maintaining differences on several fundamental issues.",
+    "gold_cameo_code": 16,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Political Party Cadres",
+        "type": "POLITICAL_PARTY",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/shafiqur-skipped-july-memorial-inauguration-over-lack-protocol-says-jamaat-4303301"
+  },
+  {
+    "event_id": "gold_042",
+    "source_sentence": "Clashes, retaliatory attacks, and killings have occurred among these groups over territorial control and revenge.",
+    "gold_cameo_code": 19,
+    "prev_code": 19,
+    "actors": [
+      {
+        "name": "Political Party Cadres",
+        "type": "POLITICAL_PARTY",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Khulna",
+      "division": "Khulna"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/jubo-dal-leader-grocery-shop-owner-shot-khulna-4306381"
+  },
+  {
+    "event_id": "gold_043",
+    "source_sentence": "Citing Agriculture Minister Mohammed Aminur Rashid, he said the country's total fertiliser demand for the 2026-27 fiscal year stood at 58 lakh tonnes, while government estimates indicated stocks were about nine lakh tonnes higher than demand.",
+    "gold_cameo_code": 13,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/jamaat-questions-fertiliser-shortage-despite-reported-surplus-stocks-4299366"
+  },
+  {
+    "event_id": "gold_044",
+    "source_sentence": "If someone fires from a rooftop, we do not know whose head the bullet will hit.\u201d",
+    "gold_cameo_code": 18,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/unapologetic-ishraque-quits-4303006"
+  },
+  {
+    "event_id": "gold_045",
+    "source_sentence": "CID officials said the arrestees had long been involved in an organised syndicate engaged in unauthorised NID corrections, insertion of fake information, and the illegal sale of citizens\u2019 personal data.",
+    "gold_cameo_code": 17,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/historical/crime/news/ec-office-assistant-among-two-arrested-over-nid-forgery-data-sale-4081591"
+  },
+  {
+    "event_id": "gold_046",
+    "source_sentence": "Several people demanded the OC\u2019s removal and chanted slogans as tensions rose.",
+    "gold_cameo_code": 16,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/rumeen-locks-horns-sarail-oc-over-security-misconduct-4306091"
+  },
+  {
+    "event_id": "gold_047",
+    "source_sentence": "Incidents of murder, rape, extortion and illegal land grabbing were increasing daily.",
+    "gold_cameo_code": 18,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/home-minister-busy-every-ministry-his-own-shafiqur-4306416"
+  },
+  {
+    "event_id": "gold_048",
+    "source_sentence": "The government will plan its next steps for electricity rationing after analysing the data of the first week of power outages, he said.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/news/need-1-week-assess-situation-3076976"
+  },
+  {
+    "event_id": "gold_049",
+    "source_sentence": "Azizul Haque Islamabadi, joint secretary general of Hefazat-e-Islam, said Islamist parties were split after contesting the last election under different alliances or independently.",
+    "gold_cameo_code": 14,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Political Party Cadres",
+        "type": "POLITICAL_PARTY",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/political-parties/news/seven-qawmi-based-parties-jamaat-suspects-govt-hand-hefazats-unity-bid-4306001"
+  },
+  {
+    "event_id": "gold_050",
+    "source_sentence": "He accused the government of failing to amend the ACC Act, establish an independent police commission, ensure judicial independence and introduce measures to disclose the assets of judges and court employees.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/political-parties/news/bnp-govt-incapable-working-opposition-4302256"
+  },
+  {
+    "event_id": "gold_051",
+    "source_sentence": "District BNP General Secretary Poygam Ali, Joint General Secretary and Thakurgaon municipality BNP President Shariful Islam, Sadar upazila BNP General Secretary Mahbub Hossain and other party leaders and activists accompanied him.",
+    "gold_cameo_code": 20,
+    "prev_code": 20,
+    "actors": [
+      {
+        "name": "Political Party Cadres",
+        "type": "POLITICAL_PARTY",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/election/news/race-thakurgaon-1-begins-bnp-jamaat-hit-campaign-trail-4293886"
+  },
+  {
+    "event_id": "gold_052",
+    "source_sentence": "The affected villages are Tetulbaria, Sobahanpara, Ankujanpara and Jayalbhanga in Taltali upazila and Baliatali and Baithakata in Amtali upazila.",
+    "gold_cameo_code": 13,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/news/payra-erosion-threatens-barguna-villages-3056336"
+  },
+  {
+    "event_id": "gold_053",
+    "source_sentence": "Now, I am losing my arable land and homestead,\" he said.",
+    "gold_cameo_code": 13,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/crime-justice/news/illegal-pond-threat-surrounding-cropland-3069061"
+  },
+  {
+    "event_id": "gold_054",
+    "source_sentence": "The family also said Nazrul\u2019s paternal aunt, Abeda Begum, died of a heart attack after hearing the news on Wednesday night.",
+    "gold_cameo_code": 20,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/our-son-was-killed-without-fair-trial-4303011"
+  },
+  {
+    "event_id": "gold_055",
+    "source_sentence": "Several people allegedly held them hostage and took their motorcycle keys.",
+    "gold_cameo_code": 16,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/police-constable-among-four-held-after-stolen-motorcycle-put-sale-social-media-4304111"
+  },
+  {
+    "event_id": "gold_056",
+    "source_sentence": "Police officers present denied the allegations, while the OC said he did not know the complainant.",
+    "gold_cameo_code": 20,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/rumeen-locks-horns-sarail-oc-over-security-misconduct-4306091"
+  },
+  {
+    "event_id": "gold_057",
+    "source_sentence": "The incident took place in Mahendranagar area of Sadar upazila while she was walking from Lalmonirhat town towards Kurigram.",
+    "gold_cameo_code": 17,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Kurigram",
+      "division": "Rangpur"
+    },
+    "source_url": "https://www.thedailystar.net/historical/crime/news/man-arrested-over-harassment-female-tourist-travelling-across-country-foot-4080666"
+  },
+  {
+    "event_id": "gold_058",
+    "source_sentence": "The following day, his wife, Anandita Sangma, filed a murder case with Durgapur Police Station, accusing seven to eight unidentified individuals.",
+    "gold_cameo_code": 20,
+    "prev_code": 20,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/journalist-alif-murder-suspect-opurba-placed-4-day-remand-4303316"
+  },
+  {
+    "event_id": "gold_059",
+    "source_sentence": "At one point, a member of his entourage threatened to shoot, while one of his bodyguards kicked a young man as the group attempted to detain several people.",
+    "gold_cameo_code": 16,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/ishraques-fate-the-air-4302161"
+  },
+  {
+    "event_id": "gold_060",
+    "source_sentence": "\u201cLocal residents then advised me to leave the area immediately, and I was safely taken away in a vehicle,\u201d he said.",
+    "gold_cameo_code": 17,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Narayanganj",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/news/youth-arrested-over-attempted-attack-ncp-candidate-narayanganj-4081661"
+  },
+  {
+    "event_id": "gold_061",
+    "source_sentence": "A 35-year-old man was allegedly hacked to death with an axe by his father-in-law while sleeping at his in-laws\u2019 house in Bolibhadrpur village of Maheshpur upazila around 6:30am today.",
+    "gold_cameo_code": 18,
+    "prev_code": 18,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/five-bodies-recovered-five-districts-4303306"
+  },
+  {
+    "event_id": "gold_062",
+    "source_sentence": "However, the DIG did not disclose the name of the banned organisation.",
+    "gold_cameo_code": 18,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/historical/crime/news/arson-attacks-minorities-homes-ctg-six-more-held-4080756"
+  },
+  {
+    "event_id": "gold_063",
+    "source_sentence": "However, instead of seeking justice, they allegedly tried to assault her by accusing her of theft.",
+    "gold_cameo_code": 20,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/historical/crime/news/man-arrested-over-harassment-female-tourist-travelling-across-country-foot-4080666"
+  },
+  {
+    "event_id": "gold_064",
+    "source_sentence": "The 15 detainees were later sentenced by a mobile court, he added.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/15-jailed-dayaganj-anti-drug-drive-following-ishraque-gun-controversy-4302741"
+  },
+  {
+    "event_id": "gold_065",
+    "source_sentence": "Police operations are underway to identify and arrest those involved.\u201d",
+    "gold_cameo_code": 17,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/2-cops-injured-attack-during-procession-support-al-gopalganj-4306466"
+  },
+  {
+    "event_id": "gold_066",
+    "source_sentence": "The BNP, however, has said the constitutional amendment process will not be unilateral.",
+    "gold_cameo_code": 14,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Political Party Cadres",
+        "type": "POLITICAL_PARTY",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/bnp-betrayed-peoples-mandate-soon-after-taking-office-akhter-4295021"
+  },
+  {
+    "event_id": "gold_067",
+    "source_sentence": "The alliance includes Islamist parties, groups involved in the 2024 mass uprising and parties that supported the Liberation War.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Political Party Cadres",
+        "type": "POLITICAL_PARTY",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/political-parties/news/seven-qawmi-based-parties-jamaat-suspects-govt-hand-hefazats-unity-bid-4306001"
+  },
+  {
+    "event_id": "gold_068",
+    "source_sentence": "Anik Das was subsequently arrested there with the assistance of Khulshi police,\u201d Nasim said.",
+    "gold_cameo_code": 17,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/police-constable-among-four-held-after-stolen-motorcycle-put-sale-social-media-4304111"
+  },
+  {
+    "event_id": "gold_069",
+    "source_sentence": "Thousands of villagers in Barguna's Taltali and Amtali upazilas are worried about losing their belongings to continuous erosion of Payra river.",
+    "gold_cameo_code": 20,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Civilian Demonstrators / Locals",
+        "type": "CIVILIAN",
+        "role": "target"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/news/payra-erosion-threatens-barguna-villages-3056336"
+  },
+  {
+    "event_id": "gold_070",
+    "source_sentence": "When the VC\u2019s personal secretary, Nazmul Hossain, intervened, he was assaulted and later allegedly forced to sign a separate resignation letter, despite telling the group he was a regular employee.",
+    "gold_cameo_code": 18,
+    "prev_code": 18,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/bnp-leader-held-forcing-rmu-vc-resign-4293411"
+  },
+  {
+    "event_id": "gold_071",
+    "source_sentence": "Two children died in separate incidents of drowning in Lalmonirhat and Kurigram on Monday.",
+    "gold_cameo_code": 20,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Kurigram",
+      "division": "Rangpur"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/accidents-fires/news/two-kids-drown-lalmonirhat-kurigram-3069046"
+  },
+  {
+    "event_id": "gold_072",
+    "source_sentence": "Claiming that all state institutions, including the health sector, were in a \u201cdevastated\u201d state, he said the deteriorating law and order situation had allowed various crimes to take place in broad daylight in the capital.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/govt-has-no-right-stay-if-it-fails-ensure-safety-4290636"
+  },
+  {
+    "event_id": "gold_073",
+    "source_sentence": "According to police and local residents, Al-Amin was on his way home after Taraweeh prayers when a group of miscreants attacked him.",
+    "gold_cameo_code": 18,
+    "prev_code": 18,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Jashore",
+      "division": "Khulna"
+    },
+    "source_url": "https://www.thedailystar.net/historical/crime/news/man-stabbed-death-jashore-4110881"
+  },
+  {
+    "event_id": "gold_074",
+    "source_sentence": "Police recovered the decomposed body of an unidentified man, believed to be around 50, from the bank of Turag river in Protyasha Math area of Tongi last night.",
+    "gold_cameo_code": 20,
+    "prev_code": 20,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/five-bodies-recovered-five-districts-4303306"
+  },
+  {
+    "event_id": "gold_075",
+    "source_sentence": "On October 28, 2023, following clashes surrounding BNP\u2019s grand rally, a man named Zahidul Islam, alias Mia Arefi, appeared at the party\u2019s Naya Paltan office, claiming to be an adviser to then US president Joe Biden.",
+    "gold_cameo_code": 19,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Political Party Cadres",
+        "type": "POLITICAL_PARTY",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/ishraque-the-headlines-often-the-wrong-reasons-4302776"
+  },
+  {
+    "event_id": "gold_076",
+    "source_sentence": "Hasnat further said, \u201cToday, we saw something at a university...",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/hasnat-calls-cuet-vc-goon-shameless-breaking-lock-his-office-help-jcd-men-4297046"
+  },
+  {
+    "event_id": "gold_077",
+    "source_sentence": "According to witnesses, Jahangir had been living in a rented room at the house for about a month.",
+    "gold_cameo_code": 17,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Gazipur",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/constable-among-three-detained-yaba-gazipur-4306351"
+  },
+  {
+    "event_id": "gold_078",
+    "source_sentence": "Shafiqul Islam, who was the previous lease holder, took lease of the traditional Dhalapara market this year at a cost of Tk 20.71 lakh.",
+    "gold_cameo_code": 14,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/crime-justice/news/permanent-shops-leased-land-3069051"
+  },
+  {
+    "event_id": "gold_079",
+    "source_sentence": "The party also dissolved three committees, including its Dhaka Metropolitan North unit, and expelled 14 leaders and activists at different levels.",
+    "gold_cameo_code": 16,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/bnp-tells-activists-stay-vigilant-help-ensure-peaceful-durga-puja-nationwide-4295506"
+  },
+  {
+    "event_id": "gold_080",
+    "source_sentence": "The incident took place around 10:30pm in Baripota village.",
+    "gold_cameo_code": 18,
+    "prev_code": 18,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Jashore",
+      "division": "Khulna"
+    },
+    "source_url": "https://www.thedailystar.net/historical/crime/news/man-stabbed-death-jashore-4110881"
+  },
+  {
+    "event_id": "gold_081",
+    "source_sentence": "According to police and local residents, the clash involved activists loyal to Samed Ali, a union Awami League activist, and those aligned with Halim Azad, organising secretary of the Baktaboli union BNP.",
+    "gold_cameo_code": 19,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      },
+      {
+        "name": "Political Party Cadres",
+        "type": "POLITICAL_PARTY",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/10-injured-bnp-awami-league-activists-clash-fatullah-4295201"
+  },
+  {
+    "event_id": "gold_082",
+    "source_sentence": "According to the complaint, Shamsul Alam chased the dog of his neighbour, Firoza Begum, when it tried to attack two of his cats yesterday morning.",
+    "gold_cameo_code": 20,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/woman-accused-beating-neighbours-cat-death-coxs-bazar-4303211"
+  },
+  {
+    "event_id": "gold_083",
+    "source_sentence": "Contacted, Rumeen said elected lawmakers are recognised as VIPs under the state\u2019s \u201cWarrant of Precedence\u201d and the administration\u2019s \u201cRed Book\u201d, entitling them to special protocol and security.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/rumeen-locks-horns-sarail-oc-over-security-misconduct-4306091"
+  },
+  {
+    "event_id": "gold_084",
+    "source_sentence": "Cash and gold ornaments worth Tk 77 lakh were looted from the madrasa, while the vandalism caused damage worth more than Tk 1 crore, he said.",
+    "gold_cameo_code": 18,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/rape-case-plaintiff-among-21-sued-over-madrasa-looting-vandalism-savar-4306511"
+  },
+  {
+    "event_id": "gold_085",
+    "source_sentence": "Speaking to reporters at the foreign ministry yesterday afternoon, State Minister for Foreign Affairs Humaiun Kobir said media reports had identified the two as Bangladeshis, but the government was still seeking further details.",
+    "gold_cameo_code": 20,
+    "prev_code": 20,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/our-son-was-killed-without-fair-trial-4303011"
+  },
+  {
+    "event_id": "gold_086",
+    "source_sentence": "Meanwhile, Khulna Metropolitan Police (KMP) recorded 33 murders in the city between January and September.",
+    "gold_cameo_code": 18,
+    "prev_code": 19,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      },
+      {
+        "name": "Political Party Cadres",
+        "type": "POLITICAL_PARTY",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Khulna",
+      "division": "Khulna"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/jubo-dal-leader-grocery-shop-owner-shot-khulna-4306381"
+  },
+  {
+    "event_id": "gold_087",
+    "source_sentence": "We are providing everything she needs.",
+    "gold_cameo_code": 18,
+    "prev_code": 18,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/crime-justice/news/cu-sexual-assault-fingers-pointed-bcl-men-3076216"
+  },
+  {
+    "event_id": "gold_088",
+    "source_sentence": "He said the demand for power would fall gradually in the \"coming season\" and they would be able to deal with the situation.",
+    "gold_cameo_code": 13,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/news/need-1-week-assess-situation-3076976"
+  },
+  {
+    "event_id": "gold_089",
+    "source_sentence": "For the last few days, he has been conducting university activities online from the circuit house in Chattogram.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Chattogram",
+      "division": "Chittagong"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/hasnat-calls-cuet-vc-goon-shameless-breaking-lock-his-office-help-jcd-men-4297046"
+  },
+  {
+    "event_id": "gold_090",
+    "source_sentence": "The coal production at its mine was suspended in late April for underground development work, and the plant would not get fresh coal until the middle of August, said sources.",
+    "gold_cameo_code": 16,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/news/power-crisis-may-worsen-3075341"
+  },
+  {
+    "event_id": "gold_091",
+    "source_sentence": "The 39-year-old reached the top of the 8,611-metre (28,251-foot) mountain early Thursday, AFP reported yesterday.",
+    "gold_cameo_code": 14,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/news/wasfia-first-bangladeshi-conquer-k2-3076981"
+  },
+  {
+    "event_id": "gold_092",
+    "source_sentence": "The expelled leaders are Ehsan Zakaria, senior joint convener of the NCP's Moulvibazar District Convener Committee, and Tamim Ahmed, former joint coordinator of the Moulvibazar District Coordination Committee.",
+    "gold_cameo_code": 16,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Moulvibazar",
+      "division": "Sylhet"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/ncp-expels-2-moulvibazar-leaders-over-disciplinary-breaches-4292756"
+  },
+  {
+    "event_id": "gold_093",
+    "source_sentence": "An altercation ensued over alleged security lapses and police misconduct.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/police-file-gd-over-rumeen-farhana-sarail-oc-confrontation-4306261"
+  },
+  {
+    "event_id": "gold_094",
+    "source_sentence": "Aminul Islam is the general secretary of Durgapur union unit of AL in Lalmonirhat's Aditmari upazila.",
+    "gold_cameo_code": 13,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Lalmonirhat",
+      "division": "Rangpur"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/crime-justice/news/illegal-pond-threat-surrounding-cropland-3069061"
+  },
+  {
+    "event_id": "gold_095",
+    "source_sentence": "It demands forensic, systemic dismantling of impunity,\u201d he said.",
+    "gold_cameo_code": 13,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/no-reconciliation-awami-league-without-justice-says-deputy-speaker-4291141"
+  },
+  {
+    "event_id": "gold_096",
+    "source_sentence": "Jinia Chakma, additional superintendent of police (crime and operations) of Bandarban Police, told The Daily Star, \u201cWe were informed about the incident, and departmental action has already been taken against him.\u201d",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/police-constable-among-four-held-after-stolen-motorcycle-put-sale-social-media-4304111"
+  },
+  {
+    "event_id": "gold_097",
+    "source_sentence": "Debapriya also said the government should review several projects in which there was \"visible corruption\".",
+    "gold_cameo_code": 16,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/news/yet-start-mega-projects-consider-putting-them-hold-3076221"
+  },
+  {
+    "event_id": "gold_098",
+    "source_sentence": "Amid this situation, the state-owned Chittagong Urea Fertiliser Ltd suspended production due to gas shortage on Tuesday night.",
+    "gold_cameo_code": 16,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Chattogram",
+      "division": "Chittagong"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/news/power-crisis-may-worsen-3075341"
+  },
+  {
+    "event_id": "gold_099",
+    "source_sentence": "The video went viral on social media within moments.",
+    "gold_cameo_code": 17,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/historical/crime/news/man-arrested-over-harassment-female-tourist-travelling-across-country-foot-4080666"
+  },
+  {
+    "event_id": "gold_100",
+    "source_sentence": "Meanwhile, Opposition Leader and Jamaat-e-Islami Ameer Shafiqur Rahman has expressed concern over the country\u2019s deteriorating law and order situation following the recovery of drugs and arrests.",
+    "gold_cameo_code": 17,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Political Party Cadres",
+        "type": "POLITICAL_PARTY",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/84-held-raid-addl-digs-purbachal-house-4303796"
+  },
+  {
+    "event_id": "gold_101",
+    "source_sentence": "The clash broke out around 12:00pm today in Akbarnagar village under Baktaboli union, said Additional Superintendent of Police (Crime) Tarek Al Mehedi.",
+    "gold_cameo_code": 19,
+    "prev_code": 19,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/10-injured-bnp-awami-league-activists-clash-fatullah-4295201"
+  },
+  {
+    "event_id": "gold_102",
+    "source_sentence": "Ripon\u2019s daughter Shila said, \u201cSeveral men chased my father and hacked him.",
+    "gold_cameo_code": 16,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/jubo-dal-leader-hacked-death-4303041"
+  },
+  {
+    "event_id": "gold_103",
+    "source_sentence": "They remain party members and advisory committee members but have largely been inactive in organisational activities.",
+    "gold_cameo_code": 14,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/ncp-reshuffle-patwary-hasnat-rise-samantha-niva-lose-senior-posts-4306051"
+  },
+  {
+    "event_id": "gold_104",
+    "source_sentence": "The arrestees were identified as Mohammad Omar Faruk, Mohammad Kabir Hossain, Kartik De, Biplab Barua, Mohammad Lokman and Md Parvez.",
+    "gold_cameo_code": 20,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/historical/crime/news/arson-attacks-minorities-homes-ctg-six-more-held-4080756"
+  },
+  {
+    "event_id": "gold_105",
+    "source_sentence": "He alleged that Ayas had been victimised by portraying his anti-hegemonic statements as an attempt to spread religious hatred, describing the move as unwarranted and inconsistent.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/jamaat-calls-incident-behind-ayass-arrest-trivial-demands-release-4-4297126"
+  },
+  {
+    "event_id": "gold_106",
+    "source_sentence": "He further claimed that no one had yet been arrested over the display of firearms.",
+    "gold_cameo_code": 17,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/ishraque-went-there-local-mp-yet-he-was-asked-resign-state-minister-akhter-4302656"
+  },
+  {
+    "event_id": "gold_107",
+    "source_sentence": "He asked the prime minister and the home minister how many martyrs\u2019 homes they had visited, how many injured fighters they had supported and how much financial assistance they had provided from their party funds.",
+    "gold_cameo_code": 18,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/shafiqur-skipped-july-memorial-inauguration-over-lack-protocol-says-jamaat-4303301"
+  },
+  {
+    "event_id": "gold_108",
+    "source_sentence": "Election commissioners yesterday said&nbsp; they would \"wait\" for the BNP until the election and they might contact the opposition parties \"time and again\".",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Political Party Cadres",
+        "type": "POLITICAL_PARTY",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/politics/news/ecs-dialogue-parties-runs-snag-3075346"
+  },
+  {
+    "event_id": "gold_109",
+    "source_sentence": "Khandakar Shaker Ahmed, officer-in-charge of Durgapur Police Station, told The Daily Star that Prangon is the nephew of a local criminal known as \u201cShooter Shamim\u201d, who faces at least 30 cases filed with the police station, including at least three murder cases.",
+    "gold_cameo_code": 18,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/another-suspect-arrested-over-journalist-alif-murder-4304091"
+  },
+  {
+    "event_id": "gold_110",
+    "source_sentence": "But the police identified him within a short time and arrested him,\u201d she said.",
+    "gold_cameo_code": 20,
+    "prev_code": 20,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/historical/crime/news/man-arrested-over-harassment-female-tourist-travelling-across-country-foot-4080666"
+  },
+  {
+    "event_id": "gold_111",
+    "source_sentence": "This also increased pressure on her brain, and she was put on mechanical ventilation (life support), he said, adding that she had been given medication to reduce the pressure.",
+    "gold_cameo_code": 18,
+    "prev_code": 18,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/news/girl-hit-stray-bullet-myanmar-put-life-support-nins-4081016"
+  },
+  {
+    "event_id": "gold_112",
+    "source_sentence": "OC Saad said, \u201cAfter watching the Facebook live video, we took immediate action.",
+    "gold_cameo_code": 17,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/historical/crime/news/man-arrested-over-harassment-female-tourist-travelling-across-country-foot-4080666"
+  },
+  {
+    "event_id": "gold_113",
+    "source_sentence": "The group allegedly attacked the policemen and vandalised the vehicle, leaving SI Phul Mia and another policeman injured.",
+    "gold_cameo_code": 18,
+    "prev_code": 18,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/2-cops-injured-attack-during-procession-support-al-gopalganj-4306466"
+  },
+  {
+    "event_id": "gold_114",
+    "source_sentence": "Eventually, Ishraque backed down without ever assuming office as mayor.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/ishraque-the-headlines-often-the-wrong-reasons-4302776"
+  },
+  {
+    "event_id": "gold_115",
+    "source_sentence": "\u201cMPs should have representatives on these committees, yet they are absent.",
+    "gold_cameo_code": 14,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/do-not-force-me-lay-siege-police-stations-jamaat-mp-warns-rangpur-officials-4297166"
+  },
+  {
+    "event_id": "gold_116",
+    "source_sentence": "He also alleged that Jamaat\u2019s 34 MPs and their family members had faced \u201cindecent behaviour\u201d at the airport.",
+    "gold_cameo_code": 14,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Political Party Cadres",
+        "type": "POLITICAL_PARTY",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/shafiqur-criticises-government-over-lack-dengue-vaccine-4290171"
+  },
+  {
+    "event_id": "gold_117",
+    "source_sentence": "However, as a public representative and a state minister, he openly carried a firearm and aimed it at someone.",
+    "gold_cameo_code": 20,
+    "prev_code": 20,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/ishraque-had-good-intentions-shouldnt-display-firearm-says-shafiqur-4303676"
+  },
+  {
+    "event_id": "gold_118",
+    "source_sentence": "Each letter asked for 300 plates of biryani, 30kg of jilapi, 30kg of sweets, 300 packets of curd, and 500 bottles of water, Khalilur added.",
+    "gold_cameo_code": 13,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/country/news/oc-trouble-demanding-biriyani-sweets-3444381"
+  },
+  {
+    "event_id": "gold_119",
+    "source_sentence": "Their only identity is that they are abusers.\"",
+    "gold_cameo_code": 18,
+    "prev_code": 18,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/crime-justice/news/cu-sexual-assault-fingers-pointed-bcl-men-3076216"
+  },
+  {
+    "event_id": "gold_120",
+    "source_sentence": "Lalmonirhat DB Officer-in-Charge Saad Ahmed confirmed the incident yesterday.",
+    "gold_cameo_code": 17,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Lalmonirhat",
+      "division": "Rangpur"
+    },
+    "source_url": "https://www.thedailystar.net/historical/crime/news/man-arrested-over-harassment-female-tourist-travelling-across-country-foot-4080666"
+  },
+  {
+    "event_id": "gold_121",
+    "source_sentence": "Several videos of their heated exchange later circulated on Facebook.",
+    "gold_cameo_code": 16,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/police-file-gd-over-rumeen-farhana-sarail-oc-confrontation-4306261"
+  },
+  {
+    "event_id": "gold_122",
+    "source_sentence": "\u201cThere had been tensions between the two groups before, and the conflict intensified recently over a waz mahfil,\u201d he said.",
+    "gold_cameo_code": 20,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/jubo-dal-leader-hacked-death-4303041"
+  },
+  {
+    "event_id": "gold_123",
+    "source_sentence": "The committee is headed by ASP Samshul Haque and the other members are ASP Khalilur and Special Branch Inspector Rafiqul Islam.",
+    "gold_cameo_code": 13,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/country/news/oc-trouble-demanding-biriyani-sweets-3444381"
+  },
+  {
+    "event_id": "gold_124",
+    "source_sentence": "According to case documents, Alif was shot dead by criminals around 8:00pm while returning home after having tea at a stall in the Telanjia area of Durgapur upazila.",
+    "gold_cameo_code": 18,
+    "prev_code": 18,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/journalist-alif-murder-suspect-opurba-4-day-remand-4303856"
+  },
+  {
+    "event_id": "gold_125",
+    "source_sentence": "They also placed a four-point demand, which included assurance of justice and punishment to the attackers within four working days, and round-the-clock security for all students.",
+    "gold_cameo_code": 13,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Civilian Demonstrators / Locals",
+        "type": "CIVILIAN",
+        "role": "target"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/crime-justice/news/cu-sexual-assault-fingers-pointed-bcl-men-3076216"
+  },
+  {
+    "event_id": "gold_126",
+    "source_sentence": "Proposals included defining the judiciary\u2019s authority over constitutional interpretation and fundamental principles, ensuring judicial accountability and establishing a separate constitutional court.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/ensure-safeguards-against-autocratic-rule-constitution-4298301"
+  },
+  {
+    "event_id": "gold_127",
+    "source_sentence": "Ghatail Upazila Education Officer Masudur Rahman said although investigations had been conducted in this regard on several occasions, the construction work is still going on.",
+    "gold_cameo_code": 16,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/news/auto-rice-mill-near-school-3073726"
+  },
+  {
+    "event_id": "gold_128",
+    "source_sentence": "The following day, several media outlets reported that the prime minister had instructed him in the afternoon to step down.",
+    "gold_cameo_code": 16,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/unapologetic-ishraque-quits-4303006"
+  },
+  {
+    "event_id": "gold_129",
+    "source_sentence": "We are taking to the streets to demand implementation of the referendum verdict and the July Charter,\u201d he said.",
+    "gold_cameo_code": 13,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/shafiqur-skipped-july-memorial-inauguration-over-lack-protocol-says-jamaat-4303301"
+  },
+  {
+    "event_id": "gold_130",
+    "source_sentence": "The next day, police detained Arefi at the airport, and all three were named in a case filed with Paltan Police Station.",
+    "gold_cameo_code": 17,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/ishraque-the-headlines-often-the-wrong-reasons-4302776"
+  },
+  {
+    "event_id": "gold_131",
+    "source_sentence": "Instead, he said people will provide security to an elected MP.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/rumeen-locks-horns-sarail-oc-over-security-misconduct-4306091"
+  },
+  {
+    "event_id": "gold_132",
+    "source_sentence": "They have pushed us onto the path of agitation,\u201d he said.",
+    "gold_cameo_code": 13,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/political-parties/news/bnp-govt-incapable-working-opposition-4302256"
+  },
+  {
+    "event_id": "gold_133",
+    "source_sentence": "Considering the gravity of the allegations and the interests of organisational discipline, the party expelled him from all party activities.",
+    "gold_cameo_code": 16,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/ncp-expels-2-moulvibazar-leaders-over-disciplinary-breaches-4292756"
+  },
+  {
+    "event_id": "gold_134",
+    "source_sentence": "The Political Council has agreed on the broad framework of the restructuring over two meetings in the past two weeks, leaving final approval to Nahid and Akhter, sources said.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/ncp-set-reshape-central-leadership-4298326"
+  },
+  {
+    "event_id": "gold_135",
+    "source_sentence": "To oversee the festival, the BNP formed a 12-member central monitoring committee on October 9.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Political Party Cadres",
+        "type": "POLITICAL_PARTY",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/bnp-tells-activists-stay-vigilant-help-ensure-peaceful-durga-puja-nationwide-4295506"
+  },
+  {
+    "event_id": "gold_136",
+    "source_sentence": "The next procedure may be carried out once the pressure on her brain eases, he added.",
+    "gold_cameo_code": 20,
+    "prev_code": 20,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/news/girl-hit-stray-bullet-myanmar-put-life-support-nins-4081016"
+  },
+  {
+    "event_id": "gold_137",
+    "source_sentence": "He added that the victim is now in a stable condition and has once again set out to travel the country on foot.",
+    "gold_cameo_code": 17,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/historical/crime/news/man-arrested-over-harassment-female-tourist-travelling-across-country-foot-4080666"
+  },
+  {
+    "event_id": "gold_138",
+    "source_sentence": "Several parties, including the BNP, objected to this provision.",
+    "gold_cameo_code": 16,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Political Party Cadres",
+        "type": "POLITICAL_PARTY",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/constitutional-reform-committee-bnp-focusing-its-polls-promises-4292526"
+  },
+  {
+    "event_id": "gold_139",
+    "source_sentence": "Confirming the matter, OC Manzur Kader said police were preparing a list of those who accompanied the lawmaker at the police station.",
+    "gold_cameo_code": 20,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/police-file-gd-over-rumeen-farhana-sarail-oc-confrontation-4306261"
+  },
+  {
+    "event_id": "gold_140",
+    "source_sentence": "He made the call during a views-exchange meeting with leaders of Hindu organisations at his official residence on Dhaka\u2019s Minto Road.",
+    "gold_cameo_code": 14,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/political-parties/news/need-joint-efforts-protect-rights-hindus-shafiqur-4299016"
+  },
+  {
+    "event_id": "gold_141",
+    "source_sentence": "Ishraque even threatened to swear himself into office.",
+    "gold_cameo_code": 13,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/ishraque-the-headlines-often-the-wrong-reasons-4302776"
+  },
+  {
+    "event_id": "gold_142",
+    "source_sentence": "Meanwhile, the Bangladesh government has yet to officially confirm that the two people executed in Saudi Arabia were Bangladeshi nationals and has sought an explanation from Riyadh over an apparent lapse in information-sharing.",
+    "gold_cameo_code": 14,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/our-son-was-killed-without-fair-trial-4303011"
+  },
+  {
+    "event_id": "gold_143",
+    "source_sentence": "Kaunia Police Station OC Badal Kumar Mondal said police were investigating whether the killing stemmed from previous enmity or another dispute.",
+    "gold_cameo_code": 14,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/five-bodies-recovered-five-districts-4303306"
+  },
+  {
+    "event_id": "gold_144",
+    "source_sentence": "Addressing the demonstrators, Vice Chancellor Shireen Akhter said the demands would be met as soon as possible.",
+    "gold_cameo_code": 13,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/crime-justice/news/cu-sexual-assault-fingers-pointed-bcl-men-3076216"
+  },
+  {
+    "event_id": "gold_145",
+    "source_sentence": "He also questioned the government's own fertiliser figures.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/jamaat-questions-fertiliser-shortage-despite-reported-surplus-stocks-4299366"
+  },
+  {
+    "event_id": "gold_146",
+    "source_sentence": "Faridpur DAE Deputy Director Hazrat Ali said jute plants are getting dried up as jute growers in all the upazilas of the district are facing serious problem in processing jute plants due to lack of rain water this season.",
+    "gold_cameo_code": 20,
+    "prev_code": 20,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/news/water-scarcity-hampers-jute-processing-3074601"
+  },
+  {
+    "event_id": "gold_147",
+    "source_sentence": "A clash then broke out between them and Samed's followers, witnesses said.",
+    "gold_cameo_code": 19,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/10-injured-bnp-awami-league-activists-clash-fatullah-4295201"
+  },
+  {
+    "event_id": "gold_148",
+    "source_sentence": "He was arrested with the assistance of Rajoir police.",
+    "gold_cameo_code": 17,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/barc-official-arrested-over-youth-development-recruitment-exam-question-leak-4303971"
+  },
+  {
+    "event_id": "gold_149",
+    "source_sentence": "Around one kilometre stretch of the dirt road in the village is now in an impassable state due to transporting earth and sand from the pond.",
+    "gold_cameo_code": 13,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/crime-justice/news/illegal-pond-threat-surrounding-cropland-3069061"
+  },
+  {
+    "event_id": "gold_150",
+    "source_sentence": "The intention was to make the upcoming national election questionable -- if these communities are portrayed as unsafe, it would be claimed that a proper election environment does not exist.",
+    "gold_cameo_code": 18,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/historical/crime/news/arson-attacks-minorities-homes-ctg-six-more-held-4080756"
+  },
+  {
+    "event_id": "gold_151",
+    "source_sentence": "He said the demand for gas in factories and industrial units is also increasing.",
+    "gold_cameo_code": 13,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/news/need-1-week-assess-situation-3076976"
+  },
+  {
+    "event_id": "gold_152",
+    "source_sentence": "A recruitment exam for the post of assistant upazila youth development officer under the Department of Youth Development was postponed at the last minute on October 10 after examinees alleged that the question paper had been leaked.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/barc-official-arrested-over-youth-development-recruitment-exam-question-leak-4303971"
+  },
+  {
+    "event_id": "gold_153",
+    "source_sentence": "The village graveyard lying on the bank of the pond is also at the risk of being devoured.",
+    "gold_cameo_code": 13,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/crime-justice/news/illegal-pond-threat-surrounding-cropland-3069061"
+  },
+  {
+    "event_id": "gold_154",
+    "source_sentence": "\u201cOur complaint is not why we didn't get any or why we weren't given any,\u201d he added, saying qualified and genuine businesspeople should receive the dealerships.",
+    "gold_cameo_code": 20,
+    "prev_code": 20,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/jamaat-questions-fertiliser-shortage-despite-reported-surplus-stocks-4299366"
+  },
+  {
+    "event_id": "gold_155",
+    "source_sentence": "After having their dinner, the couple locked in a quarrel over different family issues at the dead of night.",
+    "gold_cameo_code": 18,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/crime-justice/news/natore-member-found-dead-wife-injured-3069041"
+  },
+  {
+    "event_id": "gold_156",
+    "source_sentence": "Locals rescued him in a bloodied condition and rushed him to Sharsha Upazila Health Complex, where the on-duty doctor declared him dead.",
+    "gold_cameo_code": 20,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Civilian Demonstrators / Locals",
+        "type": "CIVILIAN",
+        "role": "target"
+      }
+    ],
+    "location": {
+      "district": "Jashore",
+      "division": "Khulna"
+    },
+    "source_url": "https://www.thedailystar.net/historical/crime/news/man-stabbed-death-jashore-4110881"
+  },
+  {
+    "event_id": "gold_157",
+    "source_sentence": "A case has been filed against Aminul Islam.",
+    "gold_cameo_code": 13,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/crime-justice/news/illegal-pond-threat-surrounding-cropland-3069061"
+  },
+  {
+    "event_id": "gold_158",
+    "source_sentence": "According to the press release issued today, the party dissolved the Cumilla city unit\u2019s organisational structure and leadership under Articles 16(3)(c) and 63 of its constitution.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/jamaat-dissolves-cumilla-city-unit-following-october-14-incident-4300331"
+  },
+  {
+    "event_id": "gold_159",
+    "source_sentence": "In the first incident, an unidentified woman allegedly took Rakib, leaving behind a three-month-old baby, later sent to a child care facility in Chattogram.",
+    "gold_cameo_code": 20,
+    "prev_code": 20,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Chattogram",
+      "division": "Chittagong"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/two-babies-stolen-coxs-bazar-hospital-20-days-4303901"
+  },
+  {
+    "event_id": "gold_160",
+    "source_sentence": "According to family members, Swadhin went to Malopara Temple in Jashore town on Saturday night to attend Durga Puja celebrations, where he was allegedly beaten by several people after being accused of theft.",
+    "gold_cameo_code": 16,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Jashore",
+      "division": "Khulna"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/youth-beaten-over-theft-allegation-jashore-dies-dhaka-4303961"
+  },
+  {
+    "event_id": "gold_161",
+    "source_sentence": "He said the government was providing treatment for those injured in the July uprising and supporting martyrs\u2019 families through employment opportunities and other assistance.",
+    "gold_cameo_code": 18,
+    "prev_code": 18,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/do-not-pave-way-return-autocracy-pm-4303071"
+  },
+  {
+    "event_id": "gold_162",
+    "source_sentence": "Overall, 518 journalists faced attacks or harassment in 288 incidents, leaving 297 injured and 20 arrested.",
+    "gold_cameo_code": 17,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/accidents-and-fires/news/least-187-killed-mob-violence-nine-months-4303056"
+  },
+  {
+    "event_id": "gold_163",
+    "source_sentence": "Shafiqur also criticised the government for failing to make dengue vaccines available despite their availability globally.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/shafiqur-criticises-government-over-lack-dengue-vaccine-4290171"
+  },
+  {
+    "event_id": "gold_164",
+    "source_sentence": "He died around 8:00pm yesterday while undergoing treatment at a hospital in the capital.",
+    "gold_cameo_code": 20,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/youth-beaten-over-theft-allegation-jashore-dies-dhaka-4303961"
+  },
+  {
+    "event_id": "gold_165",
+    "source_sentence": "Fear of losing all their belongings has gripped around 10,000 people of these villages.",
+    "gold_cameo_code": 13,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/news/payra-erosion-threatens-barguna-villages-3056336"
+  },
+  {
+    "event_id": "gold_166",
+    "source_sentence": "He called for reviewing internal security and considering redeployment of Ansar members.",
+    "gold_cameo_code": 15,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/two-babies-stolen-coxs-bazar-hospital-20-days-4303901"
+  },
+  {
+    "event_id": "gold_167",
+    "source_sentence": "The suspect is known to be a professional killer, and investigators obtained information indicating that the firearms used in the murder had been kept in Opurba's custody.",
+    "gold_cameo_code": 18,
+    "prev_code": 18,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/journalist-alif-murder-suspect-opurba-placed-4-day-remand-4303316"
+  },
+  {
+    "event_id": "gold_168",
+    "source_sentence": "His mother said he spoke to the family by phone from prison every Sunday, but they received no advance notice of his execution.",
+    "gold_cameo_code": 14,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/our-son-was-killed-without-fair-trial-4303011"
+  },
+  {
+    "event_id": "gold_169",
+    "source_sentence": "Young women are made to feel that they cannot be political leaders if they speak about women\u2019s rights,\u201d she said.",
+    "gold_cameo_code": 14,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/political-parties/news/70-jamaat-women-felt-unprepared-polls-4298316"
+  },
+  {
+    "event_id": "gold_170",
+    "source_sentence": "Former CU BCL president Md Alamgir Tipu said, \"Those who are directly involved should be punished both academically and legally.",
+    "gold_cameo_code": 18,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/crime-justice/news/cu-sexual-assault-fingers-pointed-bcl-men-3076216"
+  },
+  {
+    "event_id": "gold_171",
+    "source_sentence": "He claimed he did not ask anyone not to file a complaint; instead, he directly informed the matter to an assistant proctor and an on-duty police official.",
+    "gold_cameo_code": 18,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/crime-justice/news/cu-sexual-assault-fingers-pointed-bcl-men-3076216"
+  },
+  {
+    "event_id": "gold_172",
+    "source_sentence": "The incident took place around 7:30pm yesterday, during a door-to-door campaign on referendum.",
+    "gold_cameo_code": 17,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Narayanganj",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/news/youth-arrested-over-attempted-attack-ncp-candidate-narayanganj-4081661"
+  },
+  {
+    "event_id": "gold_173",
+    "source_sentence": "They first beat the two up and then tied up the plaintiff and sexually assaulted her.",
+    "gold_cameo_code": 20,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/crime-justice/news/cu-sexual-assault-fingers-pointed-bcl-men-3076216"
+  },
+  {
+    "event_id": "gold_174",
+    "source_sentence": "At least 17 people died in law enforcement custody or in incidents involving torture, shootings and so-called \u201cgunfights\u201d, while 10 died while fleeing police chases.",
+    "gold_cameo_code": 20,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/accidents-and-fires/news/least-187-killed-mob-violence-nine-months-4303056"
+  },
+  {
+    "event_id": "gold_175",
+    "source_sentence": "Meanwhile, Ishraque accused several media outlets in a Facebook post of exaggerating the incident.",
+    "gold_cameo_code": 16,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/ishraques-fate-the-air-4302161"
+  },
+  {
+    "event_id": "gold_176",
+    "source_sentence": "Resident Medical Officer Dr Shantanu Ghosh said a three-member investigation committee had sought more time to collect statements and examine CCTV footage, as several external cameras were faulty or produced unclear images.",
+    "gold_cameo_code": 16,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/two-babies-stolen-coxs-bazar-hospital-20-days-4303901"
+  },
+  {
+    "event_id": "gold_177",
+    "source_sentence": "Late last month, the BNP and several other parties skipped the EC's views-exchange programmes on electronic voting machines.",
+    "gold_cameo_code": 16,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Political Party Cadres",
+        "type": "POLITICAL_PARTY",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/politics/news/ecs-dialogue-parties-runs-snag-3075346"
+  },
+  {
+    "event_id": "gold_178",
+    "source_sentence": "The MP said he had joined the operation around 3:00am and that 41 people had been detained during raids in different areas.",
+    "gold_cameo_code": 17,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/fishermen-attack-mp-during-hilsa-ban-drive-4303021"
+  },
+  {
+    "event_id": "gold_179",
+    "source_sentence": "Confirming the incident, Officer-in-Charge (OC) of Sharsha Police Station, Maruf Hasan said he is currently on leave, and the inspector (investigation) is looking into the matter.",
+    "gold_cameo_code": 18,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Jashore",
+      "division": "Khulna"
+    },
+    "source_url": "https://www.thedailystar.net/historical/crime/news/man-stabbed-death-jashore-4110881"
+  },
+  {
+    "event_id": "gold_180",
+    "source_sentence": "His announcement to resign follows widespread public outrage over viral footage showing him brandishing a firearm during an \"anti-drug\" operation.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/ishraque-announces-resignation-state-minister-4302436"
+  },
+  {
+    "event_id": "gold_181",
+    "source_sentence": "Ashikur Rahman Prangon, 21, was arrested during a special drive in the Shaheed Minar area of Durgapur municipality around 11:45pm yesterday.",
+    "gold_cameo_code": 17,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/another-suspect-arrested-over-journalist-alif-murder-4304091"
+  },
+  {
+    "event_id": "gold_182",
+    "source_sentence": "Several teachers from different departments joined them.",
+    "gold_cameo_code": 16,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/crime-justice/news/cu-sexual-assault-fingers-pointed-bcl-men-3076216"
+  },
+  {
+    "event_id": "gold_183",
+    "source_sentence": "At the press conference, Jamaat demanded an immediate investigation into the allegations and punishment for those found guilty.",
+    "gold_cameo_code": 13,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Political Party Cadres",
+        "type": "POLITICAL_PARTY",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/jamaat-questions-fertiliser-shortage-despite-reported-surplus-stocks-4299366"
+  },
+  {
+    "event_id": "gold_184",
+    "source_sentence": "The Jamaat leader demanded Akhtaruzzaman\u2019s immediate release on bail and that he be granted division facilities in jail.",
+    "gold_cameo_code": 13,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Political Party Cadres",
+        "type": "POLITICAL_PARTY",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/porwar-alleges-policymaking-level-directives-behind-akhtaruzzamans-arrest-4290391"
+  },
+  {
+    "event_id": "gold_185",
+    "source_sentence": "Speaker Hafiz Uddin Ahmad yesterday said he believes there is no possibility of deposed prime minister Sheikh Hasina returning to Bangladesh in the next 10 years.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/no-possibility-hasinas-return-next-10-years-hafiz-4306116"
+  },
+  {
+    "event_id": "gold_186",
+    "source_sentence": "Contacted, Arif Mir denied attempting to grab forest land.",
+    "gold_cameo_code": 20,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/lease-dispute-casts-shadow-over-rangabali-forest-4303691"
+  },
+  {
+    "event_id": "gold_187",
+    "source_sentence": "The process begins with the formation of a five-member panel comprising the prime minister, opposition leader, speaker, deputy speaker from the opposition and a representative of the second-largest opposition party.",
+    "gold_cameo_code": 14,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/constitutional-reform-committee-bnp-focusing-its-polls-promises-4292526"
+  },
+  {
+    "event_id": "gold_188",
+    "source_sentence": "Experts have warned that with the dwindling fuel stocks, the duration of power outages would surely increase in the days ahead.",
+    "gold_cameo_code": 13,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/news/power-crisis-may-worsen-3075341"
+  },
+  {
+    "event_id": "gold_189",
+    "source_sentence": "\"There is a need for defining a repayment strategy, including rescheduling of imminent payments, given the current account and foreign reserve status.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/news/yet-start-mega-projects-consider-putting-them-hold-3076221"
+  },
+  {
+    "event_id": "gold_190",
+    "source_sentence": "He said there was no place for corrupt individuals or extortionists in Jamaat-e-Islami.",
+    "gold_cameo_code": 14,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Political Party Cadres",
+        "type": "POLITICAL_PARTY",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/home-minister-busy-every-ministry-his-own-shafiqur-4306416"
+  },
+  {
+    "event_id": "gold_191",
+    "source_sentence": "\u201cWe have arrested two people in connection with the clash and seized some teta (locally made sharp weapon).",
+    "gold_cameo_code": 19,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/10-injured-bnp-awami-league-activists-clash-fatullah-4295201"
+  },
+  {
+    "event_id": "gold_192",
+    "source_sentence": "Several police teams were searching for them, but no one had been detained as of Monday night.",
+    "gold_cameo_code": 17,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/50-vehicles-robbed-one-day-coxs-bazar-road-victims-4303681"
+  },
+  {
+    "event_id": "gold_193",
+    "source_sentence": "Ishraque defended Saturday\u2019s anti-drug operation, saying it had been coordinated with local law enforcement agencies and aimed at dismantling drug distribution networks.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/unapologetic-ishraque-quits-4303006"
+  },
+  {
+    "event_id": "gold_194",
+    "source_sentence": "With the latest arrests, a total of seven people have been detained so far in connection with the incidents.",
+    "gold_cameo_code": 18,
+    "prev_code": 18,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/historical/crime/news/arson-attacks-minorities-homes-ctg-six-more-held-4080756"
+  },
+  {
+    "event_id": "gold_195",
+    "source_sentence": "Police arrested another suspect, 22-year-old Apurbo, on October 18 and sent him to jail by court order.",
+    "gold_cameo_code": 17,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/another-suspect-arrested-over-journalist-alif-murder-4304091"
+  },
+  {
+    "event_id": "gold_196",
+    "source_sentence": "Porwar was speaking at a press conference at Jamaat\u2019s central office in Moghbazar today, attended by several Jamaat MPs and central leaders.",
+    "gold_cameo_code": 16,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Political Party Cadres",
+        "type": "POLITICAL_PARTY",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/shafiqur-skipped-july-memorial-inauguration-over-lack-protocol-says-jamaat-4303301"
+  },
+  {
+    "event_id": "gold_197",
+    "source_sentence": "Police and local sources said patrols had been stepped up along the road, while several teams were searching the surrounding hilly areas.",
+    "gold_cameo_code": 16,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/passengers-say-around-50-vehicles-robbed-coxs-bazar-road-4303176"
+  },
+  {
+    "event_id": "gold_198",
+    "source_sentence": "He remained in police custody yesterday.",
+    "gold_cameo_code": 17,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/journalist-alif-murder-suspect-opurba-placed-4-day-remand-4303316"
+  },
+  {
+    "event_id": "gold_199",
+    "source_sentence": "Sudden erosion by the Jamuna river has devoured several homesteads and vast farmlands within a few hours at Mazzan village in Sirajganj's Shahzadpur upazila last week, creating panic among the villagers.",
+    "gold_cameo_code": 16,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Civilian Demonstrators / Locals",
+        "type": "CIVILIAN",
+        "role": "target"
+      }
+    ],
+    "location": {
+      "district": "Sirajganj",
+      "division": "Rajshahi"
+    },
+    "source_url": "https://www.thedailystar.net/environment/climate-crisis/natural-disaster/news/sudden-jamuna-erosion-makes-many-homeless-3069751"
+  },
+  {
+    "event_id": "gold_200",
+    "source_sentence": "Mostafa Ali, 55, a farmer from Dwarkuti village, said his farmland was being devoured by the illegally excavated pond and his homestead was also under threat.",
+    "gold_cameo_code": 13,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/crime-justice/news/illegal-pond-threat-surrounding-cropland-3069061"
+  },
+  {
+    "event_id": "gold_201",
+    "source_sentence": "University officials later found that CCTV equipment had been removed, electricity, internet and other communication services disconnected, and several rooms locked, disrupting regular university activities.",
+    "gold_cameo_code": 16,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/bnp-leader-held-forcing-rmu-vc-resign-4293411"
+  },
+  {
+    "event_id": "gold_202",
+    "source_sentence": "Several media outlets reported last night that Prime Minister Tarique Rahman had asked Ishraque to resign from the cabinet following public outrage over his display of a firearm during an \"anti-drug operation\" in the capital's Gendaria on Saturday.",
+    "gold_cameo_code": 16,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/ishraques-fate-the-air-4302161"
+  },
+  {
+    "event_id": "gold_203",
+    "source_sentence": "Akhter warned that using a two-thirds majority to keep state power under the party\u2019s control would not bode well for the BNP.",
+    "gold_cameo_code": 13,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Political Party Cadres",
+        "type": "POLITICAL_PARTY",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/bnp-betrayed-peoples-mandate-soon-after-taking-office-akhter-4295021"
+  },
+  {
+    "event_id": "gold_204",
+    "source_sentence": "In a statement issued Monday, Zubair expressed concern over the cases filed against the four and their subsequent remand.",
+    "gold_cameo_code": 17,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/jamaat-calls-incident-behind-ayass-arrest-trivial-demands-release-4-4297126"
+  },
+  {
+    "event_id": "gold_205",
+    "source_sentence": "Aditmari Upazila Nirbahi Officer GR Sarwar said according to the law, no one can dig a pond and extract sand without permission.",
+    "gold_cameo_code": 13,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/crime-justice/news/illegal-pond-threat-surrounding-cropland-3069061"
+  },
+  {
+    "event_id": "gold_206",
+    "source_sentence": "Another 12 were detained over objectionable posts about Prime Minister Tarique Rahman and 24 for allegedly hurting religious sentiments.",
+    "gold_cameo_code": 17,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/accidents-and-fires/news/least-187-killed-mob-violence-nine-months-4303056"
+  },
+  {
+    "event_id": "gold_207",
+    "source_sentence": "Chattogram Range Deputy Inspector General (DIG) Ahsan Habib Palash disclosed the information at a press conference at the Chattogram District Police office following the arrests.",
+    "gold_cameo_code": 18,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Chattogram",
+      "division": "Chittagong"
+    },
+    "source_url": "https://www.thedailystar.net/historical/crime/news/arson-attacks-minorities-homes-ctg-six-more-held-4080756"
+  },
+  {
+    "event_id": "gold_208",
+    "source_sentence": "But after coming to Lalmonirhat, I had to face such an unpleasant situation.\u201d",
+    "gold_cameo_code": 17,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Lalmonirhat",
+      "division": "Rangpur"
+    },
+    "source_url": "https://www.thedailystar.net/historical/crime/news/man-arrested-over-harassment-female-tourist-travelling-across-country-foot-4080666"
+  },
+  {
+    "event_id": "gold_209",
+    "source_sentence": "At that time, unidentified assailants on a motorcycle fired at him from behind and fled the scene.",
+    "gold_cameo_code": 20,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Political Party Cadres",
+        "type": "POLITICAL_PARTY",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Khulna",
+      "division": "Khulna"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/jubo-dal-leader-grocery-shop-owner-shot-khulna-4306381"
+  },
+  {
+    "event_id": "gold_210",
+    "source_sentence": "The letters were addressed to the managing director of Square Denims Ltd in Olipur, the MD of Tafrid Cotton Mills in the same area, and the general manager (administration) of PRAN-RFL Group at Habiganj Industrial Park.",
+    "gold_cameo_code": 13,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Habiganj",
+      "division": "Sylhet"
+    },
+    "source_url": "https://www.thedailystar.net/country/news/oc-trouble-demanding-biriyani-sweets-3444381"
+  },
+  {
+    "event_id": "gold_211",
+    "source_sentence": "The incident occurred around 9:00am at Char Kolikal, a remote area of the Padma river in Palerchar union.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/fishermen-attack-mp-during-hilsa-ban-drive-4303021"
+  },
+  {
+    "event_id": "gold_212",
+    "source_sentence": "Investigation sources said Opurba was arrested after midnight on Saturday in front of the old cinema hall in Durgapur municipal town.",
+    "gold_cameo_code": 17,
+    "prev_code": 18,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/journalist-alif-murder-suspect-opurba-placed-4-day-remand-4303316"
+  },
+  {
+    "event_id": "gold_213",
+    "source_sentence": "The junta has imprisoned democratic leader Aung San Suu Kyi, who defended Myanmar personally in 2019 hearings in The Hague.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/rohingya-influx/news/rohingya-genocide-case-proceed-3076971"
+  },
+  {
+    "event_id": "gold_214",
+    "source_sentence": "Of these, 931 incidents, or 91 percent, involved BNP infighting or clashes with rival parties.",
+    "gold_cameo_code": 19,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      },
+      {
+        "name": "Political Party Cadres",
+        "type": "POLITICAL_PARTY",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/accidents-and-fires/news/least-187-killed-mob-violence-nine-months-4303056"
+  },
+  {
+    "event_id": "gold_215",
+    "source_sentence": "Huzaifa Afnan, a class-3 student from the Teschi Bridge area of Whykong union, was shot during intense clashes between the Arakan Army and Rohingya armed groups inside Myanmar.",
+    "gold_cameo_code": 19,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/news/girl-hit-stray-bullet-myanmar-put-life-support-nins-4081016"
+  },
+  {
+    "event_id": "gold_216",
+    "source_sentence": "At least 3,000 people of these areas have been rendered homeless and they have been relocated to Barguna, Barishal and Dhaka.",
+    "gold_cameo_code": 13,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/news/payra-erosion-threatens-barguna-villages-3056336"
+  },
+  {
+    "event_id": "gold_217",
+    "source_sentence": "Sanaullah said the EC had initially tried to hold the elections before January 21 but adjusted its plans following a request from the organisers of Bishwa Ijtema over the date of the Akheri Munajat, the final prayer.",
+    "gold_cameo_code": 20,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/election/news/polls-begin-jan-21-end-may-27-2027-4296756"
+  },
+  {
+    "event_id": "gold_218",
+    "source_sentence": "Thirteen loan packages amounting to $32.26 billion are due for repayment by 2024.",
+    "gold_cameo_code": 14,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/news/yet-start-mega-projects-consider-putting-them-hold-3076221"
+  },
+  {
+    "event_id": "gold_219",
+    "source_sentence": "\u201cUnder our election manifesto, we have several proposals that require constitutional amendments, and we will include them too since we secured the people\u2019s mandate on those issues,\u201d he said at a recent media briefing.",
+    "gold_cameo_code": 16,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/constitutional-reform-committee-bnp-focusing-its-polls-promises-4292526"
+  },
+  {
+    "event_id": "gold_220",
+    "source_sentence": "She is very young and is showing some response -- two positive signs -- but nothing can be said for certain at this stage, Humayun said.",
+    "gold_cameo_code": 18,
+    "prev_code": 18,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/news/girl-hit-stray-bullet-myanmar-put-life-support-nins-4081016"
+  },
+  {
+    "event_id": "gold_221",
+    "source_sentence": "On 1971, he said those who collaborated with Pakistani forces had yet to acknowledge their role and admit guilt, adding that many of them were now organised under the banner of Jamaat-e-Islami.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Political Party Cadres",
+        "type": "POLITICAL_PARTY",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/no-reconciliation-awami-league-without-justice-says-deputy-speaker-4291141"
+  },
+  {
+    "event_id": "gold_222",
+    "source_sentence": "Referring to the arrest of former army officer and former lawmaker Major (retd) Akhtaruzzaman, Shafiqur alleged that he was arrested for protesting \u201ccorruption and irregularities\u201d at the airport and that a \u201cfalse case was hastily filed\u201d against him.",
+    "gold_cameo_code": 17,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/govt-has-no-right-stay-if-it-fails-ensure-safety-4290636"
+  },
+  {
+    "event_id": "gold_223",
+    "source_sentence": "Domestic violence claimed the lives of 457 women, while 494 children died in 1,810 incidents of abuse.",
+    "gold_cameo_code": 20,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/accidents-and-fires/news/least-187-killed-mob-violence-nine-months-4303056"
+  },
+  {
+    "event_id": "gold_224",
+    "source_sentence": "Of the 5,644 people arrested, 4,827 belonged to the AL.",
+    "gold_cameo_code": 17,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/accidents-and-fires/news/least-187-killed-mob-violence-nine-months-4303056"
+  },
+  {
+    "event_id": "gold_225",
+    "source_sentence": "Under the proposed structure, at least 10 of the 16 Political Council members will serve as joint conveners, overseeing specialised subcommittees and policy work.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/ncp-set-reshape-central-leadership-4298326"
+  },
+  {
+    "event_id": "gold_226",
+    "source_sentence": "The minister visited puja mandaps at nine temples in Bhola Sadar, accompanied by leaders and activists of Bangladesh Jatiya Party (BJP) and its affiliated organisations.",
+    "gold_cameo_code": 20,
+    "prev_code": 20,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Bhola",
+      "division": "Barisal"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/govt-working-amend-various-laws-including-csa-minister-4306126"
+  },
+  {
+    "event_id": "gold_227",
+    "source_sentence": "According to those present, Rumeen alleged that she had been denied personal security while visiting Durga Puja mandaps in Sarail, despite receiving police protection in neighbouring Bijoynagar and Ashuganj upazilas.",
+    "gold_cameo_code": 20,
+    "prev_code": 20,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/rumeen-locks-horns-sarail-oc-over-security-misconduct-4306091"
+  },
+  {
+    "event_id": "gold_228",
+    "source_sentence": "\"The [victim] student came to us on Monday morning [a day after the incident].",
+    "gold_cameo_code": 18,
+    "prev_code": 18,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/crime-justice/news/cu-sexual-assault-fingers-pointed-bcl-men-3076216"
+  },
+  {
+    "event_id": "gold_229",
+    "source_sentence": "The confrontation intensified when local resident Unda Mia accused the OC of taking Tk 30,000 from him.",
+    "gold_cameo_code": 20,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/rumeen-locks-horns-sarail-oc-over-security-misconduct-4306091"
+  },
+  {
+    "event_id": "gold_230",
+    "source_sentence": "That is why thousands of people have accompanied me.",
+    "gold_cameo_code": 20,
+    "prev_code": 20,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/rumeen-locks-horns-sarail-oc-over-security-misconduct-4306091"
+  },
+  {
+    "event_id": "gold_231",
+    "source_sentence": "According to what could be known, Aminul wanted to buy cultivable land and homesteads of eight villagers at a cheap rate.",
+    "gold_cameo_code": 13,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Civilian Demonstrators / Locals",
+        "type": "CIVILIAN",
+        "role": "target"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/crime-justice/news/illegal-pond-threat-surrounding-cropland-3069061"
+  },
+  {
+    "event_id": "gold_232",
+    "source_sentence": "In Terokhada upazila, Ramim Biswas, 32, president of Jubo Dal's ward-3 unit in Madhupur union, suffered a bullet wound in an armed attack around 11:10am in Parhaji village, confirmed Kabir Hossain, inspector (investigation) of Terokhada Police Station.",
+    "gold_cameo_code": 18,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      },
+      {
+        "name": "Political Party Cadres",
+        "type": "POLITICAL_PARTY",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Khulna",
+      "division": "Khulna"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/jubo-dal-leader-grocery-shop-owner-shot-khulna-4306381"
+  },
+  {
+    "event_id": "gold_233",
+    "source_sentence": "He was also injured in the scuffle.",
+    "gold_cameo_code": 19,
+    "prev_code": 18,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/ishraque-the-headlines-often-the-wrong-reasons-4302776"
+  },
+  {
+    "event_id": "gold_234",
+    "source_sentence": "He said police were sometimes reluctant to enter areas where drug dealers allegedly fired from rooftops, adding that he had faced strong pressure from people in his constituency to take action against drug-related activities.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/ishraque-says-he-voluntarily-sought-resignation-focus-anti-drug-drive-4302496"
+  },
+  {
+    "event_id": "gold_235",
+    "source_sentence": "The same group had also planned to torch educational institutions ahead of the election to draw greater media attention.",
+    "gold_cameo_code": 18,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/historical/crime/news/arson-attacks-minorities-homes-ctg-six-more-held-4080756"
+  },
+  {
+    "event_id": "gold_236",
+    "source_sentence": "\u201cNo specific community was targeted under this arson \u2018package\u2019 -- Hindus, Muslims and Buddhists were all among the victims.",
+    "gold_cameo_code": 18,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/historical/crime/news/arson-attacks-minorities-homes-ctg-six-more-held-4080756"
+  },
+  {
+    "event_id": "gold_237",
+    "source_sentence": "Meanwhile, CU Chhatra League President Rejaul Haque Rubel claimed that he identified five people who were involved in the crime.&nbsp;",
+    "gold_cameo_code": 20,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Political Party Cadres",
+        "type": "POLITICAL_PARTY",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/youth/education/campus/news/cu-admin-identifies-2-molesters-3076956"
+  },
+  {
+    "event_id": "gold_238",
+    "source_sentence": "Earlier, contacted by The Daily Star around 11:00pm, Ishraque dismissed reports that he had been asked to resign, calling them \u201crumours\u201d.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/ishraque-announce-resignation-state-minister-today-4302301"
+  },
+  {
+    "event_id": "gold_239",
+    "source_sentence": "On suspicion, we stopped and searched him and found a machete hidden inside his clothes,\u201d he said.",
+    "gold_cameo_code": 17,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Narayanganj",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/news/youth-arrested-over-attempted-attack-ncp-candidate-narayanganj-4081661"
+  },
+  {
+    "event_id": "gold_240",
+    "source_sentence": "If any leader tried to cover up the incident, they should also be withdrawn from their post.\"",
+    "gold_cameo_code": 20,
+    "prev_code": 20,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/crime-justice/news/cu-sexual-assault-fingers-pointed-bcl-men-3076216"
+  },
+  {
+    "event_id": "gold_241",
+    "source_sentence": "He also highlighted the differences between the demands for electricity in cities and rural areas.",
+    "gold_cameo_code": 13,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/news/need-1-week-assess-situation-3076976"
+  },
+  {
+    "event_id": "gold_242",
+    "source_sentence": "The female students also asked the administration to properly investigate all the complaints filed with the CU Sexual Harassment Prevention Cell.",
+    "gold_cameo_code": 18,
+    "prev_code": 18,
+    "actors": [
+      {
+        "name": "Civilian Demonstrators / Locals",
+        "type": "CIVILIAN",
+        "role": "target"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/crime-justice/news/cu-sexual-assault-fingers-pointed-bcl-men-3076216"
+  },
+  {
+    "event_id": "gold_243",
+    "source_sentence": "During the visit, the president inquired about the minister\u2019s physical condition and treatment and wished him a speedy recovery, said the President\u2019s Press Wing.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/president-visits-lgrd-minister-evercare-hospital-4306106"
+  },
+  {
+    "event_id": "gold_244",
+    "source_sentence": "The five-day celebration of Durga Puja, the largest religious festival of the Bengali Hindu community, will begin across the country tomorrow with Maha Shashthi.",
+    "gold_cameo_code": 14,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/jamaat-vows-responsible-role-during-durga-puja-4299711"
+  },
+  {
+    "event_id": "gold_245",
+    "source_sentence": "Abdul Hakim, an accountant at another NGO\u2019s Eidghar branch, said the robbers intercepted the autorickshaw he was on with two others, took Tk 1.5 lakh, and beat them in a nearby forest.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/50-vehicles-robbed-one-day-coxs-bazar-road-victims-4303681"
+  },
+  {
+    "event_id": "gold_246",
+    "source_sentence": "As the team attempted to seize nets, boats and other equipment left along the riverbank, a group of fishermen returned carrying brickbats, sticks and machetes and launched an attack.",
+    "gold_cameo_code": 19,
+    "prev_code": 19,
+    "actors": [
+      {
+        "name": "Civilian Demonstrators / Locals",
+        "type": "CIVILIAN",
+        "role": "target"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/fishermen-attack-mp-during-hilsa-ban-drive-4303021"
+  },
+  {
+    "event_id": "gold_247",
+    "source_sentence": "Members of the police, Border Guard Bangladesh (BGB), and SRB (formerly RAB) would also use body cameras, while drones would be used to monitor the electoral area.",
+    "gold_cameo_code": 15,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/election/news/thrice-many-law-enforcers-thakurgaon-1-polls-compared-natl-elections-ec-4298686"
+  },
+  {
+    "event_id": "gold_248",
+    "source_sentence": "Teachers stopped taking classes, and employees also stopped their work.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/hasnat-calls-cuet-vc-goon-shameless-breaking-lock-his-office-help-jcd-men-4297046"
+  },
+  {
+    "event_id": "gold_249",
+    "source_sentence": "Speaking about his vision for building a \u201cnew Bangladesh\u201d, the NCP MP said merit and competence should take precedence over family ties.",
+    "gold_cameo_code": 14,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/hasnat-calls-cuet-vc-goon-shameless-breaking-lock-his-office-help-jcd-men-4297046"
+  },
+  {
+    "event_id": "gold_250",
+    "source_sentence": "Before the operation, the MP had visited several riverside areas and held street meetings to raise awareness about protecting mother hilsa.",
+    "gold_cameo_code": 16,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/fishermen-attack-mp-during-hilsa-ban-drive-4303021"
+  },
+  {
+    "event_id": "gold_251",
+    "source_sentence": "Representatives of several organisations, including the Hindu Bouddha Christian Oikya Parishad, Bangladesh Puja Udjapan Parishad, Bangladesh National Hindu Grand Alliance and Mahanagar Sarbojanin Puja Committee, attended the meeting.",
+    "gold_cameo_code": 16,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/political-parties/news/need-joint-efforts-protect-rights-hindus-shafiqur-4299016"
+  },
+  {
+    "event_id": "gold_252",
+    "source_sentence": "A former commissioner affiliated with the banned organisation provided financial support to those involved in implementing the plan,\u201d the police official said.",
+    "gold_cameo_code": 18,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/historical/crime/news/arson-attacks-minorities-homes-ctg-six-more-held-4080756"
+  },
+  {
+    "event_id": "gold_253",
+    "source_sentence": "Abul Hasan, additional superintendent of police and senior assistant director of the media wing of SRB-14, Mymensingh, confirmed the arrest today.",
+    "gold_cameo_code": 17,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Mymensingh",
+      "division": "Mymensingh"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/another-suspect-arrested-over-journalist-alif-murder-4304091"
+  },
+  {
+    "event_id": "gold_254",
+    "source_sentence": "Family members also alleged that Ripon had received death threats from his rivals.",
+    "gold_cameo_code": 13,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/jubo-dal-leader-hacked-death-4303041"
+  },
+  {
+    "event_id": "gold_255",
+    "source_sentence": "The fishermen struck the team\u2019s boats with sticks and brickbats, injuring two people participating in the operation.",
+    "gold_cameo_code": 19,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Civilian Demonstrators / Locals",
+        "type": "CIVILIAN",
+        "role": "target"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/fishermen-attack-mp-during-hilsa-ban-drive-4303021"
+  },
+  {
+    "event_id": "gold_256",
+    "source_sentence": "Speaking to reporters after the meeting, Home Minister Salahuddin Ahmed, chair of the committee, said he was unsure whether the opposition\u2019s absence would trigger controversy, but there would be opportunities for debate.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/ensure-safeguards-against-autocratic-rule-constitution-4298301"
+  },
+  {
+    "event_id": "gold_257",
+    "source_sentence": "He also alleged that MPs and their representatives were being excluded from various government committees in the district.",
+    "gold_cameo_code": 14,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/do-not-force-me-lay-siege-police-stations-jamaat-mp-warns-rangpur-officials-4297166"
+  },
+  {
+    "event_id": "gold_258",
+    "source_sentence": "Should I bring traffic to a standstill?\u201d",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/do-not-force-me-lay-siege-police-stations-jamaat-mp-warns-rangpur-officials-4297166"
+  },
+  {
+    "event_id": "gold_259",
+    "source_sentence": "Participants are expected to pass through several districts before joining the concluding rally at Kushtia Zila School ground.",
+    "gold_cameo_code": 16,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Political Party Cadres",
+        "type": "POLITICAL_PARTY",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Kushtia",
+      "division": "Khulna"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/jamaat-warns-against-election-manipulation-alleges-politicisation-administration-4305726"
+  },
+  {
+    "event_id": "gold_260",
+    "source_sentence": "The controversy began when videos posted on Ishraque\u2019s verified Facebook page showed him stepping out of a vehicle with a pistol and directing his associates to apprehend several people near the Dayaganj Ghuntighar railway crossing, close to Gandaria Railway Station.",
+    "gold_cameo_code": 20,
+    "prev_code": 20,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/ishraque-announces-resignation-state-minister-4302436"
+  },
+  {
+    "event_id": "gold_261",
+    "source_sentence": "The deceased was identified as Al-Amin, 35, of Baripota village under Nabharan union.",
+    "gold_cameo_code": 20,
+    "prev_code": 20,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Jashore",
+      "division": "Khulna"
+    },
+    "source_url": "https://www.thedailystar.net/historical/crime/news/man-stabbed-death-jashore-4110881"
+  },
+  {
+    "event_id": "gold_262",
+    "source_sentence": "Hospital Superintendent Dr Mong Ting Nyo said repeated requests for police personnel had not secured the required deployment.",
+    "gold_cameo_code": 15,
+    "prev_code": 15,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/two-babies-stolen-coxs-bazar-hospital-20-days-4303901"
+  },
+  {
+    "event_id": "gold_263",
+    "source_sentence": "He was entitled to that respect at the event.",
+    "gold_cameo_code": 14,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/shafiqur-skipped-july-memorial-inauguration-over-lack-protocol-says-jamaat-4303301"
+  },
+  {
+    "event_id": "gold_264",
+    "source_sentence": "\"My brother was shot dead in a premeditated plan due to political rivalry; we want justice,\" said the victim's brother Raj Mir.",
+    "gold_cameo_code": 18,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/magura-jubo-dal-leader-found-dead-bus-counter-4304056"
+  },
+  {
+    "event_id": "gold_265",
+    "source_sentence": "\u201cAfter receiving reports that 200-300 chaila, keora and jhau trees had been uprooted, forest officials tried to stop the work, but it continued despite their objections.\u201d",
+    "gold_cameo_code": 20,
+    "prev_code": 20,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/lease-dispute-casts-shadow-over-rangabali-forest-4303691"
+  },
+  {
+    "event_id": "gold_266",
+    "source_sentence": "Several senior BNP leaders said the meeting could address party discipline, law and order, constitutional amendments, local government elections and other political and organisational challenges.",
+    "gold_cameo_code": 16,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Political Party Cadres",
+        "type": "POLITICAL_PARTY",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/bnp-tells-activists-stay-vigilant-help-ensure-peaceful-durga-puja-nationwide-4295506"
+  },
+  {
+    "event_id": "gold_267",
+    "source_sentence": "The close-up video clips suggested that the MP even had his PR team on hand to film his exploits.",
+    "gold_cameo_code": 14,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/ishraque-the-headlines-often-the-wrong-reasons-4302776"
+  },
+  {
+    "event_id": "gold_268",
+    "source_sentence": "The erosion has taken a serious turn recently posing threats to six villages in the upazilas.",
+    "gold_cameo_code": 13,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/news/payra-erosion-threatens-barguna-villages-3056336"
+  },
+  {
+    "event_id": "gold_269",
+    "source_sentence": "Prangon is a resident of Kachari Mor in the Bagichapara area of Durgapur municipality, police said.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/another-suspect-arrested-over-journalist-alif-murder-4304091"
+  },
+  {
+    "event_id": "gold_270",
+    "source_sentence": "Rahima Begum, Nazrul\u2019s mother, has repeatedly broken down in tears since learning of her son\u2019s death.",
+    "gold_cameo_code": 14,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/our-son-was-killed-without-fair-trial-4303011"
+  },
+  {
+    "event_id": "gold_271",
+    "source_sentence": "Meanwhile, family members of Samed Ali alleged that BNP activists vandalised his house around 3:00pm today, following the clash.",
+    "gold_cameo_code": 19,
+    "prev_code": 19,
+    "actors": [
+      {
+        "name": "Political Party Cadres",
+        "type": "POLITICAL_PARTY",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/10-injured-bnp-awami-league-activists-clash-fatullah-4295201"
+  },
+  {
+    "event_id": "gold_272",
+    "source_sentence": "We have not joined the process of forming this Election Commission, have not given them recognition, and have not taken part in any activities of the commission.",
+    "gold_cameo_code": 14,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Political Party Cadres",
+        "type": "POLITICAL_PARTY",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/politics/news/ecs-dialogue-parties-runs-snag-3075346"
+  },
+  {
+    "event_id": "gold_273",
+    "source_sentence": "He had been living in a rented house in Bashmuli area of Poshchim Deobhog under Kashipur union, from where he was arrested.",
+    "gold_cameo_code": 17,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Narayanganj",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/news/youth-arrested-over-attempted-attack-ncp-candidate-narayanganj-4081661"
+  },
+  {
+    "event_id": "gold_274",
+    "source_sentence": "The deceased, Abdul Alim, 40, a member of Ward No 1 under Madhanagar UP, was son of late Ashraful Islam of West Madhanagar village in the upazila.",
+    "gold_cameo_code": 18,
+    "prev_code": 18,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/crime-justice/news/natore-member-found-dead-wife-injured-3069041"
+  },
+  {
+    "event_id": "gold_275",
+    "source_sentence": "The law enforcers also rescued Alim's second wife Rima Begum, who sustained stab injuries, and admitted her to Rajshahi Medical College Hospital.",
+    "gold_cameo_code": 18,
+    "prev_code": 18,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Rajshahi",
+      "division": "Rajshahi"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/crime-justice/news/natore-member-found-dead-wife-injured-3069041"
+  },
+  {
+    "event_id": "gold_276",
+    "source_sentence": "At one stage, it proposes bringing in an Appellate Division judge and a High Court judge, turning the panel into a seven-member body to vote on a shortlist.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/constitutional-reform-committee-bnp-focusing-its-polls-promises-4292526"
+  },
+  {
+    "event_id": "gold_277",
+    "source_sentence": "Farmer Sarwar Matubbar of Salitha village in Nagarkanda upazila said he cultivated jute on four bighas of land this year, spending Tk 60,000.",
+    "gold_cameo_code": 14,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/news/water-scarcity-hampers-jute-processing-3074601"
+  },
+  {
+    "event_id": "gold_278",
+    "source_sentence": "Those steps signalled that the leadership was prepared to act against people accused of using the party's name for grabbing property, extortion or violence.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/bnp-tells-activists-stay-vigilant-help-ensure-peaceful-durga-puja-nationwide-4295506"
+  },
+  {
+    "event_id": "gold_279",
+    "source_sentence": "At least two NCP activists were injured during a scuffle, said candidate Abdullah Al Amin, who is also the party\u2019s joint member secretary.",
+    "gold_cameo_code": 19,
+    "prev_code": 19,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Narayanganj",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/news/youth-arrested-over-attempted-attack-ncp-candidate-narayanganj-4081661"
+  },
+  {
+    "event_id": "gold_280",
+    "source_sentence": "He said the drive targeted several makeshift drug dens and that six people were detained and handed over to police along with the evidence seized.",
+    "gold_cameo_code": 17,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/ishraque-says-he-voluntarily-sought-resignation-focus-anti-drug-drive-4302496"
+  },
+  {
+    "event_id": "gold_281",
+    "source_sentence": "Iqbal Hossain Tipu, general secretary of CU BCL, told The Daily Star, \"We demand exemplary punishment to the abusers.",
+    "gold_cameo_code": 13,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/crime-justice/news/cu-sexual-assault-fingers-pointed-bcl-men-3076216"
+  },
+  {
+    "event_id": "gold_282",
+    "source_sentence": "The PM made the remarks at a public gathering after inaugurating the July Martyrs\u2019 Memorial and the renovated Osmani Udyan in the capital.",
+    "gold_cameo_code": 14,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/do-not-pave-way-return-autocracy-pm-4303071"
+  },
+  {
+    "event_id": "gold_283",
+    "source_sentence": "Without such changes, she warned, women\u2019s leadership during the uprising would not translate into lasting political power.",
+    "gold_cameo_code": 13,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/jamaat-did-not-field-women-70-said-they-were-not-ready-mardia-mumtaz-4297866"
+  },
+  {
+    "event_id": "gold_284",
+    "source_sentence": "Contacted, Ruhul Amin, officer-in-charge of Hathazari Police Station, said they could not disclose the names or identities of the identified accused for the sake of investigation.",
+    "gold_cameo_code": 20,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/youth/education/campus/news/cu-admin-identifies-2-molesters-3076956"
+  },
+  {
+    "event_id": "gold_285",
+    "source_sentence": "The incidents took place at Himchhari Dhala in the afternoon, when a group of armed robbers intercepted CNG-run autorick-shaws and motorcycles, looting cash, mobile phones and other valuables at gunpoint.",
+    "gold_cameo_code": 14,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/passengers-say-around-50-vehicles-robbed-coxs-bazar-road-4303176"
+  },
+  {
+    "event_id": "gold_286",
+    "source_sentence": "Mohammad Sentu Mia, inspector and in-charge of Shyamganj Police Investigation Centre, told The Daily Star that locals attacked the accused\u2019s house and shop after learning about the incident.&nbsp; Police rushed to the scene after receiving information and detained Dulal, he said.",
+    "gold_cameo_code": 18,
+    "prev_code": 18,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      },
+      {
+        "name": "Civilian Demonstrators / Locals",
+        "type": "CIVILIAN",
+        "role": "target"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/man-arrested-over-rape-13-yr-old-boy-4302981"
+  },
+  {
+    "event_id": "gold_287",
+    "source_sentence": "The arrested man has been identified as Abu Kalam, 31, of Kashipur village under Mahendranagar union.",
+    "gold_cameo_code": 20,
+    "prev_code": 20,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/historical/crime/news/man-arrested-over-harassment-female-tourist-travelling-across-country-foot-4080666"
+  },
+  {
+    "event_id": "gold_288",
+    "source_sentence": "An act that he has done after failing to buy the villagers' land at a cheap rate, locals said.",
+    "gold_cameo_code": 13,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Civilian Demonstrators / Locals",
+        "type": "CIVILIAN",
+        "role": "target"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/crime-justice/news/illegal-pond-threat-surrounding-cropland-3069061"
+  },
+  {
+    "event_id": "gold_289",
+    "source_sentence": "Meanwhile, Nirmal died when he fell into the water while playing beside a pond adjacent to his house.",
+    "gold_cameo_code": 20,
+    "prev_code": 13,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Kurigram",
+      "division": "Rangpur"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/accidents-fires/news/two-kids-drown-lalmonirhat-kurigram-3069046"
+  },
+  {
+    "event_id": "gold_290",
+    "source_sentence": "The victim\u2019s wife was also taken to the police station for questioning.",
+    "gold_cameo_code": 14,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/five-bodies-recovered-five-districts-4303306"
+  },
+  {
+    "event_id": "gold_291",
+    "source_sentence": "While the officer could not confirm the number of vehicles robbed, several victims estimated that around 50 vehicles had been targeted.",
+    "gold_cameo_code": 16,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/passengers-say-around-50-vehicles-robbed-coxs-bazar-road-4303176"
+  },
+  {
+    "event_id": "gold_292",
+    "source_sentence": "Appropriate laws would govern the financial management of local government institutions to ensure their effective autonomy, while the relationship between local government bodies and government officers and employees working with them would also be determined by law.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/constitutional-reform-committee-bnp-focusing-its-polls-promises-4292526"
+  },
+  {
+    "event_id": "gold_293",
+    "source_sentence": "Although income tax returns are private documents, BNP proposed allowing the Anti-Corruption Commission or another authorised body to summon them through the court.",
+    "gold_cameo_code": 14,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Political Party Cadres",
+        "type": "POLITICAL_PARTY",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/constitutional-reform-committee-bnp-focusing-its-polls-promises-4292526"
+  },
+  {
+    "event_id": "gold_294",
+    "source_sentence": "This was announced in a statement issued by Noab yesterday.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/news/noab-hikes-newspaper-price-tk-2-jul-25-3076201"
+  },
+  {
+    "event_id": "gold_295",
+    "source_sentence": "Several media outlets reported last night that Prime Minister Tarique Rahman had asked Ishraque to resign from the cabinet following public outrage over the incident.",
+    "gold_cameo_code": 16,
+    "prev_code": 16,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/ishraque-announce-resignation-state-minister-today-4302301"
+  },
+  {
+    "event_id": "gold_296",
+    "source_sentence": "However, he added that Shafiqur Rahman had neither demanded nor requested to be made chief guest.",
+    "gold_cameo_code": 13,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/shafiqur-assures-btma-raising-textile-industry-concerns-parliament-4292046"
+  },
+  {
+    "event_id": "gold_297",
+    "source_sentence": "\"It is found that three villages collectively use 10MW power every day, but one locality in Dhaka alone uses about 100MW.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/bangladesh/news/need-1-week-assess-situation-3076976"
+  },
+  {
+    "event_id": "gold_298",
+    "source_sentence": "Neither the police nor anyone else has the power to stop them.",
+    "gold_cameo_code": 14,
+    "prev_code": 14,
+    "actors": [
+      {
+        "name": "Police / Security Forces",
+        "type": "SECURITY_FORCE",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/politics/news/do-not-force-me-lay-siege-police-stations-jamaat-mp-warns-rangpur-officials-4297166"
+  },
+  {
+    "event_id": "gold_299",
+    "source_sentence": "The deceased was identified as Md Saker Hossain, 40.",
+    "gold_cameo_code": 20,
+    "prev_code": 20,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/news/crime-justice/news/magura-jubo-dal-leader-found-dead-bus-counter-4304056"
+  },
+  {
+    "event_id": "gold_300",
+    "source_sentence": "While returning from the toilet, Abu Kalam, a resident of the house, allegedly harassed her and attempted to outrage her modesty.",
+    "gold_cameo_code": 17,
+    "prev_code": 17,
+    "actors": [
+      {
+        "name": "Unidentified Miscreants / Assailants",
+        "type": "ARMED_GROUP",
+        "role": "perpetrator"
+      }
+    ],
+    "location": {
+      "district": "Dhaka",
+      "division": "Dhaka"
+    },
+    "source_url": "https://www.thedailystar.net/historical/crime/news/man-arrested-over-harassment-female-tourist-travelling-across-country-foot-4080666"
+  }
+]

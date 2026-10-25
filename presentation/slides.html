@@ -759,7 +759,7 @@
     </div>
 
     <!-- Slide 9: Evaluation Results -->
-    <div class="slide" data-notes="Discuss benchmark validation: GDELT benchmark achieved 0.922 overall F1. In high-violence categories, our hybrid model achieved 0.851 F1 with only 8% false positive rate vs 34% for neural-only.">
+    <div class="slide" data-notes="Discuss benchmark validation: GDELT benchmark achieved 0.922 overall F1. In high-violence categories, our hybrid model achieved 0.688 F1 on N=150 held-out test events with only 6.7% false positive rate vs 37.3% for neural-only, p < 0.001.">
       <div class="slide-eyebrow">Empirical Verification</div>
       <h2 class="slide-title">GDELT Benchmark & Ablation Study</h2>
 
@@ -782,21 +782,22 @@
         </div>
 
         <div class="card">
-          <h3>Ablation Study: Neural vs Symbolic vs Hybrid ($N=50$)</h3>
+          <h3>Ablation Study: Architectural Baselines ($N=150$)</h3>
           <table class="slide-table">
             <thead>
               <tr><th>Condition</th><th>BinAcc</th><th>F1 @ HV</th><th>Std-FPR</th><th>FAR</th></tr>
             </thead>
             <tbody>
-              <tr><td><strong>Neural-Only</strong></td><td>60.0%</td><td>0.667</td><td>63.0%</td><td>34.0%</td></tr>
-              <tr><td><strong>Symbolic-Only</strong></td><td>64.0%</td><td>0.700</td><td>59.3%</td><td>32.0%</td></tr>
+              <tr><td><strong>Zero-Shot NLI</strong></td><td>62.0%</td><td>0.467</td><td>31.3%</td><td>20.7%</td></tr>
+              <tr><td><strong>Dense Neural (MiniLM)</strong></td><td>52.7%</td><td>0.503</td><td>56.6%</td><td>37.3%</td></tr>
+              <tr><td><strong>Pure Symbolic</strong></td><td>39.3%</td><td>0.503</td><td>86.9%</td><td>57.3%</td></tr>
               <tr style="background: rgba(16, 185, 129, 0.15);">
-                <td><strong>Hybrid (Ours)</strong></td><td><strong>86.0%</strong></td><td><strong>0.851</strong></td><td><strong>14.8%</strong></td><td><strong>8.0%</strong></td>
+                <td><strong>Hybrid (Ours)</strong></td><td><strong>80.7%</strong></td><td><strong>0.688</strong></td><td><strong>10.1%</strong></td><td><strong>6.7%</strong></td>
               </tr>
             </tbody>
           </table>
           <p style="margin-top: 14px; font-size: 0.85rem; color: var(--accent-emerald);">
-            ✓ Description Logic constraints cut false positive alarms by 76.5% and yield ΔF1 = +0.184 over neural baselines.
+            ✓ Description Logic constraints cut false-positive alarms by 82.2% (Std-FPR 10.1% vs 56.6%) with statistically significant gain ($p < 0.001$, McNemar test).
           </p>
         </div>
       </div>
@@ -839,8 +840,8 @@
         <div class="card">
           <h3>Acknowledged Limitations</h3>
           <ul>
-            <li><strong>Cross-Source Coverage Gap (23.4% vs ACLED):</strong> Reflects national English newspaper (*The Daily Star*) vs ACLED's multi-source nationwide rural field triangulation (100% macro-group agreement).</li>
-            <li><strong>Language Barrier:</strong> Bengali-language regional portals (Prothom Alo, Ittefaq) contain more rural violent incidents not covered in English dailies.</li>
+            <li><strong>Cross-Source Coverage Gap (39.0% vs Genuine ACLED):</strong> Evaluated against 6,691 real ACLED events; achieves 60.0% macro-group concordance across spatio-temporally matched pairs.</li>
+            <li><strong>Language Barrier:</strong> Bengali-language regional portals (Prothom Alo, Ittefaq) contain localized rural violent incidents not covered in English dailies.</li>
           </ul>
         </div>
 
@@ -866,8 +867,8 @@
           <p style="margin-top: 8px;">End-to-end 5-phase reproducible pipeline with 28/28 automated tests passing.</p>
         </div>
         <div class="card" style="text-align: center;">
-          <div class="metric-val" style="color: var(--accent-emerald);">0.851 F1</div>
-          <p style="margin-top: 8px;">High-violence classification accuracy with Description Logic constraint gating.</p>
+          <div class="metric-val" style="color: var(--accent-emerald);">0.688 F1</div>
+          <p style="margin-top: 8px;">80.7% BinAcc on N=150 held-out test events from N=300 human-annotated benchmark.</p>
         </div>
         <div class="card" style="text-align: center;">
           <div class="metric-val" style="color: var(--accent-purple);">100%</div>

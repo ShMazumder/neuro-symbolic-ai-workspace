@@ -444,7 +444,7 @@
 
           <div class="metric-row">
             <div class="metric-card">
-              <div class="val" style="color: var(--accent-emerald);">0.851</div>
+              <div class="val" style="color: var(--accent-emerald);">0.688</div>
               <div class="lbl">F1 High Violence</div>
             </div>
             <div class="metric-card">
@@ -458,22 +458,23 @@
           </div>
 
           <p style="font-size: 0.82rem; font-weight: 600; color: #fff; margin-top: 6px;">
-            Ablation on Held-Out Test Set (N=50):
+            Ablation on Held-Out Test Set (N=150):
           </p>
           <table>
             <thead>
               <tr><th>Condition</th><th>BinAcc</th><th>F1@HV</th><th>Std-FPR</th><th>FAR</th><th>Expl</th></tr>
             </thead>
             <tbody>
-              <tr><td>Neural-Only</td><td>60.0%</td><td>0.667</td><td>63.0%</td><td>34.0%</td><td>0.0%</td></tr>
-              <tr><td>Symbolic-Only</td><td>64.0%</td><td>0.700</td><td>59.3%</td><td>32.0%</td><td>100%</td></tr>
+              <tr><td>Zero-Shot NLI</td><td>62.0%</td><td>0.467</td><td>31.3%</td><td>20.7%</td><td>0.0%</td></tr>
+              <tr><td>Dense Neural</td><td>52.7%</td><td>0.503</td><td>56.6%</td><td>37.3%</td><td>0.0%</td></tr>
+              <tr><td>Pure Symbolic</td><td>39.3%</td><td>0.503</td><td>86.9%</td><td>57.3%</td><td>100%</td></tr>
               <tr style="background: rgba(16, 185, 129, 0.15);">
-                <td><strong>Hybrid (Ours)</strong></td><td><strong>86.0%</strong></td><td><strong>0.851</strong></td><td><strong>14.8%</strong></td><td><strong>8.0%</strong></td><td><strong>100%</strong></td>
+                <td><strong>Hybrid (Ours)</strong></td><td><strong>80.7%</strong></td><td><strong>0.688</strong></td><td><strong>10.1%</strong></td><td><strong>6.7%</strong></td><td><strong>100%</strong></td>
               </tr>
             </tbody>
           </table>
           <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 8px;">
-            *ACLED Detection Recall: 23.4% (cross-source corroboration with 100% CAMEO macro-group concordance).
+            *Genuine ACLED Benchmark (2020–2026, 6,691 real events): 39.0% detection recall, 60.0% macro-group concordance ($p < 0.001$, McNemar test).
           </p>
         </div>
 

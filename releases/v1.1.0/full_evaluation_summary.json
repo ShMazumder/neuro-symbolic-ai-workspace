@@ -1,0 +1,131 @@
+{
+  "gdelt": {
+    "FIGHT": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 12,
+      "fn": 0
+    },
+    "ASSAULT": {
+      "precision": 1.0,
+      "recall": 0.917,
+      "f1": 0.957,
+      "tp": 132,
+      "fp": 0,
+      "fn": 12
+    },
+    "COERCE": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 10,
+      "fp": 0,
+      "fn": 0
+    },
+    "OVERALL": {
+      "precision": 0.922,
+      "recall": 0.922,
+      "f1": 0.922,
+      "tp": 142,
+      "fp": 12,
+      "fn": 12
+    }
+  },
+  "acled": {
+    "total_system_events": 77,
+    "matched_with_acled": 30,
+    "detection_recall": 0.39,
+    "location_accuracy": 0.39,
+    "cameo_code_accuracy": 0.0,
+    "cameo_group_accuracy": 0.6,
+    "actor_identification": 0.0,
+    "summary": "Detection recall: 39.0% | Location accuracy: 39.0% | CAMEO code accuracy: 0.0% | Actor identification: 0.0%"
+  },
+  "ablation": [
+    {
+      "condition": "Zero-Shot NLI",
+      "total_events": 150,
+      "code_accuracy": 0.133,
+      "binary_accuracy_hv": 0.62,
+      "tp": 25,
+      "fp": 31,
+      "fn": 26,
+      "tn": 68,
+      "precision_hv": 0.446,
+      "recall_hv": 0.49,
+      "f1_hv": 0.467,
+      "false_positive_rate": 0.207,
+      "standard_fpr": 0.313,
+      "explainability_rate": 0.0,
+      "avg_confidence": 0.297
+    },
+    {
+      "condition": "Neural-Only",
+      "total_events": 150,
+      "code_accuracy": 0.22,
+      "binary_accuracy_hv": 0.527,
+      "tp": 36,
+      "fp": 56,
+      "fn": 15,
+      "tn": 43,
+      "precision_hv": 0.391,
+      "recall_hv": 0.706,
+      "f1_hv": 0.503,
+      "false_positive_rate": 0.373,
+      "standard_fpr": 0.566,
+      "explainability_rate": 0.0,
+      "avg_confidence": 0.436
+    },
+    {
+      "condition": "Symbolic-Only",
+      "total_events": 150,
+      "code_accuracy": 0.2,
+      "binary_accuracy_hv": 0.393,
+      "tp": 46,
+      "fp": 86,
+      "fn": 5,
+      "tn": 13,
+      "precision_hv": 0.348,
+      "recall_hv": 0.902,
+      "f1_hv": 0.503,
+      "false_positive_rate": 0.573,
+      "standard_fpr": 0.869,
+      "explainability_rate": 1.0,
+      "avg_confidence": 0.704
+    },
+    {
+      "condition": "Hybrid (Ours)",
+      "total_events": 150,
+      "code_accuracy": 0.22,
+      "binary_accuracy_hv": 0.807,
+      "tp": 32,
+      "fp": 10,
+      "fn": 19,
+      "tn": 89,
+      "precision_hv": 0.762,
+      "recall_hv": 0.627,
+      "f1_hv": 0.688,
+      "false_positive_rate": 0.067,
+      "standard_fpr": 0.101,
+      "explainability_rate": 1.0,
+      "avg_confidence": 0.327
+    }
+  ],
+  "explainability": {
+    "total_evaluated": 100,
+    "provenance_coverage": 0.96,
+    "rule_coverage": 1.0,
+    "sentence_relevance_rate": 1.0,
+    "avg_graph_neighbours": 3.21,
+    "avg_grounding_score": 0.768,
+    "avg_confidence": 0.787,
+    "interpretation": {
+      "provenance_coverage": "% of predictions with >=1 cited source article",
+      "rule_coverage": "% of predictions with >=1 symbolic rule fired",
+      "sentence_relevance": "% of cited sentences containing violence keywords",
+      "avg_grounding_score": "Provenance Grounding: confidence weighted by verified article and sentence grounding"
+    }
+  }
+}

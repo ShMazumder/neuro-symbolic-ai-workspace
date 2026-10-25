@@ -1,0 +1,752 @@
+[
+  {
+    "predicted_code": 19,
+    "confidence": 0.207,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.929,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.495,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 16,
+    "confidence": 0.177,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.232,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 13,
+    "confidence": 0.172,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.836,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.244,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.235,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.171,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.254,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.203,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.311,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 16,
+    "confidence": 0.236,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 17,
+    "confidence": 0.353,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.402,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.197,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.182,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.241,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.542,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.902,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 13,
+    "confidence": 0.409,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.21,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.177,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 16,
+    "confidence": 0.225,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.262,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.988,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.265,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.387,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 17,
+    "confidence": 0.29,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.189,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.333,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 17,
+    "confidence": 0.4,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.239,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.369,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.238,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.202,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.254,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.279,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.233,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.263,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.181,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.175,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.258,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.196,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.333,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.666,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 18,
+    "confidence": 0.295,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.267,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.171,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.328,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.195,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.278,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.385,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.26,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.205,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.333,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.209,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 17,
+    "confidence": 0.574,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 17,
+    "confidence": 0.231,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.267,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.232,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.58,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 16,
+    "confidence": 0.211,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.192,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.189,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.209,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 16,
+    "confidence": 0.317,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 13,
+    "confidence": 0.227,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 13,
+    "confidence": 0.256,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 13,
+    "confidence": 0.159,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 13,
+    "confidence": 0.26,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.235,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.194,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.202,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.187,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.172,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 17,
+    "confidence": 0.453,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.181,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.298,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.864,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.173,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.24,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.231,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.221,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.21,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 13,
+    "confidence": 0.183,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 13,
+    "confidence": 0.184,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 13,
+    "confidence": 0.173,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.26,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.574,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.214,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.196,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.213,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 13,
+    "confidence": 0.175,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.818,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.164,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 13,
+    "confidence": 0.167,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.168,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 17,
+    "confidence": 0.484,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 16,
+    "confidence": 0.241,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 16,
+    "confidence": 0.18,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.168,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.183,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.19,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 16,
+    "confidence": 0.269,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.221,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.387,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.317,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.218,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.172,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.282,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.611,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.478,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 13,
+    "confidence": 0.252,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 13,
+    "confidence": 0.236,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.339,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.231,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.204,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.175,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.252,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.275,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.455,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.212,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.285,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.242,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 16,
+    "confidence": 0.195,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.2,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 16,
+    "confidence": 0.217,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.94,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.179,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.762,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.177,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.642,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 18,
+    "confidence": 0.401,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.207,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 17,
+    "confidence": 0.228,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.416,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.201,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.169,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.174,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.16,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 13,
+    "confidence": 0.226,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.235,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 13,
+    "confidence": 0.382,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 13,
+    "confidence": 0.262,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 16,
+    "confidence": 0.216,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.257,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 15,
+    "confidence": 0.21,
+    "has_provenance": false
+  },
+  {
+    "predicted_code": 19,
+    "confidence": 0.196,
+    "has_provenance": false
+  }
+]

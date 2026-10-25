@@ -52,8 +52,8 @@ Standard international CAMEO (Codes 13--20) omits localized South Asian violence
 \textbf{Code} & \textbf{Local Category} & \textbf{Bangla Context} \\
 \midrule
 \texttt{BD-PV-01} & Political Clashes & Awami League vs BNP \\
-\texttt{BD-PV-03} & Mob Lynching & গণপিটুনি (Gonopituni) \\
-\texttt{BD-CV-01} & Hartal Violence & হরতাল (Picket arson) \\
+\texttt{BD-PV-03} & Mob Lynching & Gonopituni (Mob beating) \\
+\texttt{BD-CV-01} & Hartal Violence & Hartal (Picket arson) \\
 \texttt{BD-GV-01} & Custodial Torture & Crossfire / Encounter \\
 \texttt{BD-LV-01} & Labor Unrest & RMG wage blockades \\
 \bottomrule
@@ -112,20 +112,21 @@ FIGHT (19) & 0.000 & 0.000 & 0.000 \\
 \end{center}
 \vspace{1em}
 \begin{center}
-\textbf{Ablation Study (Held-Out Test Set)} \\
+\textbf{Ablation Study (Held-Out Test Set, $N=150$)} \\
 \vspace{0.3em}
 \begin{tabular}{lcccc}
 \toprule
 \textbf{Condition} & \textbf{BinAcc} & \textbf{F1@HV} & \textbf{Std-FPR} & \textbf{Expl} \\
 \midrule
-Neural-Only & 60.0\% & 0.667 & 63.0\% & 0.0\% \\
-Symbolic-Only & 64.0\% & 0.700 & 59.3\% & 100.0\% \\
-\textbf{Hybrid (Ours)} & \textbf{86.0\%} & \textbf{0.851} & \textbf{14.8\%} & \textbf{100.0\%} \\
+Zero-Shot NLI & 62.0\% & 0.467 & 31.3\% & 0.0\% \\
+Dense Neural & 52.7\% & 0.503 & 56.6\% & 0.0\% \\
+Symbolic-Only & 39.3\% & 0.503 & 86.9\% & 100.0\% \\
+\textbf{Hybrid (Ours)} & \textbf{80.7\%} & \textbf{0.688} & \textbf{10.1\%} & \textbf{100.0\%} \\
 \bottomrule
 \end{tabular}
 \end{center}
 \vspace{0.5em}
-\small{*ACLED Recall: 23.4\% (cross-source corroboration between English daily news and ACLED multi-source records; 100\% CAMEO group concordance).}
+\small{*Genuine ACLED (2020--2026, 6,691 events): 39.0\% recall, 60.0\% CAMEO group concordance ($p < 0.001$, McNemar test).}
 }
 
 \block{6. Takeaways \& Future Directions}{

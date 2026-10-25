@@ -80,7 +80,7 @@ The repository provides both a consolidated end-to-end notebook and a modular 4-
 - **[`notebooks/01_nlp_extraction_and_ner.ipynb`](notebooks/01_nlp_extraction_and_ner.ipynb)**: Raw news ingestion, relevance filter, 8-stage NLP pipeline, Bangladesh political NER, and CAMEO event trigger classification.
 - **[`notebooks/02_knowledge_graph_and_sparql.ipynb`](notebooks/02_knowledge_graph_and_sparql.ipynb)**: RDF Turtle serialization, Bangladesh CAMEO extension ontology, PROV-O provenance inspection, and in-memory SPARQL queries.
 - **[`notebooks/03_neural_models_training_results.ipynb`](notebooks/03_neural_models_training_results.ipynb)**: PyKEEN KGE link prediction (RotatE vs. TransE), Relational GNN (EventPatternGNN) with PCA latent space projection, and BiLSTM escalation forecasting with DL precondition checks.
-- **[`notebooks/04_conflict_benchmarks_and_ablation.ipynb`](notebooks/04_conflict_benchmarks_and_ablation.ipynb)**: External conflict ground-truth alignment (GDELT 2.0 & ACLED), 3-condition architecture ablation study, 5 qualitative conflict case studies, and systematic error taxonomy.
+- **[`notebooks/04_conflict_benchmarks_and_ablation.ipynb`](notebooks/04_conflict_benchmarks_and_ablation.ipynb)**: External conflict ground-truth alignment (GDELT 2.0 & genuine ACLED 2020–2026), 4-condition architecture ablation study (Hybrid vs. Dense Neural vs. Zero-Shot NLI Transformer vs. Pure Symbolic), human annotation evaluation ($N=300$, Cohen's $\kappa=0.737, 0.832$), 5 qualitative conflict case studies, and systematic error taxonomy.
 
 ### 2. Consolidated Pipeline Demonstration
 - **[`notebooks/end_to_end_pipeline.ipynb`](notebooks/end_to_end_pipeline.ipynb)**: All-in-one execution pipeline from scraper to evaluation summary.

@@ -47,47 +47,48 @@ Evaluated across conflict event groups ($N=154$):
 
 ### 3.2 ACLED Ground-Truth Validation (Task 5.2)
 
-Evaluated against curated ACLED conflict event records in Bangladesh:
+Evaluated against genuine ACLED conflict event records in Bangladesh (2020--2026, 6,691 real events):
 
 | Metric | Result | Description |
 |---|---|---|
-| **System Events Evaluated** | 154 | Processed news conflict events |
-| **Cross-Source Corroborated** | 36 | Within temporal window & district boundary |
-| **Detection Recall** | 23.4% | Fraction of corroborated events captured |
-| **Location Accuracy** | 23.4% | District-level spatial match |
+| **System Events Evaluated** | 77 | Processed news conflict events |
+| **Cross-Source Corroborated** | 30 | Spatio-temporal matches ($\Delta t \le 21$ days, district hierarchy) |
+| **Detection Recall** | **39.0%** (30/77) | Corroborated events captured against genuine registry |
+| **Location Accuracy** | **39.0%** | District-level spatial match |
 | **CAMEO Code Accuracy** | 0.0% | Exact 3-digit sub-code match (taxonomical granularity delta) |
-| **CAMEO Group Accuracy** | **100.0%** | Macro-group conflict family concordance |
+| **CAMEO Group Accuracy** | **60.0%** (18/30) | Macro-group conflict family concordance under crosswalk |
 | **Actor Identification Accuracy** | 0.0% | Specific entity string resolution alignment |
 
 **Observations & Limitations:**
-- Broad conflict family classification achieves **100.0%** macro-group agreement with ACLED event categories.
-- **Coverage Gap:** Detection recall of 23.4% reflects the divergence between national English reporting (*The Daily Star*) and ACLED's multi-source regional field monitoring across rural upazilas.
+- Across all 30 spatio-temporally matched event pairs, system classifications achieve **60.0%** macro-group agreement with ACLED event types under the formal crosswalk mapping.
+- **Coverage Gap:** Detection recall of 39.0% reflects the divergence between national English reporting (*The Daily Star*) and ACLED's multi-source nationwide field triangulation across localized rural upazilas.
 
 ---
 
 ### 3.3 Ablation Study (Task 5.3)
 
-Comparison of three operational conditions on a 50-event held-out test split:
+Comparison of four operational conditions on a 150-event held-out test split (partitioned 50/50 from $N=300$ double-annotated gold benchmark, Cohen's $\kappa = 0.737$ multi-class, $\kappa = 0.832$ binary):
 
-| Metric | Condition A: Neural-Only | Condition B: Symbolic-Only | Condition C: Hybrid (Ours) |
-|---|---|---|---|
-| **True Positives ($TP$)** | 20 | 21 | 20 |
-| **False Positives ($FP$)** | 17 | 16 | **4** |
-| **True Negatives ($TN$)** | 10 | 11 | **23** |
-| **False Negatives ($FN$)** | 3 | **2** | 3 |
-| **Binary Accuracy ($HV \ge 18$)** | 0.600 (60.0\%) | 0.640 (64.0\%) | **0.860 (86.0\%)** |
-| **CAMEO Root Accuracy (8-class)** | 0.400 | 0.400 | **0.400** |
-| **Precision @ High Violence ($\ge 18$)** | 0.541 | 0.568 | **0.833** |
-| **Recall @ High Violence ($\ge 18$)** | 0.870 | **0.913** | **0.870** |
-| **F1 @ High Violence** | 0.667 | 0.700 | **0.851** |
-| **Standard Binary FPR ($FP/(FP+TN)$)** | 0.630 (63.0\%) | 0.593 (59.3\%) | **0.148 (14.8\%)** |
-| **False Alarm Rate ($FP/N$)** | 0.340 (34.0\%) | 0.320 (32.0\%) | **0.080 (8.0\%)** |
-| **Explainability Rate** | 0.0% | 100% | **100%** |
-| **Average Decision Confidence** | 0.486 | 0.706 | **0.415** |
+| Metric | Condition 1: Zero-Shot NLI | Condition 2: Dense Neural | Condition 3: Symbolic-Only | Condition 4: Hybrid (Ours) |
+|---|---|---|---|---|
+| **Underlying Model** | DistilBERT-MNLI | MiniLM + EscalationLSTM | Rule-Based Classifier | Hybrid Reasoner |
+| **True Positives ($TP$)** | 25 | 36 | 46 | 32 |
+| **False Positives ($FP$)** | 31 | 56 | 86 | **10** |
+| **True Negatives ($TN$)** | 68 | 43 | 13 | **89** |
+| **False Negatives ($FN$)** | 26 | 15 | **5** | 19 |
+| **Binary Accuracy ($HV \ge 18$)** | 0.620 (62.0\%) | 0.527 (52.7\%) | 0.393 (39.3\%) | **0.807 (80.7\%)** |
+| **CAMEO Root Accuracy (8-class)** | 0.133 | 0.220 | 0.200 | **0.220** |
+| **Precision @ High Violence ($\ge 18$)** | 0.446 | 0.391 | 0.348 | **0.762** |
+| **Recall @ High Violence ($\ge 18$)** | 0.490 | 0.706 | **0.902** | 0.627 |
+| **F1 @ High Violence** | 0.467 | 0.503 | 0.503 | **0.688** |
+| **Standard Binary FPR ($FP/(FP+TN)$)** | 0.313 (31.3\%) | 0.566 (56.6\%) | 0.869 (86.9\%) | **0.101 (10.1\%)** |
+| **False Alarm Rate ($FP/N$)** | 0.207 (20.7\%) | 0.373 (37.3\%) | 0.573 (57.3\%) | **0.067 (6.7\%)** |
+| **Explainability Rate** | 0.0% | 0.0% | 100% | **100%** |
+| **Average Decision Confidence** | 0.297 | 0.436 | 0.704 | 0.327 |
 
 **Observations:**
-- **False Alarm Suppression:** The Hybrid engine cuts standard binary false-positive rate from 63.0\% to **14.8\%** (a 76.5\% relative reduction), driving binary classification accuracy from 60.0\% to **86.0\%** ($+26.0\%$ absolute gain) and **+0.184 F1 gain** over neural baselines.
-- **Root Multi-Class vs Binary HV:** The 8-class macro root accuracy (0.400 across all models) confirms that the neuro-symbolic gain is concentrated precisely in distinguishing lethal and physical violence from non-violent political protests and legal maneuvers.
+- **False Alarm Suppression:** The Hybrid engine cuts standard binary false-positive rate from 56.6\% down to **10.1\%** (an 82.2\% relative drop), driving binary classification accuracy from 52.7\% to **80.7\%** ($+28.0\%$ absolute gain) and **+0.185 F1 gain** over dense neural baselines.
+- **Statistical Significance:** Paired exact McNemar test between Hybrid and Neural baseline yields $b=50, c=8$, giving $\mathbf{p < 0.001}$ (statistically significant).
 
 ---
 

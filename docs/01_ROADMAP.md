@@ -177,6 +177,6 @@ ORDER BY ?month
 - **Journal of Neurosymbolic AI**
 
 ### Success Criteria
-- [x] Hybrid system outperforms pure neural & symbolic baselines on high-violence F1 (0.851 vs 0.667) and FPR (8.0% vs 34.0%)
-- [ ] Paper accepted at ≥1 venue (manuscript ready for submission)
-- [x] Public dataset release
+- [x] Hybrid system outperforms dense neural sequence & symbolic baselines on high-violence F1 (0.688 vs 0.503) and FAR (6.7% vs 37.3%, $p < 0.001$) on held-out test set ($N=150$) from $N=300$ human-annotated gold benchmark (Cohen's $\kappa = 0.737, 0.832$)
+- [ ] Paper accepted at ≥1 venue (manuscript ready for camera-ready submission)
+- [x] Public dataset & benchmark release
