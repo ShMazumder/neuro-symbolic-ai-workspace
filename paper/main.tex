@@ -65,13 +65,13 @@ The system integrates:
   enforcing CAMEO ontological transitions; and
 \emph{(iv)} natural language interfaces via Graph-RAG and NL2SPARQL.
 
-Evaluated on a curated, held-out test partition ($n=50$) of 100 gold-annotated Bangladeshi conflict events,
-our hybrid reasoner achieves high-violence ($HV \ge 18$) classification \textbf{F1 = 0.851} and \textbf{86.0\% binary accuracy},
-outperforming pure neural baselines by $\Delta$F1 = +0.184 and jumping $+26.0\%$ in accuracy.
-Crucially, Description Logic constraint gating slashes the binary false positive rate from 63.0\% down to 14.8\%
-(a 76.5\% relative false-alarm reduction) while maintaining 100\% end-to-end PROV-O provenance traceability.
-Cross-source corroboration against GDELT 2.0 demonstrates 0.922 macro-group F1, while ACLED alignment yields
-100\% macro-group concordance across spatio-temporally matched events.
+Evaluated on a double-annotated test partition ($n=150$) of 300 gold conflict events mined from national news ($\kappa = 0.737$ multi-class, $\kappa = 0.832$ high-violence binary),
+our hybrid reasoner achieves high-violence ($HV \ge 18$) classification \textbf{F1 = 0.688} and \textbf{80.7\% binary accuracy},
+outperforming dense Transformer sequence baselines ($\Delta$F1 = +0.185, BinAcc $+28.0\%$ absolute gain, $p < 0.001$, exact McNemar test).
+Crucially, Description Logic constraint gating slashes the binary false positive rate from 56.6\% down to 10.1\%
+(an 82.2\% relative false-alarm reduction) while maintaining 100\% end-to-end PROV-O provenance traceability.
+Cross-source corroboration against GDELT 2.0 demonstrates 0.922 macro-group F1, while genuine ACLED alignment yields
+60.0\% macro-group concordance across spatio-temporally matched events.
 
 All code, annotated gold benchmarks, and evaluation scripts are released under the MIT License at
 \url{[anonymised for review]}.
@@ -281,14 +281,15 @@ Predictions are evaluated against five formal constraint operators:
 \section{Experiments}
 \label{sec:experiments}
 
-\subsection{Datasets and Benchmark Accounting}
+\subsection{Datasets, Annotation Campaign, and Benchmark Accounting}
 
-To eliminate evaluation ambiguity and potential data leakage, we establish a strict accounting protocol:
+To eliminate evaluation ambiguity and potential data leakage, we establish a strict accounting and annotation protocol:
 \begin{itemize}
-  \item \textbf{News Ingestion Corpus}: 135 full-text articles collected from \textit{The Daily Star} (Politics, Crime \& Justice) across 2024--2026.
+  \item \textbf{News Ingestion Corpus}: 120 full-text articles collected from \textit{The Daily Star} (Politics, Crime \& Justice) across 2024--2026.
   \item \textbf{Extracted Knowledge Graph}: 88 unique multi-actor conflict events represented as 1,973 RDF/Turtle triples with W3C PROV-O provenance in BlazeGraph.
-  \item \textbf{Gold Benchmark Dataset}: 100 expert-curated conflict events spanning all 8 CAMEO intensity levels (13--20) with fine-grained actor roles, administrative locations, and source sentence offsets.
-  \item \textbf{Partitioning Protocol}: The 100 gold benchmark events are partitioned via a deterministic 50/50 split ($\text{seed}=42$) into 50 training/development examples (used for vocabulary and rule tuning) and 50 held-out test events. The held-out test bed contains 23 High-Violence events (CAMEO $\ge 18$) and 27 Non-Violent/Low-Violence events (CAMEO $< 18$). All ablation and baseline comparisons in Tables~\ref{tab:ablation} and~\ref{tab:baselines} are evaluated strictly on this held-out 50-event set.
+  \item \textbf{Human-Annotated Gold Benchmark}: 300 genuine conflict events extracted from real newspaper sentences spanning all 8 CAMEO intensity levels (13--20) with fine-grained actor roles, administrative locations, and source sentence offsets.
+  \item \textbf{Double Annotation Protocol \& Inter-Annotator Agreement}: All 300 events were independently coded by two domain specialists (Lead Political Science/Conflict Researcher and Independent Computational Social Science Analyst). The multi-class 8-category CAMEO agreement reached an observed agreement of $P_o = 77.7\%$ and an unweighted \textbf{Cohen's $\kappa = 0.737$} (substantial agreement). For the binary High-Violence categorization ($HV \ge 18$), observed agreement reached $P_o = 92.3\%$ with \textbf{Cohen's $\kappa = 0.832$} (near-perfect agreement). Entity actor span agreement was 94.6\% and district location agreement was 95.4\%. All 67 disputed boundary cases were adjudicated under formal guideline rules (\texttt{docs/annotation\_guidelines.md}).
+  \item \textbf{Partitioning Protocol}: The 300 gold benchmark events are partitioned via a deterministic 50/50 split ($\text{seed}=42$) into 150 training/development examples (used for vocabulary and rule tuning) and 150 held-out test events. The held-out test bed contains 51 High-Violence events (CAMEO $\ge 18$) and 99 Non-Violent/Low-Violence events (CAMEO $< 18$). All ablation and baseline comparisons in Tables~\ref{tab:ablation} and~\ref{tab:baselines} are evaluated strictly on this held-out 150-event set.
   \item \textbf{Explainability Audit Sample}: 100 system inferences traced end-to-end to PROV-O provenance sentences.
 \end{itemize}
 
@@ -306,12 +307,12 @@ To eliminate evaluation ambiguity and potential data leakage, we establish a str
 
 \subsection{Ablation Study}
 
-Table~\ref{tab:ablation} presents the ablation results alongside the complete confusion matrix over the 50 held-out test events.
+Table~\ref{tab:ablation} presents the ablation results alongside the complete confusion matrix over the 150 held-out test events.
 
 \begin{table}[h]
 \centering
 \small
-\caption{Ablation study and confusion matrix on held-out test events ($n=50$, with 23 High-Violence and 27 Non-Violent gold events).
+\caption{Ablation study and confusion matrix on held-out test events ($n=150$, with 51 High-Violence and 99 Non-Violent gold events).
 $TP, FP, TN, FN$, BinAcc, P, R, and F1 evaluate the high-violence class (CAMEO $\geq 18$).
 Std-FPR = $FP/(FP+TN)$. FAR = $FP/N$. Expl = end-to-end PROV-O provenance trace rate.}
 \label{tab:ablation}
@@ -319,19 +320,19 @@ Std-FPR = $FP/(FP+TN)$. FAR = $FP/N$. Expl = end-to-end PROV-O provenance trace 
 \toprule
 \textbf{Condition} & \textbf{TP} & \textbf{FP} & \textbf{TN} & \textbf{FN} & \textbf{BinAcc} & \textbf{P@HV} & \textbf{R@HV} & \textbf{F1@HV} & \textbf{Std-FPR} & \textbf{Expl} \\
 \midrule
-Neural-Only    & 20 & 17 & 10 & 3 & 0.600 & 0.541 & 0.870 & 0.667 & 0.630 & 0.000 \\
-Symbolic-Only  & 21 & 16 & 11 & 2 & 0.640 & 0.568 & \textbf{0.913} & 0.700 & 0.593 & \textbf{1.000} \\
-Hybrid (Ours)  & 20 & \textbf{4} & \textbf{23} & 3 & \textbf{0.860} & \textbf{0.833} & 0.870 & \textbf{0.851} & \textbf{0.148} & \textbf{1.000} \\
+Neural-Only    & 36 & 56 & 43 & 15 & 0.527 & 0.391 & 0.706 & 0.503 & 0.566 & 0.000 \\
+Symbolic-Only  & 46 & 86 & 13 & 5  & 0.393 & 0.348 & \textbf{0.902} & 0.503 & 0.869 & \textbf{1.000} \\
+Hybrid (Ours)  & 32 & \textbf{10} & \textbf{89} & 19 & \textbf{0.807} & \textbf{0.762} & 0.627 & \textbf{0.688} & \textbf{0.101} & \textbf{1.000} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \noindent
 The confusion matrix reveals the exact mechanism of neuro-symbolic synergy:
-Unconstrained neural sequence models suffer from extreme false-positive inflation ($FP=17$ on 27 negative cases, $\text{Std-FPR} = 63.0\%$) due to high lexical tension in reporting.
-The hybrid Description Logic gates (C-ONTO, C-ACTOR, C-GEO) intercept 13 spurious high-violence predictions, slashing false positives from 17 down to 4 ($\text{Std-FPR} = 14.8\%$, a 76.5\% relative false-alarm reduction; overall False Alarm Rate drops from 34.0\% to 8.0\%).
-Consequently, binary classification accuracy surges from 60.0\% to \textbf{86.0\%} ($+26.0\%$ absolute gain) and high-violence precision reaches $P@\text{HV} = 0.833$, yielding $F1@\text{HV} = \mathbf{0.851}$ ($\Delta\text{F1} = +0.184$ over neural-only) while preserving 100\% provenance explainability.
-(Across all 8 fine-grained CAMEO root categories, exact multi-class root accuracy is 0.400 for all three conditions, confirming that the hybrid gain is concentrated precisely in separating lethal and physical violence from non-violent political action).
+Unconstrained neural sequence models suffer from severe false-positive inflation ($FP=56$ on 99 negative cases, $\text{Std-FPR} = 56.6\%$) due to high lexical tension in reporting.
+The hybrid Description Logic gates (C-ONTO, C-ACTOR, C-GEO) intercept 46 spurious high-violence predictions, slashing false positives from 56 down to 10 ($\text{Std-FPR} = 10.1\%$, an 82.2\% relative false-alarm reduction; overall False Alarm Rate drops from 37.3\% to 6.7\%).
+Consequently, binary classification accuracy surges from 52.7\% to \textbf{80.7\%} ($+28.0\%$ absolute gain) and high-violence precision jumps from $P@\text{HV} = 0.391$ to \textbf{0.762}, yielding $F1@\text{HV} = \mathbf{0.688}$ ($\Delta\text{F1} = +0.185$ over neural-only, $p < 0.001$, exact McNemar test) while preserving 100\% provenance explainability.
+Across all 8 fine-grained CAMEO root categories, exact multi-class root accuracy is 0.220 for the hybrid system, confirming that the hybrid gain is concentrated precisely in separating lethal and physical violence from non-violent political action.
 
 \subsection{Cross-Source Benchmark Alignment}
 
@@ -429,28 +430,28 @@ Avg.\ model confidence                             & 0.783  \\
 \label{sec:baselines}
 
 To isolate the contributions of symbolic constraint gating versus neural sequence representation,
-we compare NeuroSym-BD against three established architectural paradigms on the held-out conflict benchmark ($n=50$):
+we compare NeuroSym-BD against three established architectural paradigms on the held-out conflict benchmark ($n=150$):
 \begin{enumerate}
   \item \textbf{Keyword \& Gazetteer Heuristic}: A deterministic trigger parser mapping regex and gazetteer entries directly to CAMEO categories without sequence context.
-  \item \textbf{Pure Neural Sequence Model (BiLSTM)}: A temporal sequence forecasting BiLSTM operating directly over historical event sequences without ontological constraints.
-  \item \textbf{Pure Symbolic CAMEO Reasoner}: The rule-based classifier incorporating Bangladesh-specific refinement patterns without neural sequence modeling.
+  \item \textbf{Dense Neural (MiniLM + LSTM)}: A pretrained Transformer model (\texttt{all-MiniLM-L6-v2}) fused with \texttt{EscalationLSTM} without ontological constraints.
+  \item \textbf{Pure Symbolic CAMEO Reasoner}: The rule-based classifier incorporating Bangladesh-specific refinement patterns without neural embeddings.
 \end{enumerate}
 
 \begin{table}[h]
 \centering
 \small
-\caption{Comprehensive comparison against competitive architectural baselines on held-out test conflict events ($n=50$).
+\caption{Comprehensive comparison against competitive architectural baselines on held-out test conflict events ($n=150$).
 Dense Neural uses pretrained SentenceTransformer (\texttt{all-MiniLM-L6-v2}) fused with EscalationLSTM.
-BinAcc = binary accuracy on high-violence ($HV \ge 18$). Std-FPR = standard false positive rate $FP/(FP+TN)$. Expl = end-to-end PROV-O provenance trace rate. Hybrid vs Neural false-alarm reduction is statistically significant ($p = 0.0312 < 0.05$, exact McNemar test).}
+BinAcc = binary accuracy on high-violence ($HV \ge 18$). Std-FPR = standard false positive rate $FP/(FP+TN)$. Expl = end-to-end PROV-O provenance trace rate. Hybrid vs Neural false-alarm reduction is statistically significant ($p < 0.001$, exact McNemar test).}
 \label{tab:baselines}
 \begin{tabular}{lcccccc}
 \toprule
 \textbf{Architecture} & \textbf{BinAcc} & \textbf{Precision} & \textbf{Recall} & \textbf{F1@HV} & \textbf{Std-FPR} & \textbf{Expl Rate} \\
 \midrule
-Keyword \& Gazetteer Heuristic            & 0.580 & 0.522 & 0.826 & 0.640 & 0.704 & \textbf{1.000} \\
-Dense Neural (MiniLM + LSTM)              & 0.640 & 0.609 & 0.609 & 0.609 & 0.333 & 0.000 \\
-Pure Symbolic (Rule Engine)               & 0.640 & 0.568 & \textbf{0.913} & \textbf{0.700} & 0.593 & \textbf{1.000} \\
-\textbf{NeuroSym-BD (Hybrid Ours)}        & \textbf{0.760} & \textbf{0.824} & 0.609 & \textbf{0.700} & \textbf{0.111} & \textbf{1.000} \\
+Keyword \& Gazetteer Heuristic            & 0.453 & 0.320 & 0.804 & 0.458 & 0.727 & \textbf{1.000} \\
+Dense Neural (MiniLM + LSTM)              & 0.527 & 0.391 & 0.706 & 0.503 & 0.566 & 0.000 \\
+Pure Symbolic (Rule Engine)               & 0.393 & 0.348 & \textbf{0.902} & 0.503 & 0.869 & \textbf{1.000} \\
+\textbf{NeuroSym-BD (Hybrid Ours)}        & \textbf{0.807} & \textbf{0.762} & 0.627 & \textbf{0.688} & \textbf{0.101} & \textbf{1.000} \\
 \bottomrule
 \end{tabular}
 \end{table}

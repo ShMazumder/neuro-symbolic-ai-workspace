@@ -73,6 +73,7 @@ data/raw/*
 data/annotations/*
 !data/annotations/.gitkeep
 !data/annotations/gold_benchmark_events.json
+!data/annotations/human_annotation_study.json
 data/.seen_urls.json
 
 # Extra model formats
