@@ -53,7 +53,7 @@ class ExplainEvalRecord:
     sentence_relevant: Optional[bool]   # None if no sentence available
     num_rules_fired:  int
     num_neighbours:   int
-    faithfulness:     float   # proxy score: conf * has_provenance
+    provenance_grounding_score: float   # Score: confidence * has_provenance * (1.0 if sent_relevant else 0.5)
     narrative_length: int
 
     def to_dict(self) -> dict:
@@ -67,7 +67,7 @@ class ExplainEvalRecord:
             "sentence_relevant": self.sentence_relevant,
             "num_rules_fired":  self.num_rules_fired,
             "num_neighbours":   self.num_neighbours,
-            "faithfulness":     round(self.faithfulness, 3),
+            "provenance_grounding_score": round(self.provenance_grounding_score, 3),
             "narrative_length": self.narrative_length,
         }
 
@@ -221,7 +221,7 @@ def evaluate_explanations(explanations: list[dict]) -> tuple[list[ExplainEvalRec
         num_rules      = len(exp.get("symbolic_rules_fired", []))
         num_neighbours = sum(1 for e in evidence if e.get("triple"))
         confidence     = float(exp.get("confidence", 0.0))
-        faithfulness   = confidence * (1.0 if has_provenance else 0.5)
+        grounding_score = confidence * (1.0 if (has_provenance and sent_relevant is not False) else 0.5)
         narrative      = exp.get("narrative", "")
 
         records.append(ExplainEvalRecord(
@@ -234,7 +234,7 @@ def evaluate_explanations(explanations: list[dict]) -> tuple[list[ExplainEvalRec
             sentence_relevant=sent_relevant,
             num_rules_fired=num_rules,
             num_neighbours=num_neighbours,
-            faithfulness=faithfulness,
+            provenance_grounding_score=grounding_score,
             narrative_length=len(narrative),
         ))
 
@@ -248,7 +248,7 @@ def evaluate_explanations(explanations: list[dict]) -> tuple[list[ExplainEvalRec
     rel_rate      = (sum(1 for r in relevance_set if r.sentence_relevant) / len(relevance_set)
                      if relevance_set else None)
     avg_neighbours = sum(r.num_neighbours for r in records) / n
-    avg_faith      = sum(r.faithfulness for r in records) / n
+    avg_grounding  = sum(r.provenance_grounding_score for r in records) / n
     avg_conf       = sum(r.confidence for r in records) / n
 
     summary = {
@@ -257,13 +257,13 @@ def evaluate_explanations(explanations: list[dict]) -> tuple[list[ExplainEvalRec
         "rule_coverage":          round(rule_rate, 3),
         "sentence_relevance_rate": round(rel_rate, 3) if rel_rate is not None else "N/A",
         "avg_graph_neighbours":   round(avg_neighbours, 2),
-        "avg_faithfulness":       round(avg_faith, 3),
+        "avg_grounding_score":    round(avg_grounding, 3),
         "avg_confidence":         round(avg_conf, 3),
         "interpretation": {
             "provenance_coverage":  "% of predictions with >=1 cited source article",
             "rule_coverage":        "% of predictions with >=1 symbolic rule fired",
             "sentence_relevance":   "% of cited sentences containing violence keywords",
-            "avg_faithfulness":     "Proxy: confidence * has_provenance (0-1)",
+            "avg_grounding_score":  "Provenance Grounding: confidence weighted by verified article and sentence grounding",
         },
     }
 

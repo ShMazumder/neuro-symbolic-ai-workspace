@@ -64,7 +64,9 @@ credentials/
 # Data subdirs (gitignored individually so structure is kept)
 data/raw/
 data/processed/
-data/annotations/
+data/annotations/*
+!data/annotations/.gitkeep
+!data/annotations/gold_benchmark_events.json
 data/.seen_urls.json
 
 # Extra model formats

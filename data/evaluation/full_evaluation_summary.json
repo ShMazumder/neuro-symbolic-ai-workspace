@@ -46,36 +46,36 @@
   "ablation": [
     {
       "condition": "Neural-Only",
-      "total_events": 36,
-      "code_accuracy": 0.0,
-      "precision_hv": 0.889,
-      "recall_hv": 1.0,
-      "f1_hv": 0.941,
-      "false_positive_rate": 0.111,
-      "explainability_rate": 1.0,
-      "avg_confidence": 0.98
+      "total_events": 50,
+      "code_accuracy": 0.4,
+      "precision_hv": 0.541,
+      "recall_hv": 0.87,
+      "f1_hv": 0.667,
+      "false_positive_rate": 0.34,
+      "explainability_rate": 0.0,
+      "avg_confidence": 0.486
     },
     {
       "condition": "Symbolic-Only",
-      "total_events": 36,
-      "code_accuracy": 0.889,
-      "precision_hv": 0.938,
-      "recall_hv": 0.938,
-      "f1_hv": 0.938,
-      "false_positive_rate": 0.056,
+      "total_events": 50,
+      "code_accuracy": 0.4,
+      "precision_hv": 0.568,
+      "recall_hv": 0.913,
+      "f1_hv": 0.7,
+      "false_positive_rate": 0.32,
       "explainability_rate": 1.0,
-      "avg_confidence": 0.779
+      "avg_confidence": 0.706
     },
     {
       "condition": "Hybrid (Ours)",
-      "total_events": 36,
-      "code_accuracy": 1.0,
-      "precision_hv": 1.0,
-      "recall_hv": 1.0,
-      "f1_hv": 1.0,
-      "false_positive_rate": 0.0,
+      "total_events": 50,
+      "code_accuracy": 0.4,
+      "precision_hv": 0.833,
+      "recall_hv": 0.87,
+      "f1_hv": 0.851,
+      "false_positive_rate": 0.08,
       "explainability_rate": 1.0,
-      "avg_confidence": 0.652
+      "avg_confidence": 0.415
     }
   ],
   "explainability": {
@@ -83,14 +83,14 @@
     "provenance_coverage": 0.97,
     "rule_coverage": 1.0,
     "sentence_relevance_rate": 1.0,
-    "avg_graph_neighbours": 3.18,
-    "avg_faithfulness": 0.771,
-    "avg_confidence": 0.786,
+    "avg_graph_neighbours": 3.24,
+    "avg_grounding_score": 0.768,
+    "avg_confidence": 0.783,
     "interpretation": {
       "provenance_coverage": "% of predictions with >=1 cited source article",
       "rule_coverage": "% of predictions with >=1 symbolic rule fired",
       "sentence_relevance": "% of cited sentences containing violence keywords",
-      "avg_faithfulness": "Proxy: confidence * has_provenance (0-1)"
+      "avg_grounding_score": "Provenance Grounding: confidence weighted by verified article and sentence grounding"
     }
   }
 }

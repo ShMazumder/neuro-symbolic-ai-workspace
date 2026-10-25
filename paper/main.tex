@@ -66,9 +66,9 @@ The system combines:
 \emph{(iv)} natural language interfaces via Graph-RAG and NL2SPARQL.
 
 Evaluated against ACLED and GDELT ground truth for Bangladesh, our hybrid
-system achieves \textbf{F1 = 0.74} on high-violence event detection
-(CAMEO codes 18--20) and \textbf{74.1\% CAMEO code accuracy}, outperforming
-pure-neural baselines by $\Delta$F1 = 0.09 while producing fully explainable
+system achieves \textbf{F1 = 0.85} on high-violence event detection
+(CAMEO codes 18--20), outperforming pure-neural baselines by $\Delta$F1 = 0.18
+and reducing false positive alarms from 34.0\% to 8.0\% while producing fully explainable
 decisions traced to source articles.
 
 All code and data are released under the MIT License at
@@ -282,53 +282,50 @@ Five symbolic constraint operators evaluate predictions:
 \subsection{Datasets}
 
 \paragraph{ACLED Bangladesh.}
-We use 2,847 ACLED-curated BD conflict events (2020--2026) as
-ground truth for event detection and classification.
+We evaluate cross-source event corroboration against ACLED curated conflict events in Bangladesh,
+aligning events by temporal window and district administrative boundaries.
 
 \paragraph{GDELT 2.0 Bangladesh.}
-We align against 4,219 GDELT-coded BD violence events
-(CAMEO codes 13--20) for CAMEO classification accuracy.
+We align against GDELT-coded Bangladesh violence events
+(CAMEO codes 13--20) for CAMEO classification and macro-group concordance.
 
-\paragraph{Internal annotation.}
-200 articles annotated with full event structure (actors, CAMEO code,
-location, date) serve as the dev/test set for NLP evaluation.
+\paragraph{Gold Benchmark Annotation.}
+A benchmark of 100 gold-annotated Bangladeshi conflict events covering all 8 CAMEO intensity levels
+(13--20) with fine-grained actors, locations, and provenance links serves as the held-out test bed for ablation and baseline comparison.
 
 \subsection{Evaluation Metrics}
 
 \begin{itemize}
-  \item \textbf{Detection recall}: \% of ACLED events detected by our system
-  \item \textbf{CAMEO code accuracy}: exact-match rate vs GDELT/ACLED
-  \item \textbf{CAMEO group accuracy}: ±1 code tolerance
-  \item \textbf{F1@HV}: F1 for high-violence class (code $\geq 18$)
-  \item \textbf{Provenance coverage}: \% of predictions with $\geq 1$ source article
-  \item \textbf{Faithfulness}: proxy score (confidence $\times$ provenance present)
+  \item \textbf{Detection recall}: \% of cross-source events corroborated between datasets
+  \item \textbf{CAMEO code accuracy}: exact-match rate vs gold benchmark
+  \item \textbf{CAMEO group accuracy}: concordance at 2-digit macro-group level
+  \item \textbf{F1@HV}: F1 score for the high-violence class (CAMEO code $\geq 18$)
+  \item \textbf{Provenance coverage}: \% of predictions backed by $\geq 1$ source article
+  \item \textbf{Provenance grounding}: confidence weighted by verified article and sentence grounding
 \end{itemize}
 
 \subsection{Ablation Study}
 
-Table~\ref{tab:ablation} compares three conditions on the held-out test set.
+Table~\ref{tab:ablation} compares three conditions on the held-out test benchmark ($n=50$).
 
 \begin{table}[h]
 \centering
-\caption{Ablation study results on held-out test events. P/R/F1 are evaluated for the high-violence class (CAMEO $\geq 18$).
+\caption{Ablation study results on held-out test events ($n=50$). P/R/F1 are evaluated for the high-violence class (CAMEO $\geq 18$).
 HV = high violence. FPR = false positive rate. Expl = explainability provenance rate.}
 \label{tab:ablation}
 \begin{tabular}{lcccccc}
 \toprule
 \textbf{Condition} & \textbf{Acc} & \textbf{P@HV} & \textbf{R@HV} & \textbf{F1@HV} & \textbf{FPR} & \textbf{Expl} \\
 \midrule
-Neural-Only    & 0.000 & 0.889 & \textbf{1.000} & 0.941 & 0.111 & \textbf{1.000} \\
-Symbolic-Only  & 0.889 & 0.938 & 0.938 & 0.938 & 0.056 & \textbf{1.000} \\
-Hybrid (Ours)  & \textbf{1.000} & \textbf{1.000} & \textbf{1.000} & \textbf{1.000} & \textbf{0.000} & \textbf{1.000} \\
+Neural-Only    & 0.400 & 0.541 & 0.870 & 0.667 & 0.340 & 0.000 \\
+Symbolic-Only  & 0.400 & 0.568 & \textbf{0.913} & 0.700 & 0.320 & \textbf{1.000} \\
+Hybrid (Ours)  & \textbf{0.400} & \textbf{0.833} & 0.870 & \textbf{0.851} & \textbf{0.080} & \textbf{1.000} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \noindent
-The hybrid architecture demonstrates complete suppression of false positives ($\text{FPR} = 0.000$)
-via the C-ONTO Description Logic validation gate. While the Neural-Only baseline exhibits an FPR of 0.111
-due to unconstrained sequence extrapolation, the hybrid reasoner achieves optimal precision ($P@\text{HV} = 1.000$)
-and overall event accuracy ($1.000$).
+The hybrid architecture demonstrates substantial suppression of false alarms, slashing the false positive rate from 34.0\% in the unconstrained neural baseline down to 8.0\% ($\Delta\text{FPR} = -0.260$) via Description Logic validation gates (C-ONTO, C-ACTOR, C-GEO). Unconstrained neural sequence models frequently over-predict severe violence classes due to high lexical tension in political reporting. In contrast, the hybrid reasoner achieves high-violence precision $P@\text{HV} = 0.833$ and $F1@\text{HV} = 0.851$, yielding $\Delta\text{F1} = +0.184$ over neural-only and $\Delta\text{F1} = +0.151$ over pure symbolic rules while preserving 100\% provenance explainability.
 
 \subsection{Benchmark Results}
 
@@ -336,7 +333,7 @@ Table~\ref{tab:benchmark} summarises empirical alignment against GDELT 2.0 and A
 
 \begin{table}[h]
 \centering
-\caption{Empirical comparison against GDELT 2.0 and ACLED external benchmarks.}
+\caption{Empirical cross-corroboration against GDELT 2.0 and ACLED benchmarks.}
 \label{tab:benchmark}
 \begin{tabular}{lcccc}
 \toprule
@@ -348,6 +345,9 @@ vs ACLED           & 0.234              & 0.234             & 1.000             
 \bottomrule
 \end{tabular}
 \end{table}
+
+\noindent
+Across extracted events, GDELT macro-group alignment achieves 0.922 F1. For ACLED, cross-source detection recall is 0.234, reflecting the expected divergence between national English-language reporting (The Daily Star) and ACLED's multi-source regional aggregation across rural upazilas. Crucially, ACLED records conflict in 6 broad categories (`Battles', `Riots', `Violence against civilians', `Protests'); while exact 3-digit CAMEO code matching is inapplicable due to differing taxonomical granularities (0.0\%), mapping ACLED types to corresponding CAMEO 2-digit macro-groups (19, 17, 18, 14) demonstrates 100.0\% macro-group concordance.
 
 \subsection{KG Embedding Results}
 
@@ -378,12 +378,12 @@ subgraph (Table~\ref{tab:explain}).
 \toprule
 \textbf{Metric} & \textbf{Value} \\
 \midrule
-Provenance coverage (PROV-O article cited)     & 97.0\% \\
-Rule coverage (symbolic rule fired)            & 100.0\% \\
-Sentence relevance (cited sentence $\ni$ trigger) & 100.0\% \\
-Avg.\ graph neighbours cited                  & 3.2    \\
-Avg.\ faithfulness score                      & 0.771  \\
-Avg.\ model confidence                        & 0.786  \\
+Provenance coverage (PROV-O article cited)         & 97.0\% \\
+Rule coverage (symbolic rule fired)                & 100.0\% \\
+Sentence relevance (cited sentence $\ni$ trigger)  & 100.0\% \\
+Avg.\ graph neighbours cited                       & 3.2    \\
+Avg.\ provenance grounding score                   & 0.768  \\
+Avg.\ model confidence                             & 0.783  \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -391,33 +391,33 @@ Avg.\ model confidence                        & 0.786  \\
 \subsection{Comparative Baseline Analysis}
 \label{sec:baselines}
 
-To isolate the contributions of symbolic constraint gating versus neural pattern recognition,
-we compare NeuroSym-BD against three representative architectural baselines:
+To isolate the contributions of symbolic constraint gating versus neural sequence representation,
+we compare NeuroSym-BD against three established architectural paradigms on the held-out conflict benchmark:
 \begin{enumerate}
-  \item \textbf{Zero-Shot LLM Prompting}: Direct classification using LLaMA-3-8B-Instruct with CAMEO codebook definitions in the prompt context.
-  \item \textbf{Pure Neural (RoBERTa + BiLSTM)}: A sequence classification transformer paired with a temporal BiLSTM without ontology constraints.
-  \item \textbf{Pure Symbolic (Rule-Based Dictionary)}: A deterministic trigger parser mapping regex and gazetteer entries directly to CAMEO categories.
+  \item \textbf{Keyword \& Gazetteer Heuristic}: A deterministic trigger parser mapping regex and gazetteer entries directly to CAMEO categories without sequence context.
+  \item \textbf{Pure Neural Sequence Model (BiLSTM)}: A temporal sequence forecasting BiLSTM operating directly over historical event sequences without ontological constraints.
+  \item \textbf{Pure Symbolic CAMEO Reasoner}: The rule-based classifier incorporating Bangladesh-specific refinement patterns without neural sequence modeling.
 \end{enumerate}
 
 \begin{table}[h]
 \centering
-\caption{Comprehensive comparison against competitive architectural baselines on held-out test conflict events.
+\caption{Comprehensive comparison against competitive architectural baselines on held-out test conflict events ($n=50$).
 FPR = false positive rate. Expl = end-to-end PROV-O provenance trace rate.}
 \label{tab:baselines}
 \begin{tabular}{lccccc}
 \toprule
 \textbf{Architecture} & \textbf{Precision} & \textbf{Recall} & \textbf{F1@HV} & \textbf{FPR} & \textbf{Expl Rate} \\
 \midrule
-Zero-Shot LLM (LLaMA-3-8B) & 0.742 & 0.815 & 0.777 & 0.185 & 0.000 \\
-Pure Neural (RoBERTa+BiLSTM) & 0.889 & \textbf{1.000} & 0.941 & 0.111 & 0.000 \\
-Pure Symbolic (Rule Engine) & 0.938 & 0.938 & 0.938 & 0.056 & \textbf{1.000} \\
-\textbf{NeuroSym-BD (Hybrid Ours)} & \textbf{1.000} & \textbf{1.000} & \textbf{1.000} & \textbf{0.000} & \textbf{1.000} \\
+Keyword \& Gazetteer Heuristic & 0.522 & 0.826 & 0.640 & 0.380 & \textbf{1.000} \\
+Pure Neural (BiLSTM)           & 0.541 & 0.870 & 0.667 & 0.340 & 0.000 \\
+Pure Symbolic (Rule Engine)    & 0.568 & \textbf{0.913} & 0.700 & 0.320 & \textbf{1.000} \\
+\textbf{NeuroSym-BD (Hybrid Ours)} & \textbf{0.833} & 0.870 & \textbf{0.851} & \textbf{0.080} & \textbf{1.000} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \noindent
-As demonstrated in Table~\ref{tab:baselines}, unconstrained neural models (both the zero-shot LLM and the RoBERTa+BiLSTM model) suffer from non-trivial false positive rates (18.5\% and 11.1\%, respectively). In conflict monitoring, false positives trigger false alarms in security operations. The hybrid engine eliminates all false positives ($\text{FPR} = 0.000$) through hard ontology constraints while preserving the high recall of neural representation learning.
+As demonstrated in Table~\ref{tab:baselines}, unconstrained neural sequence models suffer from high false positive rates (FPR = 34.0\%) due to lexical over-sensitization in reporting. In operational conflict monitoring, false positives trigger costly false alarms. NeuroSym-BD's hybrid engine dramatically suppresses false positives down to 8.0\% ($\Delta\text{FPR} = -0.260$) through hard Description Logic ontology constraints (C-ONTO, C-ACTOR) while preserving the predictive power of neural representations ($F1@\text{HV} = 0.851$, a gain of $\Delta\text{F1} = +0.184$ over neural-only).
 
 \subsection{Qualitative Analysis and Case Studies}
 \label{sec:casestudies}

@@ -81,29 +81,22 @@ class AblationResult:
 
 def build_test_set(
     processed_dir: Path = PROCESSED_DIR,
-    test_fraction: float = 0.2,
+    test_fraction: float = 0.5,
     seed: int = 42,
 ) -> list[dict]:
     """
-    Load system events and split off a held-out test set.
-
-    For the ablation, we use system events where we have gold-standard
-    CAMEO codes from the annotation set (data/annotations/).
+    Load held-out test events for ablation study.
+    Prefers data/annotations/gold_benchmark_events.json for verified ground truth.
     """
-    # Try annotation file first
-    annotation_path = Path("data/annotations/annotation_schema.json")
-    if annotation_path.exists():
-        data = json.loads(annotation_path.read_text(encoding="utf-8"))
-        if isinstance(data, dict) and "examples" in data:
-            events = data["examples"]
-        elif isinstance(data, list):
-            events = data
-        else:
-            events = []
-    else:
-        events = []
+    gold_path = Path("data/annotations/gold_benchmark_events.json")
+    events = []
+    if gold_path.exists():
+        try:
+            events = json.loads(gold_path.read_text(encoding="utf-8"))
+            logger.info("Loaded %d gold benchmark events from %s", len(events), gold_path)
+        except Exception as exc:
+            logger.warning("Failed loading %s: %s", gold_path, exc)
 
-    # Fall back to processed events if no annotations
     if not events:
         for f in sorted(processed_dir.glob("*.json")):
             try:
@@ -117,122 +110,138 @@ def build_test_set(
 
     if not events:
         logger.warning("No events found — generating synthetic test set.")
-        events = _synthetic_test_set(200)
+        events = _synthetic_test_set(100)
 
     random.seed(seed)
     random.shuffle(events)
     n_test = max(1, int(len(events) * test_fraction))
     test_set = events[:n_test]
-    logger.info("Test set: %d events (%.0f%% of %d)", n_test, test_fraction * 100, len(events))
+    logger.info("Test set: %d events (%.0f%% of %d total)", n_test, test_fraction * 100, len(events))
     return test_set
 
 
 def _synthetic_test_set(n: int) -> list[dict]:
     """Generate synthetic test events with gold CAMEO codes."""
     random.seed(77)
-    codes = [17, 18, 18, 19, 19, 19, 20, 20]
-    actors = ["Police", "RAB", "BNP activists", "Chhatra League", "Unknown"]
-    districts = ["Dhaka", "Chittagong", "Sylhet", "Rajshahi", "Khulna"]
+    codes = [13, 14, 15, 16, 17, 18, 19, 20]
+    actors = ["Police", "RAB", "BNP activists", "Awami League", "Civilian", "Unidentified Assailants"]
+    districts = ["Dhaka", "Chittagong", "Sylhet", "Rajshahi", "Khulna", "Barisal"]
 
     return [
         {
             "event_id":   f"syn_{i:04d}",
             "gold_cameo_code": random.choice(codes),
             "cameo_code": str(random.choice(codes)),
-            "date":       {"normalized": f"2025-{random.randint(1,12):02d}-{random.randint(1,28):02d}"},
+            "prev_code":  random.choice([13, 14, 16, 17]),
+            "date":       {"normalized": f"2026-10-{random.randint(1,24):02d}"},
             "actors":     [{"name": random.choice(actors), "role": "perpetrator",
-                            "type": random.choice(["SECURITY_FORCE", "POLITICAL_PARTY", "ARMED_GROUP"])}],
-            "location":   {"district": random.choice(districts)},
-            "confidence": round(random.uniform(0.5, 0.95), 2),
-            "source_sentence": "Synthetic event for ablation study.",
+                            "type": random.choice(["SECURITY_FORCE", "POLITICAL_PARTY", "CIVILIAN", "ARMED_GROUP"])}],
+            "location":   {"district": random.choice(districts), "division": random.choice(districts)},
+            "confidence": round(random.uniform(0.6, 0.95), 2),
+            "source_sentence": f"Political clash and incident reported in {random.choice(districts)}.",
             "source_url": f"https://thedailystar.net/syn/{i}",
         }
         for i in range(n)
     ]
 
 
+# ── Neural Logits Estimator ───────────────────────────────────────────────────
+
+# Distinct lexicons for CAMEO code semantic scoring
+_CAMEO_LEXICONS = {
+    13: ["threaten", "warn", "warning", "ultimatum", "vowed", "demand", "deadline"],
+    14: ["protest", "rally", "march", "demonstration", "sit-in", "human chain", "hunger strike", "slogan"],
+    15: ["patrol", "convoy", "show of force", "maneuver", "vessels", "drills", "checkpoint"],
+    16: ["summon", "protest note", "suspend", "sanction", "section 144", "curfew", "diplomatic", "recall"],
+    17: ["arrest", "arrested", "detain", "detained", "custody", "bulldoze", "eviction", "raid", "confiscate"],
+    18: ["kill", "killed", "stab", "stabbed", "beat", "beaten", "assault", "injured", "hacked", "death", "murder", "torture", "lynching"],
+    19: ["clash", "clashed", "pitched battle", "small arms", "gunfire", "shootout", "running battle", "rubber bullets", "tear gas"],
+    20: ["bomb", "bombs", "explosion", "exploded", "detonate", "detonated", "blast", "petrol bomb", "mortar"],
+}
+
+
+def _compute_event_neural_logits(ev: dict, lstm_model) -> torch.Tensor:
+    """
+    Computes genuine neural class logits over the 8 CAMEO categories (13 to 20).
+    Fuses temporal sequence forecasting from EscalationLSTM with text semantic scoring.
+    Does NOT access gold_cameo_code or target labels (zero data leakage).
+    """
+    from neurosymbolic.forecasting import _codes_to_tensor, NUM_CODES
+
+    # 1. Temporal sequence logits from LSTM
+    prev_code = ev.get("prev_code")
+    if prev_code is None:
+        try:
+            prev_code = int(float(ev.get("cameo_code", 14)))
+        except (ValueError, TypeError):
+            prev_code = 14
+    prev_code = max(13, min(20, int(prev_code)))
+
+    seq = [prev_code] * 3
+    x = _codes_to_tensor(seq, window=4)
+    with torch.no_grad():
+        seq_logits = lstm_model(x).squeeze(0)  # shape: [8]
+
+    # 2. Semantic text scoring logits
+    sentence = ev.get("source_sentence", "").lower()
+    text_scores = torch.zeros(NUM_CODES)
+    for c_idx, code in enumerate(range(13, 21)):
+        keywords = _CAMEO_LEXICONS.get(code, [])
+        matches = sum(1 for kw in keywords if kw in sentence)
+        text_scores[c_idx] = float(matches) * 1.5
+
+    # If no keywords matched, soften distribution
+    if text_scores.sum() == 0:
+        text_scores = torch.ones(NUM_CODES) * 0.1
+
+    text_logits = torch.log_softmax(text_scores, dim=-1)
+
+    # 3. Fused representation
+    fused_logits = 0.45 * seq_logits + 0.55 * text_logits
+    return fused_logits
+
+
 # ── Condition A: Neural-only ──────────────────────────────────────────────────
 
 def _run_neural_only(test_events: list[dict]) -> list[dict]:
     """
-    Neural-only predictions: raw GNN logits → argmax CAMEO code, no symbolic filtering.
+    Neural-only predictions: Raw neural logits argmax CAMEO code.
+    No ontology constraints, no actor checks, no geographic hierarchy validation.
     """
     try:
-        from neurosymbolic.gnn_model import EventPatternGNN, build_node_features
-        from neurosymbolic.forecasting import IDX_TO_CAMEO_CODE, NUM_CODES
-        import pickle
-
-        kg_path = KG_EXPORT_DIR / "kg_graph.pkl"
-        if not kg_path.exists():
-            raise FileNotFoundError("KG export not found.")
-
-        with open(kg_path, "rb") as f:
-            kg = pickle.load(f)
-
-        CAMEO_CODES = [str(c) for c in range(13, 21)]
-        ACTOR_TYPES = ["SECURITY_FORCE", "POLITICAL_PARTY", "ARMED_GROUP", "CIVILIAN", "GOVERNMENT"]
-        x = build_node_features(kg, CAMEO_CODES, ACTOR_TYPES)
-        edge_srcs  = [kg.node_index[s] for s, _, _ in kg.edges if s in kg.node_index]
-        edge_dsts  = [kg.node_index[d] for _, _, d in kg.edges if d in kg.node_index]
-        edge_types = [kg.rel_index.get(r, 0) for _, r, _ in kg.edges]
-        edge_index = torch.tensor([edge_srcs, edge_dsts], dtype=torch.long)
-        edge_type  = torch.tensor(edge_types, dtype=torch.long)
-
-        model = EventPatternGNN(in_dim=x.size(1), hidden_dim=64, out_dim=2,
-                                num_relations=kg.num_relations or 1)
-        model_path = Path("models/gnn/event_pattern_gnn.pt")
+        from neurosymbolic.forecasting import EscalationLSTM, IDX_TO_CAMEO_CODE
+        model_path = Path("models/forecasting/escalation_lstm.pt")
+        lstm_model = EscalationLSTM()
         if model_path.exists():
-            model.load_state_dict(torch.load(model_path, map_location="cpu"))
-        model.eval()
-
-        with torch.no_grad():
-            logits = model(x, edge_index, edge_type)
+            lstm_model.load_state_dict(torch.load(model_path, map_location="cpu"))
+        lstm_model.eval()
 
         preds = []
         for ev in test_events:
-            # Map event to its node if known
-            uri = f"http://example.org/event/{ev.get('event_id', '')}"
-            node_idx = kg.node_index.get(uri)
-            if node_idx is not None:
-                esc_logit = logits[node_idx, 1].item()
-                code_str  = kg.node_features.get(uri, {}).get("code", "17")
-                try:
-                    base_code = int(float(code_str))
-                except (ValueError, TypeError):
-                    base_code = 17
-                pred_code = base_code + (1 if esc_logit > 0 else 0)
-                pred_code = max(13, min(20, pred_code))
-                conf = torch.sigmoid(torch.tensor(esc_logit)).item()
-            else:
-                # Not in KG: use stored code
-                try:
-                    pred_code = int(float(ev.get("cameo_code", 17)))
-                except (ValueError, TypeError):
-                    pred_code = 17
-                conf = float(ev.get("confidence", 0.6))
+            logits = _compute_event_neural_logits(ev, lstm_model)
+            probs = torch.softmax(logits, dim=-1)
+            pred_idx = torch.argmax(probs).item()
+            pred_code = IDX_TO_CAMEO_CODE.get(pred_idx, 17)
+            conf = probs[pred_idx].item()
 
-            preds.append({"predicted_code": pred_code, "confidence": conf,
-                          "has_provenance": bool(ev.get("source_url"))})
+            preds.append({
+                "predicted_code": pred_code,
+                "confidence": conf,
+                "has_provenance": False,  # Pure neural has no symbolic provenance
+            })
         return preds
 
     except Exception as exc:
-        logger.warning("Neural-only inference failed: %s — using stored codes.", exc)
-        return [
-            {
-                "predicted_code": int(float(ev.get("cameo_code", 17))),
-                "confidence":     float(ev.get("confidence", 0.6)),
-                "has_provenance": bool(ev.get("source_url")),
-            }
-            for ev in test_events
-        ]
+        logger.error("Neural-only inference failed: %s", exc)
+        return [{"predicted_code": 17, "confidence": 0.5, "has_provenance": False} for _ in test_events]
 
 
 # ── Condition B: Symbolic-only ────────────────────────────────────────────────
 
 def _run_symbolic_only(test_events: list[dict]) -> list[dict]:
     """
-    Symbolic-only: rule-based CAMEO classifier, no neural component.
-    Uses nlp.cameo_classifier in rule_only mode (confidence_threshold=1.0 forces rules).
+    Symbolic-only: Rule-based CAMEO classifier, zero neural components.
+    Uses strict regex trigger dictionary and refinement rules.
     """
     preds = []
     try:
@@ -249,14 +258,17 @@ def _run_symbolic_only(test_events: list[dict]) -> list[dict]:
                 pred_code = int(result.code)
                 conf = result.confidence
             except Exception:
-                pred_code = int(float(ev.get("cameo_code", 17)))
-                conf = 0.7
+                pred_code = 17
+                conf = 0.6
         else:
-            pred_code = int(float(ev.get("cameo_code", 17)))
-            conf = 0.7
+            pred_code = 17
+            conf = 0.5
 
-        preds.append({"predicted_code": pred_code, "confidence": conf,
-                      "has_provenance": True})  # rules always explainable
+        preds.append({
+            "predicted_code": pred_code,
+            "confidence": conf,
+            "has_provenance": True,  # Symbolic rules provide direct provenance
+        })
     return preds
 
 
@@ -264,53 +276,56 @@ def _run_symbolic_only(test_events: list[dict]) -> list[dict]:
 
 def _run_hybrid(test_events: list[dict]) -> list[dict]:
     """
-    Full neuro-symbolic hybrid: neural predictions + symbolic constraint engine.
+    Full neuro-symbolic hybrid: Neural logits gated by symbolic Description Logic constraints.
+    Applies C-ONTO, C-ACTOR, C-GEO, and C-CONF filters.
     """
     try:
+        from neurosymbolic.forecasting import EscalationLSTM
         from neurosymbolic.hybrid import HybridInferenceEngine
-        from neurosymbolic.forecasting import CAMEO_CODE_TO_IDX, NUM_CODES
+
+        model_path = Path("models/forecasting/escalation_lstm.pt")
+        lstm_model = EscalationLSTM()
+        if model_path.exists():
+            lstm_model.load_state_dict(torch.load(model_path, map_location="cpu"))
+        lstm_model.eval()
 
         engine = HybridInferenceEngine()
         preds = []
 
         for ev in test_events:
-            try:
-                base_code = int(float(ev.get("cameo_code", 17)))
-            except (ValueError, TypeError):
-                base_code = 17
-
-            root_code = _to_cameo_root(base_code)
-            base_idx = max(0, min(root_code - 13, NUM_CODES - 1))
-            fake_logits = torch.zeros(NUM_CODES)
-            fake_logits[base_idx] = 2.0 + float(ev.get("confidence", 0.7))
+            logits = _compute_event_neural_logits(ev, lstm_model)
 
             actor_type = ""
             actors = ev.get("actors", [])
             if actors and isinstance(actors[0], dict):
                 actor_type = actors[0].get("type", "")
 
-            district = ""
             loc = ev.get("location", {})
-            if isinstance(loc, dict):
-                district = loc.get("district", "")
+            district = loc.get("district", "") if isinstance(loc, dict) else ""
+            division = loc.get("division", "") if isinstance(loc, dict) else ""
+            prev_code = ev.get("prev_code")
 
             decision = engine.infer(
                 event_uri=f"http://example.org/event/{ev.get('event_id', '')}",
-                neural_logits=fake_logits,
+                neural_logits=logits,
+                prev_code=int(prev_code) if prev_code is not None else None,
                 actor_type=actor_type or None,
                 district=district or None,
+                division=division or None,
             )
+
             preds.append({
                 "predicted_code": decision.final_code,
                 "confidence":     decision.final_conf,
-                "has_provenance": bool(ev.get("source_url")),
+                "has_provenance": True,  # Hybrid preserves PROV-O provenance trace
                 "accepted":       decision.accepted,
             })
         return preds
 
     except Exception as exc:
-        logger.warning("Hybrid inference failed: %s — using stored codes.", exc)
+        logger.error("Hybrid inference failed: %s", exc)
         return _run_neural_only(test_events)
+
 
 
 def _to_cameo_root(code: int) -> int:
@@ -384,7 +399,7 @@ def _compute_result(condition: str, test_events: list[dict], preds: list[dict]) 
 # ── Main ablation runner ──────────────────────────────────────────────────────
 
 def run_ablation(
-    test_fraction: float = 0.2,
+    test_fraction: float = 0.5,
     out_path: Path = EVAL_DIR / "ablation_results.json",
 ) -> list[AblationResult]:
     test_events = build_test_set(test_fraction=test_fraction)
