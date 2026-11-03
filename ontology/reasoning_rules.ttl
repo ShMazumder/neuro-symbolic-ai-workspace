@@ -170,24 +170,27 @@ cameo:Category14 a cameo:CAMEOEventCategory ; rdfs:label "Protest" ;
 
 cameo:Category15 a cameo:CAMEOEventCategory ; rdfs:label "Exhibit Force" ;
     cameo:validTransitionTo cameo:Category14, cameo:Category15, cameo:Category16, cameo:Category17, cameo:Category18 ;
-    cameo:illegalTransitionTo cameo:Category19, cameo:Category20 .
+    cameo:illegalTransitionTo cameo:Category13, cameo:Category19, cameo:Category20 .
 
 cameo:Category16 a cameo:CAMEOEventCategory ; rdfs:label "Reduce Relations" ;
     cameo:validTransitionTo cameo:Category15, cameo:Category16, cameo:Category17, cameo:Category18 ;
-    cameo:illegalTransitionTo cameo:Category19, cameo:Category20 .
+    cameo:illegalTransitionTo cameo:Category13, cameo:Category14, cameo:Category19, cameo:Category20 .
 
 cameo:Category17 a cameo:CAMEOEventCategory ; rdfs:label "Coerce" ;
     cameo:validTransitionTo cameo:Category16, cameo:Category17, cameo:Category18, cameo:Category19 ;
-    cameo:illegalTransitionTo cameo:Category20 .
+    cameo:illegalTransitionTo cameo:Category13, cameo:Category14, cameo:Category15, cameo:Category20 .
 
 cameo:Category18 a cameo:CAMEOEventCategory ; rdfs:label "Assault" ;
     cameo:validTransitionTo cameo:Category17, cameo:Category18, cameo:Category19, cameo:Category20 ;
+    cameo:illegalTransitionTo cameo:Category13, cameo:Category14, cameo:Category15, cameo:Category16 ;
     cameo:permittedActorType "SECURITY_FORCE", "ARMED_GROUP", "POLITICAL_PARTY" .
 
 cameo:Category19 a cameo:CAMEOEventCategory ; rdfs:label "Fight" ;
     cameo:validTransitionTo cameo:Category18, cameo:Category19, cameo:Category20 ;
+    cameo:illegalTransitionTo cameo:Category13, cameo:Category14, cameo:Category15, cameo:Category16, cameo:Category17 ;
     cameo:permittedActorType "SECURITY_FORCE", "ARMED_GROUP" .
 
 cameo:Category20 a cameo:CAMEOEventCategory ; rdfs:label "Mass Violence" ;
     cameo:validTransitionTo cameo:Category19, cameo:Category20 ;
+    cameo:illegalTransitionTo cameo:Category13, cameo:Category14, cameo:Category15, cameo:Category16, cameo:Category17, cameo:Category18 ;
     cameo:permittedActorType "SECURITY_FORCE", "ARMED_GROUP" .

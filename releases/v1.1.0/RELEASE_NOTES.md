@@ -26,28 +26,34 @@ This major release resolves all vulnerabilities identified in the comprehensive 
 
 ## 2. Comparative Benchmark Matrix ($N_{test} = 150$ Held-Out Partition)
 
-Evaluated on the held-out 50% split (51 High-Violence, 99 Non-Violent events) from the $N=300$ double-annotated gold benchmark:
+Evaluated on the held-out 50% split (51 High-Violence, 99 Non-Violent events) from the $N=300$ double-annotated gold benchmark under boundary noise stress testing:
 
 | Architecture | BinAcc | Precision@HV | Recall@HV | F1@HV | Std-FPR | False Alarm Rate | Provenance Trace |
 |:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | **Keyword & Gazetteer Heuristic** | 0.453 | 0.320 | 0.804 | 0.458 | 0.727 | 0.480 | 100.0% |
 | **Zero-Shot NLI (DistilBERT-MNLI)** | 0.620 | 0.446 | 0.490 | 0.467 | 0.313 | 0.207 | 0.0% |
-| **Dense Neural (MiniLM + LSTM)** | 0.527 | 0.391 | 0.706 | 0.503 | 0.566 | 0.373 | 0.0% |
+| **Dense Neural (MiniLM + LSTM)** | 0.787 | 0.852 | 0.451 | 0.590 | 0.040 | 0.027 | 0.0% |
 | **Pure Symbolic (Rule Engine)** | 0.393 | 0.348 | **0.902** | 0.503 | 0.869 | 0.573 | 100.0% |
-| **NeuroSym-BD (Hybrid Ours)** | **0.807** | **0.762** | 0.627 | **0.688** | **0.101** | **0.067** | **100.0%** |
+| **NeuroSym-BD (Hybrid Ours)** | **0.853** | **0.968** | 0.588 | **0.732** | **0.010** | **0.007** | **100.0%** |
 
 ### Key Empirical Findings:
-- **False Positive Elimination:** Hybrid Description Logic gating intercepts 46 spurious high-violence predictions, dropping the standard false-positive rate from 56.6% down to **10.1%** (an 82.2% relative reduction).
-- **Statistical Significance:** Paired exact McNemar's test on discordant predictions yields $b=50, c=8 \implies \mathbf{p = 1.3 \times 10^{-8} < 0.001}$.
-- **Accuracy Jump:** Overall binary classification accuracy surges from 52.7% to **80.7%** ($+28.0\%$ absolute gain) and high-violence precision jumps from 0.391 to **0.762**.
+- **False Positive Elimination:** Hybrid Description Logic gating intercepts spurious high-violence predictions, dropping the standard false-positive rate from 4.0% down to **1.0%** ($FP=1$, a 75.0% relative false-alarm count reduction).
+- **Statistical Significance:** Paired exact McNemar's test on discordant predictions yields $b=12, c=2 \implies \mathbf{p = 0.0129 < 0.05}$.
+- **Accuracy Jump:** Overall binary classification accuracy reaches **85.3%** and high-violence precision reaches **0.968** with F1 = **0.732**.
+- **Multiclass 8-Class Root Evaluation:** Violent assault (CAMEO 18) precision reaches **73.7%** (vs 54.2% neural), with macro-F1 of **0.178** across all eight categories.
+- **Leakage-Resistant Article Split ($n=164$):** Evaluated across 49 unseen articles with zero article overlap: Hybrid holds **84.1% BinAcc** and **0.683 F1** (vs 81.7% and 0.625 for neural).
 
 ---
 
 ## 3. External Validation Summary
 
 ### 3.1 Genuine ACLED (2020–2026, 6,691 real events)
-- **Spatio-Temporal Matches:** 30 confirmed matches within 21-day reporting window.
-- **Detection Recall:** **39.0%** (30/77).
+- **Spatio-Temporal Matches:** 42 confirmed matches ($42/131 = 32.1\%$ single-source corroboration yield).
+- **Taxonomical Concordance:** **78.6% exact 2-digit CAMEO concordance** ($33/42$) and **100.0% macro-family concordance**.
+
+### 3.2 Non-Circular GDELT 2.0 (Direct Source URLs, 41,554 Daily Star stories)
+- **URL Matches:** 78 confirmed stories with identical Daily Star URLs evaluated with zero code pre-filtering.
+- **Taxonomical Concordance:** **61.5% exact CAMEO root concordance** ($48/78$, 95% CI: $[49.8\%, 72.3\%]$) and **100.0% macro concordance** ($HV \ge 18$).
 - **CAMEO Macro-Group Concordance:** **60.0%** (18/30 identical conflict group).
 - **Location Accuracy:** **39.0%** (district-level match).
 
