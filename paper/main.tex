@@ -76,7 +76,7 @@ Evaluating external consistency against genuine GDELT 2.0 records on identical a
 Finally, a 50-query downstream benchmark demonstrates operational NL2SPARQL with 100.0\% syntax validity, 100.0\% schema compliance, and 52.0\% execution accuracy over the knowledge graph.
 
 All code, benchmarks, ontology schemas, and evaluation scripts are released under the MIT License at
-\url{[anonymised for review]}.
+\url{https://github.com/anonymised/neurosym-bd}.
 \end{abstract}
 
 % ── 1. Introduction ──────────────────────────────────────────────────────
@@ -94,8 +94,9 @@ To address these challenges, \textbf{NeuroSym-BD} delivers three primary contrib
 
 \begin{enumerate}
   \item \textbf{Localized CAMEO Event Extraction}: A hybrid NLP pipeline maps Bangladeshi news text to the CAMEO
-    conflict coding taxonomy \citep{gerner2002,schrodt2012}, augmented with 6 Bangladesh-specific event sub-codes
-    (hartal violence, party clashes, campus unrest).
+    conflict coding taxonomy \citep{gerner2002,schrodt2012}, augmented with 21 localized event subclasses across
+    6 regional macro-categories (hartal strikes, party wing clashes, campus unrest, extrajudicial actions, mob lynching,
+    and RMG labor unrest) formulated in OWL 2 Turtle (\texttt{ontology/cameo\_bd\_extension.ttl}).
   \item \textbf{OWL 2 DL Constraint Gating}: We formalize CAMEO escalation transitions and administrative
     hierarchies in OWL 2 DL ($\mathcal{SROIQ}$) axioms, implementing a hybrid inference engine that intercepts
     ungrounded neural logit predictions before acceptance.
@@ -152,10 +153,10 @@ Figure~\ref{fig:arch} shows the full NeuroSym-BD pipeline.
   arrow/.style={-{Stealth[scale=1.0]}, thick, draw=black!75},
   feedback/.style={-{Stealth[scale=0.9]}, dashed, thick, draw=purple!80}
 ]
-  \node[block] (data) {Data Layer\\ \scriptsize Daily Star RSS/Crawler};
+  \node[block] (data) {Data Layer\\ \scriptsize BD-Conflict-180};
   \node[nlp, right=of data] (nlp) {NLP Extraction\\ \scriptsize 8-stage CAMEO pipeline};
   \node[kg, right=of nlp] (kg) {Knowledge Graph\\ \scriptsize BlazeGraph + PROV-O};
-  \node[reason, below=0.9cm of kg] (reason) {Neuro-Symbolic\\ \scriptsize GNN + Symbolic Rules};
+  \node[reason, below=0.9cm of kg] (reason) {Hybrid Reasoner\\ \scriptsize BiLSTM/MiniLM + OWL 2 DL};
   \node[api, below=0.9cm of nlp] (api) {API \& Analyst UI\\ \scriptsize Graph-RAG / NL2SPARQL};
 
   \draw[arrow] (data) -- (nlp);
@@ -238,25 +239,25 @@ source article URL and sentence offset.
 
 \subsection{Neuro-Symbolic Reasoning Layer}
 
-\paragraph{KG Embeddings (Task 4.2).}
+\paragraph{Knowledge Graph Embeddings.}
 We train TransE \citep{bordes2013} and RotatE \citep{sun2019} via PyKEEN \citep{ali2021}
 over the exported multi-relational knowledge graph $\mathcal{G} = (\mathcal{E}, \mathcal{R}, \mathcal{T})$
 derived from the \texttt{BD-Conflict-180} benchmark (98 entities and 654 core relational triples, serving as a low-resource structural benchmark).
 RotatE achieves an MRR of 0.369 and Hits@10 of 64.1\% (Table~\ref{tab:embedding}).
 
-\paragraph{R-GCN Event Pattern Detection (Task 4.3).}
+\paragraph{Relational Graph Representations.}
 A two-layer Relational Graph Convolutional Network (R-GCN) with basis decomposition (4 bases)
 computes relation-specific message passing:
 \begin{equation}
 h_i^{(l+1)} = \sigma \left( \sum_{r \in \mathcal{R}} \sum_{j \in \mathcal{N}_r(i)} \frac{1}{c_{i,r}} W_r^{(l)} h_j^{(l)} + W_0^{(l)} h_i^{(l)} \right)
 \end{equation}
 where $W_r^{(l)} = \sum_{b=1}^B a_{rb}^{(l)} V_b^{(l)}$ reduces parameters across multi-relational event interactions.
-Events with CAMEO code $\geq 17$ provide the self-supervised high-violence signal.
+Events with CAMEO code $\geq 17$ provide the self-supervised high-violence signal. While R-GCN demonstrates multi-relational link representation, our downstream event classification ablation uses dense contextual embeddings (\texttt{all-MiniLM-L6-v2}) fused with historical BiLSTM district sequence priors ($0.45 \cdot \text{LSTM} + 0.55 \cdot \text{MiniLM}$) as the primary dense neural backbone to minimize parameter variance in this low-resource regime.
 
-\paragraph{District Sequence Modeling and Escalation Priors (Task 4.4).}
+\paragraph{District Sequence Modeling and Escalation Priors.}
 A Bidirectional LSTM ($h=64$, 2 layers, dropout 0.2) is trained on historical district event sequences to model temporal transition priors. Given an observed sequence of $N=4$ strictly preceding event categories $[e_{t-3}, \dots, e_t]$ within a district (ordered strictly by event occurrence timestamp $t_i < t$), the model outputs candidate transition prior logits $P(e_{t+1} \mid e_{t-3:t})$. This sequence prior is fused with dense text representations ($0.45 \cdot \text{LSTM} + 0.55 \cdot \text{MiniLM}$) to inform current event classification, rather than functioning as a multi-horizon prospective forecasting system.
 
-\paragraph{Formal Description Logic Constraints (Task 4.9).}
+\paragraph{Formal OWL 2 DL Domain Constraints.}
 Rather than relying solely on post-hoc heuristics, domain constraints are formalized as
 OWL 2 DL ($\mathcal{SROIQ}$) axioms governing the ontology $\mathcal{O}$ (specifically concept inclusions, disjointness, and role disjointness).
 We define the signature with object properties $\text{hasCategory} \sqsubseteq \text{Event} \times \text{CameoCategory}$ and $\text{precededBy} \sqsubseteq \text{Event} \times \text{Event}$.
@@ -330,7 +331,7 @@ Predictions are evaluated against five formal constraint operators:
 
 \subsection{Datasets, Annotation Accounting, and Knowledge Graph Scope}
 
-To eliminate evaluation ambiguity, clarify subset lineage, and enforce strict temporal leakage controls (Findings 6 \& 10), Table~\ref{tab:dataset_lineage} outlines the end-to-end data flow across all experimental pipelines. We designate the primary curated benchmark corpus as \textbf{BD-Conflict-180}, a multi-faceted, human-audited gold standard specifically created to evaluate neuro-symbolic constraint gating under low-resource and noisy press stream conditions.
+To eliminate evaluation ambiguity, clarify subset lineage, and enforce strict temporal leakage controls, Table~\ref{tab:dataset_lineage} outlines the end-to-end data flow across all experimental pipelines. We designate the primary curated benchmark corpus as \textbf{BD-Conflict-180}, a multi-faceted, human-audited gold standard specifically created to evaluate neuro-symbolic constraint gating under low-resource and noisy press stream conditions.
 
 \begin{table*}[t]
 \centering
@@ -612,7 +613,7 @@ Strategic developments    & Arrests, Weapons seized & 17 (COERCE)         & Stat
 \end{table}
 
 \paragraph{Non-Circular GDELT 2.0 Historical Corroboration Protocol.}
-To eliminate any risk of circularity in external validation (Finding 1), we avoid pre-filtering candidate GDELT records by CAMEO code. Instead, we link system extractions to independently ingested GDELT 2.0 records by matching on \textbf{identical article source URLs} (\textit{The Daily Star}) across GDELT's multi-source Bangladesh repository (41,554 genuine Daily Star stories).
+To eliminate any risk of circularity in external validation, we avoid pre-filtering candidate GDELT records by CAMEO code. Instead, we link system extractions to independently ingested GDELT 2.0 records by matching on \textbf{identical article source URLs} (\textit{The Daily Star}) across GDELT's multi-source Bangladesh repository (41,554 genuine Daily Star stories).
 Out of 262 consolidated system conflict events, 78 events share verified identical article URLs with GDELT's multi-source crawl.
 Evaluating taxonomical agreement strictly across these 78 independent pairs without any code-based candidate filtering yields:
 \begin{itemize}
@@ -644,7 +645,7 @@ RotatE   & \textbf{0.369} & \textbf{0.641} & \textbf{0.250} \\
 \subsection{Explainability, Provenance Auditing, and Grounding Rubric}
 \label{sec:explainability}
 
-To address the multifaceted nature of model explainability (Finding 7), we distinguish four distinct auditing tiers across 100 randomly sampled system inferences:
+To address the multifaceted nature of model explainability, we distinguish four distinct auditing tiers across 100 randomly sampled system inferences:
 \begin{enumerate}
   \item \textbf{Metadata Completeness (98.0\%, 98/100)}: A W3C PROV-O provenance triple (\texttt{prov:wasDerivedFrom}) links the event node to an authenticated news article URL (\textit{The Daily Star}). Two samples lacked direct URLs due to crawler truncation.
   \item \textbf{Verbatim Sentence Grounding (98.0\%, 98/100)}: An exact source sentence and character offset can be recovered from the source article.
@@ -722,7 +723,7 @@ To evaluate practical utility for non-technical intelligence analysts, we constr
 Queries are executed against the materialized RDF knowledge graph (3,905 evaluation RDF triples).
 The system achieves 100.0\% syntax validity and 100.0\% schema compliance across all 50 queries, but attains \textbf{52.0\% execution accuracy} (exact answer set equivalence).
 While provenance retrieval (100.0\%) and district filtering (80.0\%) perform robustly, complex spatial hotspot aggregations (10.0\%) and temporal sliding windows (25.0\%) suffer from SPARQL \texttt{GROUP BY} and \texttt{FILTER(xsd:date)} synthesis errors.
-Consequently, while the interface provides syntactically sound semantic querying, operational deployment requires human-in-the-loop review for aggregate spatial and temporal queries rather than unverified autonomous execution (Finding 9).
+Consequently, while the interface provides syntactically sound semantic querying, operational deployment requires human-in-the-loop review for aggregate spatial and temporal queries rather than unverified autonomous execution.
 
 \begin{table}[h]
 \centering
@@ -764,8 +765,13 @@ CAMEO code 193 (Fight with Small Arms / Projectiles) is assigned with $94.8\%$ n
 
 \paragraph{Case 3: Labor Unrest vs. Violent Assault Disambiguation (Savar).}
 \textit{``Hundreds of readymade garment workers blocked the Dhaka-Aricha highway demanding unpaid wages.''}
-Unconstrained neural classifiers often misclassify highway blockades as violent assault (CAMEO 182) due to high lexical tension.
-Here, constraint \textbf{C-ONTO} intercepts the prediction: because no physical trauma or assault verbs are present, the rule engine forces reclassification to non-violent obstruction of passage (CAMEO 144), successfully preventing a high-severity false positive.
+Dense neural text scorers over-sensitized to militant rhetoric mistakenly trigger on high lexical tension, predicting CAMEO 182 (Physical Assault, a severe armed violence false positive).
+However, the preceding event recorded in the Savar district timeline was labor protest ($\text{prev\_code} = 14$).
+Under the OWL 2 DL plausibility matrix (Table~\ref{tab:transition_8x8}), an abrupt jump from non-violent protest directly to armed assault violates $\text{cameo:illegalTransitionTo}$.
+Constraint \textbf{C-ONTO} intercepts the invalid escalation and executes constrained decoding:
+$c^* = \arg\max_{c \in \mathcal{C}_{\text{valid}}(\text{prev})} P_{\text{neural}}(c)$ over admissible transitions $\{13, 14, 15, 16, 17\}$,
+mapping the prediction to CAMEO 144 (Block passage / labor demonstration, \texttt{cameo-bd:LV01}).
+This successfully suppresses the false positive ($FP \to TN$) while attaching complete W3C PROV-O provenance to the Savar jurisdiction.
 
 \subsection{Error Taxonomy}
 \label{sec:errortaxonomy}
@@ -854,27 +860,52 @@ over escalation chains.
 \section{Bangladesh CAMEO Extensions}
 \label{app:cameo}
 
-Table~\ref{tab:cameo_ext} lists the Bangladesh-specific CAMEO codes
-added in \texttt{ontology/cameo\_bd\_extension.ttl}.
+Table~\ref{tab:cameo_ext} lists the 21 Bangladesh-specific CAMEO event subclasses formulated across 6 regional macro-categories in \texttt{ontology/cameo\_bd\_extension.ttl}.
 
-\begin{table}[h]
+\begin{table*}[h]
 \centering
-\caption{Bangladesh CAMEO extensions.}
+\caption{The 21 localized Bangladesh CAMEO subclasses formulated across 6 regional macro-categories in OWL 2 Turtle (\texttt{cameo\_bd\_extension.ttl}).}
 \label{tab:cameo_ext}
 \small
-\begin{tabular}{llp{7cm}}
+\begin{tabular}{lllp{7.5cm}}
 \toprule
-\textbf{Code} & \textbf{Label} & \textbf{Description} \\
+\textbf{Macro-Category} & \textbf{Subclass Code} & \textbf{Parent CAMEO} & \textbf{Localized Conflict Description} \\
 \midrule
-BD01 & Harthal Violence & Violence during political general strike (harthal) \\
-BD02 & Political Clash & Direct confrontation between rival party activists \\
-BD03 & Student Protest Violence & Violence erupting from student-led protests \\
-BD04 & Security Force Operation & Targeted law enforcement action (RAB/Police) \\
-BD05 & Enforced Disappearance & Suspected state-led abduction of activists \\
-BD06 & Election Violence & Violence occurring in electoral context \\
+\multirow{4}{*}{\textbf{Political Violence (PV)}} 
+& \texttt{cameo-bd:PV01} & Code 145 & Hartal-related strike violence (vehicle arson, picket clashes) \\
+& \texttt{cameo-bd:PV02} & Code 193 & Political party armed clash (AL vs BNP student/youth wings) \\
+& \texttt{cameo-bd:PV03} & Code 182 & Intra-party factional clash and leadership feud assault \\
+& \texttt{cameo-bd:PV04} & Code 190 & University campus student wing clash and dormitory turf battles \\
+\midrule
+\multirow{4}{*}{\textbf{State Violence (SV)}} 
+& \texttt{cameo-bd:SV01} & Code 172 & Law enforcement raid, political mass arrest, and raid clashes \\
+& \texttt{cameo-bd:SV02} & Code 181 & Extrajudicial custodial torture and staged armed ``crossfire'' \\
+& \texttt{cameo-bd:SV03} & Code 175 & Security force crowd dispersal (tear gas, rubber bullets, batons) \\
+& \texttt{cameo-bd:SV04} & Code 173 & Enforced political disappearance and plainclothes detention \\
+\midrule
+\multirow{3}{*}{\textbf{Communal Violence (CV)}} 
+& \texttt{cameo-bd:CV01} & Code 193 & Inter-religious / minority temple and household attacks \\
+& \texttt{cameo-bd:CV02} & Code 182 & Mob lynching (\textit{Gonopituni}) following rumors or theft allegations \\
+& \texttt{cameo-bd:CV03} & Code 182 & Agrarian / riverine sand-bed (\textit{char}) boundary dispute clashes \\
+\midrule
+\multirow{4}{*}{\textbf{Gender Violence (GV)}} 
+& \texttt{cameo-bd:GV01} & Code 182 & Acid violence and chemical disfigurement attacks \\
+& \texttt{cameo-bd:GV02} & Code 182 & Dowry-related domestic battery and physical assault \\
+& \texttt{cameo-bd:GV03} & Code 180 & Sexual assault, rape, and severe public gendered violence \\
+& \texttt{cameo-bd:GV04} & Code 182 & Public harassment, stalking retaliation, and physical assault \\
+\midrule
+\multirow{3}{*}{\textbf{Labor Violence (LV)}} 
+& \texttt{cameo-bd:LV01} & Code 144 & Readymade garment (RMG) wage protest highway blockades \\
+& \texttt{cameo-bd:LV02} & Code 145 & Industrial factory vandalism, worker picket clashes, and lockouts \\
+& \texttt{cameo-bd:LV03} & Code 138 & Trade union organizer intimidation, harassment, and coercion \\
+\midrule
+\multirow{3}{*}{\textbf{Organized Crime (OC)}} 
+& \texttt{cameo-bd:OC01} & Code 174 & Extortion racket violence (\textit{Chandabaji}) and transport tolls \\
+& \texttt{cameo-bd:OC02} & Code 182 & Underworld contract killing and targeted factional assassination \\
+& \texttt{cameo-bd:OC03} & Code 193 & Cross-border smuggling and armed border transit skirmishes \\
 \bottomrule
 \end{tabular}
-\end{table}
+\end{table*}
 
 % ── B. SPARQL Query Library ────────────────────────────────────────────
 \section{SPARQL Query Examples}
@@ -897,6 +928,7 @@ LIMIT 10
 \paragraph{Escalation detection (district max code $\geq 18$ in last 30 days):}
 \begin{verbatim}
 PREFIX cameo: <http://example.org/cameo/>
+PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#>
 SELECT ?district (MAX(?code) AS ?maxCode) (COUNT(?evt) AS ?n)
 WHERE {
   ?evt a cameo:ViolenceEvent ;
