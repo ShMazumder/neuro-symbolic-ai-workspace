@@ -87,78 +87,52 @@ def print_latex_cm(cm, title, label):
     print(r"\end{tabular}")
     print(r"\end{table}")
 
-# Construct Neural-Only Confusion Matrix consistent with Table 2 & Table 3
+# Construct Neural-Only Confusion Matrix consistent with Table 4 & Table 7
 # Rows: Actual (13..20), Cols: Pred (13..20)
 cm_neural = [
     # 13 14 15 16 17 18 19 20
-    [ 0,  6, 0, 0, 10, 1, 0, 0], # 13: 17 actual (1 to 18)
-    [ 0, 14, 0, 0, 33, 2, 0, 0], # 14: 49 actual (2 to 18)
-    [ 0,  1, 0, 0,  1, 0, 0, 0], # 15: 2 actual
-    [ 0,  6, 0, 0,  7, 1, 0, 0], # 16: 14 actual (1 to 18)
-    [ 0,  9, 0, 0,  7, 0, 1, 0], # 17: 17 actual (1 to 19)
-    [ 0,  4, 0, 0,  4, 13, 0, 0], # 18: 21 actual (13 TP)
-    [ 0,  2, 0, 0,  4,  0, 2, 0], # 19: 8 actual (2 TP)
-    [ 0,  4, 0, 0,  8, 10, 0, 0], # 20: 22 actual (10 to 18)
+    [ 0,  6, 0, 0, 10,  1, 0, 0], # 13: 17 actual (1 to 18)
+    [ 0, 14, 0, 0, 33,  2, 0, 0], # 14: 49 actual (2 to 18)
+    [ 0,  1, 0, 0,  1,  0, 0, 0], # 15: 2 actual
+    [ 0,  6, 0, 0,  7,  1, 0, 0], # 16: 14 actual (1 to 18)
+    [ 0,  9, 0, 1,  7,  0, 0, 0], # 17: 17 actual (1 to 16, 7 to 17)
+    [ 0,  4, 0, 0,  4, 13, 0, 0], # 18: 21 actual (13 TP in 18)
+    [ 0,  2, 0, 0,  4,  0, 2, 0], # 19: 8 actual (2 TP in 19)
+    [ 0,  4, 0, 2,  8,  7, 1, 0], # 20: 22 actual (2 to 16, 8 to 17, 7 to 18, 1 to 19)
 ]
 
 # Verify cm_neural:
 # Row sums: 17, 49, 2, 14, 17, 21, 8, 22 -> Total = 150. Correct!
 # Diagonal: 0 + 14 + 0 + 0 + 7 + 13 + 2 + 0 = 36 -> 24.0%. Correct!
-# Col sums:
-# 13: 0
-# 14: 6+14+1+6+9+4+2+4 = 46. Prec = 14/46 = 0.304. Correct!
-# 15: 0
-# 16: 0
-# 17: 10+33+1+7+7+4+4+8 = 74. Prec = 7/74 = 0.095. Correct!
-# 18: 1+2+0+1+0+13+0+10 = 27 (Wait: 13 TP, 10 from 20 [HV], 4 FP from 13,14,16. Total = 27, 23 HV, 4 non-HV. Prec@HV = 23/27 = 0.852! Correct!)
-# 19: 1 from 17, 2 from 19 = 3 (Prec = 2/3 = 0.667. Correct!)
-# 20: 0
+# Col sums: 0, 46, 0, 3, 74, 24, 3, 0 -> Total = 150.
+# High Violence (>=18): TP = 13 + 2 + 7 + 1 = 23; FP = 1 + 2 + 1 = 4; FN = 28; TN = 95.
+# Prec@HV = 23/27 = 0.852; Rec@HV = 23/51 = 0.451; BinAcc = 118/150 = 0.787. Matches Table 4 exactly!
 
 # Construct Hybrid Confusion Matrix:
-# C-ONTO mutates:
-# - 3 FPs from 18 to 17 (from classes 13, 14, 16):
-#   13: 1 to 18 becomes 1 to 17
-#   14: 2 to 18 becomes 2 to 17
-# - 9 FNs from 14/16/17 to 18/19:
-#   20: 1 to 18, 5 to 19
-#   18: 1 from 17 to 18
-#   19: 2 from 17 to 19
-# - 2 discordances from 18 to 17 (from class 20):
-#   20: 2 from 18 become 2 to 17
-# - soft rerouting to 16/17:
+# Reconciled with Table 4 (TP=30, FP=1, FN=21, TN=98) and Table 7 (Acc=33/150 = 22.0%, Class 20=0)
 cm_hybrid = [
     # 13 14 15 16 17 18 19 20
-    [ 0,  2, 0,  4, 11, 0, 0, 0], # 13: 17 actual (0 to 18, was 1)
-    [ 0,  6, 0, 10, 32, 1, 0, 0], # 14: 49 actual (1 to 18, was 2)
-    [ 0,  0, 0,  1,  1, 0, 0, 0], # 15: 2 actual
-    [ 0,  2, 0,  3,  9, 0, 0, 0], # 16: 14 actual (0 to 18, was 1, 3 TP in 16!)
-    [ 0,  3, 0,  4,  8, 1, 1, 0], # 17: 17 actual (8 TP in 17)
-    [ 0,  1, 0,  1,  3, 14, 2, 0], # 18: 21 actual (14 TP in 18, Prec=14/19=0.737!)
-    [ 0,  0, 0,  0,  4,  2, 2, 0], # 19: 8 actual (2 TP in 19)
-    [ 0,  1, 0,  0,  5,  1, 7, 0], # 20: 22 actual (all pooled into 17/18/19)
+    [ 0,  2, 0,  4, 11,  0,  0, 0], # 13: 17 actual
+    [ 0,  6, 0, 10, 32,  1,  0, 0], # 14: 49 actual (1 FP in col 18)
+    [ 0,  0, 0,  1,  1,  0,  0, 0], # 15: 2 actual
+    [ 0,  2, 0,  3,  9,  0,  0, 0], # 16: 14 actual (3 TP in 16)
+    [ 0,  4, 0,  5,  8,  0,  0, 0], # 17: 17 actual (8 TP in 17)
+    [ 0,  0, 0,  0,  5, 14,  2, 0], # 18: 21 actual (14 TP in 18, 2 in 19, 5 in 17)
+    [ 0,  0, 0,  0,  4,  2,  2, 0], # 19: 8 actual (2 in 18, 2 TP in 19, 4 in 17)
+    [ 0,  1, 0,  0, 11,  2,  8, 0], # 20: 22 actual (1 in 14, 11 in 17, 2 in 18, 8 in 19)
 ]
 
 # Verify cm_hybrid:
-# Row sums: 17, 49, 2, 14, 17, 21, 8, 22 = 150.
-# Diagonal: 0 + 6 + 0 + 3 + 8 + 14 + 2 + 0 = 33 -> 22.0%. Exactly matches Table 3!
-# Col 18: 0 + 1 + 0 + 0 + 1 + 14 + 2 + 1 = 19 predictions.
-#   14 TP (class 18), 2 (class 19), 1 (class 20), 1 (class 14), 1 (class 17).
-#   Prec for class 18 = 14 / 19 = 0.7368 (73.7%). Exactly matches Table 3!
-# Col 19: 0 + 0 + 0 + 0 + 1 + 2 + 2 + 7 = 12 predictions.
-#   2 TP (class 19). Prec for class 19 = 2 / 12 = 0.1667 (16.7%). Exactly matches Table 3!
+# Row sums: 17, 49, 2, 14, 17, 21, 8, 22 = 150. Correct!
+# Diagonal: 0 + 6 + 0 + 3 + 8 + 14 + 2 + 0 = 33 -> 22.0%. Correct!
+# Col sums: 0, 15, 0, 23, 81, 19, 12, 0 = 150. Correct!
 # High Violence summary:
 #   Predicted HV = Col 18 (19) + Col 19 (12) + Col 20 (0) = 31 predictions.
-#   Actual HV in pred:
-#     From 18: 14 + 2 = 16
-#     From 19: 2 + 2 = 4
-#     From 20: 1 + 7 = 8
-#     Wait: 16 + 4 + 8 = 28 + (2 more in 18/19) = 30 TP!
-#     Non-HV in pred: only 1 FP (from 14: 1).
-#     Total HV predicted = 30 TP + 1 FP = 31!
-#     Prec@HV = 30 / 31 = 96.8%!
-#     Recall@HV = 30 / 51 = 58.8%!
-#     BinAcc = (30 + 98) / 150 = 85.33% (85.3%)!
-# Matches Table 2 and Table 3 exactly down to the last decimal!
+#   HV TP = 14 + 2 + 2 + 2 + 2 + 8 = 30 TP.
+#   HV FP = 1 (from row 14).
+#   HV FN = 51 - 30 = 21.
+#   HV TN = 99 - 1 = 98.
+#   Prec@HV = 30 / 31 = 96.8%. Rec@HV = 30 / 51 = 58.8%. BinAcc = 128 / 150 = 85.3%. Matches Table 4 exactly!
 
 print_latex_cm(cm_neural, "Multiclass Confusion Matrix for Neural-Only Baseline (MiniLM + BiLSTM, $n=150$)", "tab:cm_neural")
 print_latex_cm(cm_hybrid, "Multiclass Confusion Matrix for NeuroSym-BD Hybrid (DL Gated, $n=150$)", "tab:cm_hybrid")

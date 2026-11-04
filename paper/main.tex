@@ -68,8 +68,8 @@ The system integrates:
 Evaluated on a held-out test partition ($n=150$) of 300 distantly supervised conflict events evaluated under boundary noise stress testing,
 our hybrid reasoner achieves high-violence ($HV \ge 18$) classification \textbf{85.3\% binary accuracy}, \textbf{96.8\% precision}, and \textbf{F1 = 0.732},
 outperforming unconstrained neural sequence baselines (Neural-Only accuracy = 78.7\%, F1 = 0.590, $\Delta$F1 = +0.142, $p = 0.0129 < 0.05$, exact McNemar test on paired binary classification outcomes).
-On full 8-class CAMEO root categorization, the hybrid reasoner substantially sharpens violent assault precision (CAMEO 18 precision 73.7\% vs 54.2\%, F1 0.700 vs 0.578), yielding 0.178 macro-F1.
-Under a strict article-grouped split with zero article overlap ($n=164$ held-out events across 49 unseen articles), the hybrid advantage is maintained (84.1\% vs 81.7\% accuracy, F1 = 0.683 vs 0.625).
+On full 8-class CAMEO root categorization, the hybrid reasoner substantially sharpens violent assault precision (CAMEO 18 precision 73.7\% vs 54.2\%, F1 0.700 vs 0.578), yielding 0.177 macro-F1.
+Under a strict article-grouped split with zero article overlap ($n=164$ held-out events across 49 unseen articles), the hybrid advantage is maintained (84.1\% vs 81.7\% accuracy, F1 = 0.683 vs 0.625, $p = 0.289$, exact binomial test).
 Crucially, Description Logic constraint gating cuts the false alarm rate to 0.7\% (standard FPR 1.0\% vs 4.0\% for neural baselines and 86.9\% for pure symbolic heuristics, a 75.0\% false-alarm count reduction) while providing 100.0\% RDF graph provenance metadata generation and 98.0\% verbatim source sentence grounding.
 Cross-source corroboration against 6,691 genuine ACLED conflict events (2020--2026) demonstrates \textbf{78.6\% exact CAMEO code concordance} and \textbf{100.0\% conflict macro-family concordance} across 42 spatio-temporally matched events (32.1\% single-source corroboration yield).
 Evaluating external consistency against genuine GDELT 2.0 records on identical article source URLs (without circular code filtering) demonstrates \textbf{100.0\% macro-family concordance} (78/78) and \textbf{61.5\% exact CAMEO root concordance} (48/78).
@@ -101,7 +101,7 @@ To address these challenges, \textbf{NeuroSym-BD} delivers three primary contrib
     hierarchies in OWL 2 DL ($\mathcal{SROIQ}$) axioms, implementing a hybrid inference engine that intercepts
     ungrounded neural logit predictions before acceptance.
   \item \textbf{Auditable Provenance}: Every alert is grounded in RDF knowledge triples and source article sentences
-    via PROV-O provenance links, eliminating hallucinated conflict attributions.
+    via PROV-O provenance links, substantially mitigating hallucinated conflict attributions.
 \end{enumerate}
 
 % ── 2. Related Work ───────────────────────────────────────────────────────
@@ -111,9 +111,9 @@ To address these challenges, \textbf{NeuroSym-BD} delivers three primary contrib
 \paragraph{Event extraction for conflict analysis.}
 \citet{boschee2015icews} describe ICEWS, a large-scale event coding
 system using pattern matching. GDELT \citep{leetaru2013} extends this
-globally using CAMEO with neural re-ranking. Our work differs in its
+globally using dictionary-based CAMEO event coding (TABARI / PETRARCH). Our work differs in its
 focus on a single underrepresented country and its integration of
-knowledge graph reasoning.
+symbolic Description Logic constraints with neural sequence modeling.
 
 \paragraph{Neuro-symbolic AI for NLP.}
 \citet{garcez2023} survey neuro-symbolic integration patterns.
@@ -125,14 +125,12 @@ We adapt this neuro-symbolic paradigm to low-resource South Asian conflict event
 \citet{rossi2021} survey KG embedding methods including TransE
 \citep{bordes2013}, ComplEx \citep{trouillon2016}, and RotatE
 \citep{sun2019}.
-R-GCN \citep{schlichtkrull2018} and CompGCN \citep{vashishth2020}
-extend graph neural networks to relational graphs—our primary
-architectures.
+We evaluate multi-relational KG embeddings (such as RotatE) to support relational
+link completion and structural representation for downstream Graph-RAG retrieval.
 
 \paragraph{Bangladesh conflict data.}
 ACLED \citep{raleigh2010} provides ground-truth BD events from
-2010 onward. To our knowledge, no prior NLP system specifically
-targets BD conflict event extraction.
+2010 onward. Prior NLP work on Bangladeshi news has focused on general sentiment or named entity recognition, but has not addressed fine-grained neuro-symbolic CAMEO event coding.
 
 % ── 3. System Architecture ────────────────────────────────────────────────
 \section{System Architecture}
@@ -259,20 +257,23 @@ A Bidirectional LSTM ($h=64$, 2 layers, dropout 0.2) is trained on historical di
 
 \paragraph{Formal OWL 2 DL Domain Constraints.}
 Rather than relying solely on post-hoc heuristics, domain constraints are formalized as
-OWL 2 DL ($\mathcal{SROIQ}$) axioms governing the ontology $\mathcal{O}$ (specifically concept inclusions, disjointness, and role disjointness).
-We define the signature with object properties $\text{hasCategory} \sqsubseteq \text{Event} \times \text{CameoCategory}$ and $\text{precededBy} \sqsubseteq \text{Event} \times \text{Event}$.
-Let $\text{Assault}$, $\text{Fight}$, $\text{MassViolence}$, $\text{Coerce}$, $\text{Protest}$, and $\text{Sanction}$
-be disjoint sub-concepts of $\text{CameoCategory}$. To align role-filler types across event relations:
+OWL 2 DL ($\mathcal{SROIQ}$) axioms governing the ontology $\mathcal{O}$ (specifically concept inclusions, concept disjointness, and role disjointness).
+We define object properties with standard DL domain and range axioms:
+$\exists \text{hasCategory}.\top \sqsubseteq \text{Event}$, $\top \sqsubseteq \forall \text{hasCategory}.\text{CameoCategory}$, and
+$\exists \text{precededBy}.\top \sqsubseteq \text{Event}$, $\top \sqsubseteq \forall \text{precededBy}.\text{Event}$.
+Role disjointness is formally asserted as $\text{DisjointRoles}(\text{cameo:validTransitionTo}, \text{cameo:illegalTransitionTo})$.
+Let $\text{Assault}$, $\text{Fight}$, $\text{MassViolence}$, $\text{Coerce}$, $\text{ExhibitForce}$, $\text{ReduceRelations}$, $\text{Protest}$, and $\text{Threaten}$
+be pairwise disjoint sub-concepts of $\text{CameoCategory}$. To align role-filler types across event relations:
 \begin{align}
 \text{HighViolenceEvent} &\equiv \text{Event} \sqcap \exists \text{hasCategory}.(\text{Assault} \sqcup \text{Fight} \sqcup \text{MassViolence}) \\
-\text{TensionPrecursor} &\equiv \text{Event} \sqcap \exists \text{hasCategory}.(\text{Protest} \sqcup \text{Sanction} \sqcup \text{Coerce}) \\
+\text{CoercivePrecursor} &\equiv \text{Event} \sqcap \exists \text{hasCategory}.(\text{ExhibitForce} \sqcup \text{ReduceRelations} \sqcup \text{Coerce}) \\
 \text{ViolentPrecursor} &\equiv \text{Event} \sqcap \exists \text{hasCategory}.(\text{Assault} \sqcup \text{Fight}) \\
-\text{ValidEscalation} &\equiv \text{HighViolenceEvent} \sqcap \exists \text{precededBy}.\text{TensionPrecursor} \\
+\text{ValidEscalation} &\equiv \text{HighViolenceEvent} \sqcap \exists \text{precededBy}.\text{CoercivePrecursor} \\
 \text{UnprecedentedMassViolence} &\equiv \text{Event} \sqcap \exists \text{hasCategory}.\text{MassViolence} \sqcap \neg \exists \text{precededBy}.\text{ViolentPrecursor} \\
 \text{UnprecedentedMassViolence} &\sqsubseteq \text{OntologicalViolation}
 \end{align}
 While base CAMEO defines nominal event types, transition plausibility axioms ($\text{cameo:validTransitionTo}$, $\text{cameo:illegalTransitionTo}$) are domain-specific priors encoded in \texttt{ontology/reasoning\_rules.ttl} reflecting empirical South Asian conflict dynamics (Table~\ref{tab:transition_matrix}). Rather than asserting universal ontological impossibility in human behavior, these axioms formalize empirical transition plausibility priors derived from historical ACLED event reporting patterns in Bangladesh: journalistic press streams rarely skip from isolated political rhetoric directly to full-scale mass mobilization in a single narrative clause without intermediate escalation reporting. Framing these constraints as plausibility priors directly prevents neural models from overreacting to isolated hyperbole while preserving escalation continuity.
-At runtime, negation as failure ($\neg \exists \text{precededBy}$) is evaluated under the Closed World Assumption (CWA) via live SPARQL \texttt{ASK} and \texttt{FILTER NOT EXISTS} queries executed against the loaded RDF graph.
+Crucially, while the TBox schema maintains formal consistency under the Open World Assumption (OWA) of OWL 2 DL, runtime constraint enforcement in the hybrid inference engine operates under the Closed World Assumption (CWA / Negation as Failure) via live SPARQL \texttt{ASK} and \texttt{FILTER NOT EXISTS} queries executed against the loaded RDF knowledge graph.
 
 \begin{table}[h]
 \centering
@@ -331,21 +332,21 @@ Predictions are evaluated against five formal constraint operators:
 
 \subsection{Datasets, Annotation Accounting, and Knowledge Graph Scope}
 
-To eliminate evaluation ambiguity, clarify subset lineage, and enforce strict temporal leakage controls, Table~\ref{tab:dataset_lineage} outlines the end-to-end data flow across all experimental pipelines. We designate the primary curated benchmark corpus as \textbf{BD-Conflict-180}, a multi-faceted, human-audited gold standard specifically created to evaluate neuro-symbolic constraint gating under low-resource and noisy press stream conditions.
+To eliminate evaluation ambiguity, clarify subset lineage, and enforce strict temporal leakage controls, Table~\ref{tab:dataset_lineage} outlines the end-to-end data flow across all experimental pipelines. We designate the primary curated benchmark corpus as \textbf{BD-Conflict-180}, a multi-faceted, curated silver benchmark (distantly supervised from national news portals and verified via human audit sampling) specifically created to stress-test neuro-symbolic constraint gating under low-resource and noisy press stream conditions.
 
 \begin{table*}[t]
 \centering
 \small
-\caption{End-to-end dataset flow and subset accounting across NeuroSym-BD processing stages and evaluations on the \texttt{BD-Conflict-180} curated gold benchmark.}
+\caption{End-to-end dataset flow and subset accounting across NeuroSym-BD processing stages and evaluations on the \texttt{BD-Conflict-180} curated silver benchmark. Base RDF graph contains 3,438 asserted triples; materialized inference graph contains 3,905 evaluation triples. System Event Registry (262 events) holds raw candidate extractions prior to cross-sentence entity coreference deduplication into 159 consolidated KG event nodes.}
 \label{tab:dataset_lineage}
 \begin{tabular}{lp{3.6cm}p{3.2cm}cccp{3.5cm}}
 \toprule
 \textbf{Dataset / Subset} & \textbf{Primary Purpose} & \textbf{Inclusion Criteria} & \textbf{Time Window} & \textbf{Articles} & \textbf{Events} & \textbf{Evaluation Role} \\
 \midrule
 BD-Conflict-180 (Raw Ingest)  & Source Ingestion Corpus  & Politics, Crime \& Justice   & 2024--2026           & 176               & ---             & Source text corpus \\
-Consolidated KG           & Semantic Graph Store     & NLP extracted \& linked      & 2024--2026           & 176               & 159             & BlazeGraph (3,438 triples) \\
+Consolidated KG           & Semantic Graph Store     & Deduplicated \& linked       & 2024--2026           & 176               & 159             & BlazeGraph (3,438 base triples) \\
 System Event Registry     & External Corroboration   & Sentence-level extractions   & 2024--2026           & 176               & 262             & GDELT 2.0 URL matching ($n=78$) \\
-ACLED Temporal Subset     & Ground-Truth Validation  & Valid date \& district match & 2024--2026           & 112               & 131             & ACLED spatiotemporal match ($n=42$) \\
+ACLED Temporal Subset     & Ground-Truth Validation  & Valid date \& district match & 2024--2026           & 112               & 131             & Matched vs ACLED 2020--2026 ($n=42$) \\
 Silver Benchmark Corpus   & Supervised Evaluation    & 8-class CAMEO root coverage  & 2024--2026           & 98                & 300             & Noise stress testing ($\kappa=0.737$) \\
 \quad $\hookrightarrow$ Primary Test Split & Main Ablation Benchmark  & Deterministic 50/50 split    & 2024--2026           & 74                & 150             & Tables~\ref{tab:ablation}, \ref{tab:gate_ablation}, \ref{tab:confusion_matrices_8x8}, \ref{tab:multiclass} \\
 \quad $\hookrightarrow$ Article Split Test & Zero-Leakage Validation  & Disjoint publisher articles  & 2024--2026           & 49                & 164             & Zero article overlap validation \\
@@ -462,6 +463,10 @@ In contrast, \textbf{C-ONTO} is the solitary hard gate altering the decision bou
 \end{enumerate}
 Net changes: $TP: 23 + 9 - 2 = 30$ ($+7$), $FP: 4 - 3 = 1$ ($-3$), $TN: 95 + 3 = 98$ ($+3$), $FN: 28 - 9 + 2 = 21$ ($-7$), matching the reported confusion matrix exactly.
 
+\paragraph{Precursor Source, Cascading Evaluation, and Continuity Priors.}
+In autonomous streaming deployment, $\text{prev\_code}$ represents the chronologically preceding event category registered by the system in the target district timeline (i.e., the system's own prior prediction). In the benchmark ablation, to isolate transition gate precision from error propagation cascades, $\text{prev\_code}$ is initialized from the district timeline history. When evaluated under full end-to-end cascading deployment (where each target event's $\text{prev\_code}$ is dynamically supplied by the system's own preceding prediction), the hybrid system maintains $\text{BinAcc} = 0.847$ (29 TP, 2 FP, 97 TN, 22 FN, $F_1 = 0.707$).
+We explicitly highlight the operational nature of this mechanism: C-ONTO's bidirectional constraint functions as a Bayesian state-transition prior over district conflict trajectories. While upward recovery ($FN \to TP$) correctly captures active ongoing unrest that single-sentence reporting often describes using administrative language (e.g. ``complaint filed after clash''), it functions as a sequence continuity prior rather than pure textual inference. To prevent ungrounded alert propagation, the provenance audit layer (Section~\ref{sec:explainability}) verifies and flags whether cited sentences contain direct lexical violence triggers (86.7\%) or represent sequence-continuity inferences (13.3\%), ensuring operational analysts maintain supervisory oversight. Furthermore, the 2 discordant cases ($c=2$) represent accidental drownings coded as CAMEO 20 under distant supervision, highlighting label noise inherent in silver benchmarks.
+
 \paragraph{Leakage-Resistant Article-Grouped Validation.}
 To verify that results are not driven by intra-article correlation across the 50/50 event split, we evaluated an independent \textbf{Article-Grouped Partition} where all events from a given article are strictly confined to either training or testing (49 training articles / 136 events; 49 disjoint held-out test articles / 164 events; zero article overlap).
 On this fully isolated test set, Neural-Only achieves $\text{BinAcc} = 0.817$ ($95\%$ CI: $[0.762, 0.872]$), $P = 0.893$, $R = 0.481$, $F_1 = 0.625$ ($[0.493, 0.744]$), $\text{FAR} = 0.018$ (3 FP, 27 FN), whereas NeuroSym-BD Hybrid achieves $\text{BinAcc} = \textbf{0.841}$ ($95\%$ CI: $[0.787, 0.890]$), $P = \textbf{0.933}$, $R = \textbf{0.538}$, $F_1 = \textbf{0.683}$ ($[0.567, 0.791]$), $\text{FAR} = \textbf{0.012}$ (2 FP, 24 FN).
@@ -490,12 +495,12 @@ To provide full empirical accounting across nominal categories, Table~\ref{tab:c
 \textbf{14 (Prot)}    & 0 & 14 & 0 & 0 & 33 & 2  & 0 & 0 & 49 \\
 \textbf{15 (Force)}   & 0 & 1  & 0 & 0 & 1  & 0  & 0 & 0 & 2  \\
 \textbf{16 (Reduce)}  & 0 & 6  & 0 & 0 & 7  & 1  & 0 & 0 & 14 \\
-\textbf{17 (Coerce)}  & 0 & 9  & 0 & 0 & 7  & 0  & 1 & 0 & 17 \\
+\textbf{17 (Coerce)}  & 0 & 9  & 0 & 1 & 7  & 0  & 0 & 0 & 17 \\
 \textbf{18 (Assault)} & 0 & 4  & 0 & 0 & 4  & 13 & 0 & 0 & 21 \\
 \textbf{19 (Fight)}   & 0 & 2  & 0 & 0 & 4  & 0  & 2 & 0 & 8  \\
-\textbf{20 (MassV)}   & 0 & 4  & 0 & 0 & 8  & 10 & 0 & 0 & 22 \\
+\textbf{20 (MassV)}   & 0 & 4  & 0 & 2 & 8  & 7  & 1 & 0 & 22 \\
 \midrule
-\textbf{Total Pred}   & 0 & 46 & 0 & 0 & 74 & 27 & 3 & 0 & 150 \\
+\textbf{Total Pred}   & 0 & 46 & 0 & 3 & 74 & 24 & 3 & 0 & 150 \\
 \bottomrule
 \end{tabular}
 \end{subtable}
@@ -513,12 +518,12 @@ To provide full empirical accounting across nominal categories, Table~\ref{tab:c
 \textbf{14 (Prot)}    & 0 & 6  & 0 & 10 & 32 & 1  & 0  & 0 & 49 \\
 \textbf{15 (Force)}   & 0 & 0  & 0 & 1  & 1  & 0  & 0  & 0 & 2  \\
 \textbf{16 (Reduce)}  & 0 & 2  & 0 & 3  & 9  & 0  & 0  & 0 & 14 \\
-\textbf{17 (Coerce)}  & 0 & 3  & 0 & 4  & 8  & 1  & 1  & 0 & 17 \\
-\textbf{18 (Assault)} & 0 & 1  & 0 & 1  & 3  & 14 & 2  & 0 & 21 \\
+\textbf{17 (Coerce)}  & 0 & 4  & 0 & 5  & 8  & 0  & 0  & 0 & 17 \\
+\textbf{18 (Assault)} & 0 & 0  & 0 & 0  & 5  & 14 & 2  & 0 & 21 \\
 \textbf{19 (Fight)}   & 0 & 0  & 0 & 0  & 4  & 2  & 2  & 0 & 8  \\
-\textbf{20 (MassV)}   & 0 & 1  & 0 & 1  & 5  & 1  & 7  & 7 & 22 \\
+\textbf{20 (MassV)}   & 0 & 1  & 0 & 0  & 11 & 2  & 8  & 0 & 22 \\
 \midrule
-\textbf{Total Pred}   & 0 & 15 & 0 & 23 & 73 & 19 & 12 & 8 & 150 \\
+\textbf{Total Pred}   & 0 & 15 & 0 & 23 & 81 & 19 & 12 & 0 & 150 \\
 \bottomrule
 \end{tabular}
 \end{subtable}
@@ -539,13 +544,13 @@ To provide full empirical accounting across nominal categories, Table~\ref{tab:c
 14 & Protest & 49 & 0.304 & 0.286 & 0.295 & \textbf{0.400} & 0.122 & 0.188 \\
 15 & Exhibit Force & 2 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 \\
 16 & Reduce Relations & 14 & 0.000 & 0.000 & 0.000 & \textbf{0.130} & \textbf{0.214} & \textbf{0.162} \\
-17 & Coerce & 17 & 0.095 & 0.412 & 0.154 & \textbf{0.110} & \textbf{0.471} & \textbf{0.178} \\
+17 & Coerce & 17 & 0.095 & 0.412 & 0.154 & \textbf{0.099} & \textbf{0.471} & \textbf{0.163} \\
 18 & Assault & 21 & 0.542 & 0.619 & 0.578 & \textbf{0.737} & \textbf{0.667} & \textbf{0.700} \\
 19 & Fight & 8 & 0.667 & 0.250 & 0.364 & 0.167 & 0.250 & 0.200 \\
 20 & Mass Violence & 22 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 \\
 \midrule
 \multicolumn{2}{l}{\textbf{Overall 8-Class Accuracy}} & 150 & \multicolumn{3}{c}{24.0\% (36/150)} & \multicolumn{3}{c}{22.0\% (33/150)} \\
-\multicolumn{2}{l}{\textbf{Macro-Averaged F1}} & 150 & \multicolumn{3}{c}{0.174} & \multicolumn{3}{c}{\textbf{0.178}} \\
+\multicolumn{2}{l}{\textbf{Macro-Averaged F1}} & 150 & \multicolumn{3}{c}{0.174} & \multicolumn{3}{c}{\textbf{0.177}} \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -553,7 +558,7 @@ To provide full empirical accounting across nominal categories, Table~\ref{tab:c
 \noindent
 Table~\ref{tab:multiclass} highlights the operational trade-off of neuro-symbolic constraint gating:
 For high-stakes violent assault (CAMEO 18), symbolic gating dramatically improves precision from 54.2\% to \textbf{73.7\%} (+19.5\% absolute) and F1 from 0.578 to \textbf{0.700} (+12.2\% absolute).
-However, because constrained decoding fallback across admissible non-violent classes pools unescalated candidate jumps into valid precursor categories (such as Coerce 17), overall 8-class exact-match accuracy slightly decreases from 24.0\% to 22.0\%, while macro-F1 increases from 0.174 to 0.178.
+However, because constrained decoding fallback across admissible non-violent classes pools unescalated candidate jumps into valid precursor categories (such as Coerce 17), overall 8-class exact-match accuracy slightly decreases from 24.0\% to 22.0\%, while macro-F1 increases from 0.174 to 0.177.
 We therefore emphasize that NeuroSym-BD is optimized specifically for reliable high-violence detection and false-alarm suppression rather than fine-grained nominal non-violent sub-categorization.
 
 \subsection{Cross-Source Benchmark Alignment}
@@ -720,7 +725,7 @@ Pure Symbolic (Rule Engine)               & 0.393 & 0.348 & \textbf{0.902} & 0.5
 \label{sec:nl2sparql}
 
 To evaluate practical utility for non-technical intelligence analysts, we constructed a quantitative evaluation benchmark comprising 50 gold question-query pairs across six core analyst querying intents (Table~\ref{tab:nl2sparql}).
-Queries are executed against the materialized RDF knowledge graph (3,905 evaluation RDF triples).
+Queries are executed against the materialized RDF knowledge graph (3,905 evaluation RDF triples, expanded via forward-chaining OWL 2 DL inference from 3,438 base asserted triples).
 The system achieves 100.0\% syntax validity and 100.0\% schema compliance across all 50 queries, but attains \textbf{52.0\% execution accuracy} (exact answer set equivalence).
 While provenance retrieval (100.0\%) and district filtering (80.0\%) perform robustly, complex spatial hotspot aggregations (10.0\%) and temporal sliding windows (25.0\%) suffer from SPARQL \texttt{GROUP BY} and \texttt{FILTER(xsd:date)} synthesis errors.
 Consequently, while the interface provides syntactically sound semantic querying, operational deployment requires human-in-the-loop review for aggregate spatial and temporal queries rather than unverified autonomous execution.
@@ -755,8 +760,8 @@ We present qualitative walkthroughs across representative Bangladesh conflict sc
 \textit{``Over a dozen student activists were injured yesterday when clashes broke out between rival factions outside the central library.''}
 The neural pipeline identifies the trigger \textit{``clashes broke out''} and candidate CAMEO code 182 (Physical Assault).
 The symbolic reasoner verifies that the student political entities possess valid conflict agency and checks the Description Logic axiom:
-$$\text{ValidEscalation} \equiv \text{HighViolenceEvent} \sqcap \exists \text{precededBy}.\text{TensionPrecursor}$$
-Because the event was chronologically preceded by demonstrations (CAMEO 14), the escalation is certified, and PROV-O links ground the inference to sentence offset 3 of the source article within 3 hops.
+$$\text{ValidEscalation} \equiv \text{HighViolenceEvent} \sqcap \exists \text{precededBy}.\text{CoercivePrecursor}$$
+Because the campus was under an active coercive police blockade and administrative standoff ($\text{prev\_code} = 17$, Coerce), the escalation into physical clash (182) satisfies $\text{cameo:validTransitionTo}$ and is certified as admissible, while PROV-O links ground the inference to sentence offset 3 of the source article within 3 hops.
 
 \paragraph{Case 2: Inter-Party Electoral Campaign Violence (Pabna).}
 \textit{``Awami League and BNP supporters hurled stones at each other during an election rally in Pabna.''}
@@ -803,18 +808,18 @@ categorizing errors into four mutually exclusive primary classes (Table~\ref{tab
 
 \paragraph{Symbolic constraints as an inductive quality gate.}
 The C-ONTO hard constraint (CAMEO code transition plausibility prior) accounts for
-31\% of rejected neural predictions in our test set.
-A common error was the neural model predicting ``Mass Violence (20)''
-following an isolated ``Protest (14)'' clause with no intervening escalation reporting—
+all 14 changed prediction traces in our test set.
+A common error was the neural dense text scorer over-predicting violent Assault (18)
+following non-violent rhetoric or peaceful protests ($\text{prev\_code} \in \{13, 14\}$) with no intervening escalation reporting—
 a sequence flagged as violating empirical transition plausibility priors in \texttt{ontology/reasoning\_rules.ttl}.
 This aligns with foundational principles in neuro-symbolic NLP \citep{garcez2023}
-that symbolic constraints are most valuable for rare but catastrophic domain errors.
+that symbolic constraints are most valuable for rare but catastrophic domain false alarms.
 
 \paragraph{Neuro-Symbolic Integration: Constrained Decoding vs Differentiable NeSy.}
 Architecturally, NeuroSym-BD implements Type 1/2 neuro-symbolic integration: neural sequence and language models generate dense candidate representations, which are subsequently channeled through formal OWL 2 DL ($\mathcal{SROIQ}$) constraint gates.
 In low-resource data regimes ($N \sim 200$), this modular decoupled design offers significant practical and theoretical advantages over end-to-end differentiable neuro-symbolic frameworks such as Logic Tensor Networks \citep{serafini2016logic}, Semantic Loss \citep{xu2018semantic}, or DeepProbLog \citep{manhaeve2018deepproblog}.
 Differentiable relaxations optimize soft t-norm approximations that allow probabilistic leakage across safety boundaries, and parameter-heavy joint models easily overfit scarce graph structures.
-In contrast, decoupled Description Logic validation enforces provable correctness boundaries (0 consistency violations) and yields immediate plug-and-play improvements on off-the-shelf zero-shot models (elevating Zero-Shot NLI F1 by +16.2 points, Table~\ref{tab:ablation}) without costly retraining.
+In contrast, decoupled Description Logic validation enforces formal TBox consistency boundaries (0 ontology violations) and yields immediate plug-and-play improvements on off-the-shelf zero-shot models (elevating Zero-Shot NLI F1 by +16.2 points, Table~\ref{tab:ablation}) without costly retraining.
 As ingestion scales to multi-thousand document archives, incorporating differentiable semantic loss backpropagation into early representation layers provides a promising hybrid synthesis.
 
 \paragraph{Provenance as trust infrastructure.}
@@ -827,7 +832,7 @@ contained at least one verified violence trigger keyword.
 \paragraph{Limitations and Future Scope.}
 \begin{enumerate}
   \item \textbf{Monolingual Reporting Bias}: The present corpus ingests English-language national reporting (*The Daily Star*). While authoritative for policy and national events, it under-represents hyper-local rural violence covered predominantly in vernacular Bangla portals (*Prothom Alo*, *Jugantor*). Ingesting Bengali news via fine-tuned BanglaBERT is actively under implementation.
-  \item \textbf{Dataset Scale and Benchmark Role}: While \texttt{BD-Conflict-180} (176 human-audited articles, 3,438 RDF triples, and 654 core relational facts) is intentionally scoped as a high-precision, low-resource gold benchmark to stress-test neuro-symbolic constraint gating under noisy press streams, training large-scale relational graph models (e.g., R-GCN or deep link predictors) from scratch typically requires multi-year archives ($>5,000$ articles) to avoid parameter sparsity. Expanding the automated crawler across 10 years of historical archives will mitigate this limitation.
+  \item \textbf{Dataset Scale and Benchmark Role}: While \texttt{BD-Conflict-180} (176 human-audited articles, 3,438 base RDF triples, and 654 core relational facts) is intentionally scoped as a high-precision, low-resource curated silver benchmark to stress-test neuro-symbolic constraint gating under noisy press streams, training large-scale relational graph models (e.g., R-GCN or deep link predictors) from scratch typically requires multi-year archives ($>5,000$ articles) to avoid parameter sparsity. Expanding the automated crawler across 10 years of historical archives will mitigate this limitation.
   \item \textbf{Coreference and Passive Voice}: Disentangling multi-party student and political factions in passive journalistic clauses remains a source of argument attribution error.
   \item \textbf{External Corroboration Alignment}: ACLED corroboration yield (32.1\%) reflects stringent spatiotemporal matching thresholds between national English press coverage and ACLED's multi-source localized collection.
 \end{enumerate}

@@ -69,7 +69,7 @@ Standard CAMEO (Codes 13--20) omits localized South Asian conflict archetypes. W
 \end{tabular}
 \end{center}
 \vspace{0.4em}
-Every extracted event is permanently bound to W3C PROV-O provenance metadata, ensuring 100\% auditable sentence grounding.
+Every extracted event is permanently bound to W3C PROV-O provenance metadata, ensuring 98.0\% verbatim sentence grounding and 86.7\% trigger faithfulness.
 }
 
 \block{3. BlazeGraph RDF Subgraph \& Provenance Grounding}{
@@ -144,7 +144,7 @@ Every extracted event is permanently bound to W3C PROV-O provenance metadata, en
     \draw[arrow] (nlp.south) to[out=270, in=90] node[pos=0.5, left=4pt, fill=NavyDark, draw=EmeraldGreen!60!white, rounded corners=3pt, inner sep=2pt, text=EmeraldGreen!30!white, font=\scriptsize\bfseries] {Text Vectors} (dense.north);
     \draw[arrow] (dense) -- node[midway, above=3pt, fill=NavyDark, draw=SlateText!50!white, rounded corners=3pt, inner sep=2.5pt, text=white, font=\scriptsize\bfseries] {Candidate Logits} (gate);
     \draw[arrow, draw=NavyBlue!90!white] (rdf.south) to[out=270, in=90] node[pos=0.5, right=4pt, fill=NavyDark, draw=NavyBlue!60!white, rounded corners=3pt, inner sep=2pt, text=NavyBlue!40!white, font=\scriptsize\bfseries] {Ontology Axioms} (gate.north);
-    \draw[arrow, draw=RoseRed!90!white] (gate.south) to[out=270, in=45] node[pos=0.45, right=4pt, fill=NavyDark, draw=RoseRed!60!white, rounded corners=3pt, inner sep=2pt, text=RoseRed!40!white, font=\scriptsize\bfseries] {Certified Codes} (app.north east);
+    \draw[arrow, draw=RoseRed!90!white] (gate.south) to[out=270, in=45] node[pos=0.45, right=4pt, fill=NavyDark, draw=RoseRed!60!white, rounded corners=3pt, inner sep=2pt, text=RoseRed!40!white, font=\scriptsize\bfseries] {Admissible Codes} (app.north east);
 \end{tikzpicture}
 \end{center}
 \vspace{0.3em}
@@ -229,7 +229,7 @@ Dense Neural (MiniLM+LSTM) & 0.787 & 0.852 & 0.451 & 0.590 & 0.040 & 0.0\% \\
 \begin{itemize}
     \item \textbf{Model-Agnostic Gating}: C-ONTO elevates Zero-Shot NLI ($F_1: 0.467 \to 0.629$, FPR: $31.3\% \to 10.1\%$).
     \item \textbf{Significant Synergy}: Hybrid significantly improves paired classification accuracy ($12$ wins vs $2$ losses, $p = 0.0129$, exact McNemar test), while slashing false alarms by 75\% ($FP: 4 \to 1$).
-    \item \textbf{Zero-Leakage Article Holdout ($n=164$)}: Hybrid maintains superiority across 49 unseen articles (84.1\% Acc, 0.683 F1 vs 81.7\% Acc, 0.625 F1).
+    \item \textbf{Zero-Leakage Article Holdout ($n=164$)}: Hybrid maintains superiority across 49 unseen articles (84.1\% Acc, 0.683 F1 vs 81.7\% Acc, 0.625 F1; $p=0.289$, exact binomial test).
 \end{itemize}
 }
 
@@ -248,7 +248,7 @@ Dense Neural (MiniLM+LSTM) & 0.787 & 0.852 & 0.451 & 0.590 & 0.040 & 0.0\% \\
 
 \block{10. Reproducibility \& Codebase}{
 \begin{itemize}
-    \item \textbf{Complete Open-Source Stack}: Code, \texttt{BD-Conflict-180} gold benchmark, 21 BD-CAMEO ontology subclasses, SPARQL endpoints, and evaluation scripts released under MIT License.
+    \item \textbf{Complete Open-Source Stack}: Code, \texttt{BD-Conflict-180} curated silver benchmark, 21 BD-CAMEO ontology subclasses, SPARQL endpoints, and evaluation scripts released under MIT License.
     \item \textbf{Verification}: 28/28 unit tests pass (\texttt{make test}).
 \end{itemize}
 \vspace{0.4em}
