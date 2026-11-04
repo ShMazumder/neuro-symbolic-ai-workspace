@@ -337,17 +337,22 @@
         <div class="pane">
           <div class="pane-title"><span class="num">2</span> Bangladesh CAMEO Extension</div>
           <p>
-            Standard global CAMEO (13–20) lacks indigenous South Asian conflict archetypes. We formulated 20 specialized OWL subclasses in Turtle:
+            Standard global CAMEO (13–20) lacks indigenous South Asian conflict archetypes. We formulated 21 specialized OWL subclasses across 6 regional macro-categories in Turtle:
           </p>
           <table>
             <thead>
-              <tr><th>Code</th><th>Class Name</th><th>Context</th></tr>
+              <tr><th>Prefix</th><th>Category Name</th><th>Socio-Political Context</th></tr>
             </thead>
             <tbody>
-              <tr><td><code>BD-PV-01</code></td><td>Political Clashes</td><td>AL vs BNP clashes</td></tr>
-              <tr><td><code>BD-PV-03</code></td><td>Mob Lynching</td><td>গণপিটুনি (Gonopituni)</td></tr>
-              <tr><td><code>BD-CV-01</code></td><td>Hartal Violence</td><td>Strike enforcement & arson</td></tr>
-              <tr><td><code>BD-GV-01</code></td><td>Custodial Torture</td><td>Crossfire / Encounters</td></tr>
+              <tr><td><code>cameo-bd:PV01-04</code></td><td>Political Violence</td><td>AL vs BNP student clashes, mob lynching (গণপিটুনি)</td></tr>
+              <tr><td><code>cameo-bd:SV01-04</code></td><td>Sectoral Violence</td><td>Quota reform, student hall territory clashes</td></tr>
+              <tr><td><code>cameo-bd:CV01-03</code></td><td>Civil Violence</td><td>Hartal (হরতাল) violence, picket transport arson</td></tr>
+              <tr><td><code>cameo-bd:GV01-04</code></td><td>Governance Viol.</td><td>Custodial torture, encounter deaths (Crossfire)</td></tr>
+              <tr><td><code>cameo-bd:LV01-03</code></td><td>Labor Violence</td><td>Garment (RMG) wage road blockades</td></tr>
+              <tr><td><code>cameo-bd:OC01-03</code></td><td>Other Conflict</td><td>Enforced disappearances, agrarian disputes</td></tr>
+            </tbody>
+          </table>
+        </div>
               <tr><td><code>BD-LV-01</code></td><td>Labor Unrest</td><td>RMG wage blockades</td></tr>
             </tbody>
           </table>
@@ -474,7 +479,7 @@
             </tbody>
           </table>
           <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 8px;">
-            *Genuine ACLED Benchmark (2020–2026, 6,691 real events): 32.1% corroboration yield, 78.6% exact code concordance (100% macro concordance, $p = 0.0129$ McNemar test on paired binary correctness). Zero-leakage article-grouped split: 84.1% accuracy, 0.683 F1.
+            *Genuine ACLED Benchmark (2020–2026, 6,691 real events): 32.1% corroboration yield, 78.6% exact code concordance (100% macro concordance, $p = 0.0129$ McNemar test on paired binary correctness). Zero-leakage article-grouped split: 84.1% accuracy, 0.683 F1 ($p = 0.289$, exact binomial test across 164 article-isolated events).
           </p>
         </div>
 

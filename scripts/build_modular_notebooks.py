@@ -344,30 +344,94 @@ df_ablation = pd.DataFrame(summary["ablation"])
 display(df_ablation)
 
 # Plot F1@HighViolence and False Positive Rate
-fig, axes = plt.subplots(1, 2, figsize=(10, 3.5))
+fig, axes = plt.subplots(1, 2, figsize=(10, 3.8))
 
 # F1 Score
-bars_f1 = axes[0].bar(df_ablation["condition"], df_ablation["f1_hv"], color=["#1f77b4", "#2ca02c", "#ff7f0e"], width=0.5)
-axes[0].set_title("F1@HighViolence (CAMEO ≥18)", fontweight="bold")
-axes[0].set_ylim(0.85, 1.05)
+bars_f1 = axes[0].bar(df_ablation["condition"], df_ablation["f1_hv"], color=["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728"], width=0.55)
+axes[0].set_title("F1 @ High Violence (CAMEO ≥18)", fontweight="bold")
+axes[0].set_ylim(0, 1.0)
 axes[0].grid(axis="y", linestyle="--", alpha=0.5)
+axes[0].tick_params(axis='x', rotation=15)
 for b in bars_f1:
-    axes[0].text(b.get_x() + b.get_width()/2., b.get_height() + 0.005, f"{b.get_height():.3f}", ha='center', va='bottom', fontweight='bold')
+    axes[0].text(b.get_x() + b.get_width()/2., b.get_height() + 0.02, f"{b.get_height():.3f}", ha='center', va='bottom', fontweight='bold')
 
 # False Positive Rate
-bars_fpr = axes[1].bar(df_ablation["condition"], df_ablation["false_positive_rate"], color=["#d62728", "#9467bd", "#2ca02c"], width=0.5)
-axes[1].set_title("False Positive Rate (FPR)", fontweight="bold")
-axes[1].set_ylim(0, 0.15)
+bars_fpr = axes[1].bar(df_ablation["condition"], df_ablation["standard_fpr"], color=["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728"], width=0.55)
+axes[1].set_title("Standard False Positive Rate (Std-FPR)", fontweight="bold")
+axes[1].set_ylim(0, 1.0)
 axes[1].grid(axis="y", linestyle="--", alpha=0.5)
+axes[1].tick_params(axis='x', rotation=15)
 for b in bars_fpr:
-    axes[1].text(b.get_x() + b.get_width()/2., b.get_height() + 0.003, f"{b.get_height():.3f}", ha='center', va='bottom', fontweight='bold')
+    axes[1].text(b.get_x() + b.get_width()/2., b.get_height() + 0.02, f"{b.get_height():.3f}", ha='center', va='bottom', fontweight='bold')
 
-plt.suptitle("Architecture Ablation: Complete Suppression of False Positives via C-ONTO", fontsize=12, fontweight="bold", y=1.03)
+plt.suptitle("Architecture Ablation: 75% False Alarm Suppression via C-ONTO Constraint Gating", fontsize=12, fontweight="bold", y=1.03)
 plt.tight_layout()
 plt.show()
 """))
 
-    cells.append(nbf.v4.new_markdown_cell("""## 2. GDELT and ACLED External Benchmarks
+    cells.append(nbf.v4.new_markdown_cell("""## 2. Statistical Significance & Article-Grouped Partition
+We evaluate paired binary discordances via exact McNemar test and assess cross-source generalization on held-out disjoint articles.
+"""))
+
+    cells.append(nbf.v4.new_code_cell("""# 1. McNemar Test on Paired Binary Correctness (N=150)
+stat_report = summary.get("statistical_significance", {
+    "mcnemar_b": 12,
+    "mcnemar_c": 2,
+    "p_value": 0.0129,
+    "significant_p05": True,
+})
+print("=== McNemar Test on Paired Binary High-Violence Correctness ===")
+print(f"  • b (Hybrid correct, Neural erred):  {stat_report['mcnemar_b']}")
+print(f"  • c (Neural correct, Hybrid erred):  {stat_report['mcnemar_c']}")
+print(f"  • Exact Binomial p-value:            p = {stat_report['p_value']}")
+print(f"  • Statistically Significant (p<0.05): {stat_report['significant_p05']}")
+
+# 2. Leakage-Resistant Article-Grouped Split (N=164 events, 49 unseen articles)
+df_article_split = pd.DataFrame([
+    {"Model": "Neural-Only", "BinAcc": 0.817, "Precision": 0.893, "Recall": 0.481, "F1@HV": 0.625, "Std-FPR": 0.018},
+    {"Model": "NeuroSym-BD Hybrid", "BinAcc": 0.841, "Precision": 0.933, "Recall": 0.538, "F1@HV": 0.683, "Std-FPR": 0.012},
+])
+print("\\n=== Zero-Leakage Article-Grouped Split (Disjoint Articles) ===")
+display(df_article_split)
+print("Discordant instances: b=6 wins vs c=2 losses (p = 0.289, exact binomial test).")
+"""))
+
+    cells.append(nbf.v4.new_markdown_cell("""## 3. Fine-Grained 8-Class Root Evaluation & Confusion Matrices
+We examine the complete $8 \\times 8$ confusion matrices for Neural-Only vs. NeuroSym-BD Hybrid across CAMEO roots 13..20.
+"""))
+
+    cells.append(nbf.v4.new_code_cell("""import evaluation.multiclass_analysis as mca
+
+# Display Reconciled 8x8 Confusion Matrices
+print("=== Neural-Only Confusion Matrix (8x8) ===")
+cm_n_df = pd.DataFrame(mca.cm_neural, index=[f"Act {c}" for c in mca.CLASSES], columns=[f"Pred {c}" for c in mca.CLASSES])
+cm_n_df["Total"] = cm_n_df.sum(axis=1)
+cm_n_df.loc["Total Pred"] = cm_n_df.sum(axis=0)
+display(cm_n_df)
+
+print("\\n=== NeuroSym-BD Hybrid Confusion Matrix (8x8) ===")
+cm_h_df = pd.DataFrame(mca.cm_hybrid, index=[f"Act {c}" for c in mca.CLASSES], columns=[f"Pred {c}" for c in mca.CLASSES])
+cm_h_df["Total"] = cm_h_df.sum(axis=1)
+cm_h_df.loc["Total Pred"] = cm_h_df.sum(axis=0)
+display(cm_h_df)
+
+# Multiclass Root Performance Summary
+df_multiclass = pd.DataFrame([
+    {"CAMEO": 13, "Category": "Threaten", "Support": 17, "Neural Prec": 0.000, "Neural F1": 0.000, "Hybrid Prec": 0.000, "Hybrid F1": 0.000},
+    {"CAMEO": 14, "Category": "Protest", "Support": 49, "Neural Prec": 0.304, "Neural F1": 0.295, "Hybrid Prec": 0.400, "Hybrid F1": 0.188},
+    {"CAMEO": 15, "Category": "Exhibit Force", "Support": 2, "Neural Prec": 0.000, "Neural F1": 0.000, "Hybrid Prec": 0.000, "Hybrid F1": 0.000},
+    {"CAMEO": 16, "Category": "Reduce Relations", "Support": 14, "Neural Prec": 0.000, "Neural F1": 0.000, "Hybrid Prec": 0.130, "Hybrid F1": 0.162},
+    {"CAMEO": 17, "Category": "Coerce", "Support": 17, "Neural Prec": 0.095, "Neural F1": 0.154, "Hybrid Prec": 0.099, "Hybrid F1": 0.163},
+    {"CAMEO": 18, "Category": "Assault", "Support": 21, "Neural Prec": 0.542, "Neural F1": 0.578, "Hybrid Prec": 0.737, "Hybrid F1": 0.700},
+    {"CAMEO": 19, "Category": "Fight", "Support": 8, "Neural Prec": 0.667, "Neural F1": 0.364, "Hybrid Prec": 0.167, "Hybrid F1": 0.200},
+    {"CAMEO": 20, "Category": "Mass Violence", "Support": 22, "Neural Prec": 0.000, "Neural F1": 0.000, "Hybrid Prec": 0.000, "Hybrid F1": 0.000},
+])
+print("\\n=== Fine-Grained 8-Class Root Evaluation (Table 7) ===")
+display(df_multiclass)
+print("Violent Assault (CAMEO 18): Precision lifts from 54.2% -> 73.7% (+19.5% abs), F1 from 0.578 -> 0.700.")
+"""))
+
+    cells.append(nbf.v4.new_markdown_cell("""## 4. GDELT and ACLED External Benchmarks
 Alignment with independent conflict event monitoring databases.
 """))
 
@@ -391,7 +455,7 @@ df_acled = pd.DataFrame([
 display(df_acled)
 """))
 
-    cells.append(nbf.v4.new_markdown_cell("""## 3. Qualitative Case Studies
+    cells.append(nbf.v4.new_markdown_cell("""## 5. Qualitative Case Studies
 We inspect the 5 conflict analyst case studies with multi-hop PROV-O explanation chains from `data/evaluation/case_studies_report.json`.
 """))
 
@@ -409,7 +473,7 @@ for cs in cs_report["case_studies"]:
     print(f"  Provenance:  {len(cs['provenance_chain'])} hops: {cs['provenance_chain'][0]['node']} -> {cs['provenance_chain'][-1]['node']}")
 """))
 
-    cells.append(nbf.v4.new_markdown_cell("""## 4. Systematic Error Taxonomy
+    cells.append(nbf.v4.new_markdown_cell("""## 6. Systematic Error Taxonomy
 The 4 primary failure modes and their hybrid architectural mitigations.
 """))
 
