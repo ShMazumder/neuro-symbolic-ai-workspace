@@ -92,3 +92,4 @@
 - [x] All release assets synchronized to `releases/v1.1.0/` (`poster.pdf`, `main.pdf`, `paper.pdf`).
 - [x] Unit test suite verified: 28/28 passing (`python3 -m pytest tests/`).
 - [x] $\mathcal{ALC}$ Description Logic consistency verified: 0 disjointness violations across 64 pairs.
+
