@@ -58,13 +58,14 @@ Standard CAMEO (Codes 13--20) omits localized South Asian conflict archetypes. W
 \small
 \begin{tabular}{lll}
 \toprule
-\textbf{CAMEO Subcode} & \textbf{Regional Category} & \textbf{Bangla Socio-Political Context} \\
+\textbf{CAMEO Subcode} & \textbf{Macro-Category} & \textbf{Bangla Socio-Political Context} \\
 \midrule
-\texttt{cameo-bd:PV01} & Inter-Party Clashes & Awami League vs BNP student wings \\
-\texttt{cameo-bd:PV03} & Mob Lynching & \emph{Gonopituni} (Public mob beating) \\
-\texttt{cameo-bd:CV01} & Strike / Hartal Violence & Picket arson, vandalizing transport \\
-\texttt{cameo-bd:GV01} & Extrajudicial Torture & \emph{Crossfire} / Law enforcement custody \\
-\texttt{cameo-bd:LV01} & Industrial Labor Unrest & Garment (RMG) wage highway blockades \\
+\texttt{cameo-bd:PV01} & Political Violence & Hartal strike violence (picket arson, transport blockades) \\
+\texttt{cameo-bd:PV02} & Political Violence & Inter-party clash (Awami League vs BNP student wings) \\
+\texttt{cameo-bd:SV01} & State Violence & Extrajudicial encounter (\emph{Crossfire} / staged gunfight) \\
+\texttt{cameo-bd:CV01} & Communal Violence & Religious communal violence (temple and minority attacks) \\
+\texttt{cameo-bd:LV01} & Labor Violence & Garment worker unrest (RMG wage highway blockades) \\
+\texttt{cameo-bd:OC03} & Organized Crime & Mob justice or lynching (\emph{Gonopituni} vigilante attacks) \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -103,7 +104,7 @@ Every extracted event is permanently bound to W3C PROV-O provenance metadata, en
 \end{center}
 \vspace{0.3em}
 \begin{itemize}
-    \item \textbf{100.0\% Metadata Completeness}: Every event node links to verified news URI.
+    \item \textbf{98.0\% Metadata Completeness}: Verified news URI provenance links (98/100).
     \item \textbf{86.7\% Category Faithfulness}: Explicit triggers verified in source sentence.
 \end{itemize}
 }
@@ -229,7 +230,7 @@ Dense Neural (MiniLM+LSTM) & 0.787 & 0.852 & 0.451 & 0.590 & 0.040 & 0.0\% \\
 \begin{itemize}
     \item \textbf{Model-Agnostic Gating}: C-ONTO elevates Zero-Shot NLI ($F_1: 0.467 \to 0.629$, FPR: $31.3\% \to 10.1\%$).
     \item \textbf{Significant Synergy}: Hybrid significantly improves paired classification accuracy ($12$ wins vs $2$ losses, $p = 0.0129$, exact McNemar test), while slashing false alarms by 75\% ($FP: 4 \to 1$).
-    \item \textbf{Zero-Leakage Article Holdout ($n=164$)}: Hybrid maintains superiority across 49 unseen articles (84.1\% Acc, 0.683 F1 vs 81.7\% Acc, 0.625 F1; $p=0.289$, exact binomial test).
+    \item \textbf{Zero-Leakage Article Holdout ($n=164$)}: Directionally consistent across 49 unseen articles (84.1\% vs 81.7\% Acc, 0.683 vs 0.625 F1; $p=0.289$, exact binomial test, $b=6, c=2$).
 \end{itemize}
 }
 

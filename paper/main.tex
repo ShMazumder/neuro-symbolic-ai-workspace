@@ -69,8 +69,8 @@ Evaluated on a held-out test partition ($n=150$) of 300 distantly supervised con
 our hybrid reasoner achieves high-violence ($HV \ge 18$) classification \textbf{85.3\% binary accuracy}, \textbf{96.8\% precision}, and \textbf{F1 = 0.732},
 outperforming unconstrained neural sequence baselines (Neural-Only accuracy = 78.7\%, F1 = 0.590, $\Delta$F1 = +0.142, $p = 0.0129 < 0.05$, exact McNemar test on paired binary classification outcomes).
 On full 8-class CAMEO root categorization, the hybrid reasoner substantially sharpens violent assault precision (CAMEO 18 precision 73.7\% vs 54.2\%, F1 0.700 vs 0.578), yielding 0.177 macro-F1.
-Under a strict article-grouped split with zero article overlap ($n=164$ held-out events across 49 unseen articles), the hybrid advantage is maintained (84.1\% vs 81.7\% accuracy, F1 = 0.683 vs 0.625, $p = 0.289$, exact binomial test).
-Crucially, Description Logic constraint gating cuts the false alarm rate to 0.7\% (standard FPR 1.0\% vs 4.0\% for neural baselines and 86.9\% for pure symbolic heuristics, a 75.0\% false-alarm count reduction) while providing 100.0\% RDF graph provenance metadata generation and 98.0\% verbatim source sentence grounding.
+Under a strict article-grouped split with zero article overlap ($n=164$ held-out events across 49 unseen articles), the hybrid advantage is directionally consistent ($84.1\%$ vs $81.7\%$ accuracy, F1 = $0.683$ vs $0.625$; $p = 0.289$, exact binomial test).
+Crucially, Description Logic constraint gating reduces the false positive rate to 1.0\% (standard FPR 1.0\% [1/99] vs 4.0\% [4/99] for neural baselines and 86.9\% for pure symbolic heuristics, a 75.0\% false-alarm count reduction) while providing 100.0\% RDF graph provenance metadata generation and 98.0\% verbatim source sentence grounding.
 Cross-source corroboration against 6,691 genuine ACLED conflict events (2020--2026) demonstrates \textbf{78.6\% exact CAMEO code concordance} and \textbf{100.0\% conflict macro-family concordance} across 42 spatio-temporally matched events (32.1\% single-source corroboration yield).
 Evaluating external consistency against genuine GDELT 2.0 records on identical article source URLs (without circular code filtering) demonstrates \textbf{100.0\% macro-family concordance} (78/78) and \textbf{61.5\% exact CAMEO root concordance} (48/78).
 Finally, a 50-query downstream benchmark demonstrates operational NL2SPARQL with 100.0\% syntax validity, 100.0\% schema compliance, and 52.0\% execution accuracy over the knowledge graph.
@@ -273,7 +273,8 @@ be pairwise disjoint sub-concepts of $\text{CameoCategory}$. To align role-fille
 \text{UnprecedentedMassViolence} &\sqsubseteq \text{OntologicalViolation}
 \end{align}
 While base CAMEO defines nominal event types, transition plausibility axioms ($\text{cameo:validTransitionTo}$, $\text{cameo:illegalTransitionTo}$) are domain-specific priors encoded in \texttt{ontology/reasoning\_rules.ttl} reflecting empirical South Asian conflict dynamics (Table~\ref{tab:transition_matrix}). Rather than asserting universal ontological impossibility in human behavior, these axioms formalize empirical transition plausibility priors derived from historical ACLED event reporting patterns in Bangladesh: journalistic press streams rarely skip from isolated political rhetoric directly to full-scale mass mobilization in a single narrative clause without intermediate escalation reporting. Framing these constraints as plausibility priors directly prevents neural models from overreacting to isolated hyperbole while preserving escalation continuity.
-Crucially, while the TBox schema maintains formal consistency under the Open World Assumption (OWA) of OWL 2 DL, runtime constraint enforcement in the hybrid inference engine operates under the Closed World Assumption (CWA / Negation as Failure) via live SPARQL \texttt{ASK} and \texttt{FILTER NOT EXISTS} queries executed against the loaded RDF knowledge graph.
+Crucially, while OWL 2 DL reasoners (e.g., HermiT or Pellet executed via Owlready2 in \texttt{knowledge\_graph/dl\_reasoner\_check.py}) verify TBox schema consistency, role disjointness, and concept satisfiability offline (materializing deductive entailments into 3,905 evaluation graph triples under the Open World Assumption), runtime constraint enforcement during live ingestion operates under the Closed World Assumption (CWA / Negation as Failure) via high-throughput SPARQL \texttt{ASK} and \texttt{FILTER NOT EXISTS} queries executed directly against the BlazeGraph store.
+Furthermore, fine-grained regional subclasses from our Bangladesh CAMEO Extension (\texttt{ontology/cameo\_bd\_extension.ttl}, Table~\ref{tab:cameo_ext}) are assigned via a layered architecture: events are first assigned to base CAMEO roots ($13 \dots 20$) by the hybrid sequence reasoner, after which specialized trigger-lexicon mapping rules and actor agency constraints resolve the localized subcode (e.g., mapping CAMEO 14 to \texttt{cameo-bd:LV01} or CAMEO 18 to \texttt{cameo-bd:SV01}).
 
 \begin{table}[h]
 \centering
@@ -464,7 +465,7 @@ In contrast, \textbf{C-ONTO} is the solitary hard gate altering the decision bou
 Net changes: $TP: 23 + 9 - 2 = 30$ ($+7$), $FP: 4 - 3 = 1$ ($-3$), $TN: 95 + 3 = 98$ ($+3$), $FN: 28 - 9 + 2 = 21$ ($-7$), matching the reported confusion matrix exactly.
 
 \paragraph{Precursor Source, Cascading Evaluation, and Continuity Priors.}
-In autonomous streaming deployment, $\text{prev\_code}$ represents the chronologically preceding event category registered by the system in the target district timeline (i.e., the system's own prior prediction). In the benchmark ablation, to isolate transition gate precision from error propagation cascades, $\text{prev\_code}$ is initialized from the district timeline history. When evaluated under full end-to-end cascading deployment (where each target event's $\text{prev\_code}$ is dynamically supplied by the system's own preceding prediction), the hybrid system maintains $\text{BinAcc} = 0.847$ (29 TP, 2 FP, 97 TN, 22 FN, $F_1 = 0.707$).
+In autonomous streaming deployment, $\text{prev\_code}$ represents the chronologically preceding event category registered by the system in the target district timeline (i.e., the system's own prior prediction). In the benchmark ablation, to isolate transition gate precision from error propagation cascades, $\text{prev\_code}$ is initialized from the district timeline history. When evaluated under full end-to-end cascading deployment (where each target event's $\text{prev\_code}$ is dynamically supplied by the system's own preceding prediction), the hybrid system maintains $\text{BinAcc} = \textbf{0.840}$ (29 TP, 2 FP, 97 TN, 22 FN, $F_1 = 0.707$).
 We explicitly highlight the operational nature of this mechanism: C-ONTO's bidirectional constraint functions as a Bayesian state-transition prior over district conflict trajectories. While upward recovery ($FN \to TP$) correctly captures active ongoing unrest that single-sentence reporting often describes using administrative language (e.g. ``complaint filed after clash''), it functions as a sequence continuity prior rather than pure textual inference. To prevent ungrounded alert propagation, the provenance audit layer (Section~\ref{sec:explainability}) verifies and flags whether cited sentences contain direct lexical violence triggers (86.7\%) or represent sequence-continuity inferences (13.3\%), ensuring operational analysts maintain supervisory oversight. Furthermore, the 2 discordant cases ($c=2$) represent accidental drownings coded as CAMEO 20 under distant supervision, highlighting label noise inherent in silver benchmarks.
 
 \paragraph{Leakage-Resistant Article-Grouped Validation.}
@@ -831,7 +832,7 @@ contained at least one verified violence trigger keyword.
 
 \paragraph{Limitations and Future Scope.}
 \begin{enumerate}
-  \item \textbf{Monolingual Reporting Bias}: The present corpus ingests English-language national reporting (*The Daily Star*). While authoritative for policy and national events, it under-represents hyper-local rural violence covered predominantly in vernacular Bangla portals (*Prothom Alo*, *Jugantor*). Ingesting Bengali news via fine-tuned BanglaBERT is actively under implementation.
+  \item \textbf{Monolingual Reporting Bias}: The present corpus ingests English-language national reporting (\textit{The Daily Star}). While authoritative for policy and national events, it under-represents hyper-local rural violence covered predominantly in vernacular Bangla portals (\textit{Prothom Alo}, \textit{Jugantor}). Ingesting Bengali news via fine-tuned BanglaBERT is actively under implementation.
   \item \textbf{Dataset Scale and Benchmark Role}: While \texttt{BD-Conflict-180} (176 human-audited articles, 3,438 base RDF triples, and 654 core relational facts) is intentionally scoped as a high-precision, low-resource curated silver benchmark to stress-test neuro-symbolic constraint gating under noisy press streams, training large-scale relational graph models (e.g., R-GCN or deep link predictors) from scratch typically requires multi-year archives ($>5,000$ articles) to avoid parameter sparsity. Expanding the automated crawler across 10 years of historical archives will mitigate this limitation.
   \item \textbf{Coreference and Passive Voice}: Disentangling multi-party student and political factions in passive journalistic clauses remains a source of argument attribution error.
   \item \textbf{External Corroboration Alignment}: ACLED corroboration yield (32.1\%) reflects stringent spatiotemporal matching thresholds between national English press coverage and ACLED's multi-source localized collection.
@@ -877,37 +878,37 @@ Table~\ref{tab:cameo_ext} lists the 21 Bangladesh-specific CAMEO event subclasse
 \textbf{Macro-Category} & \textbf{Subclass Code} & \textbf{Parent CAMEO} & \textbf{Localized Conflict Description} \\
 \midrule
 \multirow{4}{*}{\textbf{Political Violence (PV)}} 
-& \texttt{cameo-bd:PV01} & Code 145 & Hartal-related strike violence (vehicle arson, picket clashes) \\
-& \texttt{cameo-bd:PV02} & Code 193 & Political party armed clash (AL vs BNP student/youth wings) \\
-& \texttt{cameo-bd:PV03} & Code 182 & Intra-party factional clash and leadership feud assault \\
-& \texttt{cameo-bd:PV04} & Code 190 & University campus student wing clash and dormitory turf battles \\
+& \texttt{cameo-bd:PV01} & Code 145 & Hartal-related violence (political strikes, vehicle torching, transport blockades) \\
+& \texttt{cameo-bd:PV02} & Code 193 & Political party clash (intra- and inter-party armed clashes, AL vs BNP cadres) \\
+& \texttt{cameo-bd:PV03} & Code 182 & Election violence (intimidation, booth capture, polling day candidate clashes) \\
+& \texttt{cameo-bd:PV04} & Code 182 & Student political violence (clashes between rival student wings on university campuses) \\
 \midrule
 \multirow{4}{*}{\textbf{State Violence (SV)}} 
-& \texttt{cameo-bd:SV01} & Code 172 & Law enforcement raid, political mass arrest, and raid clashes \\
-& \texttt{cameo-bd:SV02} & Code 181 & Extrajudicial custodial torture and staged armed ``crossfire'' \\
-& \texttt{cameo-bd:SV03} & Code 175 & Security force crowd dispersal (tear gas, rubber bullets, batons) \\
-& \texttt{cameo-bd:SV04} & Code 173 & Enforced political disappearance and plainclothes detention \\
+& \texttt{cameo-bd:SV01} & Code 182 & Extrajudicial killing (deaths in staged encounters, ``crossfire'' / gunfights by RAB/Police) \\
+& \texttt{cameo-bd:SV02} & Code 181 & Enforced disappearance (individuals picked up by security forces without acknowledged custody) \\
+& \texttt{cameo-bd:SV03} & Code 182 & Custodial torture or death (torture or death while in police, RAB, or military custody) \\
+& \texttt{cameo-bd:SV04} & Code 175 & Excessive force during protest (security force crowd dispersal, rubber bullets, tear gas, batons) \\
 \midrule
 \multirow{3}{*}{\textbf{Communal Violence (CV)}} 
-& \texttt{cameo-bd:CV01} & Code 193 & Inter-religious / minority temple and household attacks \\
-& \texttt{cameo-bd:CV02} & Code 182 & Mob lynching (\textit{Gonopituni}) following rumors or theft allegations \\
-& \texttt{cameo-bd:CV03} & Code 182 & Agrarian / riverine sand-bed (\textit{char}) boundary dispute clashes \\
+& \texttt{cameo-bd:CV01} & Code 182 & Religious communal violence (attacks on religious minorities, temples, mosques, homes) \\
+& \texttt{cameo-bd:CV02} & Code 171 & Land-related communal violence (land dispute clashes targeting indigenous or minority holdings) \\
+& \texttt{cameo-bd:CV03} & Code 182 & Ethnic minority violence (attacks against Chittagong Hill Tracts indigenous communities) \\
 \midrule
 \multirow{4}{*}{\textbf{Gender Violence (GV)}} 
-& \texttt{cameo-bd:GV01} & Code 182 & Acid violence and chemical disfigurement attacks \\
-& \texttt{cameo-bd:GV02} & Code 182 & Dowry-related domestic battery and physical assault \\
-& \texttt{cameo-bd:GV03} & Code 180 & Sexual assault, rape, and severe public gendered violence \\
-& \texttt{cameo-bd:GV04} & Code 182 & Public harassment, stalking retaliation, and physical assault \\
+& \texttt{cameo-bd:GV01} & Code 182 & Acid attack (acid throwing and chemical disfigurement, predominantly targeting women) \\
+& \texttt{cameo-bd:GV02} & Code 182 & Domestic violence fatality (intimate partner battery, domestic beating, poisoning, burning) \\
+& \texttt{cameo-bd:GV03} & Code 182 & Sexual assault or rape (reported sexual assault, gang rape, and gendered violence) \\
+& \texttt{cameo-bd:GV04} & Code 182 & Dowry violence (violence related to dowry demands, assault and murder of brides) \\
 \midrule
 \multirow{3}{*}{\textbf{Labor Violence (LV)}} 
-& \texttt{cameo-bd:LV01} & Code 144 & Readymade garment (RMG) wage protest highway blockades \\
-& \texttt{cameo-bd:LV02} & Code 145 & Industrial factory vandalism, worker picket clashes, and lockouts \\
-& \texttt{cameo-bd:LV03} & Code 138 & Trade union organizer intimidation, harassment, and coercion \\
+& \texttt{cameo-bd:LV01} & Code 145 & Garment worker unrest (RMG worker protests, wage highway blockades, factory clashes) \\
+& \texttt{cameo-bd:LV02} & Code 145 & Industrial disaster / unrest (factory fires, building collapses, industrial casualties and lockouts) \\
+& \texttt{cameo-bd:LV03} & Code 175 & Labor rights suppression (crackdowns on labor organizers, union intimidation, strike arrests) \\
 \midrule
 \multirow{3}{*}{\textbf{Organized Crime (OC)}} 
-& \texttt{cameo-bd:OC01} & Code 174 & Extortion racket violence (\textit{Chandabaji}) and transport tolls \\
-& \texttt{cameo-bd:OC02} & Code 182 & Underworld contract killing and targeted factional assassination \\
-& \texttt{cameo-bd:OC03} & Code 193 & Cross-border smuggling and armed border transit skirmishes \\
+& \texttt{cameo-bd:OC01} & Code 182 & Drug-related killing (anti-narcotics gunfights, syndicate rivalry killings) \\
+& \texttt{cameo-bd:OC02} & Code 182 & Extortion violence (\textit{Chandabaji}, attacks by protection rackets and transport syndicates) \\
+& \texttt{cameo-bd:OC03} & Code 182 & Mob justice or lynching (\textit{Gonopituni}, extrajudicial civilian mob beatings without trial) \\
 \bottomrule
 \end{tabular}
 \end{table*}
