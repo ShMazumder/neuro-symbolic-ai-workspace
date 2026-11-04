@@ -326,11 +326,19 @@ class HybridInferenceEngine:
         soft_violations = [v for v in violations if v.severity == "soft"]
 
         if hard_violations:
-            # Fallback: use previous code or nearest valid transition
-            final_code = prev_code if prev_code else 17
+            # Fallback: Constrained decoding argmax over admissible transitions
+            # c* = argmax_{c in C_valid(prev)} P_neural(c)
+            from neurosymbolic.forecasting import CAMEO_CODE_TO_IDX
             allowed = VALID_TRANSITIONS.get(prev_code or 17, {17})
-            # Pick nearest valid code to neural prediction
-            final_code = min(allowed, key=lambda c: abs(c - neural_code))
+            valid_candidates = [
+                (c, probs[CAMEO_CODE_TO_IDX[c]].item())
+                for c in allowed
+                if c in CAMEO_CODE_TO_IDX and CAMEO_CODE_TO_IDX[c] < len(probs)
+            ]
+            if valid_candidates:
+                final_code = max(valid_candidates, key=lambda x: x[1])[0]
+            else:
+                final_code = prev_code if prev_code in allowed else min(allowed)
             final_conf = neural_conf * 0.5  # penalised
             accepted = False
             corrections.append(

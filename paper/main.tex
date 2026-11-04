@@ -241,7 +241,7 @@ source article URL and sentence offset.
 \paragraph{KG Embeddings (Task 4.2).}
 We train TransE \citep{bordes2013} and RotatE \citep{sun2019} via PyKEEN \citep{ali2021}
 over the exported multi-relational knowledge graph $\mathcal{G} = (\mathcal{E}, \mathcal{R}, \mathcal{T})$
-with 98 entities and 654 relational triples.
+derived from the \texttt{BD-Conflict-180} benchmark (98 entities and 654 core relational triples, serving as a low-resource structural benchmark).
 RotatE achieves an MRR of 0.369 and Hits@10 of 64.1\% (Table~\ref{tab:embedding}).
 
 \paragraph{R-GCN Event Pattern Detection (Task 4.3).}
@@ -276,7 +276,7 @@ At runtime, negation as failure ($\neg \exists \text{precededBy}$) is evaluated 
 \begin{table}[h]
 \centering
 \small
-\caption{Domain state transition plausibility rationale encoded in \texttt{reasoning\_rules.ttl}. $\mathcal{C}_{\text{valid}}(\text{prev})$ defines admissible successor codes; transitions violating plausibility priors trigger $\text{cameo:illegalTransitionTo}$ and force fallback $c^* = \arg\min_{c \in \mathcal{C}_{\text{valid}}} |c - c_{\text{neural}}|$.}
+\caption{Domain state transition plausibility rationale encoded in \texttt{reasoning\_rules.ttl}. $\mathcal{C}_{\text{valid}}(\text{prev})$ defines admissible successor codes; transitions violating plausibility priors trigger $\text{cameo:illegalTransitionTo}$ and force constrained decoding fallback $c^* = \arg\max_{c \in \mathcal{C}_{\text{valid}}(\text{prev})} P_{\text{neural}}(c)$ (masking inadmissible transition logits).}
 \label{tab:transition_matrix}
 \begin{tabular}{cllp{5cm}}
 \toprule
@@ -317,7 +317,7 @@ At runtime, negation as failure ($\neg \exists \text{precededBy}$) is evaluated 
 
 Predictions are evaluated against five formal constraint operators:
 \begin{itemize}
-  \item \textbf{C-ONTO} (\textit{Hard Plausibility Gate}): Detects transitions matching $\text{cameo:illegalTransitionTo}$ or satisfying $\text{OntologicalViolation}$. Because it is a hard gate, it intercepts unplausible jumps and re-assigns the prediction to the nearest admissible CAMEO code $c^* = \arg\min_{c \in \mathcal{C}_{\text{valid}}(\text{prev})} |c - c_{\text{neural}}|$. As detailed in Section~\ref{sec:experiments}, this operates bidirectionally: pruning unescalated violent false alarms downward and preserving sequence continuity during ongoing violent clashes upward.
+  \item \textbf{C-ONTO} (\textit{Hard Plausibility Gate}): Detects transitions matching $\text{cameo:illegalTransitionTo}$ or satisfying $\text{OntologicalViolation}$. Because it is a hard gate, it intercepts unplausible jumps and re-assigns the prediction via constrained decoding: inadmissible successor candidates have their prediction logits masked to $-\infty$, selecting $c^* = \arg\max_{c \in \mathcal{C}_{\text{valid}}(\text{prev})} P_{\text{neural}}(c)$ among admissible transitions. This avoids imposing an artificial metric distance over ordinal CAMEO categories. As detailed in Section~\ref{sec:experiments}, this operates bidirectionally: pruning unescalated violent false alarms downward and preserving sequence continuity during ongoing violent clashes upward.
   \item \textbf{C-ACTOR} (\textit{Soft Metadata Gate}): Validates actor agency against $\text{cameo:permittedActorType}$ (e.g., civilian factions asserting military-exclusive artillery predicates). Violations penalize confidence by $\Delta \tau = -0.05$ without mutating discrete event classes.
   \item \textbf{C-GEO} (\textit{Soft Spatial Gate}): Validates that reported districts belong to their claimed administrative division under the 64-district hierarchy. Soft penalty $\Delta \tau = -0.05$.
   \item \textbf{C-TEMP} (\textit{Soft Temporal Gate}): Flags chronological inversions $\text{Event}_t \prec \text{Event}_{t-1}$. Soft penalty $\Delta \tau = -0.05$.
@@ -330,18 +330,18 @@ Predictions are evaluated against five formal constraint operators:
 
 \subsection{Datasets, Annotation Accounting, and Knowledge Graph Scope}
 
-To eliminate evaluation ambiguity, clarify subset lineage, and enforce strict temporal leakage controls (Findings 6 \& 10), Table~\ref{tab:dataset_lineage} outlines the end-to-end data flow across all experimental pipelines.
+To eliminate evaluation ambiguity, clarify subset lineage, and enforce strict temporal leakage controls (Findings 6 \& 10), Table~\ref{tab:dataset_lineage} outlines the end-to-end data flow across all experimental pipelines. We designate the primary curated benchmark corpus as \textbf{BD-Conflict-180}, a multi-faceted, human-audited gold standard specifically created to evaluate neuro-symbolic constraint gating under low-resource and noisy press stream conditions.
 
 \begin{table*}[t]
 \centering
 \small
-\caption{End-to-end dataset flow and subset accounting across NeuroSym-BD processing stages and evaluations.}
+\caption{End-to-end dataset flow and subset accounting across NeuroSym-BD processing stages and evaluations on the \texttt{BD-Conflict-180} curated gold benchmark.}
 \label{tab:dataset_lineage}
 \begin{tabular}{lp{3.6cm}p{3.2cm}cccp{3.5cm}}
 \toprule
 \textbf{Dataset / Subset} & \textbf{Primary Purpose} & \textbf{Inclusion Criteria} & \textbf{Time Window} & \textbf{Articles} & \textbf{Events} & \textbf{Evaluation Role} \\
 \midrule
-Daily Star Crawl          & Raw Ingestion Corpus     & Politics, Crime \& Justice   & 2024--2026           & 176               & ---             & Source text corpus \\
+BD-Conflict-180 (Raw Ingest)  & Source Ingestion Corpus  & Politics, Crime \& Justice   & 2024--2026           & 176               & ---             & Source text corpus \\
 Consolidated KG           & Semantic Graph Store     & NLP extracted \& linked      & 2024--2026           & 176               & 159             & BlazeGraph (3,438 triples) \\
 System Event Registry     & External Corroboration   & Sentence-level extractions   & 2024--2026           & 176               & 262             & GDELT 2.0 URL matching ($n=78$) \\
 ACLED Temporal Subset     & Ground-Truth Validation  & Valid date \& district match & 2024--2026           & 112               & 131             & ACLED spatiotemporal match ($n=42$) \\
@@ -455,8 +455,8 @@ Table~\ref{tab:gate_ablation} reveals the distinct architectural roles of the co
 Soft gates (C-CONF, C-GEO, C-ACTOR, C-TEMP) flag metadata inconsistencies and penalize confidence (calibrating downstream Graph-RAG queries) without altering discrete CAMEO code assignments.
 In contrast, \textbf{C-ONTO} is the solitary hard gate altering the decision boundary. Its bidirectional mechanism accounts for all 14 changed prediction traces between Neural-Only and Hybrid:
 \begin{enumerate}
-  \item \textbf{Downward False-Positive Suppression (3 cases: $FP \to TN$)}: In events \texttt{gold\_254}, \texttt{gold\_270}, and \texttt{gold\_106}, isolated keywords (e.g., ``death threats'', ``firearms'') misled the dense text scorer to predict CAMEO 18 (Assault) despite a non-violent precursor ($\text{prev\_code} = 13$, Threaten). The transition $13 \to 18$ violates $\text{cameo:illegalTransitionTo}$; C-ONTO intercepts the unescalated jump and reverts to the nearest admissible code ($c^* = 17$, Coerce), correctly suppressing 3 false positives into true negatives.
-  \item \textbf{Upward Escalation Continuity (9 cases: $FN \to TP$)}: In events \texttt{gold\_240}, \texttt{gold\_226}, \texttt{gold\_246}, \texttt{gold\_074}, \texttt{gold\_154}, \texttt{gold\_271}, \texttt{gold\_086}, \texttt{gold\_085}, and \texttt{gold\_051}, active violence was ongoing ($\text{prev\_code} \in \{19, 20\}$, e.g., pitched battles or mass clashes). Because the reporting sentences contained neutral administrative words (e.g., ``visited temples'', ``complaint'', ``cover up''), the neural text classifier falsely predicted non-violent categories (14, 16, 17). C-ONTO flags an abrupt transition from armed clash to non-violent protest as illegal without an intervening de-escalation signal, falling back to nearest valid codes ($\{18, 19, 20\}$), correctly recovering 9 missed high-violence events.
+  \item \textbf{Downward False-Positive Suppression (3 cases: $FP \to TN$)}: In events \texttt{gold\_254}, \texttt{gold\_270}, and \texttt{gold\_106}, isolated keywords (e.g., ``death threats'', ``firearms'') misled the dense text scorer to predict CAMEO 18 (Assault) despite a non-violent precursor ($\text{prev\_code} = 13$, Threaten). The transition $13 \to 18$ violates $\text{cameo:illegalTransitionTo}$; C-ONTO intercepts the unescalated jump and reverts via constrained decoding to the highest-probability admissible code ($c^* = 17$, Coerce), correctly suppressing 3 false positives into true negatives.
+  \item \textbf{Upward Escalation Continuity (9 cases: $FN \to TP$)}: In events \texttt{gold\_240}, \texttt{gold\_226}, \texttt{gold\_246}, \texttt{gold\_074}, \texttt{gold\_154}, \texttt{gold\_271}, \texttt{gold\_086}, \texttt{gold\_085}, and \texttt{gold\_051}, active violence was ongoing ($\text{prev\_code} \in \{19, 20\}$, e.g., pitched battles or mass clashes). Because the reporting sentences contained neutral administrative words (e.g., ``visited temples'', ``complaint'', ``cover up''), the neural text classifier falsely predicted non-violent categories (14, 16, 17). C-ONTO flags an abrupt transition from armed clash to non-violent protest as illegal without an intervening de-escalation signal, falling back via constrained decoding to the highest-probability valid codes ($\{18, 19, 20\}$), correctly recovering 9 missed high-violence events.
   \item \textbf{Heuristic Discordances ($c=2$ cases: Neural Correct, Hybrid Erred)}: In events \texttt{gold\_289} and \texttt{gold\_071} (accidental drowning incidents labeled as CAMEO 20 under distant supervision), $\text{prev\_code}=13$. Neural predicted 18; C-ONTO suppressed the jump to 17, resulting in 2 false negatives under the silver-standard benchmark.
 \end{enumerate}
 Net changes: $TP: 23 + 9 - 2 = 30$ ($+7$), $FP: 4 - 3 = 1$ ($-3$), $TN: 95 + 3 = 98$ ($+3$), $FN: 28 - 9 + 2 = 21$ ($-7$), matching the reported confusion matrix exactly.
@@ -552,7 +552,7 @@ To provide full empirical accounting across nominal categories, Table~\ref{tab:c
 \noindent
 Table~\ref{tab:multiclass} highlights the operational trade-off of neuro-symbolic constraint gating:
 For high-stakes violent assault (CAMEO 18), symbolic gating dramatically improves precision from 54.2\% to \textbf{73.7\%} (+19.5\% absolute) and F1 from 0.578 to \textbf{0.700} (+12.2\% absolute).
-However, because nearest-code fallback among non-violent classes pools unescalated candidate jumps into adjacent categories (such as Coerce 17), overall 8-class exact-match accuracy slightly decreases from 24.0\% to 22.0\%, while macro-F1 increases from 0.174 to 0.178.
+However, because constrained decoding fallback across admissible non-violent classes pools unescalated candidate jumps into valid precursor categories (such as Coerce 17), overall 8-class exact-match accuracy slightly decreases from 24.0\% to 22.0\%, while macro-F1 increases from 0.174 to 0.178.
 We therefore emphasize that NeuroSym-BD is optimized specifically for reliable high-violence detection and false-alarm suppression rather than fine-grained nominal non-violent sub-categorization.
 
 \subsection{Cross-Source Benchmark Alignment}
@@ -821,7 +821,7 @@ contained at least one verified violence trigger keyword.
 \paragraph{Limitations and Future Scope.}
 \begin{enumerate}
   \item \textbf{Monolingual Reporting Bias}: The present corpus ingests English-language national reporting (*The Daily Star*). While authoritative for policy and national events, it under-represents hyper-local rural violence covered predominantly in vernacular Bangla portals (*Prothom Alo*, *Jugantor*). Ingesting Bengali news via fine-tuned BanglaBERT is actively under implementation.
-  \item \textbf{Dataset Scale and Relational Sparsity}: While our 176-article corpus (3,438 RDF triples) suffices for proof-of-concept validation and Description Logic stress testing ($N=150$ holdout), relational graph models (R-GCN) require multi-year archives ($>5,000$ articles) to avoid parameter sparsity. Expanding the automated crawler across 10 years of historical archives will mitigate this limitation.
+  \item \textbf{Dataset Scale and Benchmark Role}: While \texttt{BD-Conflict-180} (176 human-audited articles, 3,438 RDF triples, and 654 core relational facts) is intentionally scoped as a high-precision, low-resource gold benchmark to stress-test neuro-symbolic constraint gating under noisy press streams, training large-scale relational graph models (e.g., R-GCN or deep link predictors) from scratch typically requires multi-year archives ($>5,000$ articles) to avoid parameter sparsity. Expanding the automated crawler across 10 years of historical archives will mitigate this limitation.
   \item \textbf{Coreference and Passive Voice}: Disentangling multi-party student and political factions in passive journalistic clauses remains a source of argument attribution error.
   \item \textbf{External Corroboration Alignment}: ACLED corroboration yield (32.1\%) reflects stringent spatiotemporal matching thresholds between national English press coverage and ACLED's multi-source localized collection.
 \end{enumerate}

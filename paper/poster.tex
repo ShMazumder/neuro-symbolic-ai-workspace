@@ -7,8 +7,8 @@
 \usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc, fit}
 
 \title{\textbf{NeuroSym-BD: Neuro-Symbolic Violence Analysis from Live News Portals}}
-\author{Machine Learning Research Group}
-\institute{Department of Computer Science and Engineering}
+\author{\textbf{Anonymous Authors}}
+\institute{Anonymized for Double-Blind Review}
 
 % Theme styling
 \usetheme{Default}
@@ -148,7 +148,7 @@ Every extracted event is permanently bound to W3C PROV-O provenance metadata, en
 \vspace{0.3em}
 \textbf{The 5 Constraint Gates:}
 \begin{itemize}
-    \item \textbf{C-ONTO (Hard Gate):} Enforces transition plausibility matrix via live SPARQL. Invalid jumps fallback to $c^* = \arg\min_{c \in \mathcal{C}_{\text{valid}}} |c - c_{\text{neural}}|$.
+    \item \textbf{C-ONTO (Hard Gate):} Enforces transition plausibility matrix via live SPARQL. Invalid jumps fallback via constrained decoding argmax $c^* = \arg\max_{c \in \mathcal{C}_{\text{valid}}(\text{prev})} P_{\text{neural}}(c)$ (masking inadmissible transition logits).
     \item \textbf{C-ACTOR (Soft Gate):} Enforces actor agency (e.g. non-state actors asserting artillery predicates penalize confidence $\Delta \tau = -0.05$).
     \item \textbf{C-GEO (Soft Gate):} Enforces 8-Division / 64-District administrative hierarchy.
     \item \textbf{C-TEMP / C-CONF (Soft Gates):} Chronology checks \& confidence pruning ($\tau \ge 0.60$).
@@ -182,7 +182,7 @@ Every extracted event is permanently bound to W3C PROV-O provenance metadata, en
 \block{6. Downstream Applications: NL2SPARQL \& Graph-RAG}{
 \begin{itemize}
     \item \textbf{NL2SPARQL Benchmark ($n=50$ Gold Queries):} 100\% syntax validity, 100\% schema compliance, and \textbf{52.0\% execution accuracy} (district filtering 80\%, provenance 100\%; complex temporal/spatial windows require human review).
-    \item \textbf{Multi-Relational KG Embeddings (PyKEEN):} RotatE achieves \textbf{MRR = 0.369} and \textbf{Hits@10 = 0.641} over 654 triples, substantially outperforming TransE (MRR = 0.211).
+    \item \textbf{Multi-Relational KG Embeddings (PyKEEN):} Evaluated on \texttt{BD-Conflict-180} KG (654 core relational triples as low-resource NeSy benchmark); RotatE achieves \textbf{MRR = 0.369} and \textbf{Hits@10 = 0.641}, outperforming TransE (0.211).
 \end{itemize}
 }
 
@@ -207,7 +207,7 @@ Every extracted event is permanently bound to W3C PROV-O provenance metadata, en
 \small{*Non-circular GDELT protocol matches strictly on identical source URLs without CAMEO pre-filtering.}
 }
 
-\block{8. Controlled Ablation Study (Held-Out Test Set, $n=150$)}{
+\block{8. Controlled Ablation Study (\texttt{BD-Conflict-180} Held-Out Test Set, $n=150$)}{
 \begin{center}
 \small
 \begin{tabular}{lcccccc}
@@ -246,7 +246,7 @@ Dense Neural (MiniLM+LSTM) & 0.787 & 0.852 & 0.451 & 0.590 & 0.040 & 0.0\% \\
 
 \block{10. Reproducibility \& Codebase}{
 \begin{itemize}
-    \item \textbf{Complete Open-Source Stack}: Code, 20 BD-CAMEO ontology schemas, SPARQL endpoints, and evaluation scripts released under MIT License.
+    \item \textbf{Complete Open-Source Stack}: Code, \texttt{BD-Conflict-180} gold benchmark, 20 BD-CAMEO ontology schemas, SPARQL endpoints, and evaluation scripts released under MIT License.
     \item \textbf{Verification}: 28/28 unit tests pass (\texttt{make test}).
 \end{itemize}
 \vspace{0.4em}
