@@ -61,7 +61,7 @@ The system integrates:
 \emph{(ii)} an RDF knowledge graph (BlazeGraph) capturing multi-relational conflict interactions,
   administrative hierarchies, and W3C PROV-O provenance;
 \emph{(iii)} a neuro-symbolic reasoning layer combining PyKEEN relational embeddings (RotatE),
-  BiLSTM sequence escalation modeling, and Description Logic ($\mathcal{ALC}$) constraint gates
+  BiLSTM sequence escalation modeling, and OWL 2 DL ($\mathcal{SROIQ}$) constraint gates
   enforcing CAMEO ontological transitions; and
 \emph{(iv)} natural language interfaces via Graph-RAG and NL2SPARQL.
 
@@ -96,8 +96,8 @@ To address these challenges, \textbf{NeuroSym-BD} delivers three primary contrib
   \item \textbf{Localized CAMEO Event Extraction}: A hybrid NLP pipeline maps Bangladeshi news text to the CAMEO
     conflict coding taxonomy \citep{gerner2002,schrodt2012}, augmented with 6 Bangladesh-specific event sub-codes
     (hartal violence, party clashes, campus unrest).
-  \item \textbf{Description Logic Constraint Gating}: We formalize CAMEO escalation transitions and administrative
-    hierarchies in $\mathcal{ALC}$ Description Logic axioms, implementing a hybrid inference engine that intercepts
+  \item \textbf{OWL 2 DL Constraint Gating}: We formalize CAMEO escalation transitions and administrative
+    hierarchies in OWL 2 DL ($\mathcal{SROIQ}$) axioms, implementing a hybrid inference engine that intercepts
     ungrounded neural logit predictions before acceptance.
   \item \textbf{Auditable Provenance}: Every alert is grounded in RDF knowledge triples and source article sentences
     via PROV-O provenance links, eliminating hallucinated conflict attributions.
@@ -258,7 +258,7 @@ A Bidirectional LSTM ($h=64$, 2 layers, dropout 0.2) is trained on historical di
 
 \paragraph{Formal Description Logic Constraints (Task 4.9).}
 Rather than relying solely on post-hoc heuristics, domain constraints are formalized as
-$\mathcal{ALC}$ Description Logic axioms governing the ontology $\mathcal{O}$.
+OWL 2 DL ($\mathcal{SROIQ}$) axioms governing the ontology $\mathcal{O}$ (specifically concept inclusions, disjointness, and role disjointness).
 We define the signature with object properties $\text{hasCategory} \sqsubseteq \text{Event} \times \text{CameoCategory}$ and $\text{precededBy} \sqsubseteq \text{Event} \times \text{Event}$.
 Let $\text{Assault}$, $\text{Fight}$, $\text{MassViolence}$, $\text{Coerce}$, $\text{Protest}$, and $\text{Sanction}$
 be disjoint sub-concepts of $\text{CameoCategory}$. To align role-filler types across event relations:
@@ -297,7 +297,7 @@ At runtime, negation as failure ($\neg \exists \text{precededBy}$) is evaluated 
 \begin{table}[h]
 \centering
 \small
-\caption{Full $8 \times 8$ State Transition Plausibility Matrix encoded in \texttt{reasoning\_rules.ttl} and formally verified via Description Logic ($\mathcal{ALC}$) consistency checking (\texttt{knowledge\_graph/dl\_reasoner\_check.py}). $\checkmark$ denotes $\text{cameo:validTransitionTo}$; $\times$ denotes transitions violating plausibility priors ($\text{cameo:validTransitionTo} \sqcap \text{cameo:illegalTransitionTo} \equiv \bot$, 0 disjointness violations across all 64 directed pairs).}
+\caption{Full $8 \times 8$ State Transition Plausibility Matrix encoded in \texttt{reasoning\_rules.ttl} and formally verified via OWL 2 DL ($\mathcal{SROIQ}$) consistency checking (\texttt{knowledge\_graph/dl\_reasoner\_check.py}). $\checkmark$ denotes $\text{cameo:validTransitionTo}$; $\times$ denotes transitions violating plausibility priors (role disjointness $\text{cameo:validTransitionTo} \sqcap \text{cameo:illegalTransitionTo} \equiv \bot$, 0 disjointness violations across all 64 directed pairs).}
 \label{tab:transition_8x8}
 \begin{tabular}{lcccccccc}
 \toprule
@@ -393,7 +393,7 @@ Table~\ref{tab:ablation} presents the ablation results alongside the complete co
 \toprule
 \textbf{Condition} & \textbf{TP} & \textbf{FP} & \textbf{TN} & \textbf{FN} & \textbf{BinAcc} & \textbf{P@HV} & \textbf{R@HV} & \textbf{F1@HV} & \textbf{Std-FPR} & \textbf{Expl} \\
 \midrule
-Keyword Heuristic       & 41 & 72 & 27 & 10 & 0.453 \scriptsize{$[0.380, 0.527]$} & 0.320 \scriptsize{$[0.246, 0.407]$} & 0.804 \scriptsize{$[0.686, 0.902]$} & 0.458 \scriptsize{$[0.368, 0.548]$} & 0.727 & \textbf{1.000} \\
+Keyword Heuristic       & 41 & 72 & 27 & 10 & 0.453 \scriptsize{$[0.380, 0.527]$} & 0.363 \scriptsize{$[0.268, 0.459]$} & 0.804 \scriptsize{$[0.686, 0.900]$} & 0.500 \scriptsize{$[0.397, 0.588]$} & 0.727 & \textbf{1.000} \\
 Pure Symbolic Rule      & 46 & 86 & 13 & 5  & 0.393 \scriptsize{$[0.313, 0.473]$} & 0.348 \scriptsize{$[0.271, 0.432]$} & \textbf{0.902} \scriptsize{$[0.804, 0.978]$} & 0.503 \scriptsize{$[0.412, 0.596]$} & 0.869 & \textbf{1.000} \\
 Zero-Shot NLI           & 25 & 31 & 68 & 26 & 0.620 \scriptsize{$[0.547, 0.700]$} & 0.446 \scriptsize{$[0.314, 0.574]$} & 0.490 \scriptsize{$[0.354, 0.636]$} & 0.467 \scriptsize{$[0.347, 0.583]$} & 0.313 & 0.000 \\
 Zero-Shot NLI + C-ONTO  & 28 & 10 & 89 & 23 & 0.780 \scriptsize{$[0.713, 0.847]$} & 0.737 \scriptsize{$[0.583, 0.857]$} & 0.549 \scriptsize{$[0.415, 0.691]$} & 0.629 \scriptsize{$[0.506, 0.744]$} & 0.101 & \textbf{1.000} \\
@@ -705,7 +705,7 @@ BinAcc = binary accuracy on high-violence ($HV \ge 18$). Std-FPR = standard fals
 \toprule
 \textbf{Architecture} & \textbf{BinAcc} & \textbf{Precision} & \textbf{Recall} & \textbf{F1@HV} & \textbf{Std-FPR} & \textbf{Expl Rate} \\
 \midrule
-Keyword \& Gazetteer Heuristic            & 0.453 & 0.320 & 0.804 & 0.458 & 0.727 & \textbf{1.000} \\
+Keyword \& Gazetteer Heuristic            & 0.453 & 0.363 & 0.804 & 0.500 & 0.727 & \textbf{1.000} \\
 Zero-Shot NLI (DistilBERT-MNLI)           & 0.620 & 0.446 & 0.490 & 0.467 & 0.313 & 0.000 \\
 Zero-Shot NLI + C-ONTO (Symbolic Gate)    & 0.780 & 0.737 & 0.549 & 0.629 & 0.101 & \textbf{1.000} \\
 Dense Neural (MiniLM + LSTM)              & 0.787 & 0.852 & 0.451 & 0.590 & 0.040 & 0.000 \\
@@ -805,7 +805,7 @@ This aligns with foundational principles in neuro-symbolic NLP \citep{garcez2023
 that symbolic constraints are most valuable for rare but catastrophic domain errors.
 
 \paragraph{Neuro-Symbolic Integration: Constrained Decoding vs Differentiable NeSy.}
-Architecturally, NeuroSym-BD implements Type 1/2 neuro-symbolic integration: neural sequence and language models generate dense candidate representations, which are subsequently channeled through formal Description Logic ($\mathcal{ALC}$) constraint gates.
+Architecturally, NeuroSym-BD implements Type 1/2 neuro-symbolic integration: neural sequence and language models generate dense candidate representations, which are subsequently channeled through formal OWL 2 DL ($\mathcal{SROIQ}$) constraint gates.
 In low-resource data regimes ($N \sim 200$), this modular decoupled design offers significant practical and theoretical advantages over end-to-end differentiable neuro-symbolic frameworks such as Logic Tensor Networks \citep{serafini2016logic}, Semantic Loss \citep{xu2018semantic}, or DeepProbLog \citep{manhaeve2018deepproblog}.
 Differentiable relaxations optimize soft t-norm approximations that allow probabilistic leakage across safety boundaries, and parameter-heavy joint models easily overfit scarce graph structures.
 In contrast, decoupled Description Logic validation enforces provable correctness boundaries (0 consistency violations) and yields immediate plug-and-play improvements on off-the-shelf zero-shot models (elevating Zero-Shot NLI F1 by +16.2 points, Table~\ref{tab:ablation}) without costly retraining.

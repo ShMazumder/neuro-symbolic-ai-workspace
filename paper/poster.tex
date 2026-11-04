@@ -28,6 +28,8 @@
 \colorlet{blockbodybgcolor}{NavyDark!90!black}
 \colorlet{blockbodyfgcolor}{SlateText}
 
+\tikzposterlatexaffectionproofoff
+
 \begin{document}
 
 \maketitle
@@ -42,11 +44,11 @@
 \block{1. The AI Dilemma in Automated Conflict Monitoring}{
 Automated conflict event monitoring from live press streams faces a fundamental trade-off:
 \begin{itemize}
-    \item \textbf{Unconstrained Neural Sequence Models:} Highly flexible for journalism, but catastrophic false alarm rates ($>40\%$) due to lexical over-sensitization to political rhetoric (e.g., ``vow a bloodbath'' miscoded as active armed clashes).
-    \item \textbf{Pure Symbolic Reasoners:} Auditable and deterministic, but rigid and brittle against journalistic syntactic variation and typos ($86.9\%$ FPR on negative cases).
+    \item \textbf{Unconstrained Neural Sequence Models:} Highly flexible for journalistic syntax, but susceptible to rhetorical false alarms on political hyperbole (e.g., ``vow a bloodbath'' miscoded as armed clashes; Zero-Shot NLI FPR = 31.3\%).
+    \item \textbf{Pure Symbolic Rule Engines:} High recall (90.2\%) and deterministic, but catastrophic over-triggering on journalistic prose (86.9\% FPR on non-violent cases, yielding poor precision 34.8\%).
 \end{itemize}
 \vspace{0.4em}
-\textbf{NeuroSym-BD} resolves this impasse: a hybrid architecture fusing dense neural text representations with Description Logic ($\mathcal{ALC}$) constraint gates in BlazeGraph.
+\textbf{NeuroSym-BD} balances this trade-off as a high-precision, provenance-grounded filter: fusing neural representations with OWL 2 DL ($\mathcal{SROIQ}$) constraint gates in BlazeGraph to suppress false alarms ($P = 96.8\%$, $\text{FPR} = 1.0\%$) while lifting recall ($45.1\% \to 58.8\%$).
 }
 
 \block{2. Bangladesh CAMEO Domain Extension}{
@@ -123,13 +125,13 @@ Every extracted event is permanently bound to W3C PROV-O provenance metadata, en
     arrow/.style={->, >={Stealth[scale=1.3]}, line width=2.5pt, draw=white, font=\footnotesize\bfseries}
 ]
     % Row 1: Pipeline Ingestion & KG (well separated by 2.8cm gaps)
-    \node[pipebox] (raw) at (-9.4, 4.4) {\textbf{\normalsize Daily Star Crawl} \\ \vspace{1pt} \textcolor{SlateText}{\footnotesize 176 Articles Ingested}};
+    \node[pipebox] (raw) at (-9.4, 4.4) {\textbf{\normalsize BD-Conflict-180} \\ \vspace{1pt} \textcolor{SlateText}{\footnotesize 176 Articles Ingested}};
     \node[pipebox] (nlp) at (0, 4.4) {\textbf{\normalsize 8-Stage NLP Pipeline} \\ \vspace{1pt} \textcolor{SlateText}{\footnotesize NER + Triggers + Args}};
     \node[pipebox] (rdf) at (9.4, 4.4) {\textbf{\normalsize RDF Graph Store} \\ \vspace{1pt} \textcolor{SlateText}{\footnotesize 3,438 Triples (BlazeGraph)}};
 
     % Row 2: Hybrid Reasoner (separated by 3.2cm gap)
     \node[neuralbox] (dense) at (-6.0, 0) {\textbf{\normalsize Dense Neural Fusion} \\ \vspace{1pt} \textcolor{EmeraldGreen!40!white}{\footnotesize 0.45 LSTM + 0.55 MiniLM}};
-    \node[symbox] (gate) at (6.0, 0) {\textbf{\normalsize C-ONTO Constraint Gate} \\ \vspace{1pt} \textcolor{RoseRed!40!white}{\footnotesize Description Logic ($\mathcal{ALC}$)}};
+    \node[symbox] (gate) at (6.0, 0) {\textbf{\normalsize C-ONTO Constraint Gate} \\ \vspace{1pt} \textcolor{RoseRed!40!white}{\footnotesize OWL 2 DL ($\mathcal{SROIQ}$)}};
 
     % Row 3: Downstream Analyst Operations
     \node[downbox] (app) at (0, -4.4) {\textbf{\normalsize Downstream Intelligence Operations} \\ \vspace{1pt} \textcolor{AmberYellow!40!white}{\footnotesize NL2SPARQL Semantic Querying + Graph-RAG}};
@@ -148,7 +150,7 @@ Every extracted event is permanently bound to W3C PROV-O provenance metadata, en
 \vspace{0.3em}
 \textbf{The 5 Constraint Gates:}
 \begin{itemize}
-    \item \textbf{C-ONTO (Hard Gate):} Enforces transition plausibility matrix via live SPARQL. Invalid jumps fallback via constrained decoding argmax $c^* = \arg\max_{c \in \mathcal{C}_{\text{valid}}(\text{prev})} P_{\text{neural}}(c)$ (masking inadmissible transition logits).
+    \item \textbf{C-ONTO (Hard Gate):} Enforces transition plausibility matrix via live SPARQL. Invalid jumps fallback via constrained decoding: $c^* = \arg\max_{c \in \mathcal{C}_{\text{valid}}(\text{prev})} P_{\text{neural}}(c)$ ($c_{\text{prev}}$: preceding event in same district timeline).
     \item \textbf{C-ACTOR (Soft Gate):} Enforces actor agency (e.g. non-state actors asserting artillery predicates penalize confidence $\Delta \tau = -0.05$).
     \item \textbf{C-GEO (Soft Gate):} Enforces 8-Division / 64-District administrative hierarchy.
     \item \textbf{C-TEMP / C-CONF (Soft Gates):} Chronology checks \& confidence pruning ($\tau \ge 0.60$).
@@ -156,7 +158,7 @@ Every extracted event is permanently bound to W3C PROV-O provenance metadata, en
 }
 
 \block{5. Ontological State Transition Plausibility Matrix}{
-\textbf{Verified $\mathcal{ALC}$ Transition Matrix} (\texttt{ontology/reasoning\_rules.ttl}):
+\textbf{OWL 2 DL ($\mathcal{SROIQ}$) Transition Prior Matrix} (\texttt{ontology/reasoning\_rules.ttl}):
 \vspace{0.4em}
 \begin{center}
 \small
@@ -176,7 +178,7 @@ Every extracted event is permanently bound to W3C PROV-O provenance metadata, en
 \end{tabular}
 \end{center}
 \vspace{0.3em}
-\textbf{Formal DL Verification}: Property disjointness ($\text{valid} \sqcap \text{illegal} \equiv \bot$) verified via \texttt{dl\_reasoner\_check.py} with \textbf{0 consistency violations}. Prohibits unescalated rhetorical jumps ($13 \to 20$) while maintaining violence continuity ($19 \to 18/19$).
+\textbf{Formal DL Verification}: OWL 2 property disjointness ($\text{valid} \sqcap \text{illegal} \equiv \bot$) verified via \texttt{dl\_reasoner\_check.py} with \textbf{0 consistency violations}. Prohibits unescalated rhetorical jumps ($13 \to 20$) while maintaining ongoing violence continuity ($19 \to 18/19$).
 }
 
 \block{6. Downstream Applications: NL2SPARQL \& Graph-RAG}{
@@ -214,7 +216,7 @@ Every extracted event is permanently bound to W3C PROV-O provenance metadata, en
 \toprule
 \textbf{Model Architecture} & \textbf{BinAcc} & \textbf{Prec@HV} & \textbf{Rec@HV} & \textbf{F1@HV} & \textbf{Std-FPR} & \textbf{Provenance} \\
 \midrule
-Keyword Heuristic & 0.453 & 0.320 & 0.804 & 0.458 & 0.727 & 100.0\% \\
+Keyword Heuristic & 0.453 & 0.363 & 0.804 & 0.500 & 0.727 & 100.0\% \\
 Pure Symbolic Rule Engine & 0.393 & 0.348 & \textbf{0.902} & 0.503 & 0.869 & 100.0\% \\
 Zero-Shot NLI (DistilBERT) & 0.620 & 0.446 & 0.490 & 0.467 & 0.313 & 0.0\% \\
 \textbf{Zero-Shot NLI + Symbolic} & \textbf{0.780} & \textbf{0.737} & 0.549 & \textbf{0.629} & \textbf{0.101} & \textbf{100.0\%} \\
@@ -226,7 +228,7 @@ Dense Neural (MiniLM+LSTM) & 0.787 & 0.852 & 0.451 & 0.590 & 0.040 & 0.0\% \\
 \vspace{0.3em}
 \begin{itemize}
     \item \textbf{Model-Agnostic Gating}: C-ONTO elevates Zero-Shot NLI ($F_1: 0.467 \to 0.629$, FPR: $31.3\% \to 10.1\%$).
-    \item \textbf{Significant Synergy}: Full Hybrid cuts false alarm count by 75\% ($FP: 4 \to 1$, $p = 0.0129$, McNemar test).
+    \item \textbf{Significant Synergy}: Hybrid significantly improves paired classification accuracy ($12$ wins vs $2$ losses, $p = 0.0129$, exact McNemar test), while slashing false alarms by 75\% ($FP: 4 \to 1$).
     \item \textbf{Zero-Leakage Article Holdout ($n=164$)}: Hybrid maintains superiority across 49 unseen articles (84.1\% Acc, 0.683 F1 vs 81.7\% Acc, 0.625 F1).
 \end{itemize}
 }
