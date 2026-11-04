@@ -76,27 +76,27 @@ Every extracted event is permanently bound to W3C PROV-O provenance metadata, en
 \begin{center}
 \begin{tikzpicture}[
     x=1cm, y=1cm,
-    entity/.style={rectangle, rounded corners=8pt, draw=NavyBlue!90!white, fill=NavyBlue!22!NavyDark, line width=2.5pt, text=white, align=center, inner sep=7pt, text width=8.8cm},
-    eventnode/.style={rectangle, rounded corners=10pt, draw=RoseRed!90!white, fill=RoseRed!25!NavyDark, line width=3pt, text=white, align=center, inner sep=9pt, text width=11.2cm},
-    provenance/.style={rectangle, rounded corners=8pt, draw=EmeraldGreen!90!white, fill=EmeraldGreen!22!NavyDark, line width=2.5pt, text=white, align=center, inner sep=7pt, text width=9.8cm},
+    entity/.style={rectangle, rounded corners=8pt, draw=NavyBlue!90!white, fill=NavyBlue!22!NavyDark, line width=2.5pt, text=white, align=center, inner sep=8pt, text width=8.8cm},
+    eventnode/.style={rectangle, rounded corners=10pt, draw=RoseRed!90!white, fill=RoseRed!25!NavyDark, line width=3pt, text=white, align=center, inner sep=10pt, text width=11.5cm},
+    provenance/.style={rectangle, rounded corners=8pt, draw=EmeraldGreen!90!white, fill=EmeraldGreen!22!NavyDark, line width=2.5pt, text=white, align=center, inner sep=8pt, text width=9.8cm},
     edge/.style={->, >={Stealth[scale=1.3]}, line width=2.5pt, draw=white, font=\footnotesize\bfseries}
 ]
     % Central Event Node
     \node[eventnode] (ev) at (0, 0) {\textbf{\large Event: ev\_202610\_042} \\ \vspace{2pt} \textcolor{RoseRed!40!white}{\textbf{CAMEO 182: Assault}}};
 
     % Top Entities
-    \node[entity] (act1) at (-5.8, 3.8) {\textbf{\normalsize Actor: Chhatra League} \\ \vspace{1pt} \textcolor{NavyBlue!40!white}{\footnotesize Type: PoliticalParty}};
-    \node[entity] (act2) at (5.8, 3.8) {\textbf{\normalsize Actor: Chhatra Dal} \\ \vspace{1pt} \textcolor{NavyBlue!40!white}{\footnotesize Type: PoliticalParty}};
+    \node[entity] (act1) at (-6.2, 4.4) {\textbf{\normalsize Actor: Chhatra League} \\ \vspace{1pt} \textcolor{NavyBlue!40!white}{\footnotesize Type: PoliticalParty}};
+    \node[entity] (act2) at (6.2, 4.4) {\textbf{\normalsize Actor: Chhatra Dal} \\ \vspace{1pt} \textcolor{NavyBlue!40!white}{\footnotesize Type: PoliticalParty}};
 
     % Bottom Entities
-    \node[entity] (loc) at (-5.8, -3.8) {\textbf{\normalsize Location: Dhaka} \\ \vspace{1pt} \textcolor{NavyBlue!40!white}{\footnotesize Dhaka Division (BD-Geo)}};
-    \node[provenance] (prov) at (5.8, -3.8) {\textbf{\normalsize W3C PROV-O Grounding} \\ \vspace{1pt} \textcolor{EmeraldGreen!40!white}{\footnotesize Daily Star (Sent 4, Off: 124--210)}};
+    \node[entity] (loc) at (-6.2, -4.4) {\textbf{\normalsize Location: Dhaka} \\ \vspace{1pt} \textcolor{NavyBlue!40!white}{\footnotesize Dhaka Division (BD-Geo)}};
+    \node[provenance] (prov) at (6.2, -4.4) {\textbf{\normalsize W3C PROV-O Grounding} \\ \vspace{1pt} \textcolor{EmeraldGreen!40!white}{\footnotesize Daily Star (Sent 4, Off: 124--210)}};
 
-    % Edges with clear background labels
-    \draw[edge] (ev) -- node[midway, fill=NavyDark, inner sep=3pt, text=white] {cameo:actor} (act1);
-    \draw[edge] (ev) -- node[midway, fill=NavyDark, inner sep=3pt, text=white] {cameo:target} (act2);
-    \draw[edge] (ev) -- node[midway, fill=NavyDark, inner sep=3pt, text=white] {cameo:location} (loc);
-    \draw[edge, draw=EmeraldGreen!90!white] (ev) -- node[midway, fill=NavyDark, inner sep=3pt, text=EmeraldGreen!40!white] {prov:wasDerivedFrom} (prov);
+    % Cleanly anchored non-overlapping edges
+    \draw[edge] (ev.125) -- node[midway, fill=NavyDark, draw=NavyBlue!60!white, rounded corners=3pt, inner sep=2.5pt, text=white, font=\scriptsize\bfseries] {cameo:actor} (act1.south);
+    \draw[edge] (ev.55) -- node[midway, fill=NavyDark, draw=NavyBlue!60!white, rounded corners=3pt, inner sep=2.5pt, text=white, font=\scriptsize\bfseries] {cameo:target} (act2.south);
+    \draw[edge] (ev.235) -- node[midway, fill=NavyDark, draw=NavyBlue!60!white, rounded corners=3pt, inner sep=2.5pt, text=white, font=\scriptsize\bfseries] {cameo:location} (loc.north);
+    \draw[edge, draw=EmeraldGreen!90!white] (ev.305) -- node[midway, fill=NavyDark, draw=EmeraldGreen!60!white, rounded corners=3pt, inner sep=2.5pt, text=EmeraldGreen!40!white, font=\scriptsize\bfseries] {prov:wasDerivedFrom} (prov.north);
 \end{tikzpicture}
 \end{center}
 \vspace{0.3em}
@@ -116,35 +116,33 @@ Every extracted event is permanently bound to W3C PROV-O provenance metadata, en
 \begin{center}
 \begin{tikzpicture}[
     x=1cm, y=1cm,
-    pipebox/.style={rectangle, rounded corners=8pt, draw=NavyBlue!90!white, fill=NavyBlue!22!NavyDark, line width=2.5pt, text=white, align=center, inner sep=7pt, text width=7.4cm},
-    neuralbox/.style={rectangle, rounded corners=8pt, draw=EmeraldGreen!90!white, fill=EmeraldGreen!22!NavyDark, line width=2.5pt, text=white, align=center, inner sep=8pt, text width=9.2cm},
-    symbox/.style={rectangle, rounded corners=8pt, draw=RoseRed!90!white, fill=RoseRed!25!NavyDark, line width=2.5pt, text=white, align=center, inner sep=8pt, text width=9.2cm},
-    downbox/.style={rectangle, rounded corners=8pt, draw=AmberYellow!90!white, fill=AmberYellow!22!NavyDark, line width=2.5pt, text=white, align=center, inner sep=8pt, text width=14cm},
+    pipebox/.style={rectangle, rounded corners=8pt, draw=NavyBlue!90!white, fill=NavyBlue!22!NavyDark, line width=2.5pt, text=white, align=center, inner sep=7pt, text width=6.6cm},
+    neuralbox/.style={rectangle, rounded corners=8pt, draw=EmeraldGreen!90!white, fill=EmeraldGreen!22!NavyDark, line width=2.5pt, text=white, align=center, inner sep=8pt, text width=8.8cm},
+    symbox/.style={rectangle, rounded corners=8pt, draw=RoseRed!90!white, fill=RoseRed!25!NavyDark, line width=2.5pt, text=white, align=center, inner sep=8pt, text width=8.8cm},
+    downbox/.style={rectangle, rounded corners=8pt, draw=AmberYellow!90!white, fill=AmberYellow!22!NavyDark, line width=2.5pt, text=white, align=center, inner sep=8pt, text width=14.5cm},
     arrow/.style={->, >={Stealth[scale=1.3]}, line width=2.5pt, draw=white, font=\footnotesize\bfseries}
 ]
-    % Row 1: Pipeline Ingestion & KG
-    \node[pipebox] (raw) at (-7.8, 3.6) {\textbf{\normalsize Daily Star Crawl} \\ \vspace{1pt} \textcolor{SlateText}{\footnotesize 176 Articles Ingested}};
-    \node[pipebox] (nlp) at (0, 3.6) {\textbf{\normalsize 8-Stage NLP Pipeline} \\ \vspace{1pt} \textcolor{SlateText}{\footnotesize NER + Triggers + Args}};
-    \node[pipebox] (rdf) at (7.8, 3.6) {\textbf{\normalsize RDF Graph Store} \\ \vspace{1pt} \textcolor{SlateText}{\footnotesize 3,438 Triples (BlazeGraph)}};
+    % Row 1: Pipeline Ingestion & KG (well separated by 2.8cm gaps)
+    \node[pipebox] (raw) at (-9.4, 4.4) {\textbf{\normalsize Daily Star Crawl} \\ \vspace{1pt} \textcolor{SlateText}{\footnotesize 176 Articles Ingested}};
+    \node[pipebox] (nlp) at (0, 4.4) {\textbf{\normalsize 8-Stage NLP Pipeline} \\ \vspace{1pt} \textcolor{SlateText}{\footnotesize NER + Triggers + Args}};
+    \node[pipebox] (rdf) at (9.4, 4.4) {\textbf{\normalsize RDF Graph Store} \\ \vspace{1pt} \textcolor{SlateText}{\footnotesize 3,438 Triples (BlazeGraph)}};
 
-    % Row 2: Hybrid Reasoner
-    \node[neuralbox] (dense) at (-5.6, 0) {\textbf{\normalsize Dense Neural Fusion} \\ \vspace{1pt} \textcolor{EmeraldGreen!40!white}{\footnotesize 0.45 LSTM + 0.55 MiniLM}};
-    \node[symbox] (gate) at (5.6, 0) {\textbf{\normalsize C-ONTO Constraint Gate} \\ \vspace{1pt} \textcolor{RoseRed!40!white}{\footnotesize Description Logic ($\mathcal{ALC}$)}};
+    % Row 2: Hybrid Reasoner (separated by 3.2cm gap)
+    \node[neuralbox] (dense) at (-6.0, 0) {\textbf{\normalsize Dense Neural Fusion} \\ \vspace{1pt} \textcolor{EmeraldGreen!40!white}{\footnotesize 0.45 LSTM + 0.55 MiniLM}};
+    \node[symbox] (gate) at (6.0, 0) {\textbf{\normalsize C-ONTO Constraint Gate} \\ \vspace{1pt} \textcolor{RoseRed!40!white}{\footnotesize Description Logic ($\mathcal{ALC}$)}};
 
     % Row 3: Downstream Analyst Operations
-    \node[downbox] (app) at (0, -3.6) {\textbf{\normalsize Downstream Intelligence Operations} \\ \vspace{1pt} \textcolor{AmberYellow!40!white}{\footnotesize NL2SPARQL Semantic Querying + Graph-RAG}};
+    \node[downbox] (app) at (0, -4.4) {\textbf{\normalsize Downstream Intelligence Operations} \\ \vspace{1pt} \textcolor{AmberYellow!40!white}{\footnotesize NL2SPARQL Semantic Querying + Graph-RAG}};
 
-    % Connections
+    % Connections: Row 1
     \draw[arrow] (raw) -- (nlp);
     \draw[arrow] (nlp) -- (rdf);
-    \draw[arrow] (nlp.south) to[out=270, in=90] (dense.north);
-    \draw[arrow] (dense) -- node[above=2pt, fill=NavyDark, inner sep=2pt, text=white] {Logits} (gate);
-    \draw[arrow, draw=NavyBlue!90!white] (rdf.south) to[out=270, in=90] (gate.north);
-    \draw[arrow, draw=RoseRed!90!white] (gate.south) to[out=270, in=45] (app.north east);
 
-    % Small side labels
-    \node[font=\scriptsize\bfseries, text=NavyBlue!40!white, fill=NavyDark, inner sep=2pt] at (7.8, 1.8) {Ontology Rules};
-    \node[font=\scriptsize\bfseries, text=RoseRed!40!white, fill=NavyDark, inner sep=2pt] at (6.2, -1.8) {Certified Codes};
+    % Inter-row connections with generous room
+    \draw[arrow] (nlp.south) to[out=270, in=90] node[pos=0.5, left=4pt, fill=NavyDark, draw=EmeraldGreen!60!white, rounded corners=3pt, inner sep=2pt, text=EmeraldGreen!30!white, font=\scriptsize\bfseries] {Text Vectors} (dense.north);
+    \draw[arrow] (dense) -- node[midway, above=3pt, fill=NavyDark, draw=SlateText!50!white, rounded corners=3pt, inner sep=2.5pt, text=white, font=\scriptsize\bfseries] {Candidate Logits} (gate);
+    \draw[arrow, draw=NavyBlue!90!white] (rdf.south) to[out=270, in=90] node[pos=0.5, right=4pt, fill=NavyDark, draw=NavyBlue!60!white, rounded corners=3pt, inner sep=2pt, text=NavyBlue!40!white, font=\scriptsize\bfseries] {Ontology Axioms} (gate.north);
+    \draw[arrow, draw=RoseRed!90!white] (gate.south) to[out=270, in=45] node[pos=0.45, right=4pt, fill=NavyDark, draw=RoseRed!60!white, rounded corners=3pt, inner sep=2pt, text=RoseRed!40!white, font=\scriptsize\bfseries] {Certified Codes} (app.north east);
 \end{tikzpicture}
 \end{center}
 \vspace{0.3em}
