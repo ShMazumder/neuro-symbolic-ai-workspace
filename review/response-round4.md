@@ -102,3 +102,4 @@
    - Synced updated `paper/poster.pdf` $\to$ `releases/v1.1.0/poster.pdf`
    - Synced updated `paper/main.pdf` $\to$ `releases/v1.1.0/main.pdf`
    - Synced updated `paper/main.pdf` $\to$ `releases/v1.1.0/paper.pdf`
+
