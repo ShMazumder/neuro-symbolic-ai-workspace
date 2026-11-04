@@ -270,13 +270,13 @@ be disjoint sub-concepts of $\text{CameoCategory}$. To align role-filler types a
 \text{UnprecedentedMassViolence} &\equiv \text{Event} \sqcap \exists \text{hasCategory}.\text{MassViolence} \sqcap \neg \exists \text{precededBy}.\text{ViolentPrecursor} \\
 \text{UnprecedentedMassViolence} &\sqsubseteq \text{OntologicalViolation}
 \end{align}
-While base CAMEO defines nominal event types, transition legality axioms ($\text{cameo:validTransitionTo}$, $\text{cameo:illegalTransitionTo}$) are domain-specific rules encoded in \texttt{ontology/reasoning\_rules.ttl} reflecting Bangladesh conflict escalation dynamics (Table~\ref{tab:transition_matrix}).
+While base CAMEO defines nominal event types, transition plausibility axioms ($\text{cameo:validTransitionTo}$, $\text{cameo:illegalTransitionTo}$) are domain-specific priors encoded in \texttt{ontology/reasoning\_rules.ttl} reflecting empirical South Asian conflict dynamics (Table~\ref{tab:transition_matrix}). Rather than asserting universal ontological impossibility in human behavior, these axioms formalize empirical transition plausibility priors derived from historical ACLED event reporting patterns in Bangladesh: journalistic press streams rarely skip from isolated political rhetoric directly to full-scale mass mobilization in a single narrative clause without intermediate escalation reporting. Framing these constraints as plausibility priors directly prevents neural models from overreacting to isolated hyperbole while preserving escalation continuity.
 At runtime, negation as failure ($\neg \exists \text{precededBy}$) is evaluated under the Closed World Assumption (CWA) via live SPARQL \texttt{ASK} and \texttt{FILTER NOT EXISTS} queries executed against the loaded RDF graph.
 
 \begin{table}[h]
 \centering
 \small
-\caption{Domain state transition legality rationale encoded in \texttt{reasoning\_rules.ttl}. $\mathcal{C}_{\text{valid}}(\text{prev})$ defines admissible successor codes; unlisted transitions trigger $\text{cameo:illegalTransitionTo}$ and force fallback $c^* = \arg\min_{c \in \mathcal{C}_{\text{valid}}} |c - c_{\text{neural}}|$.}
+\caption{Domain state transition plausibility rationale encoded in \texttt{reasoning\_rules.ttl}. $\mathcal{C}_{\text{valid}}(\text{prev})$ defines admissible successor codes; transitions violating plausibility priors trigger $\text{cameo:illegalTransitionTo}$ and force fallback $c^* = \arg\min_{c \in \mathcal{C}_{\text{valid}}} |c - c_{\text{neural}}|$.}
 \label{tab:transition_matrix}
 \begin{tabular}{cllp{5cm}}
 \toprule
@@ -297,7 +297,7 @@ At runtime, negation as failure ($\neg \exists \text{precededBy}$) is evaluated 
 \begin{table}[h]
 \centering
 \small
-\caption{Full $8 \times 8$ Ontological Transition Legality Matrix encoded in \texttt{reasoning\_rules.ttl} and formally verified via Description Logic ($\mathcal{ALC}$) consistency checking (\texttt{knowledge\_graph/dl\_reasoner\_check.py}). $\checkmark$ denotes $\text{cameo:validTransitionTo}$; $\times$ denotes $\text{cameo:illegalTransitionTo}$ ($\text{cameo:validTransitionTo} \sqcap \text{cameo:illegalTransitionTo} \equiv \bot$, 0 disjointness violations across all 64 directed pairs).}
+\caption{Full $8 \times 8$ State Transition Plausibility Matrix encoded in \texttt{reasoning\_rules.ttl} and formally verified via Description Logic ($\mathcal{ALC}$) consistency checking (\texttt{knowledge\_graph/dl\_reasoner\_check.py}). $\checkmark$ denotes $\text{cameo:validTransitionTo}$; $\times$ denotes transitions violating plausibility priors ($\text{cameo:validTransitionTo} \sqcap \text{cameo:illegalTransitionTo} \equiv \bot$, 0 disjointness violations across all 64 directed pairs).}
 \label{tab:transition_8x8}
 \begin{tabular}{lcccccccc}
 \toprule
@@ -317,7 +317,7 @@ At runtime, negation as failure ($\neg \exists \text{precededBy}$) is evaluated 
 
 Predictions are evaluated against five formal constraint operators:
 \begin{itemize}
-  \item \textbf{C-ONTO} (\textit{Hard Reclassification Gate}): Detects transitions matching $\text{cameo:illegalTransitionTo}$ or satisfying $\text{OntologicalViolation}$. Because it is a hard gate, it rejects invalid transitions and re-assigns the prediction to the nearest admissible CAMEO code $c^* = \arg\min_{c \in \mathcal{C}_{\text{valid}}(\text{prev})} |c - c_{\text{neural}}|$. As detailed in Section~\ref{sec:experiments}, this operates bidirectionally: pruning unescalated violent false alarms downward and preserving sequence continuity during ongoing violent clashes upward.
+  \item \textbf{C-ONTO} (\textit{Hard Plausibility Gate}): Detects transitions matching $\text{cameo:illegalTransitionTo}$ or satisfying $\text{OntologicalViolation}$. Because it is a hard gate, it intercepts unplausible jumps and re-assigns the prediction to the nearest admissible CAMEO code $c^* = \arg\min_{c \in \mathcal{C}_{\text{valid}}(\text{prev})} |c - c_{\text{neural}}|$. As detailed in Section~\ref{sec:experiments}, this operates bidirectionally: pruning unescalated violent false alarms downward and preserving sequence continuity during ongoing violent clashes upward.
   \item \textbf{C-ACTOR} (\textit{Soft Metadata Gate}): Validates actor agency against $\text{cameo:permittedActorType}$ (e.g., civilian factions asserting military-exclusive artillery predicates). Violations penalize confidence by $\Delta \tau = -0.05$ without mutating discrete event classes.
   \item \textbf{C-GEO} (\textit{Soft Spatial Gate}): Validates that reported districts belong to their claimed administrative division under the 64-district hierarchy. Soft penalty $\Delta \tau = -0.05$.
   \item \textbf{C-TEMP} (\textit{Soft Temporal Gate}): Flags chronological inversions $\text{Event}_t \prec \text{Event}_{t-1}$. Soft penalty $\Delta \tau = -0.05$.
@@ -393,18 +393,22 @@ Table~\ref{tab:ablation} presents the ablation results alongside the complete co
 \toprule
 \textbf{Condition} & \textbf{TP} & \textbf{FP} & \textbf{TN} & \textbf{FN} & \textbf{BinAcc} & \textbf{P@HV} & \textbf{R@HV} & \textbf{F1@HV} & \textbf{Std-FPR} & \textbf{Expl} \\
 \midrule
-Neural-Only    & 23 & 4  & 95 & 28 & 0.787 \scriptsize{$[0.720, 0.847]$} & 0.852 \scriptsize{$[0.704, 0.970]$} & 0.451 \scriptsize{$[0.314, 0.597]$} & 0.590 \scriptsize{$[0.449, 0.718]$} & 0.040 & 0.000 \\
-Symbolic-Only  & 46 & 86 & 13 & 5  & 0.393 \scriptsize{$[0.313, 0.473]$} & 0.348 \scriptsize{$[0.271, 0.432]$} & \textbf{0.902} \scriptsize{$[0.804, 0.978]$} & 0.503 \scriptsize{$[0.412, 0.596]$} & 0.869 & \textbf{1.000} \\
-Hybrid (Ours)  & 30 & \textbf{1}  & \textbf{98} & 21 & \textbf{0.853} \scriptsize{$[0.800, 0.907]$} & \textbf{0.968} \scriptsize{$[0.897, 1.000]$} & 0.588 \scriptsize{$[0.456, 0.727]$} & \textbf{0.732} \scriptsize{$[0.617, 0.835]$} & \textbf{0.010} & \textbf{1.000} \\
+Keyword Heuristic       & 41 & 72 & 27 & 10 & 0.453 \scriptsize{$[0.380, 0.527]$} & 0.320 \scriptsize{$[0.246, 0.407]$} & 0.804 \scriptsize{$[0.686, 0.902]$} & 0.458 \scriptsize{$[0.368, 0.548]$} & 0.727 & \textbf{1.000} \\
+Pure Symbolic Rule      & 46 & 86 & 13 & 5  & 0.393 \scriptsize{$[0.313, 0.473]$} & 0.348 \scriptsize{$[0.271, 0.432]$} & \textbf{0.902} \scriptsize{$[0.804, 0.978]$} & 0.503 \scriptsize{$[0.412, 0.596]$} & 0.869 & \textbf{1.000} \\
+Zero-Shot NLI           & 25 & 31 & 68 & 26 & 0.620 \scriptsize{$[0.547, 0.700]$} & 0.446 \scriptsize{$[0.314, 0.574]$} & 0.490 \scriptsize{$[0.354, 0.636]$} & 0.467 \scriptsize{$[0.347, 0.583]$} & 0.313 & 0.000 \\
+Zero-Shot NLI + C-ONTO  & 28 & 10 & 89 & 23 & 0.780 \scriptsize{$[0.713, 0.847]$} & 0.737 \scriptsize{$[0.583, 0.857]$} & 0.549 \scriptsize{$[0.415, 0.691]$} & 0.629 \scriptsize{$[0.506, 0.744]$} & 0.101 & \textbf{1.000} \\
+Neural-Only (Dense)     & 23 & 4  & 95 & 28 & 0.787 \scriptsize{$[0.720, 0.847]$} & 0.852 \scriptsize{$[0.704, 0.970]$} & 0.451 \scriptsize{$[0.314, 0.597]$} & 0.590 \scriptsize{$[0.449, 0.718]$} & 0.040 & 0.000 \\
+\textbf{NeuroSym-BD (Hybrid)} & \textbf{30} & \textbf{1}  & \textbf{98} & \textbf{21} & \textbf{0.853} \scriptsize{$[0.800, 0.907]$} & \textbf{0.968} \scriptsize{$[0.897, 1.000]$} & 0.588 \scriptsize{$[0.456, 0.727]$} & \textbf{0.732} \scriptsize{$[0.617, 0.835]$} & \textbf{0.010} & \textbf{1.000} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \noindent
-The confusion matrix reveals the exact mechanism of neuro-symbolic synergy:
+The ablation matrix reveals the exact mechanism of neuro-symbolic synergy:
 While pure symbolic heuristic rules suffer from severe false-positive inflation ($FP=86$ on 99 negative cases, $\text{Std-FPR} = 86.9\%$) and unconstrained neural networks remain limited by lower recall on specialized violence sub-types (Neural-Only $R@\text{HV} = 0.451$, $F1 = 0.590$),
 the hybrid reasoner combines BiLSTM temporal trajectory modeling with Description Logic constraint gates to achieve the highest precision ($P@\text{HV} = 0.968$) and lowest false-alarm rate ($\text{Std-FPR} = 1.0\%$, $FP=1$, a 75.0\% false-alarm count reduction relative to neural-only).
-Consequently, high-violence classification binary accuracy reaches \textbf{85.3\%} with \textbf{F1 = 0.732} ($\Delta\text{F1} = +0.142$ absolute gain over neural-only) while guaranteeing 100\% PROV-O provenance explainability.
+Crucially, coupling the C-ONTO symbolic gate with off-the-shelf Zero-Shot NLI (DistilBERT-MNLI) drastically elevates performance from 0.467 to 0.629 F1, slashing false positive alarms by 67.7\% ($FP: 31 \to 10$, $\text{Std-FPR}: 31.3\% \to 10.1\%$).
+This confirms that the symbolic plausibility gate is \textit{model-agnostic}: it provides immediate zero-shot safety guardrails for off-the-shelf foundation models, while our full domain-specialized sequence hybrid achieves the highest performance (85.3\% accuracy, 0.732 F1).
 
 \paragraph{Statistical Significance and Paired Discordant Contingency Matrix.}
 To evaluate whether the accuracy gain from 78.7\% to 85.3\% is statistically significant, we construct the exact $2 \times 2$ contingency matrix for paired binary classifications between Neural-Only and Hybrid across the 150 test instances:
@@ -703,6 +707,7 @@ BinAcc = binary accuracy on high-violence ($HV \ge 18$). Std-FPR = standard fals
 \midrule
 Keyword \& Gazetteer Heuristic            & 0.453 & 0.320 & 0.804 & 0.458 & 0.727 & \textbf{1.000} \\
 Zero-Shot NLI (DistilBERT-MNLI)           & 0.620 & 0.446 & 0.490 & 0.467 & 0.313 & 0.000 \\
+Zero-Shot NLI + C-ONTO (Symbolic Gate)    & 0.780 & 0.737 & 0.549 & 0.629 & 0.101 & \textbf{1.000} \\
 Dense Neural (MiniLM + LSTM)              & 0.787 & 0.852 & 0.451 & 0.590 & 0.040 & 0.000 \\
 Pure Symbolic (Rule Engine)               & 0.393 & 0.348 & \textbf{0.902} & 0.503 & 0.869 & \textbf{1.000} \\
 \textbf{NeuroSym-BD (Hybrid Ours)}        & \textbf{0.853} & \textbf{0.968} & 0.588 & \textbf{0.732} & \textbf{0.010} & \textbf{1.000} \\
@@ -790,14 +795,21 @@ categorizing errors into four mutually exclusive primary classes (Table~\ref{tab
 \section{Discussion}
 \label{sec:discussion}
 
-\paragraph{Symbolic constraints as a quality gate.}
-The C-ONTO hard constraint (invalid CAMEO code transition) accounts for
+\paragraph{Symbolic constraints as an inductive quality gate.}
+The C-ONTO hard constraint (CAMEO code transition plausibility prior) accounts for
 31\% of rejected neural predictions in our test set.
 A common error was the neural model predicting ``Mass Violence (20)''
-following a ``Protest (14)'' event with no intervening escalation signals—
-a sequence flagged as illegal by our domain escalation rules in \texttt{ontology/reasoning\_rules.ttl}.
-This aligns with findings in neuro-symbolic NLP \citep{garcez2023}
-that symbolic constraints are most valuable for rare but catastrophic errors.
+following an isolated ``Protest (14)'' clause with no intervening escalation reporting—
+a sequence flagged as violating empirical transition plausibility priors in \texttt{ontology/reasoning\_rules.ttl}.
+This aligns with foundational principles in neuro-symbolic NLP \citep{garcez2023}
+that symbolic constraints are most valuable for rare but catastrophic domain errors.
+
+\paragraph{Neuro-Symbolic Integration: Constrained Decoding vs Differentiable NeSy.}
+Architecturally, NeuroSym-BD implements Type 1/2 neuro-symbolic integration: neural sequence and language models generate dense candidate representations, which are subsequently channeled through formal Description Logic ($\mathcal{ALC}$) constraint gates.
+In low-resource data regimes ($N \sim 200$), this modular decoupled design offers significant practical and theoretical advantages over end-to-end differentiable neuro-symbolic frameworks such as Logic Tensor Networks \citep{serafini2016logic}, Semantic Loss \citep{xu2018semantic}, or DeepProbLog \citep{manhaeve2018deepproblog}.
+Differentiable relaxations optimize soft t-norm approximations that allow probabilistic leakage across safety boundaries, and parameter-heavy joint models easily overfit scarce graph structures.
+In contrast, decoupled Description Logic validation enforces provable correctness boundaries (0 consistency violations) and yields immediate plug-and-play improvements on off-the-shelf zero-shot models (elevating Zero-Shot NLI F1 by +16.2 points, Table~\ref{tab:ablation}) without costly retraining.
+As ingestion scales to multi-thousand document archives, incorporating differentiable semantic loss backpropagation into early representation layers provides a promising hybrid synthesis.
 
 \paragraph{Provenance as trust infrastructure.}
 The PROV-O provenance layer enables conflict analysts to verify any
@@ -806,11 +818,13 @@ In our explainability evaluation, 98.0\% of predictions were backed
 by at least one cited article sentence, and 100.0\% of those sentences
 contained at least one verified violence trigger keyword.
 
-\paragraph{Limitations.}
-(1) The system currently relies on English-language sources (The Daily Star); Bangla-language sources (Prothom Alo, etc.) are under development.
-(2) Coreference resolution for complex multi-party political entities remains challenging in dense reporting.
-(3) ACLED corroboration yield (32.1\%) reflects strict administrative alignment filters between national English reporting and ACLED's multi-source rural collection.
-(4) Multi-party factional clashes with ambiguous passive voice require ongoing gazetteer expansion.
+\paragraph{Limitations and Future Scope.}
+\begin{enumerate}
+  \item \textbf{Monolingual Reporting Bias}: The present corpus ingests English-language national reporting (*The Daily Star*). While authoritative for policy and national events, it under-represents hyper-local rural violence covered predominantly in vernacular Bangla portals (*Prothom Alo*, *Jugantor*). Ingesting Bengali news via fine-tuned BanglaBERT is actively under implementation.
+  \item \textbf{Dataset Scale and Relational Sparsity}: While our 176-article corpus (3,438 RDF triples) suffices for proof-of-concept validation and Description Logic stress testing ($N=150$ holdout), relational graph models (R-GCN) require multi-year archives ($>5,000$ articles) to avoid parameter sparsity. Expanding the automated crawler across 10 years of historical archives will mitigate this limitation.
+  \item \textbf{Coreference and Passive Voice}: Disentangling multi-party student and political factions in passive journalistic clauses remains a source of argument attribution error.
+  \item \textbf{External Corroboration Alignment}: ACLED corroboration yield (32.1\%) reflects stringent spatiotemporal matching thresholds between national English press coverage and ACLED's multi-source localized collection.
+\end{enumerate}
 
 % ── 6. Conclusion ─────────────────────────────────────────────────────────
 \section{Conclusion}
