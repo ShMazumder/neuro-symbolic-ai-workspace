@@ -67,7 +67,7 @@ TRIGGER_VERBS: dict[str, str] = {
     "raid":       "193",
 
     # CAMEO 13x — Threaten
-    "threaten":   "134",
+    "threaten":   "138",
     "warn":       "131",
     "ultimatum":  "139",
 

@@ -110,7 +110,9 @@ cameo:Actor
     owl:disjointWith cameo:Location .
 
 # Violence event categories are disjoint (an event belongs to one primary category)
+cameo:Threaten            owl:disjointWith cameo:Assault .
 cameo:Threaten            owl:disjointWith cameo:UnconventionalViolence .
+cameo:Coerce              owl:disjointWith cameo:ConventionalForce .
 cameo:StructuralViolence  owl:disjointWith cameo:ConventionalForce .
 
 # ── 7. Property chains (OWL 2 property chain axioms) ─────────────────────────

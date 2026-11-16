@@ -155,10 +155,10 @@ cameo:Threaten
 cameo:Code131 a owl:Class ; rdfs:subClassOf cameo:Threaten ; cameo:code "131" ; rdfs:label "Threaten non-force"@en .
 cameo:Code132 a owl:Class ; rdfs:subClassOf cameo:Threaten ; cameo:code "132" ; rdfs:label "Threaten with administrative sanctions"@en .
 cameo:Code133 a owl:Class ; rdfs:subClassOf cameo:Threaten ; cameo:code "133" ; rdfs:label "Threaten political dissent"@en .
-cameo:Code134 a owl:Class ; rdfs:subClassOf cameo:Threaten ; cameo:code "134" ; rdfs:label "Threaten with military force"@en .
+cameo:Code134 a owl:Class ; rdfs:subClassOf cameo:Threaten ; cameo:code "134" ; rdfs:label "Threaten to halt negotiations"@en .
 cameo:Code135 a owl:Class ; rdfs:subClassOf cameo:Threaten ; cameo:code "135" ; rdfs:label "Threaten with unconventional violence"@en .
 cameo:Code136 a owl:Class ; rdfs:subClassOf cameo:Threaten ; cameo:code "136" ; rdfs:label "Threaten with mass violence"@en .
-cameo:Code137 a owl:Class ; rdfs:subClassOf cameo:Threaten ; cameo:code "137" ; rdfs:label "Threaten to attack or destroy"@en .
+cameo:Code137 a owl:Class ; rdfs:subClassOf cameo:Threaten ; cameo:code "137" ; rdfs:label "Threaten with repression"@en .
 cameo:Code138 a owl:Class ; rdfs:subClassOf cameo:Threaten ; cameo:code "138" ; rdfs:label "Threaten with conventional attack"@en .
 cameo:Code139 a owl:Class ; rdfs:subClassOf cameo:Threaten ; cameo:code "139" ; rdfs:label "Give ultimatum"@en .
 
@@ -172,33 +172,49 @@ cameo:ViolentProtest
 
 cameo:Code145 a owl:Class ; rdfs:subClassOf cameo:ViolentProtest ; cameo:code "145" ; rdfs:label "Engage in violent protest, rioting"@en .
 
-# ── Category 17: Structural Violence ─────────────────────────────────────────
+# ── Category 17: Coerce (Structural Violence) ─────────────────────────────────
 
-cameo:StructuralViolence
+cameo:Coerce
     a owl:Class ;
     rdfs:subClassOf cameo:ViolenceEvent ;
-    rdfs:label "Structural Violence"@en ;
+    rdfs:label "Coerce"@en ;
     cameo:code "17" .
 
-cameo:Code171 a owl:Class ; rdfs:subClassOf cameo:StructuralViolence ; cameo:code "171" ; rdfs:label "Confiscate or destroy property"@en .
-cameo:Code172 a owl:Class ; rdfs:subClassOf cameo:StructuralViolence ; cameo:code "172" ; rdfs:label "Impose administrative sanctions"@en .
-cameo:Code173 a owl:Class ; rdfs:subClassOf cameo:StructuralViolence ; cameo:code "173" ; rdfs:label "Arrest or detain"@en .
-cameo:Code174 a owl:Class ; rdfs:subClassOf cameo:StructuralViolence ; cameo:code "174" ; rdfs:label "Expel or deport"@en .
-cameo:Code175 a owl:Class ; rdfs:subClassOf cameo:StructuralViolence ; cameo:code "175" ; rdfs:label "Use repressive force against civilians"@en .
+# Backwards compatibility alias
+cameo:StructuralViolence
+    a owl:Class ;
+    owl:equivalentClass cameo:Coerce ;
+    rdfs:subClassOf cameo:ViolenceEvent ;
+    rdfs:label "Structural Violence (Coerce)"@en ;
+    cameo:code "17" .
 
-# ── Category 18: Unconventional Violence ─────────────────────────────────────
+cameo:Code171 a owl:Class ; rdfs:subClassOf cameo:Coerce ; cameo:code "171" ; rdfs:label "Confiscate or destroy property"@en .
+cameo:Code172 a owl:Class ; rdfs:subClassOf cameo:Coerce ; cameo:code "172" ; rdfs:label "Impose administrative sanctions"@en .
+cameo:Code173 a owl:Class ; rdfs:subClassOf cameo:Coerce ; cameo:code "173" ; rdfs:label "Arrest or detain"@en .
+cameo:Code174 a owl:Class ; rdfs:subClassOf cameo:Coerce ; cameo:code "174" ; rdfs:label "Expel or deport"@en .
+cameo:Code175 a owl:Class ; rdfs:subClassOf cameo:Coerce ; cameo:code "175" ; rdfs:label "Use repressive force against civilians"@en .
 
-cameo:UnconventionalViolence
+# ── Category 18: Assault (Unconventional Violence) ───────────────────────────
+
+cameo:Assault
     a owl:Class ;
     rdfs:subClassOf cameo:ViolenceEvent ;
-    rdfs:label "Unconventional Violence"@en ;
+    rdfs:label "Assault"@en ;
     cameo:code "18" .
 
-cameo:Code181 a owl:Class ; rdfs:subClassOf cameo:UnconventionalViolence ; cameo:code "181" ; rdfs:label "Abduct, hijack, or take hostage"@en .
-cameo:Code182 a owl:Class ; rdfs:subClassOf cameo:UnconventionalViolence ; cameo:code "182" ; rdfs:label "Physically assault — killing, assault, torture"@en .
-cameo:Code183 a owl:Class ; rdfs:subClassOf cameo:UnconventionalViolence ; cameo:code "183" ; rdfs:label "Non-military bombing — suicide, car, IED"@en .
-cameo:Code184 a owl:Class ; rdfs:subClassOf cameo:UnconventionalViolence ; cameo:code "184" ; rdfs:label "Use unconventional weapons or tactics"@en .
-cameo:Code185 a owl:Class ; rdfs:subClassOf cameo:UnconventionalViolence ; cameo:code "185" ; rdfs:label "Attempt to assassinate"@en .
+# Backwards compatibility alias
+cameo:UnconventionalViolence
+    a owl:Class ;
+    owl:equivalentClass cameo:Assault ;
+    rdfs:subClassOf cameo:ViolenceEvent ;
+    rdfs:label "Unconventional Violence (Assault)"@en ;
+    cameo:code "18" .
+
+cameo:Code181 a owl:Class ; rdfs:subClassOf cameo:Assault ; cameo:code "181" ; rdfs:label "Abduct, hijack, or take hostage"@en .
+cameo:Code182 a owl:Class ; rdfs:subClassOf cameo:Assault ; cameo:code "182" ; rdfs:label "Physically assault — killing, assault, torture"@en .
+cameo:Code183 a owl:Class ; rdfs:subClassOf cameo:Assault ; cameo:code "183" ; rdfs:label "Non-military bombing — suicide, car, IED"@en .
+cameo:Code184 a owl:Class ; rdfs:subClassOf cameo:Assault ; cameo:code "184" ; rdfs:label "Use as human shield"@en .
+cameo:Code185 a owl:Class ; rdfs:subClassOf cameo:Assault ; cameo:code "185" ; rdfs:label "Attempt to assassinate"@en .
 
 # ── Category 19: Conventional Force ──────────────────────────────────────────
 
@@ -214,13 +230,23 @@ cameo:Code193 a owl:Class ; rdfs:subClassOf cameo:ConventionalForce ; cameo:code
 cameo:Code194 a owl:Class ; rdfs:subClassOf cameo:ConventionalForce ; cameo:code "194" ; rdfs:label "Fight with artillery or heavy weapons"@en .
 cameo:Code195 a owl:Class ; rdfs:subClassOf cameo:ConventionalForce ; cameo:code "195" ; rdfs:label "Air strike or missile attack"@en .
 
-# ── Category 20: Massive Unconventional Force ─────────────────────────────────
+# ── Category 20: Use Unconventional Mass Violence ─────────────────────────────
 
+cameo:MassViolence
+    a owl:Class ;
+    rdfs:subClassOf cameo:ViolenceEvent ;
+    rdfs:label "Use Unconventional Mass Violence"@en ;
+    cameo:code "20" .
+
+# Backwards compatibility alias
 cameo:MassiveForce
     a owl:Class ;
+    owl:equivalentClass cameo:MassViolence ;
     rdfs:subClassOf cameo:ViolenceEvent ;
     rdfs:label "Massive Unconventional Force"@en ;
     cameo:code "20" .
 
-cameo:Code201 a owl:Class ; rdfs:subClassOf cameo:MassiveForce ; cameo:code "201" ; rdfs:label "Use chemical, biological, or radiological weapons"@en .
-cameo:Code202 a owl:Class ; rdfs:subClassOf cameo:MassiveForce ; cameo:code "202" ; rdfs:label "Detonate nuclear weapon"@en .
+cameo:Code201 a owl:Class ; rdfs:subClassOf cameo:MassViolence ; cameo:code "201" ; rdfs:label "Engage in mass expulsion"@en .
+cameo:Code202 a owl:Class ; rdfs:subClassOf cameo:MassViolence ; cameo:code "202" ; rdfs:label "Engage in mass killings"@en .
+cameo:Code203 a owl:Class ; rdfs:subClassOf cameo:MassViolence ; cameo:code "203" ; rdfs:label "Engage in ethnic cleansing"@en .
+cameo:Code204 a owl:Class ; rdfs:subClassOf cameo:MassViolence ; cameo:code "204" ; rdfs:label "Use weapons of mass destruction"@en .

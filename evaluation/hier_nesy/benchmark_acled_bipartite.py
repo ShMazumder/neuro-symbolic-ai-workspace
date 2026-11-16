@@ -199,6 +199,8 @@ class BipartiteACLEDMatcher:
         predicted: list[dict],
         acled: list[dict],
         tau_days: int,
+        p_feats: Optional[list] = None,
+        a_feats: Optional[list] = None,
     ) -> np.ndarray:
         """
         Builds [N_pred, M_acled] cost matrix.
@@ -207,22 +209,37 @@ class BipartiteACLEDMatcher:
         n, m = len(predicted), len(acled)
         cost_mat = np.full((n, m), self.unmatched_penalty, dtype=np.float64)
 
-        for i, p in enumerate(predicted):
-            p_date = parse_date(p.get("date") or p.get("event_date"))
-            p_dist, p_lat, p_lon = self._extract_loc(p)
-            p_root = to_cameo_root(p.get("cameo_code") or p.get("gold_cameo_code") or p.get("root_code"))
+        if p_feats is None:
+            p_feats = [
+                (
+                    parse_date(p.get("date") or p.get("event_date")),
+                    *self._extract_loc(p),
+                    to_cameo_root(p.get("cameo_code") or p.get("gold_cameo_code") or p.get("root_code")),
+                )
+                for p in predicted
+            ]
 
-            for j, a in enumerate(acled):
-                a_date = parse_date(a.get("event_date") or a.get("date"))
-                if not p_date or not a_date:
+        if a_feats is None:
+            a_feats = [
+                (
+                    parse_date(a.get("event_date") or a.get("date")),
+                    *self._extract_loc(a),
+                    to_cameo_root(a.get("sub_event_type") or a.get("event_type") or a.get("cameo_code")),
+                )
+                for a in acled
+            ]
+
+        for i, (p_date, p_dist, p_lat, p_lon, p_root) in enumerate(p_feats):
+            if not p_date:
+                continue
+
+            for j, (a_date, a_dist, a_lat, a_lon, a_root) in enumerate(a_feats):
+                if not a_date:
                     continue
 
                 dt = abs((p_date - a_date).days)
                 if dt > tau_days:
                     continue
-
-                a_dist, a_lat, a_lon = self._extract_loc(a)
-                a_root = to_cameo_root(a.get("sub_event_type") or a.get("event_type") or a.get("cameo_code"))
 
                 # Spatial distance computation
                 if p_lat is not None and p_lon is not None and a_lat is not None and a_lon is not None:
@@ -265,6 +282,7 @@ class BipartiteACLEDMatcher:
         predicted: list[dict],
         acled: list[dict],
         tau_days: int,
+        cost_mat: Optional[np.ndarray] = None,
     ) -> list[MatchedPair]:
         """
         Executes Hungarian 1-to-1 bipartite assignment.
@@ -272,7 +290,8 @@ class BipartiteACLEDMatcher:
         if not predicted or not acled:
             return []
 
-        cost_mat = self.build_cost_matrix(predicted, acled, tau_days)
+        if cost_mat is None:
+            cost_mat = self.build_cost_matrix(predicted, acled, tau_days)
         row_ind, col_ind = linear_sum_assignment(cost_mat)
 
         matched: list[MatchedPair] = []
@@ -316,6 +335,7 @@ class BipartiteACLEDMatcher:
         predicted: list[dict],
         acled: list[dict],
         tau_days: int,
+        cost_mat: Optional[np.ndarray] = None,
     ) -> list[MatchedPair]:
         """
         Executes standard greedy nearest-neighbor matching (allowing many-to-one).
@@ -323,7 +343,8 @@ class BipartiteACLEDMatcher:
         if not predicted or not acled:
             return []
 
-        cost_mat = self.build_cost_matrix(predicted, acled, tau_days)
+        if cost_mat is None:
+            cost_mat = self.build_cost_matrix(predicted, acled, tau_days)
         matched: list[MatchedPair] = []
 
         for r in range(len(predicted)):
@@ -367,12 +388,17 @@ class BipartiteACLEDMatcher:
         predicted: list[dict],
         acled: list[dict],
         tau_days: int,
+        p_feats: Optional[list] = None,
+        a_feats: Optional[list] = None,
     ) -> MatchingWindowResult:
         """Computes both 1-to-1 Hungarian and Greedy metrics for a given window tau."""
         n_p, n_a = len(predicted), len(acled)
 
+        # Compute cost matrix once
+        cost_mat = self.build_cost_matrix(predicted, acled, tau_days, p_feats=p_feats, a_feats=a_feats)
+
         # 1. Bipartite Hungarian matching
-        b_pairs = self.match_bipartite(predicted, acled, tau_days)
+        b_pairs = self.match_bipartite(predicted, acled, tau_days, cost_mat=cost_mat)
         b_count = len(b_pairs)
         b_prec = b_count / max(1, n_p)
         b_rec = b_count / max(1, n_a)
@@ -384,7 +410,7 @@ class BipartiteACLEDMatcher:
         )
 
         # 2. Greedy matching
-        g_pairs = self.match_greedy(predicted, acled, tau_days)
+        g_pairs = self.match_greedy(predicted, acled, tau_days, cost_mat=cost_mat)
         g_count = len(g_pairs)
         g_prec = g_count / max(1, n_p)
         # In greedy, unique ACLED matched represents true recalled coverage
@@ -424,9 +450,29 @@ def run_bipartite_acled_benchmark(
     Returns sensitivity curve across windows.
     """
     matcher = BipartiteACLEDMatcher()
+
+    # Pre-extract features once across all windows for high performance
+    logger.info("Pre-extracting features for %d predictions and %d ACLED records...", len(predicted), len(acled))
+    p_feats = [
+        (
+            parse_date(p.get("date") or p.get("event_date")),
+            *matcher._extract_loc(p),
+            to_cameo_root(p.get("cameo_code") or p.get("gold_cameo_code") or p.get("root_code")),
+        )
+        for p in predicted
+    ]
+    a_feats = [
+        (
+            parse_date(a.get("event_date") or a.get("date")),
+            *matcher._extract_loc(a),
+            to_cameo_root(a.get("sub_event_type") or a.get("event_type") or a.get("cameo_code")),
+        )
+        for a in acled
+    ]
+
     results = []
     for tau in windows:
-        res = matcher.evaluate_window(predicted, acled, tau)
+        res = matcher.evaluate_window(predicted, acled, tau, p_feats=p_feats, a_feats=a_feats)
         results.append(res)
         logger.info(
             "Window tau=+-%2dd | Bipartite Prec: %.3f Rec: %.3f F1: %.3f Conc: %.3f | Greedy Prec: %.3f Conc: %.3f",

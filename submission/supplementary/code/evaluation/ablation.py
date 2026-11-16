@@ -5,12 +5,13 @@ Task 5.3 — Ablation study: neural-only vs symbolic-only vs hybrid.
 Three experimental conditions on the same held-out test set:
 
   Condition A — Neural-only:
-    GNN + LSTM predictions without any symbolic constraint filtering.
-    No CAMEO transition rules, no actor-type rules.
+    Dense Transformer (all-MiniLM-L6-v2) semantic similarity fused with EscalationLSTM
+    sequence forecasting logits, without any symbolic constraint filtering.
+    No CAMEO transition rules, no actor-type rules, no geographic consistency checks.
 
   Condition B — Symbolic-only:
     Pure rule-based CAMEO coding from nlp/cameo_classifier.py (rule layer only).
-    No neural models (no GNN, no LSTM).
+    No neural models (no Transformer, no LSTM).
 
   Condition C — Hybrid (full system):
     Neural predictions + symbolic constraint engine (hybrid.py).
@@ -92,10 +93,12 @@ def build_test_set(
     processed_dir: Path = PROCESSED_DIR,
     test_fraction: float = 0.5,
     seed: int = 42,
+    allow_synthetic: bool = False,
 ) -> list[dict]:
     """
     Load held-out test events for ablation study.
     Prefers data/annotations/gold_benchmark_events.json for verified ground truth.
+    Raises FileNotFoundError if ground truth files are missing unless allow_synthetic=True.
     """
     gold_path = Path("data/annotations/gold_benchmark_events.json")
     events = []
@@ -118,6 +121,11 @@ def build_test_set(
                 pass
 
     if not events:
+        if not allow_synthetic:
+            raise FileNotFoundError(
+                f"Gold benchmark dataset not found at {gold_path} and no processed events in {processed_dir}. "
+                "Set allow_synthetic=True only for offline synthetic test harnesses."
+            )
         logger.warning("No events found — generating synthetic test set.")
         events = _synthetic_test_set(100)
 
@@ -251,32 +259,28 @@ def _run_neural_only(test_events: list[dict]) -> list[dict]:
     Neural-only predictions: Raw neural logits argmax CAMEO code.
     No ontology constraints, no actor checks, no geographic hierarchy validation.
     """
-    try:
-        from neurosymbolic.forecasting import EscalationLSTM, IDX_TO_CAMEO_CODE
-        model_path = Path("models/forecasting/escalation_lstm.pt")
-        lstm_model = EscalationLSTM()
-        if model_path.exists():
-            lstm_model.load_state_dict(torch.load(model_path, map_location="cpu"))
-        lstm_model.eval()
+    from neurosymbolic.forecasting import EscalationLSTM, IDX_TO_CAMEO_CODE
+    model_path = Path("models/forecasting/escalation_lstm.pt")
+    if not model_path.exists():
+        raise FileNotFoundError(f"Model checkpoint not found at {model_path}. Train model before benchmarking.")
+    lstm_model = EscalationLSTM()
+    lstm_model.load_state_dict(torch.load(model_path, map_location="cpu"))
+    lstm_model.eval()
 
-        preds = []
-        for ev in test_events:
-            logits = _compute_event_neural_logits(ev, lstm_model)
-            probs = torch.softmax(logits, dim=-1)
-            pred_idx = torch.argmax(probs).item()
-            pred_code = IDX_TO_CAMEO_CODE.get(pred_idx, 17)
-            conf = probs[pred_idx].item()
+    preds = []
+    for ev in test_events:
+        logits = _compute_event_neural_logits(ev, lstm_model)
+        probs = torch.softmax(logits, dim=-1)
+        pred_idx = torch.argmax(probs).item()
+        pred_code = IDX_TO_CAMEO_CODE.get(pred_idx, 17)
+        conf = probs[pred_idx].item()
 
-            preds.append({
-                "predicted_code": pred_code,
-                "confidence": conf,
-                "has_provenance": False,  # Pure neural has no symbolic provenance
-            })
-        return preds
-
-    except Exception as exc:
-        logger.error("Neural-only inference failed: %s", exc)
-        return [{"predicted_code": 17, "confidence": 0.5, "has_provenance": False} for _ in test_events]
+        preds.append({
+            "predicted_code": pred_code,
+            "confidence": conf,
+            "has_provenance": False,  # Pure neural has no symbolic provenance
+        })
+    return preds
 
 
 # ── Condition B: Symbolic-only ────────────────────────────────────────────────
@@ -307,10 +311,11 @@ def _run_symbolic_only(test_events: list[dict]) -> list[dict]:
             pred_code = 17
             conf = 0.5
 
+        has_prov = bool(ev.get("source_url") or ev.get("article_url") or ev.get("source_sentence"))
         preds.append({
             "predicted_code": pred_code,
             "confidence": conf,
-            "has_provenance": True,  # Symbolic rules provide direct provenance
+            "has_provenance": has_prov,  # Symbolic rules provide direct provenance when source data exists
         })
     return preds
 
@@ -322,52 +327,49 @@ def _run_hybrid(test_events: list[dict]) -> list[dict]:
     Full neuro-symbolic hybrid: Neural logits gated by symbolic Description Logic constraints.
     Applies C-ONTO, C-ACTOR, C-GEO, and C-CONF filters.
     """
-    try:
-        from neurosymbolic.forecasting import EscalationLSTM
-        from neurosymbolic.hybrid import HybridInferenceEngine
+    from neurosymbolic.forecasting import EscalationLSTM
+    from neurosymbolic.hybrid import HybridInferenceEngine
 
-        model_path = Path("models/forecasting/escalation_lstm.pt")
-        lstm_model = EscalationLSTM()
-        if model_path.exists():
-            lstm_model.load_state_dict(torch.load(model_path, map_location="cpu"))
-        lstm_model.eval()
+    model_path = Path("models/forecasting/escalation_lstm.pt")
+    if not model_path.exists():
+        raise FileNotFoundError(f"Model checkpoint not found at {model_path}. Train model before benchmarking.")
+    lstm_model = EscalationLSTM()
+    lstm_model.load_state_dict(torch.load(model_path, map_location="cpu"))
+    lstm_model.eval()
 
-        engine = HybridInferenceEngine()
-        preds = []
+    engine = HybridInferenceEngine()
+    preds = []
 
-        for ev in test_events:
-            logits = _compute_event_neural_logits(ev, lstm_model)
+    for ev in test_events:
+        logits = _compute_event_neural_logits(ev, lstm_model)
 
-            actor_type = ""
-            actors = ev.get("actors", [])
-            if actors and isinstance(actors[0], dict):
-                actor_type = actors[0].get("type", "")
+        actor_type = ""
+        actors = ev.get("actors", [])
+        if actors and isinstance(actors[0], dict):
+            actor_type = actors[0].get("type", "")
 
-            loc = ev.get("location", {})
-            district = loc.get("district", "") if isinstance(loc, dict) else ""
-            division = loc.get("division", "") if isinstance(loc, dict) else ""
-            prev_code = ev.get("prev_code")
+        loc = ev.get("location", {})
+        district = loc.get("district", "") if isinstance(loc, dict) else ""
+        division = loc.get("division", "") if isinstance(loc, dict) else ""
+        prev_code = ev.get("prev_code")
 
-            decision = engine.infer(
-                event_uri=f"http://example.org/event/{ev.get('event_id', '')}",
-                neural_logits=logits,
-                prev_code=int(prev_code) if prev_code is not None else None,
-                actor_type=actor_type or None,
-                district=district or None,
-                division=division or None,
-            )
+        decision = engine.infer(
+            event_uri=f"http://example.org/event/{ev.get('event_id', '')}",
+            neural_logits=logits,
+            prev_code=int(prev_code) if prev_code is not None else None,
+            actor_type=actor_type or None,
+            district=district or None,
+            division=division or None,
+        )
 
-            preds.append({
-                "predicted_code": decision.final_code,
-                "confidence":     decision.final_conf,
-                "has_provenance": True,  # Hybrid preserves PROV-O provenance trace
-                "accepted":       decision.accepted,
-            })
-        return preds
-
-    except Exception as exc:
-        logger.error("Hybrid inference failed: %s", exc)
-        return _run_neural_only(test_events)
+        has_prov = bool(ev.get("source_url") or ev.get("article_url") or ev.get("source_sentence"))
+        preds.append({
+            "predicted_code": decision.final_code,
+            "confidence":     decision.final_conf,
+            "has_provenance": has_prov,  # Hybrid preserves PROV-O provenance trace
+            "accepted":       decision.accepted,
+        })
+    return preds
 
 # ── Condition D: Zero-Shot NLI Baseline ────────────────────────────────────────
 
