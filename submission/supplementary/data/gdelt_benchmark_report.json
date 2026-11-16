@@ -1,0 +1,34 @@
+{
+  "FIGHT": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 12,
+    "fp": 0,
+    "fn": 0
+  },
+  "ASSAULT": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 132,
+    "fp": 0,
+    "fn": 0
+  },
+  "COERCE": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 10,
+    "fp": 0,
+    "fn": 0
+  },
+  "OVERALL": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tp": 154,
+    "fp": 0,
+    "fn": 0
+  }
+}
