@@ -1,0 +1,151 @@
+# ==============================================================================
+# ontology/cameo_registry.yaml
+# Authoritative Single Source of Truth for CAMEO 1.1b3 Taxonomy & BD Extension
+# ==============================================================================
+
+version: "1.1b3"
+standard: "CAMEO 1.1b3 (Conflict and Mediation Event Observations)"
+last_updated: "2026-11-17"
+
+# ── Root Categories (13 to 20: Conflict & Coercive Action) ────────────────────
+root_categories:
+  "13":
+    name: "Threaten"
+    description: "Verbal or non-verbal threats, warnings, or ultimatums of adverse action."
+    is_conflict_related: true
+    is_physical_violence: false
+
+  "14":
+    name: "Protest"
+    description: "Public demonstrations, rallies, strikes, sit-ins, and civil dissent."
+    is_conflict_related: true
+    is_physical_violence: false
+
+  "15":
+    name: "Exhibit military or force posture"
+    description: "Military or police troop mobilization, alerts, maneuvers, or shows of force."
+    is_conflict_related: true
+    is_physical_violence: false
+
+  "16":
+    name: "Reduce relations"
+    description: "Formal diplomatic, financial, or political disengagement, including reducing aid."
+    is_conflict_related: true
+    is_physical_violence: false
+
+  "17":
+    name: "Coerce"
+    description: "Repressive or administrative enforcement, curfews, arrests, raids, and property seizure."
+    is_conflict_related: true
+    is_physical_violence: false
+
+  "18":
+    name: "Assault"
+    description: "Direct physical violence against individuals, targeted killings, torture, abductions, bombings."
+    is_conflict_related: true
+    is_physical_violence: true
+
+  "19":
+    name: "Fight"
+    description: "Conventional combat, light arms warfare, artillery battles, armed confrontations."
+    is_conflict_related: true
+    is_physical_violence: true
+
+  "20":
+    name: "Engage in unconventional mass violence"
+    description: "Mass atrocities, mass expulsions, ethnic cleansing, or weapons of mass destruction."
+    is_conflict_related: true
+    is_physical_violence: true
+
+# ── Subcodes (CAMEO 1.1b3 Official Formulations) ──────────────────────────────
+subcodes:
+  # 13: Threaten
+  "130": { name: "Threaten, not specified", parent_root: "13", is_physical_violence: false }
+  "131": { name: "Threaten non-force", parent_root: "13", is_physical_violence: false }
+  "132": { name: "Threaten with administrative sanctions", parent_root: "13", is_physical_violence: false }
+  "133": { name: "Threaten political dissent", parent_root: "13", is_physical_violence: false }
+  "134": { name: "Threaten to halt negotiations", parent_root: "13", is_physical_violence: false }
+  "135": { name: "Threaten to halt mediation", parent_root: "13", is_physical_violence: false }
+  "136": { name: "Threaten to halt international involvement", parent_root: "13", is_physical_violence: false }
+  "137": { name: "Threaten with repression", parent_root: "13", is_physical_violence: false }
+  "138": { name: "Threaten with military force", parent_root: "13", is_physical_violence: false }
+  "139": { name: "Give ultimatum", parent_root: "13", is_physical_violence: false }
+
+  # 14: Protest
+  "140": { name: "Engage in political dissent, not specified", parent_root: "14", is_physical_violence: false }
+  "145": { name: "Engage in violent protest or rioting", parent_root: "14", is_physical_violence: true }
+
+  # 15: Exhibit force posture
+  "150": { name: "Demonstrate military or police capability", parent_root: "15", is_physical_violence: false }
+  "151": { name: "Increase police alert status", parent_root: "15", is_physical_violence: false }
+  "152": { name: "Increase military alert status", parent_root: "15", is_physical_violence: false }
+  "153": { name: "Mobilize or deploy police forces", parent_root: "15", is_physical_violence: false }
+  "154": { name: "Mobilize or deploy armed forces", parent_root: "15", is_physical_violence: false }
+
+  # 16: Reduce relations
+  "160": { name: "Reduce relations, not specified", parent_root: "16", is_physical_violence: false }
+  "161": { name: "Reduce or break diplomatic relations", parent_root: "16", is_physical_violence: false }
+  "162": { name: "Reduce or stop humanitarian aid", parent_root: "16", is_physical_violence: false }
+  "163": { name: "Reduce or stop military aid", parent_root: "16", is_physical_violence: false }
+  "164": { name: "Halt negotiations", parent_root: "16", is_physical_violence: false }
+  "165": { name: "Halt mediation", parent_root: "16", is_physical_violence: false }
+
+  # 17: Coerce
+  "170": { name: "Coerce, not specified", parent_root: "17", is_physical_violence: false }
+  "171": { name: "Confiscate or destroy property", parent_root: "17", is_physical_violence: false }
+  "172": { name: "Impose administrative sanctions or curfews", parent_root: "17", is_physical_violence: false }
+  "173": { name: "Arrest, detain, or hold in custody", parent_root: "17", is_physical_violence: false }
+  "174": { name: "Expel or deport", parent_root: "17", is_physical_violence: false }
+  "175": { name: "Use repressive force against civilians", parent_root: "17", is_physical_violence: true }
+
+  # 18: Assault
+  "180": { name: "Assault, not specified", parent_root: "18", is_physical_violence: true }
+  "181": { name: "Abduct, hijack, or take hostage", parent_root: "18", is_physical_violence: true }
+  "182": { name: "Physically assault — killing, assault, torture", parent_root: "18", is_physical_violence: true }
+  "183": { name: "Non-military bombing", parent_root: "18", is_physical_violence: true }
+  "184": { name: "Use as human shield", parent_root: "18", is_physical_violence: true }
+  "185": { name: "Attempt to assassinate", parent_root: "18", is_physical_violence: true }
+
+  # 19: Fight
+  "190": { name: "Use conventional military force", parent_root: "19", is_physical_violence: true }
+  "191": { name: "Impose blockade or restrict movement", parent_root: "19", is_physical_violence: false }
+  "192": { name: "Occupy territory", parent_root: "19", is_physical_violence: false }
+  "193": { name: "Fight with small arms or light weapons", parent_root: "19", is_physical_violence: true }
+  "194": { name: "Fight with artillery or heavy weapons", parent_root: "19", is_physical_violence: true }
+  "195": { name: "Air strike or missile attack", parent_root: "19", is_physical_violence: true }
+
+  # 20: Engage in unconventional mass violence
+  "200": { name: "Use unconventional mass violence", parent_root: "20", is_physical_violence: true }
+  "201": { name: "Engage in mass expulsion", parent_root: "20", is_physical_violence: true }
+  "202": { name: "Engage in mass killings", parent_root: "20", is_physical_violence: true }
+  "203": { name: "Engage in ethnic cleansing", parent_root: "20", is_physical_violence: true }
+  "204": { name: "Use weapons of mass destruction", parent_root: "20", is_physical_violence: true }
+
+# ── Bangladesh Contextual Extensions (Orthogonal to CAMEO Action) ────────────
+bangladesh_context_tags:
+  "PV01": { name: "Hartal-related violence", domain: "POLITICAL_VIOLENCE" }
+  "PV02": { name: "Political party clash", domain: "POLITICAL_VIOLENCE" }
+  "PV03": { name: "Election violence", domain: "POLITICAL_VIOLENCE" }
+  "PV04": { name: "Student political violence", domain: "POLITICAL_VIOLENCE" }
+
+  "SV01": { name: "Extrajudicial killing (crossfire)", domain: "STATE_CUSTODIAL_VIOLENCE" }
+  "SV02": { name: "Enforced disappearance", domain: "STATE_CUSTODIAL_VIOLENCE" }
+  "SV03": { name: "Custodial torture or death", domain: "STATE_CUSTODIAL_VIOLENCE" }
+  "SV04": { name: "Excessive force during protest", domain: "STATE_CUSTODIAL_VIOLENCE" }
+
+  "CV01": { name: "Religious communal violence", domain: "COMMUNAL_IDENTITY_VIOLENCE" }
+  "CV02": { name: "Land-related communal violence", domain: "COMMUNAL_IDENTITY_VIOLENCE" }
+  "CV03": { name: "Ethnic minority violence", domain: "COMMUNAL_IDENTITY_VIOLENCE" }
+
+  "GV01": { name: "Acid attack", domain: "GENDER_BASED_VIOLENCE" }
+  "GV02": { name: "Domestic violence fatality", domain: "GENDER_BASED_VIOLENCE" }
+  "GV03": { name: "Sexual assault or rape", domain: "GENDER_BASED_VIOLENCE" }
+  "GV04": { name: "Dowry violence", domain: "GENDER_BASED_VIOLENCE" }
+
+  "LV01": { name: "Garment worker unrest", domain: "LABOR_WORKPLACE_VIOLENCE" }
+  "LV02": { name: "Industrial disaster", domain: "LABOR_WORKPLACE_VIOLENCE" }
+  "LV03": { name: "Labor rights suppression", domain: "LABOR_WORKPLACE_VIOLENCE" }
+
+  "OC01": { name: "Drug-related killing", domain: "ORGANIZED_CRIME_MOB_VIOLENCE" }
+  "OC02": { name: "Extortion violence", domain: "ORGANIZED_CRIME_MOB_VIOLENCE" }
+  "OC03": { name: "Mob justice or lynching", domain: "ORGANIZED_CRIME_MOB_VIOLENCE" }

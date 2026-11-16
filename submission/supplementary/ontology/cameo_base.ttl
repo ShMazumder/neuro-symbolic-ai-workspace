@@ -156,10 +156,10 @@ cameo:Code131 a owl:Class ; rdfs:subClassOf cameo:Threaten ; cameo:code "131" ; 
 cameo:Code132 a owl:Class ; rdfs:subClassOf cameo:Threaten ; cameo:code "132" ; rdfs:label "Threaten with administrative sanctions"@en .
 cameo:Code133 a owl:Class ; rdfs:subClassOf cameo:Threaten ; cameo:code "133" ; rdfs:label "Threaten political dissent"@en .
 cameo:Code134 a owl:Class ; rdfs:subClassOf cameo:Threaten ; cameo:code "134" ; rdfs:label "Threaten to halt negotiations"@en .
-cameo:Code135 a owl:Class ; rdfs:subClassOf cameo:Threaten ; cameo:code "135" ; rdfs:label "Threaten with unconventional violence"@en .
-cameo:Code136 a owl:Class ; rdfs:subClassOf cameo:Threaten ; cameo:code "136" ; rdfs:label "Threaten with mass violence"@en .
+cameo:Code135 a owl:Class ; rdfs:subClassOf cameo:Threaten ; cameo:code "135" ; rdfs:label "Threaten to halt mediation"@en .
+cameo:Code136 a owl:Class ; rdfs:subClassOf cameo:Threaten ; cameo:code "136" ; rdfs:label "Threaten to halt international involvement"@en .
 cameo:Code137 a owl:Class ; rdfs:subClassOf cameo:Threaten ; cameo:code "137" ; rdfs:label "Threaten with repression"@en .
-cameo:Code138 a owl:Class ; rdfs:subClassOf cameo:Threaten ; cameo:code "138" ; rdfs:label "Threaten with conventional attack"@en .
+cameo:Code138 a owl:Class ; rdfs:subClassOf cameo:Threaten ; cameo:code "138" ; rdfs:label "Threaten with military force"@en .
 cameo:Code139 a owl:Class ; rdfs:subClassOf cameo:Threaten ; cameo:code "139" ; rdfs:label "Give ultimatum"@en .
 
 # ── Category 14.5: Violent Protest / Riots ───────────────────────────────────
