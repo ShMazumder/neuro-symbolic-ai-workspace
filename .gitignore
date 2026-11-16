@@ -5,6 +5,8 @@ data/*
 !data/real_news_daily_star.json
 !data/annotations/
 !data/annotations/**
+!data/cameo_bd_corpus/
+!data/cameo_bd_corpus/**
 !data/raw/
 !data/raw/.gitkeep
 !data/processed/
