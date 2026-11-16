@@ -1,0 +1,49 @@
+{
+  "dataset_size": 300,
+  "cv_folds": 5,
+  "epochs_per_fold": 35,
+  "conditions": {
+    "flat_multiclass_baseline": {
+      "root_acc_mean": 0.43,
+      "root_acc_std": 0.0452,
+      "root_f1_mean": 0.3834,
+      "root_f1_std": 0.0448,
+      "viol_acc_mean": 0.7767,
+      "viol_acc_std": 0.0343,
+      "viol_f1_mean": 0.8458,
+      "viol_f1_std": 0.0251,
+      "onto_viol_mean": 0.3533,
+      "onto_viol_std": 0.0386,
+      "hier_viol_mean": 0.0,
+      "hier_viol_std": 0.0
+    },
+    "hierarchical_ce_only": {
+      "root_acc_mean": 0.4133,
+      "root_acc_std": 0.0609,
+      "root_f1_mean": 0.3637,
+      "root_f1_std": 0.0412,
+      "viol_acc_mean": 0.78,
+      "viol_acc_std": 0.0323,
+      "viol_f1_mean": 0.8587,
+      "viol_f1_std": 0.0222,
+      "onto_viol_mean": 0.3567,
+      "onto_viol_std": 0.0359,
+      "hier_viol_mean": 0.0533,
+      "hier_viol_std": 0.0125
+    },
+    "hierarchical_soft_nesy": {
+      "root_acc_mean": 0.4467,
+      "root_acc_std": 0.0427,
+      "root_f1_mean": 0.3983,
+      "root_f1_std": 0.0407,
+      "viol_acc_mean": 0.7733,
+      "viol_acc_std": 0.0327,
+      "viol_f1_mean": 0.8535,
+      "viol_f1_std": 0.0201,
+      "onto_viol_mean": 0.3333,
+      "onto_viol_std": 0.0558,
+      "hier_viol_mean": 0.0667,
+      "hier_viol_std": 0.035
+    }
+  }
+}
