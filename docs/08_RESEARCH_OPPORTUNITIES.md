@@ -5,29 +5,29 @@
 ## Publication-Worthy Research Contributions
 
 ### 1. CAMEO Extension for South Asian Violence Taxonomy
-**Gap:** No fine-grained CAMEO coding exists for BD-specific violence types (hartals, crossfire/extrajudicial killings, enforced disappearances, communal attacks on minorities, acid attacks).
+**Gap:** Standard CAMEO coding was engineered for interstate diplomacy and lacks indigenous granularity for South Asian localized violence archetypes (hartals, crossfire/extrajudicial encounters, enforced disappearances, communal attacks on minorities, acid attacks).
 
-**Contribution:** A validated, OWL-modeled extension of CAMEO with BD-specific subcategories, trigger word lexicons, and annotated evaluation data.
+**Contribution:** A validated, OWL 2 Turtle-modeled extension of CAMEO with 21 localized subcategories across 6 regional macro-categories, trigger lexicons, and annotated evaluation data.
 
-**Novelty:** First formal ontological extension of CAMEO for South Asian conflict coding.
+**Novelty:** A formal domain-specific ontological extension of CAMEO grounded in Bangladeshi socio-political conflict realities.
 
 ---
 
 ### 2. Low-Resource Bilingual Event Extraction
-**Gap:** Daily Star publishes in English, but the broader BD news ecosystem is Bangla-dominant. Cross-lingual event extraction for Bangla↔English in the conflict domain is underexplored.
+**Gap:** While national English broadsheets (e.g. *The Daily Star*) provide authoritative coverage for national policy events, rural and localized incidents are covered predominantly in vernacular Bangla portals (*Prothom Alo*, *Jugantor*). Cross-lingual event extraction for Bangla↔English in the conflict domain is underexplored.
 
-**Contribution:** A bilingual pipeline that extracts CAMEO-coded events from both English and Bangla sources, with entity alignment across languages.
+**Contribution:** A bilingual pipeline that extracts CAMEO-coded events from both English and Bangla sources, with entity alignment across languages via fine-tuned BanglaBERT.
 
-**Novelty:** Low-resource cross-lingual event extraction with ontology grounding. Very few systems handle Bangla NER + event extraction.
+**Novelty:** Low-resource cross-lingual event extraction with ontology grounding.
 
 ---
 
-### 3. Temporal Knowledge Graph for Violence Forecasting
-**Gap:** Static KGs can't capture how conflict dynamics evolve. Standard CAMEO datasets (GDELT, ICEWS) provide event streams but lack rich temporal reasoning.
+### 3. Temporal Knowledge Graph for Escalation Trajectory Modeling
+**Gap:** Static KGs cannot capture how conflict dynamics evolve over time. Standard CAMEO datasets (GDELT, ICEWS) provide event streams but lack formal temporal transition reasoning.
 
-**Contribution:** A dynamic KG where triples have temporal scope (event start/end dates, validity windows). GNN-based forecasting predicts escalation from temporal event sequences.
+**Contribution:** A dynamic temporal graph where event nodes maintain historical precursor relationships and timeline context. Sequence models combine historical precursor trajectories with Description Logic transition plausibility gates.
 
-**Novelty:** Temporal-scoped RDF triples in BlazeGraph + time-aware GNN for conflict escalation prediction.
+**Novelty:** Integrating temporal sequence priors with formal Description Logic state-transition constraints for conflict escalation reasoning.
 
 ---
 
