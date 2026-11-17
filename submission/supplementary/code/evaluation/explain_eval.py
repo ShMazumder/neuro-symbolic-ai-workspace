@@ -192,11 +192,27 @@ def _generate_fallback_explanations(events: list[dict], n: int = 100) -> list[di
             })
 
         rules_fired = []
-        if code >= 17:
-            rules_fired.append(f"Rule: CAMEO code {code} >= 17 -> classified HIGH_VIOLENCE by definition.")
+        try:
+            from neurosymbolic.hybrid import get_ontology_graph
+            g = get_ontology_graph()
+            q = f"""
+            PREFIX cameo: <http://example.org/cameo/>
+            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+            SELECT ?p ?o WHERE {{
+                cameo:Category{code} ?p ?o .
+                FILTER(?p IN (cameo:validTransitionTo, cameo:permittedActorType, rdfs:subClassOf))
+            }}
+            LIMIT 5
+            """
+            for row in g.query(q):
+                p_short = str(row[0]).split("/")[-1].split("#")[-1]
+                o_short = str(row[1]).split("/")[-1].split("#")[-1]
+                rules_fired.append(f"Axiom: cameo:Category{code} {p_short} {o_short}")
+        except Exception:
+            rules_fired = []
 
         narrative = (
-            f"Event {event_id} (CAMEO {code}) classified with confidence {confidence:.1%}. "
+            f"Event {event_id} (CAMEO {code}) evaluated under offline provenance grounding with confidence {confidence:.1%}. "
             f"Location: {loc.get('district', 'N/A') if isinstance(loc, dict) else 'N/A'}. "
             f"{'Provenance: ' + source_url if source_url else 'No provenance available.'}"
         )
@@ -206,12 +222,13 @@ def _generate_fallback_explanations(events: list[dict], n: int = 100) -> list[di
             "explanation": {
                 "prediction_type":        "gnn_pattern",
                 "target":                 f"http://example.org/event/{event_id}",
-                "label":                  "HIGH_VIOLENCE_PATTERN" if code >= 17 else "NORMAL_PATTERN",
+                "label":                  "HIGH_VIOLENCE_PATTERN" if code >= 18 else "NORMAL_PATTERN",
                 "confidence":             confidence,
                 "supporting_evidence":    evidence,
                 "symbolic_rules_fired":   rules_fired,
                 "symbolic_rules_blocked": [],
                 "narrative":              narrative,
+                "execution_mode":         "OFFLINE_RDF_PROVENANCE",
             },
         })
 

@@ -163,8 +163,14 @@ def get_ontology_graph() -> rdflib.Graph:
     return _ONTOLOGY_GRAPH
 
 
-def check_sparql_constraint(query: str) -> bool:
-    """Execute a SPARQL ASK or SELECT query over the loaded ontology graph."""
+def check_sparql_constraint(query: str) -> Optional[bool]:
+    """
+    Execute a SPARQL ASK or SELECT query over the loaded RDF ontology graph.
+    Returns:
+      - True: if ASK query returns True or SELECT returns ≥1 binding.
+      - False: if ASK returns False or SELECT returns 0 bindings.
+      - None: if query execution encountered an error (never fail-open).
+    """
     g = get_ontology_graph()
     try:
         res = g.query(query)
@@ -175,7 +181,7 @@ def check_sparql_constraint(query: str) -> bool:
         return len(list(res)) > 0
     except Exception as e:
         logger.warning("SPARQL constraint query failed: %s", e)
-        return True
+        return None
 
 
 def _check_ontological_transition(
@@ -204,13 +210,20 @@ def _check_ontological_transition(
 
     allowed = VALID_TRANSITIONS.get(prev_code, set(range(13, 21)))
 
-    if is_sparql_illegal or not is_sparql_valid or neural_code not in allowed:
+    # Violation occurs if SPARQL confirms illegal, SPARQL disproves valid, or python transition table rejects
+    is_violation = (
+        (is_sparql_illegal is True)
+        or (is_sparql_valid is False)
+        or (neural_code not in allowed)
+    )
+
+    if is_violation:
         return ConstraintViolation(
             rule_id="C-ONTO-01",
             rule_type="ontological",
             description=(
                 f"CAMEO transition {prev_code}→{neural_code} violates ontology axiom "
-                f"cameo:illegalTransitionTo in reasoning_rules.ttl (verified via live SPARQL query)."
+                f"cameo:illegalTransitionTo in reasoning_rules.ttl (verified via SPARQL/DL reasoner)."
             ),
             severity="hard",
         )
@@ -234,13 +247,19 @@ def _check_actor_constraint(
     actor_permitted_by_sparql = check_sparql_constraint(sparql_actor_query)
 
     allowed = ACTOR_CODE_CONSTRAINTS.get(neural_code, set())
-    if allowed and not actor_permitted_by_sparql:
+    # Violation occurs if SPARQL affirmatively disproves permittedActorType, or fallback table rejects
+    actor_violates = (
+        (actor_permitted_by_sparql is False)
+        or (bool(allowed) and actor_type not in allowed)
+    )
+
+    if actor_violates:
         return ConstraintViolation(
             rule_id="C-ACTOR-01",
             rule_type="actor",
             description=(
                 f"Actor type '{actor_type}' violates cameo:permittedActorType for "
-                f"Category{neural_code} in RDF ontology (verified via live SPARQL ASK query)."
+                f"Category{neural_code} in RDF ontology (verified via live SPARQL query)."
             ),
             severity="soft",
         )
