@@ -63,30 +63,41 @@ This index serves as the **single authoritative source of truth** mapping all in
 ### Project 2: `hier-nesy-bd`
 * **Full Title**: *Hierarchical Ontology-Guided Neuro-Symbolic Event Classification and Soft Constraint Learning for Conflict Monitoring*
 * **Core Scientific Contribution**:
-  * Directly tackles the **flat 8-class root plateau (22.0% accuracy)** identified in Reviews 16, 17, and 18.
+  * Directly tackles the **flat 8-class root plateau (22.0% accuracy)** identified in Reviews 16, 17, 18, and 19.
   * Replaces flat multiclass softmax with a **4-tier hierarchical neural model**:
     $$\text{Level 1: Event Identification} \longrightarrow \text{Level 2: Violence Binary} \longrightarrow \text{Level 3: CAMEO Root} \longrightarrow \text{Level 4: BD Subcode}$$
   * Replaces post-hoc hard rejection logit masking with **soft ontological constraint loss**:
     $$\mathcal{L} = \mathcal{L}_{\text{CE}} + \lambda_1 \mathcal{L}_{\text{hier}} + \lambda_2 \mathcal{L}_{\text{logic}} + \lambda_3 \mathcal{L}_{\text{consistency}}$$
-  * Implements **constrained bipartite 1-to-1 ACLED matching** (Hungarian algorithm) across multiple temporal windows ($\pm 1, \pm 3, \pm 7, \pm 14, \pm 21$ days) to output sensitivity curves.
+  * Implements **unbiased Hungarian bipartite 1-to-1 ACLED matching** ($w_{\text{code}} = 0.0$) across multiple temporal windows ($\pm 1, \pm 3, \pm 7, \pm 14, \pm 21$ days) to output sensitivity curves.
+* **Canonical Empirical Results**:
+  * **CAMEO Root Accuracy**: **44.7% $\pm$ 4.3%** across 5-fold stratified CV (**$+103\%$ relative gain, $+22.7$ pp** over the flat 22.0% baseline).
+  * **Binary Violence Accuracy**: **78.0% $\pm$ 2.4%** ($F_1 = 0.859$).
+  * **Ontological Violation Rate**: Reduced from **35.3%** to **33.3%**.
 * **Code & Evaluation Directory**:
   * Neural Architecture: `nlp/hier_nesy/hierarchical_classifier.py`
   * Loss Functions: `nlp/hier_nesy/soft_constraint_loss.py`
   * Bipartite ACLED Matcher: `evaluation/hier_nesy/benchmark_acled_bipartite.py`
-  * Manuscript Draft: `research/hier-nesy-bd/manuscript/`
-* **Status**: **ACTIVE IMPLEMENTATION (Phase 2)**.
+  * Manuscript Draft: `research/hier-nesy-bd/manuscript/` (Compiled 5-page PDF: [`research/hier-nesy-bd/manuscript/main.pdf`](research/hier-nesy-bd/manuscript/main.pdf))
+* **Status**: **ACTIVE / PAPER DRAFT COMPILED (Phase 2)**.
 
 ---
 
 ### Project 3: `cameo-bd-corpus`
 * **Full Title**: *A Curated Bangladesh Conflict News Benchmark and 21-Subclass CAMEO Ontology Extension*
 * **Core Scientific Contribution**:
+  * Authoritative Single Source of Truth Taxonomy Registry: [`ontology/cameo_registry.yaml`](ontology/cameo_registry.yaml).
   * The formal OWL 2 Turtle domain ontology ([`ontology/cameo_bd_extension.ttl`](ontology/cameo_bd_extension.ttl)) formulating 21 localized violence subclasses across 6 macro-categories (PV, SV, CV, GV, LV, OC).
   * Formal separation of **Action Predicates** (`cameo:hasCode`) from **Contextual Tags** (`cameo-bd:hasContext`).
   * Multi-annotator curated conflict benchmark with double-annotation agreement metrics ($\kappa = 0.737, \kappa = 0.832$).
+  * Article-grouped, zero-leakage dataset splitter ([`evaluation/split_dataset.py`](evaluation/split_dataset.py)) using `StratifiedGroupKFold` across 98 unique source articles:
+    * **Train**: 207 events (71 articles, 69.0%)
+    * **Dev**: 31 events (8 articles, 10.3%)
+    * **Test**: 62 events (19 articles, 20.7%)
 * **Artifact Directory**:
+  * Taxonomy Registry: [`ontology/cameo_registry.yaml`](ontology/cameo_registry.yaml)
   * Ontology Files: [`ontology/cameo_bd_extension.ttl`](ontology/cameo_bd_extension.ttl) & [`ontology/reasoning_rules.ttl`](ontology/reasoning_rules.ttl)
-  * Data Directory: `data/cameo_bd_corpus/`
+  * Data Directory: `data/cameo_bd_corpus/` ([`data/cameo_bd_corpus/loader.py`](data/cameo_bd_corpus/loader.py))
+  * Versioned Split Manifest: [`data/splits/bd_conflict_manifest.json`](data/splits/bd_conflict_manifest.json)
 * **Status**: **STABLE & EXPANDING**.
 
 ---
@@ -112,27 +123,37 @@ To prevent cross-talk and preserve Paper 1 reproduction, code modules map strict
 | **Ablation Benchmark** | `evaluation/ablation.py` (Outputs Table 4) | `evaluation/hier_nesy/hierarchical_ablation.py` |
 | **ACLED Validation** | `evaluation/benchmark_acled.py` (Table 8 match) | `evaluation/hier_nesy/benchmark_acled_bipartite.py` (1-to-1 match) |
 | **Dataset Benchmark** | `data/processed/benchmark_events_gold.json` ($N=300$) | `data/hier_nesy/hierarchical_benchmark.json` |
-| **Test Suite** | `tests/test_*.py` (28 canonical tests) | `tests/hier_nesy/test_*.py` |
+| **Test Suite** | `tests/test_*.py` (33 canonical tests) | `tests/hier_nesy/test_*.py` (9 tests) |
 
 ---
 
 ## 4. One-Line Reproduction Guide
 
 ```bash
+# ── Global Test Suite (42/42 tests passing across all tracks) ───────────────
+python -m pytest tests/ tests/hier_nesy/ -v
+
 # ── Project 1: nesy-bd-constraint-gate ──────────────────────────────────────
-# 1. Verify Paper 1 test suite (28/28 passed):
-python -m pytest tests/test_cameo_classifier.py tests/test_event_triggers.py tests/test_geo.py tests/test_neurosymbolic.py tests/test_rdf_generator.py tests/test_relevance_filter.py tests/test_scraper.py
+# 1. Verify Paper 1 test suite:
+python -m pytest tests/test_cameo_classifier.py tests/test_event_triggers.py tests/test_geo.py tests/test_neurosymbolic.py tests/test_rdf_generator.py tests/test_relevance_filter.py tests/test_scraper.py tests/test_benchmarks.py
 
 # 2. Run Paper 1 Ablation (Table 4 & Table 6):
 python evaluation/ablation.py
 
-# 3. Check Paper 1 DL Ontology Consistency (0 violations):
+# 3. Check Description Logic (ALC) Ontology Consistency (0 violations):
 python knowledge_graph/dl_reasoner_check.py
 
 # ── Project 2: hier-nesy-bd ─────────────────────────────────────────────────
-# 1. Run Paper 2 Hierarchical Training & Evaluation:
-python -m evaluation.hier_nesy.hierarchical_ablation
+# 1. Run 5-Fold Stratified Hierarchical Training & Evaluation:
+python research/hier-nesy-bd/train_and_eval_hierarchy.py
 
-# 2. Run Paper 2 Bipartite ACLED Sensitivity Sweep:
-python -m evaluation.hier_nesy.benchmark_acled_bipartite
+# 2. Run Unbiased Bipartite ACLED Sensitivity Sweep (tau in {1, 3, 7, 14, 21} days):
+python research/hier-nesy-bd/run_acled_bipartite_evaluation.py
+
+# 3. Compile Paper 2 Camera-Ready PDF (research/hier-nesy-bd/manuscript/main.pdf):
+cd research/hier-nesy-bd/manuscript && pdflatex main.tex && bibtex main && pdflatex main.tex && pdflatex main.tex
+
+# ── Resource Track: cameo-bd-corpus ─────────────────────────────────────────
+# 1. Generate Article-Grouped Zero-Leakage Dataset Splits:
+python evaluation/split_dataset.py
 ```
