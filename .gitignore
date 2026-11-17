@@ -7,6 +7,8 @@ data/*
 !data/annotations/**
 !data/cameo_bd_corpus/
 !data/cameo_bd_corpus/**
+!data/splits/
+!data/splits/**
 !data/raw/
 !data/raw/.gitkeep
 !data/processed/
