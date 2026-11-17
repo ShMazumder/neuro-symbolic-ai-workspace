@@ -36,20 +36,29 @@ The `cameo-bd-corpus` is a curated, expert double-annotated conflict event extra
 
 * `cameo_bd_corpus.json`: Full benchmark records with text, actors, locations, dual-annotator decisions, and adjudicated consensus labels.
 * `cameo_bd_extension.ttl`: Formal W3C OWL 2 Turtle ontology containing the 21 subclasses, disjointness axioms, and context properties.
-* `loader.py`: Python loader providing `load_corpus()` and `get_stratified_splits()`.
+* `splits/bd_conflict_manifest.json`: Versioned article-grouped zero-leakage split manifest (207 train, 31 dev, 62 test across 98 unique source articles).
+* `loader.py`: Python loader providing `load_corpus()`, `get_stratified_splits()`, and `get_article_grouped_splits()`.
 
 ---
 
 ## 4. Usage Example
 
 ```python
-from data.cameo_bd_corpus.loader import load_corpus, get_stratified_splits
+from data.cameo_bd_corpus.loader import (
+    load_corpus,
+    get_stratified_splits,
+    get_article_grouped_splits,
+)
 
-# Load full corpus
+# 1. Load full corpus
 records = load_corpus()
 print(f"Loaded {len(records)} benchmark events.")
 
-# Obtain stratified train/test splits (80/20)
+# 2. Obtain stratified train/test splits (80/20)
 train_set, test_set = get_stratified_splits(test_size=0.2, seed=42)
-print(f"Train: {len(train_set)} | Test: {len(test_set)}")
+print(f"Stratified -> Train: {len(train_set)} | Test: {len(test_set)}")
+
+# 3. Obtain zero-leakage article-grouped splits (Train: 207, Dev: 31, Test: 62)
+tr_grp, dev_grp, te_grp = get_article_grouped_splits()
+print(f"Article-grouped (zero leakage) -> Train: {len(tr_grp)} | Dev: {len(dev_grp)} | Test: {len(te_grp)}")
 ```

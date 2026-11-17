@@ -9,8 +9,8 @@ This directory contains the core standalone evaluation scripts, ontological sche
 From the workspace root directory:
 
 ```bash
-# 1. Run full unit test suite (28/28 tests should pass):
-python -m pytest tests/
+# 1. Run full unit test suite (42/42 tests should pass):
+python -m pytest tests/ tests/hier_nesy/ -v
 
 # 2. Run Description Logic reasoner consistency check (0 violations):
 python submission/supplementary/code/knowledge_graph/dl_reasoner_check.py

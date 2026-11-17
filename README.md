@@ -1,7 +1,19 @@
 # Neuro-Symbolic AI for Violence Analysis in Bangladeshi News
 
-> **Source:** The Daily Star (Bangladesh) · **Graph DB:** BlazeGraph · **Ontology:** CAMEO  
-> **Goal:** Build a neuro-symbolic pipeline that extracts, codes, and reasons over violence events from live Bangladeshi news using CAMEO-coded RDF knowledge graphs.
+> **Source:** The Daily Star (Bangladesh) · **Graph DB:** BlazeGraph · **Ontology:** CAMEO 1.1b3 + BD Extension  
+> **Goal:** Build a neuro-symbolic pipeline that extracts, codes, and reasons over violence events from live Bangladeshi news using CAMEO-coded RDF knowledge graphs.  
+> 🌟 **Authoritative Master Research Registry:** [`RESEARCH_INDEX.md`](RESEARCH_INDEX.md) — Comprehensive guide mapping all 4 research tracks, paper manuscripts, and reproduction commands.
+
+---
+
+## Multi-Track Research Registry Overview
+
+| Track / Unique Name-ID | Research Scope & Contribution | Current Status | Primary Artifacts |
+|---|---|---|---|
+| **`nesy-bd-constraint-gate`** | **Paper 1:** Hard Description Logic constraint gating, PROV-O auditable triplestore, ablation study | **Frozen v1.1.0** (Camera-Ready) | [`submission/manuscript/main.pdf`](submission/manuscript/main.pdf), [`submission/`](submission/) |
+| **`hier-nesy-bd`** | **Paper 2:** 4-tier neural hierarchy, soft constraint loss, Hungarian 1-to-1 ACLED matching | **Phase 2 Complete** (Camera-Ready) | [`research/hier-nesy-bd/manuscript/main.pdf`](research/hier-nesy-bd/manuscript/main.pdf), [`nlp/hier_nesy/`](nlp/hier_nesy/) |
+| **`cameo-bd-corpus`** | **Resource Track:** 300 double-annotated conflict benchmark events, 21-subclass OWL 2 ontology | **Stable Core Resource** | [`data/cameo_bd_corpus/`](data/cameo_bd_corpus/), [`data/splits/bd_conflict_manifest.json`](data/splits/bd_conflict_manifest.json) |
+| **`temporal-nesy-forecast`**| **Paper 3:** Dynamic spatio-temporal knowledge graph forecasting over longitudinal conflict | **Future Horizon** | Reserved (`research/temporal-nesy-forecast/`) |
 
 ---
 
@@ -126,9 +138,20 @@ docker-compose -f docker/docker-compose.yml up -d
 ### Phase 3: Run Full Evaluation Suite & Benchmarks
 Execute all ablation studies, GDELT/ACLED validation, and metric generators:
 ```bash
-python -m evaluation.run_all
-# or
-make eval
+# 1. Run full 42-test unit test suite across Paper 1 and Paper 2:
+pytest tests/ tests/hier_nesy/ -v
+
+# 2. Check Description Logic (ALC) ontology consistency:
+python knowledge_graph/dl_reasoner_check.py
+
+# 3. Run Paper 1 Ablation (Table 4 & Table 6):
+python evaluation/ablation.py
+
+# 4. Run Paper 2 5-Fold Stratified Hierarchy Benchmark & Zero-Leakage Holdout:
+python research/hier-nesy-bd/run_full_ablation_and_article_eval.py
+
+# 5. Run Kuhn-Munkres 1-to-1 Bipartite ACLED Sensitivity Sweep:
+python research/hier-nesy-bd/run_acled_bipartite_evaluation.py
 ```
 Outputs are saved to `data/processed/` and documented in [`docs/07_EXPERIMENT_REPORT.md`](docs/07_EXPERIMENT_REPORT.md).
 
