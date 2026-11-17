@@ -1,0 +1,32 @@
+{
+  "dataset_split": {
+    "train_articles": 79,
+    "train_events": 238,
+    "test_articles": 19,
+    "test_events": 62,
+    "article_leakage": 0
+  },
+  "flat_baseline": {
+    "root_accuracy": 0.371,
+    "root_macro_f1": 0.3394,
+    "violence_accuracy": 0.6613,
+    "violence_f1": 0.7692,
+    "ontological_violation_rate": 0.2903
+  },
+  "hier_ce_only": {
+    "root_accuracy": 0.3871,
+    "root_macro_f1": 0.3052,
+    "violence_accuracy": 0.6935,
+    "violence_f1": 0.7957,
+    "ontological_violation_rate": 0.3065,
+    "hierarchical_violation_rate": 0.0806
+  },
+  "hier_full_nesy": {
+    "root_accuracy": 0.4032,
+    "root_macro_f1": 0.3212,
+    "violence_accuracy": 0.6935,
+    "violence_f1": 0.7957,
+    "ontological_violation_rate": 0.3065,
+    "hierarchical_violation_rate": 0.0645
+  }
+}

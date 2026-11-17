@@ -1,0 +1,132 @@
+{
+  "flat_baseline": {
+    "root_accuracy": {
+      "mean": 0.4367,
+      "std": 0.0287
+    },
+    "root_macro_f1": {
+      "mean": 0.387,
+      "std": 0.0389
+    },
+    "violence_accuracy": {
+      "mean": 0.7633,
+      "std": 0.0499
+    },
+    "violence_f1": {
+      "mean": 0.8394,
+      "std": 0.0361
+    },
+    "ontological_violation_rate": {
+      "mean": 0.37,
+      "std": 0.0488
+    },
+    "hierarchical_violation_rate": {
+      "mean": 0.0,
+      "std": 0.0
+    }
+  },
+  "hier_ce_only": {
+    "root_accuracy": {
+      "mean": 0.4233,
+      "std": 0.0429
+    },
+    "root_macro_f1": {
+      "mean": 0.3873,
+      "std": 0.0391
+    },
+    "violence_accuracy": {
+      "mean": 0.7867,
+      "std": 0.0306
+    },
+    "violence_f1": {
+      "mean": 0.8633,
+      "std": 0.0194
+    },
+    "ontological_violation_rate": {
+      "mean": 0.38,
+      "std": 0.0287
+    },
+    "hierarchical_violation_rate": {
+      "mean": 0.0433,
+      "std": 0.0271
+    }
+  },
+  "hier_plus_hier": {
+    "root_accuracy": {
+      "mean": 0.4233,
+      "std": 0.0429
+    },
+    "root_macro_f1": {
+      "mean": 0.3865,
+      "std": 0.0396
+    },
+    "violence_accuracy": {
+      "mean": 0.7933,
+      "std": 0.0249
+    },
+    "violence_f1": {
+      "mean": 0.8683,
+      "std": 0.0139
+    },
+    "ontological_violation_rate": {
+      "mean": 0.38,
+      "std": 0.0287
+    },
+    "hierarchical_violation_rate": {
+      "mean": 0.0433,
+      "std": 0.0271
+    }
+  },
+  "hier_plus_logic": {
+    "root_accuracy": {
+      "mean": 0.42,
+      "std": 0.0371
+    },
+    "root_macro_f1": {
+      "mean": 0.381,
+      "std": 0.0367
+    },
+    "violence_accuracy": {
+      "mean": 0.79,
+      "std": 0.0271
+    },
+    "violence_f1": {
+      "mean": 0.8658,
+      "std": 0.0161
+    },
+    "ontological_violation_rate": {
+      "mean": 0.3767,
+      "std": 0.0291
+    },
+    "hierarchical_violation_rate": {
+      "mean": 0.0433,
+      "std": 0.0271
+    }
+  },
+  "hier_full_nesy": {
+    "root_accuracy": {
+      "mean": 0.42,
+      "std": 0.0371
+    },
+    "root_macro_f1": {
+      "mean": 0.3805,
+      "std": 0.037
+    },
+    "violence_accuracy": {
+      "mean": 0.79,
+      "std": 0.0271
+    },
+    "violence_f1": {
+      "mean": 0.8658,
+      "std": 0.0161
+    },
+    "ontological_violation_rate": {
+      "mean": 0.3767,
+      "std": 0.0291
+    },
+    "hierarchical_violation_rate": {
+      "mean": 0.0433,
+      "std": 0.0271
+    }
+  }
+}
