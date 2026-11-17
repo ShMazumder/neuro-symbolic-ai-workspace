@@ -162,9 +162,9 @@ class BipartiteACLEDMatcher:
 
     def __init__(
         self,
-        weight_time: float = 0.4,
-        weight_space: float = 0.3,
-        weight_code: float = 0.3,
+        weight_time: float = 0.5,
+        weight_space: float = 0.5,
+        weight_code: float = 0.0,
         max_spatial_km: float = 60.0,
         unmatched_penalty: float = 1e6,
     ):

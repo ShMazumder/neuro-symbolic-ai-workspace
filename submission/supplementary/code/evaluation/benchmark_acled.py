@@ -346,46 +346,55 @@ def align_with_acled(
         ]
 
         if district_matches:
-            # Optimal candidate selection: minimum temporal offset + geographic precision + semantic affinity
+            # Optimal unbiased candidate selection: minimum temporal offset + geographic precision + actor overlap
+            # NOTE: Strictly non-circular. Event type / CAMEO code is never used to rank candidates.
             def _candidate_rank(c):
                 c_dist = (c.get("admin2") or "").lower().strip()
-                exact_dist_penalty = 0 if (sdistrict and c_dist == sdistrict.lower().strip()) else 1
+                is_exact = bool(sdistrict and (c_dist == sdistrict.lower().strip() or sdistrict.lower().strip() in c_dist))
+                exact_dist_penalty = 0 if is_exact else 1
                 c_dt_str = _acled_date(c)
                 try:
                     dt_diff = abs((datetime.strptime(c_dt_str, "%Y-%m-%d") - d).days)
                 except Exception:
                     dt_diff = 999
-                c_cameo = get_acled_cameo(c.get("event_type", ""), c.get("sub_event_type", ""))
-                type_penalty = 0 if c_cameo == scode else (1 if _macro_family_concordance(scode, c_cameo) else 2)
-                return (exact_dist_penalty, dt_diff, type_penalty)
+                # Lexical overlap on actors if available
+                c_act = f"{c.get('actor1', '')} {c.get('actor2', '')}".lower()
+                act_pen = 0 if (sactor and any(tok in c_act for tok in sactor.lower().split() if len(tok) > 2)) else 1
+                return (exact_dist_penalty, dt_diff, act_pen)
 
             best = min(district_matches, key=_candidate_rank)
             acled_cameo = get_acled_cameo(best.get("event_type", ""), best.get("sub_event_type", ""))
+            best_dist = (best.get("admin2") or "").lower().strip()
+            is_exact = bool(sdistrict and (best_dist == sdistrict.lower().strip() or sdistrict.lower().strip() in best_dist))
 
             alignments.append({
-                "system_code":      scode,
-                "acled_code":       acled_cameo,
-                "code_match":       scode == acled_cameo,
-                "code_group_match": _macro_family_concordance(scode, acled_cameo),
-                "district":         sdistrict,
-                "district_match":   True,
-                "system_actor":     sactor,
-                "acled_actor":      best.get("actor1", ""),
-                "date":             sdate,
-                "acled_source":     best.get("source", ""),
+                "system_code":          scode,
+                "acled_code":           acled_cameo,
+                "code_match":           scode == acled_cameo,
+                "code_group_match":     _macro_family_concordance(scode, acled_cameo),
+                "district":             sdistrict,
+                "district_match":       True,
+                "exact_district_match": is_exact,
+                "division_match":       True,
+                "system_actor":         sactor,
+                "acled_actor":          best.get("actor1", ""),
+                "date":                 sdate,
+                "acled_source":         best.get("source", ""),
             })
         else:
             alignments.append({
-                "system_code":      scode,
-                "acled_code":       None,
-                "code_match":       False,
-                "code_group_match": False,
-                "district":         sdistrict,
-                "district_match":   False,
-                "system_actor":     sactor,
-                "acled_actor":      "",
-                "date":             sdate,
-                "acled_source":     "",
+                "system_code":          scode,
+                "acled_code":           None,
+                "code_match":           False,
+                "code_group_match":     False,
+                "district":             sdistrict,
+                "district_match":       False,
+                "exact_district_match": False,
+                "division_match":       False,
+                "system_actor":         sactor,
+                "acled_actor":          "",
+                "date":                 sdate,
+                "acled_source":         "",
             })
 
     return alignments
@@ -399,9 +408,11 @@ def compute_acled_metrics(alignments: list[dict]) -> dict:
     if total == 0:
         return {"error": "No alignments found."}
 
-    matched      = [a for a in alignments if a["district_match"]]
-    code_correct = [a for a in matched if a["code_match"]]
-    code_group   = [a for a in matched if a["code_group_match"]]
+    matched          = [a for a in alignments if a["district_match"]]
+    exact_matched    = [a for a in alignments if a.get("exact_district_match", False)]
+    division_matched = [a for a in alignments if a.get("division_match", False)]
+    code_correct     = [a for a in matched if a["code_match"]]
+    code_group       = [a for a in matched if a["code_group_match"]]
 
     # Detection recall: % of system events that match an ACLED event
     detection_recall = len(matched) / total
@@ -410,8 +421,10 @@ def compute_acled_metrics(alignments: list[dict]) -> dict:
     code_accuracy    = len(code_correct) / len(matched) if matched else 0.0
     code_group_acc   = len(code_group) / len(matched) if matched else 0.0
 
-    # Location accuracy: district match rate
-    location_accuracy = len(matched) / total
+    # Location accuracy: district/region match rate
+    location_accuracy       = len(matched) / total
+    exact_district_accuracy = len(exact_matched) / total
+    division_accuracy       = len(division_matched) / total
 
     # Actor identification: % of matched events where actor names partially overlap
     eligible_actors = [a for a in matched if a.get("acled_actor")]
@@ -430,16 +443,18 @@ def compute_acled_metrics(alignments: list[dict]) -> dict:
 
     actor_str = f"{actor_accuracy:.1%}" if isinstance(actor_accuracy, (int, float)) else str(actor_accuracy)
     return {
-        "total_system_events":  total,
-        "matched_with_acled":   len(matched),
-        "detection_recall":     round(detection_recall, 3),
-        "location_accuracy":    round(location_accuracy, 3),
-        "cameo_code_accuracy":  round(code_accuracy, 3),
-        "cameo_group_accuracy": round(code_group_acc, 3),
-        "actor_identification": actor_accuracy,
+        "total_system_events":     total,
+        "matched_with_acled":      len(matched),
+        "detection_recall":        round(detection_recall, 3),
+        "location_accuracy":       round(location_accuracy, 3),
+        "exact_district_accuracy": round(exact_district_accuracy, 3),
+        "division_accuracy":       round(division_accuracy, 3),
+        "cameo_code_accuracy":     round(code_accuracy, 3),
+        "cameo_group_accuracy":    round(code_group_acc, 3),
+        "actor_identification":    actor_accuracy,
         "summary": (
             f"Detection recall: {detection_recall:.1%} | "
-            f"Location accuracy: {location_accuracy:.1%} | "
+            f"Location accuracy: {location_accuracy:.1%} (Exact district: {exact_district_accuracy:.1%}, Division: {division_accuracy:.1%}) | "
             f"CAMEO code accuracy: {code_accuracy:.1%} | "
             f"Actor identification: {actor_str}"
         ),

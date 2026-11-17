@@ -21,6 +21,7 @@ import csv
 import io
 import json
 import logging
+import re
 import zipfile
 from collections import defaultdict
 from datetime import datetime, timedelta
@@ -249,60 +250,118 @@ def _date_window(date_str: str, days: int = 1) -> set[str]:
         return set()
 
 
+def _normalize_url(url: str) -> str:
+    """Normalize URL by lowercasing, stripping protocol, query params, and trailing slash."""
+    if not url:
+        return ""
+    u = url.strip().lower()
+    u = re.sub(r"^https?://(www\.)?", "", u)
+    u = u.split("?")[0].split("#")[0].rstrip("/")
+    return u
+
+
+def _extract_sev_district(ev: dict) -> str:
+    if ev.get("district"):
+        return str(ev["district"]).strip().lower()
+    loc = ev.get("location")
+    if isinstance(loc, dict):
+        return str(loc.get("district") or loc.get("raw") or "").strip().lower()
+    if loc:
+        return str(loc).strip().lower()
+    return ""
+
+
 def align_events(
     system_events: list[dict],
     gdelt_events: list[dict],
     date_window_days: int = 1,
+    mode: str = "spatiotemporal",
 ) -> list[dict]:
     """
-    Align system events with GDELT events by date window.
+    Align system events with GDELT events.
 
-    Returns alignment records: {system_code, gdelt_code, match, date}
+    Supports two unbiased alignment modes:
+      - mode='url': Exact / normalized article URL matching (strictly grounded).
+      - mode='spatiotemporal': Window-based spatio-temporal + actor matching with ZERO code-based ranking bias.
     """
-    # Index GDELT events by date
+    # Index GDELT by URL
+    gdelt_by_url: dict[str, list[dict]] = defaultdict(list)
+    # Index GDELT by date
     gdelt_by_date: dict[str, list[dict]] = defaultdict(list)
     for ev in gdelt_events:
-        gdelt_by_date[ev["date"]].append(ev)
+        url_norm = _normalize_url(ev.get("source_url", ""))
+        if url_norm:
+            gdelt_by_url[url_norm].append(ev)
+        d = ev.get("date", "")[:10]
+        if d:
+            gdelt_by_date[d].append(ev)
 
     alignments = []
     for sev in system_events:
         d_val = sev.get("date")
         sdate = d_val.get("normalized", "") if isinstance(d_val, dict) else (d_val or "")
-        if not sdate:
-            continue
         raw_code = int(sev.get("cameo_code", 0) or 0)
         scode = raw_code // 10 if raw_code >= 100 else raw_code
         if scode not in VIOLENCE_CODES:
             continue
 
-        # Find GDELT events in the date window
-        window = _date_window(sdate, date_window_days)
-        gdelt_candidates = []
-        for d in window:
-            gdelt_candidates.extend(gdelt_by_date.get(d, []))
+        surl = _normalize_url(sev.get("source_url", ""))
+        sdistrict = _extract_sev_district(sev)
+        actors = sev.get("actors", [])
+        sactor = actors[0].get("name", "").lower() if (actors and isinstance(actors[0], dict)) else ""
 
-        if gdelt_candidates:
-            # Match to nearest CAMEO root code (convert 3-digit to 2-digit if needed)
-            gdelt_codes = [
-                int(g["cameo_code"]) // 10 if int(g["cameo_code"]) >= 100 else int(g["cameo_code"])
-                for g in gdelt_candidates
-            ]
-            best_gdelt = min(gdelt_codes, key=lambda c: abs(c - scode))
+        matched_candidate = None
+
+        if mode == "url" and surl and surl in gdelt_by_url:
+            matched_candidate = gdelt_by_url[surl][0]
+        elif mode == "spatiotemporal" or (mode == "url" and not matched_candidate):
+            # Window search
+            window = _date_window(sdate, date_window_days)
+            candidates = []
+            for d in window:
+                candidates.extend(gdelt_by_date.get(d, []))
+
+            if candidates:
+                # Rank candidates strictly by:
+                # 1) Exact district match penalty (0 if matches, 1 otherwise)
+                # 2) Absolute temporal distance |dt|
+                # 3) Actor lexical overlap penalty (0 if overlap, 1 otherwise)
+                # NOTE: NEVER using CAMEO code or abs(c - scode) to prevent circular ranking!
+                def _cand_rank(c):
+                    c_loc = (c.get("location") or "").lower().strip()
+                    loc_pen = 0 if (sdistrict and (sdistrict in c_loc or c_loc in sdistrict)) else 1
+                    try:
+                        c_date = c.get("date", "")[:10]
+                        dt = abs((datetime.strptime(c_date, "%Y-%m-%d") - datetime.strptime(sdate, "%Y-%m-%d")).days)
+                    except Exception:
+                        dt = 999
+                    c_acts = f"{c.get('actor1', '')} {c.get('actor2', '')}".lower()
+                    act_pen = 0 if (sactor and any(tok in c_acts for tok in sactor.split() if len(tok) > 2)) else 1
+                    return (loc_pen, dt, act_pen)
+
+                matched_candidate = min(candidates, key=_cand_rank)
+
+        if matched_candidate is not None:
+            g_raw = int(matched_candidate.get("cameo_code", 0) or 0)
+            g_code = g_raw // 10 if g_raw >= 100 else g_raw
             alignments.append({
-                "date":        sdate,
-                "system_code": scode,
-                "gdelt_code":  best_gdelt,
-                "match":       scode == best_gdelt,
-                "code_group":  _code_group(scode),
+                "date":           sdate,
+                "system_code":    scode,
+                "gdelt_code":     g_code,
+                "match":          scode == g_code,
+                "code_group":     _code_group(scode),
+                "source_url":     sev.get("source_url", ""),
+                "alignment_mode": mode,
             })
         else:
-            # No GDELT event in window → system false positive
             alignments.append({
-                "date":        sdate,
-                "system_code": scode,
-                "gdelt_code":  None,
-                "match":       False,
-                "code_group":  _code_group(scode),
+                "date":           sdate,
+                "system_code":    scode,
+                "gdelt_code":     None,
+                "match":          False,
+                "code_group":     _code_group(scode),
+                "source_url":     sev.get("source_url", ""),
+                "alignment_mode": mode,
             })
 
     return alignments
